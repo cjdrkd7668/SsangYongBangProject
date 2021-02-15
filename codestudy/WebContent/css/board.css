@@ -1,0 +1,129 @@
+.content .search {
+	width: 300px !important;
+	float: right;
+	margin-bottom: 20px;
+}
+
+.content .table thead tr {
+	border-top: 1px solid #DDDDDD;
+	background: #FAFAFA;
+}
+
+
+
+/* 목록 테이블 */
+.content .table.list th:nth-child(1) {
+	width: 70px;
+}
+.content .table.list th:nth-child(2) {
+	width: auto;
+}
+.content .table.list th:nth-child(3) {
+	width: 100px;
+}
+.content .table.list th:nth-child(4) {
+	width: 100px;
+}
+.content .table.list th:nth-child(5) {
+	width: 70px;
+}
+.content .table.list th, .content .table.list td {
+	text-align: center;
+}
+.content .table.list td:nth-child(2) {
+	text-align: left;
+	padding-left: 20px;
+}
+
+
+
+
+/* 보기 테이블 */
+.content .table.view tr:first-child {
+	border-bottom: 2px solid #DDDDDD;
+	background: #FAFAFA;
+}
+.content .table.view td {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.content .table.view .seq {
+	
+}
+.content .table.view .subject {
+	font-weight: bold;	
+}
+.content .table.view .readcount {
+	font-size: 11px;
+	float: right;
+	margin-left: 10px;
+	margin-top: 3px;
+}
+.content .table.view .date {
+	font-size: 11px;
+	float: right;
+	margin-left: 10px;
+	margin-top: 3px;
+}
+.content .table.view .name {
+	font-size: 11px;
+	float: right;
+	margin-top: 3px;
+}
+
+.content .table.view .content {
+	padding: 25px 15px;
+}
+
+
+/* 댓글 테이블 */
+.content .table.comment {
+	margin-top: 30px;
+}
+.content .table.comment .comment{
+	padding-left: 15px;
+	display: block;
+}
+.content .table.comment .date{
+	font-size: 11px;
+	float: right;
+	margin-top: 3px;
+}
+.content .table.comment .delete{
+	font-size: 11px;
+	float: right;
+	margin-top: 3px;
+	margin-right: 5px;
+	cursor: pointer;
+}
+.content .table.comment .name {
+	font-size: 11px;
+	float: right;
+	margin-top: 3px;
+	margin-right: 5px;
+}
+
+.content .commentbox {
+	margin: 10px 15px 30px 15px;
+}
+
+.glyphicon {
+	color: #6C757D;
+}
+
+
+
+#content {
+	height: 400px;
+}
+
+
+.content .table.delete {
+	width: 300px;
+	margin: 100px auto 300px auto;
+	text-align: center;
+}
+.content .table.delete tr:first-child {
+	border-bottom: 2px solid #DDDDDD;
+	background: #FAFAFA;
+}

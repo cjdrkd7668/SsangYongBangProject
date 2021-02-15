@@ -1,0 +1,17 @@
+.history, .txtHistory {
+	border: 1px solid rgb(221, 221, 221);
+	border-radius: 3px;
+	resize: none;
+	padding: 0px 20px 20px;
+}
+
+.history h3 {
+	border-bottom: 1px dashed #CCCCCC;
+	padding-bottom: 5px;
+}
+
+.txtHistory {
+	display: none;
+	padding-top: 20px;
+	border: 2px dashed rgb(221, 221, 221);
+}
