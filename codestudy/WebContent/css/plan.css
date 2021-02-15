@@ -1,0 +1,57 @@
+.calendar {
+	width: 100%;
+}
+
+.calendar th {
+	border: 1px solid rgb(221, 221, 221);
+	/* text-align: center; */
+	padding-left: 7px;
+	height: 30px;
+	border-top: 2px solid rgb(200, 200, 200);
+	border-bottom: 2px solid rgb(200, 200, 200);
+	background: rgb(250, 250, 250);
+	color: #666;
+}
+.calendar th:nth-child(1) {
+	color: tomato;
+}
+.calendar th:nth-child(7) {
+	color: royalblue;
+}
+
+.calendar td {
+	border: 1px solid rgb(221, 221, 221);
+	width: 120px;
+	height: 100px;
+	text-align: left;
+	vertical-align: top;
+	color: #666;
+}
+
+.calendar td .date {
+	font-size: 1.1em;
+	font-weight: bold;
+	display: block;
+	margin-top: 3px;
+	margin-left: 7px;
+	color: #666;
+}
+.calendar td:nth-child(1) .date {
+	color: tomato;
+}
+.calendar td:nth-child(7) .date {
+	color: royalblue;
+}
+
+.calendar td .item {
+	font-size: 11px;
+	margin-left: 5px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden; 
+	width: 120px;
+	cursor: pointer;
+}
+.calendar td .item:hover {
+	color: tomato;
+}

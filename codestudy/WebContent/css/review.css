@@ -1,0 +1,141 @@
+.itemreview {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding-bottom: 70px;
+	border-bottom: 1px dashed #CCCCCC;
+}
+
+
+.item {
+}
+
+
+
+/* 
+.item .title {
+	margin-bottom: 15px;
+}
+.item .title::after {
+	content: ' ';
+	display: block;
+	clear: both;
+}
+.item .title div {
+	border: 1px solid #CCCCCC;
+	border-radius: 3px;
+	padding: 5px;
+	background: #F5F5F5;
+	display: inline-block;
+}
+
+.item .title div:nth-child(1) {
+	width: calc(100% - 190px);
+}
+.item .title div:nth-child(2) {
+	width: 80px;
+	text-align: center;
+}
+.item .title div:nth-child(3) {
+	width: 100px;
+	text-align: center;
+} 
+*/
+
+.item .title {
+	margin-bottom: 15px;
+}
+.item .title::after {
+	content: ' ';
+	display: block;
+	clear: both;
+}
+.item .title > span {
+
+}
+
+.item .title > span:nth-child(1) {
+	border-left: 7px solid #6C757D;
+	padding-left: 5px;
+	font-weight: bold;
+	font-size: 1.15em;
+}
+.item .title > span:nth-child(2) {
+	float: right;
+	font-size: 12px;
+	margin-top: 3px;
+}
+.item .title > span:nth-child(3) {
+	float: right;
+	margin-right: 5px;
+	font-size: 12px;
+	margin-top: 3px;
+}
+
+
+
+.item .code {
+}
+.item .code > div {
+	margin: -7px -10px;
+	padding: 3px 10px;
+}
+.item .code > div:first-child {
+	margin-top: 10px;
+}
+.item .code > div:last-child {
+	margin-bottom: 10px;
+}
+/* .item .code > div:hover {
+	background: #DCDCDD;
+	cursor: pointer;
+} */
+.item .code .linenumber {
+	display: inline-block;
+	width: 20px;
+}
+
+
+
+.review {
+	margin-bottom: 20px;
+}
+.review .item {
+	margin-bottom: 5px;
+	border-bottom: 1px solid transparent;
+	cursor: pointer;
+}
+.review .item:hover {
+	border-bottom: 1px solid #DCDCDD;
+}
+.review .item::after {
+	content: ' ';
+	display: block;
+	clear: both;
+}
+.review .linenumber {
+	margin-top: 2px;
+	margin-right: 10px;
+	float: left;
+}
+.review .text {
+}
+
+
+.content .table.write {
+
+}
+
+.content .table.write #code {
+	height: 300px;
+	line-height: 21px;
+}
+
+.content .table.write .linenumber {
+	display: inline-block;
+	width: 65px;
+	text-align: right;
+}
+.content .table.write .linecomment {
+	display: inline-block;
+	width: 671px;
+}

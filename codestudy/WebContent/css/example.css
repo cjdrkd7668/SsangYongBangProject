@@ -1,0 +1,26 @@
+.list {
+	border: 1px solid rgb(221, 221, 221);
+	border-radius: 3px;
+	resize: none;
+	padding: 20px;
+}
+
+.list .glyphicon {
+	color: #777777;
+}
+
+.list .folder {
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+.list .folder:first-child {
+	margin-top: 0px;
+}
+
+.list .file {
+	cursor: pointer;
+	margin-bottom: 2px;
+	margin-left: 15px;
+	cursor: pointer;
+}
+
