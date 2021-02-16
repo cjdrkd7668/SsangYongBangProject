@@ -6,7 +6,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
-	<link rel="stylesheet" href="/sybang/css/main.css">
 	<%@include file="/WEB-INF/views/inc/asset.jsp" %>
     <style>
         
@@ -15,7 +14,12 @@
 </head>
 
 <body>
-
+	
+	<!-- header 가져오기######## -->
+   	<%@include file="/WEB-INF/views/inc/header.jsp"%>
+   	
+   	
+	
     <!-- container 시작 -->
     <main class="container">
 
@@ -144,7 +148,7 @@
             </div>
 
             <div class="col-sm-4">
-                <h2 class="notice-title">공지사항<small>더보기<span class="glyphicon glyphicon-chevron-right"></span></small>
+                <h2 class="notice-title"><a href="/sybang/notice/boardList.do">공지사항</a><small>더보기<span class="glyphicon glyphicon-chevron-right"></span></small>
                 </h2>
                 <a href="#" class="list-group-item notice2">공지사항입니다.</a>
                 <a href="#" class="list-group-item notice2">공지사항입니다.</a>
@@ -167,7 +171,9 @@
 
 
     </main>
-
+	
+	<!-- footer 가져오기######## -->
+   	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 
     <script>
 

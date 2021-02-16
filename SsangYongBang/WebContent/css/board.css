@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+/* main.css 에서의 float과 margin 해제 */
+small {
+	float:none;
+	margin: 0px;
+}
+
+.nav-pagination {
+	text-align: center;
+}
