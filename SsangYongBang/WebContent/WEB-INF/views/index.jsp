@@ -38,17 +38,17 @@
                     <tr>
                         <th>
                             <a href="#">
-                                <img src="/ssangyongbang/images/room01.jpg" class="main-history-img">
+                                <img src="/sybang/images/room01.jpg" class="main-history-img">
                             </a>
                         </th>
                         <th>
                             <a href="#">
-                                <img src="/ssangyongbang/images/room02.jpg" class="main-history-img">
+                                <img src="/sybang/images/room02.jpg" class="main-history-img">
                             </a>
                         </th>
                         <th>
                             <a href="#">
-                                <img src="/ssangyongbang/images/room03.jpg" class="main-history-img">
+                                <img src="/sybang/images/room03.jpg" class="main-history-img">
                             </a>
                         </th>
                     </tr>
@@ -83,17 +83,17 @@
                     <tr>
                         <th>
                             <a href="#">
-                                <img src="/ssangyongbang/images/room01.jpg" class="main-history-img">
+                                <img src="/sybang/images/room01.jpg" class="main-history-img">
                             </a>
                         </th>
                         <th>
                             <a href="#">
-                                <img src="/ssangyongbang/images/room02.jpg" class="main-history-img">
+                                <img src="/sybang/images/room02.jpg" class="main-history-img">
                             </a>
                         </th>
                         <th>
                             <a href="#">
-                                <img src="/ssangyongbang/images/room03.jpg" class="main-history-img">
+                                <img src="/sybang/images/room03.jpg" class="main-history-img">
                             </a>
                         </th>
                     </tr>
