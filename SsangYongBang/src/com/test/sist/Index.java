@@ -12,11 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/index.do")
 public class Index extends HttpServlet {
 	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/index.jsp");
-		dispatcher.forward(req, resp);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/index.jsp");
+		dispatcher.forward(request, response);
+		
 	}
 
 }
+
+
+
+
+
+
