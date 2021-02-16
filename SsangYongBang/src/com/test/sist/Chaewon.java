@@ -6,5 +6,6 @@ public class Chaewon {
 		System.out.println(2222);
 		System.out.println(3);
 		System.out.println(4);
+		System.out.println(555555);
 	}
 }
