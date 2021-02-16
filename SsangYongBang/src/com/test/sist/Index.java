@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 public class Index extends HttpServlet {
    
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      
-	  System.out.println("테스트111");
 	   
       RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/index.jsp");
       dispatcher.forward(request, response);
