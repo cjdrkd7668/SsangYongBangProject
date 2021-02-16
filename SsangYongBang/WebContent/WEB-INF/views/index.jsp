@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
-	<link rel="stylesheet" href="/ssangyongbang/css/main.css">
+	<link rel="stylesheet" href="/sybang/css/main.css">
 	<%-- <%@include file="/WEB-INF/views/inc/asset.jsp" %> --%>
     <style>
         
