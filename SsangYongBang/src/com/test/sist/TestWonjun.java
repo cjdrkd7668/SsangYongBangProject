@@ -5,6 +5,7 @@ public class TestWonjun {
 		System.out.println("test");
 		System.out.println("test11");
 		System.out.println("테스트용");
+		System.out.println("5시41분");
 
-
+	}
 }
