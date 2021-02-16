@@ -1,3 +1,8 @@
+/*
+전체너비: 1200px;
+로고색: #486BB8;
+
+*/
 @charset "UTF-8";
 
 @import
@@ -29,6 +34,75 @@ h2 {
 .btn-sm {
 	outline: none;
 	height: 35px;
+}
+
+/* a 태그에 대한 hover, focus 제거 */
+a {
+	color: black;
+}
+
+a:hover {
+	color: black;
+	text-decoration: none;
+}
+
+a:focus {
+	color: black;
+	text-decoration: none;
+}
+
+/* header-cklee */
+.header-cklee .navbar {
+	min-height: 80px;
+}
+
+.header-cklee #logo {
+	height: 50px;
+}
+
+.header-cklee .navbar-nav > li > a {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	line-height: 40px;
+	
+	padding-right: 20px;
+	padding-left: 20px;
+	font-size:1.3em;
+}
+
+.header-cklee .navbar-nav > li:nth-child(1) > a {
+	margin-left: 90px;
+}
+
+.header-cklee .navbar-nav > li:nth-child(n+8) > a {
+	color: #444;
+	font-size: 1em;
+}
+
+.header-cklee .navbar-text {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-right: 10px;
+}  
+
+.header-cklee .navbar-link {
+	color: #486BB8;
+	font-weight: bold;
+}
+
+.header-cklee .navbar-link:hover,
+.header-cklee .navbar-link:foucs {
+	color: #486BB8;
+	text-decoration: none;
+}
+
+/* footer-cklee */
+.footer-cklee {
+	text-align: center;
+}
+
+.footer-cklee #footer-text {
+	float: none;
 }
 
 /* main-header 시작 */
