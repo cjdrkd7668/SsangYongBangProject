@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+body {
+	width: 1200px;
+	font-family: 'Noto Sans KR', sans-serif;
+	letter-spacing: -1px;
+}
+
+.jumbotron {
+	text-align: center;
+	margin: 25px auto;
+	background-size: cover;
+	width: 1000px;
+	color: white;
+	height: 300px;
+}
+
+.well {
+		
+}
+
+
+.navbar {
+	
+	height: 60px;	
+}
+
+
