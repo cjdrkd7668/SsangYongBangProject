@@ -5,6 +5,7 @@ a:hover{text-decoration:none;}
 a:focus{text-decoration:none;}
 
 /*공통*/
+.container{padding-left:40px;}
 .page_title{font-size:22px;color:#000;position:relative;height:54px;margin-top:0;padding:0 20px;border:1px solid #c9c9c9;background:url('/sybang/images/bg_title.jpg') repeat-x left bottom;font-weight:bold;line-height:54px;letter-spacing:-1px;}
 #panel{background:#f7f7f7;border:1px solid #c9c9c9;}
 .page_noti{width:100%;background:#fff;padding:10px 0;border:1px solid #c9c9c9;background:url('/sybang/images/bg_title.jpg') repeat-x left bottom;background-size:auto 100%;}
@@ -22,3 +23,25 @@ a:focus{text-decoration:none;}
 .admin_sub_title span{font-size:12px;}
 
 /*사이트 환경설정*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

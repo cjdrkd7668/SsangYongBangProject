@@ -9,6 +9,7 @@
 .left_menu li.depth{background:url("/sybang/images/bottom_icon.png")no-repeat 90% 10px/8px;}
 .left_menu li a{font-size:14px;color:#333;font-weight:bold;margin:4px 16px 6px;}
 .left_menu li ul{display:none;text-indent:15px;}
+.left_menu li li:last-of-type{padding-bottom:10px;}
 </style>
 
 <div class="left_menu">
