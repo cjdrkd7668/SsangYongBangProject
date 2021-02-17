@@ -14,6 +14,7 @@
 
 <div class="left_menu">
 	<ul>
+		<li><a href="config_site.do">사이트 환경설정</a></li>
 		<li><a href="javascript:;">방 관리</a></li>
 		<li><a href="javascript:;">매물관리</a></li>
 		<li><a href="javascript:;">희망입주조건 관리</a></li>
@@ -35,11 +36,11 @@
 				<li><a href="javascript:;">구매자 성별별 거래량</a></li>
 			</ul>
 		</li>
-		<li><a href="javascript:;">사이트 환경설정</a></li>
 		<li><a href="javascript:;">업체 승인</a></li>
 		<li><a href="javascript:;">알림 센터</a></li>
 		<li><a href="javascript:;">광고 관리</a></li>
 		<li><a href="javascript:;">허위 매물 삭제</a></li>
+		<li><a href="textManager.do">회사 운영정책</a></li>
 	</ul>
 </div>
 
