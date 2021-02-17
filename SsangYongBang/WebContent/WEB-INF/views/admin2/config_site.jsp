@@ -14,7 +14,13 @@
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 	<%@include file="/WEB-INF/views/inc/admin_left.jsp"%>	
 	<div class="container">
-		<h1 class="page-header">관리자2</h1>
+		<h1 class="page-header">사이트 환경설정</h1>
+		
+		<h2>계정 정보</h2>
+		
+		<form method="POST" action="">
+			
+		</form>
 		
 	</div>
 	
