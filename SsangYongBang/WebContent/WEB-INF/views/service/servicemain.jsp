@@ -18,10 +18,10 @@
 </head>
 
 <body>
-
+	<!-- 헤더 가져오기 -->
 	<!-- 아직 공통 양식 헤더가 정해지지 않아서 임시로 이곳에 헤더 넣음 -->
 	
-	<div class="container">
+	<div class="header">
 	<nav class="navbar nav-pills">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -136,9 +136,52 @@
 	<!-- 헤더 끝 -->
 
 
+
 	<!-- ########## 본문 시작 -->
+	<div class="main">
 	
-	<div class="container">
+	<!-- ########## 좌측 시작 -->
+	<div class="menu col-sm-12 col-md-2">
+`   <!-- 좌측 메뉴(회원정보?) 시작 이것도 공통양식 정해지면 파일 따로 빼기  -->
+	<div class="login panel panel-default">
+		<div class="panel-heading">
+			비회원 <small>not-login</small>
+		</div>
+		<div class="panel-body">
+			<div class="pic" style="background-image:url(/codestudy/pic/${pic});"></div>
+			<div class="itemlist">
+				<div class="item">${name}(${id})</div>
+				<div class="item">${email}</div>
+				<div class="item">${regdate.substring(0, 10)}</div>
+				<div class="item">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<!-- 좌측메뉴 회원정보 끝 -->
+
+
+	<!-- 좌측 메뉴 사이드바  이것도 공통양식 정해지면 파일 따로 빼기-->
+
+	 <ul class="list-group">
+      <li class="list-group-item"><a href="#">메뉴1</a></li>
+      <li class="list-group-item"><a href="#">메뉴2</a></li>
+      <li class="list-group-item"><a href="#">메뉴3</a></li>
+      <li class="list-group-item"><a href="#">메뉴4</a></li>
+      <li class="list-group-item"><a href="#">메뉴5</a></li>
+      <li class="list-group-item"><a href="#">메뉴6</a></li>
+      <li class="list-group-item"><a href="#">메뉴7</a></li>
+    </ul>
+	
+
+	</div>
+	<!--좌측화면 끝 ##########  -->
+	
+	
+	
+	<!-- ########## 내용 시작 -->
+	<div class="content col-sm-12 col-md-10">
 		<div class="jumbotron">
 		  <h2>청소/시공 업체</h2>
 		  <p>요청서를 작성하면 무료 견적을 받아보실 수 있습니다.</p>
@@ -157,7 +200,7 @@
 								aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
-							<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+							<h4 class="modal-title" id="myModalLabel">내 요청서</h4>
 						</div>
 						<div class="modal-body">
 							<form action="./requestRegister.jsp" method="POST">
@@ -222,7 +265,7 @@
 									
 								</div>
 								<div class="form-group">
-									<label>데이터피커 필요</label> <input type="text" name=""
+									<label>희망 날짜(데이터피커 필요)</label> <input type="text" name=""
 										class="form-control" maxlength="30">
 								</div>
 								<div class="form-group">
@@ -250,7 +293,8 @@
 
 
 		</div>
-	</div>
+		
+		
           
             
     <!-- 본문 중간 -->
@@ -259,87 +303,62 @@
 
 	<div class="container pt-3">   
 	
-		<div class="well well-sm">후기</div>
-
-	
-		<div class="row">
-			<!-- left content -->
-			<div class="col-sm-6">
-				<h4>청소 <span class="label label-default">New</span></h4>
+			<div class="row">
+			<!-- col-sm-6 -->
+			<div class="container">
+				<h4>후기</h4>
 								
 				<div class="row">
 				  
-				  <div class="col-sm-6 col-md-4">
+				  <div class="col-sm-6 col-md-3">
 				    <div class="thumbnail">
-				      <img src="..." alt="...">
+				      <img src="../images/clean0001.jpg" alt="...">
 				      <div class="caption">
-				        <h3>Thumbnail label</h3>
-				        <p>...</p>
+				        <h3>후기제목</h3>
+				        <p>내용입니다.</p>
 				       
 				      </div>
 				    </div>
 				  </div>
 				
-				  <div class="col-sm-6 col-md-4">
+				  <div class="col-sm-6 col-md-3">
 				    <div class="thumbnail">
-				      <img src="..." alt="...">
+				      <img src="../images/interior0001.jpg" alt="...">
 				      <div class="caption">
-				        <h3>Thumbnail label</h3>
-				        <p>...</p>
+				        <h3>후기제목</h3>
+				        <p>내용입니다</p>
 				     
 				      </div>
 				    </div>
 				  </div>
 				  
+				  <div class="col-sm-6 col-md-3">
+				    <div class="thumbnail">
+				      <img src="../images/interior0001.jpg" alt="...">
+				      <div class="caption">
+				        <h3>후기제목</h3>
+				        <p>내용입니다</p>
+				     
+				      </div>
+				    </div>
+				  </div>
 				  
 				</div>	
 
 			</div>
-			<!-- right content -->
-			<div class="col-sm-6">
-				<h4>시공 <span class="label label-default">New</span></h4>
-		<!-- 
-				<p>생생 후기</p>
-				<p>너무나 만족스럽습니다.</p>
-		
-		 -->
-				<div class="row">
-
-					<div class="col-sm-6 col-md-4">
-						<div class="thumbnail">
-							<img src="..." alt="...">
-							<div class="caption">
-								<h3>Thumbnail label</h3>
-								<p>...</p>
-							
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-4">
-						<div class="thumbnail">
-							<img src="..." alt="...">
-							<div class="caption">
-								<h3>Thumbnail label</h3>
-								<p>...</p>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 			
-			
-		</div>
+				
 		
 	</div>
+	</div>
 	
-	
-	
-	
+	</div>
+	</div>
 	<!-- ########## 본문 끝 -->
 	
-	<!-- 이것도.. codesudy처럼 가져오는 게 안됨.. -->
+	<!-- 푸터가져오기 -->
+	
+
 	<script>
     
     </script>
