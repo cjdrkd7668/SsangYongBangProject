@@ -19,7 +19,7 @@
 
 <body>
 
-	<!-- 헤더가 codestudy 양식대로 쓰면.. 참조가 안됨... 어쩔수 없이 여기 헤더 코드 넣음.. -->
+	<!-- 아직 공통 양식 헤더가 정해지지 않아서 임시로 이곳에 헤더 넣음 -->
 	
 	<div class="container">
 	<nav class="navbar nav-pills">
@@ -142,7 +142,7 @@
 		<div class="jumbotron">
 		  <h2>청소/시공 업체</h2>
 		  <p>요청서를 작성하면 무료 견적을 받아보실 수 있습니다.</p>
-		  
+
 			<!-- Button trigger modal -->
 			<button type="button" class="btn btn-primary btn-lg"
 				data-toggle="modal" data-target="#myModal">무료 견적 받아보기</button>
@@ -157,69 +157,80 @@
 								aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
-							<h4 class="modal-title" id="myModalLabel">내 요청서 작성하기</h4>
+							<h4 class="modal-title" id="myModalLabel">Modal title</h4>
 						</div>
 						<div class="modal-body">
-							<form action="./evaluationRegisterAction.jsp" method="POST">
+							<form action="./requestRegister.jsp" method="POST">
 								<div class="form-row">
 									<div class="form-group col-sm-6">
-										<label>강의명</label> <input type="text" name="lectureName"
+										<label>주소</label> <input type="text" name=""
 											class="form-control" maxlength="20">
 									</div>
 									<div class="form-group col-sm-6">
-										<label>교수명</label> <input type="text" name="pName"
-											class="form-control" maxlength="20">
+										<label>서비스 종류</label>
+										<select name="serviceCategory"
+											class="form-control">
+											<option value="1">청소</option>
+											<option value="2">시공</option>
+										</select>
 									</div>
 								</div>
 
 								<div class="form-row">
-									<div class="form-group col-sm-4">
-										<label>수강 년도</label> <select name="lectureYear"
+									<div class="form-group col-sm-6">
+										<label>가옥구조</label> <select name=""
 											class="form-control">
-											<option value="2011">2011</option>
-											<option value="2012">2012</option>
-											<option value="2013">2013</option>
-											<option value="2014">2014</option>
-											<option value="2015">2015</option>
+											<option value="1">아파트</option>
+											<option value="2">빌라주택</option>
+											<option value="3">전원주택</option>
+											<option value="4">오피스텔</option>
+											<option value="5">기타</option>
 										</select>
 									</div>
-									<div class="form-group col-sm-4">
-										<label>수강 학기</label> <select name="semesterDivide"
+									<div class="form-group col-sm-6">
+										<label>면적</label> <select name=""
 											class="form-control">
-											<option value="1학기" selected>1학기</option>
-											<option value="2학기">2학기</option>
+											<option value="15">15평</option>
+											<option value="16">16평</option>
+											<option value="17">17평</option>
+											<option value="18">18평</option>
+											<option value="19">19평</option>
+											<option value="20">20평</option>
+											<option value="21">21평</option>
+											<option value="22">22평</option>
+											<option value="23">23평</option>
+											<option value="24">24평</option>
+											<option value="25">25평</option>
+											<option value="26">26평</option>
+											<option value="27">27평</option>
+											<option value="28">28평</option>
+											<option value="29">29평</option>
+											<option value="30">30평</option>
+											<option value="31">31평</option>
+											<option value="32">32평</option>
+											<option value="33">33평</option>
+											<option value="34">34평</option>
+											<option value="35">35평</option>
+											<option value="36">36평</option>
+											<option value="37">37평</option>
+											<option value="38">38평</option>
+											<option value="39">39평</option>
+											<option value="40">40평</option>
+											<option value="41">40평 이상</option>
 										</select>
 									</div>
-									<div class="form-group col-sm-4">
-										<label>강의 구분</label> <select name="lectureDivide"
-											class="form-control">
-											<option value="전공" selected>전공</option>
-											<option value="교양">교양</option>
-										</select>
-									</div>
+									
 								</div>
 								<div class="form-group">
-									<label>제목</label> <input type="text" name="evaluationTime"
+									<label>데이터피커 필요</label> <input type="text" name=""
 										class="form-control" maxlength="30">
 								</div>
 								<div class="form-group">
-									<label>내용</label>
+									<label>상세내용</label>
 									<textarea name="evaluationContent" class="form-control"
 										maxlength="2000" style="height: 180px;"></textarea>
 								</div>
-								<div class="form-row">
-									<div class="form-group col-sm-3">
-										<label>총합</label> <select name="totalScore"
-											class="form-control">
-											<option value="5" selected>5</option>
-											<option value="4">4</option>
-											<option value="3">3</option>
-											<option value="2">2</option>
-											<option value="1">1</option>
 
-										</select>
-									</div>
-								</div>
 
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary"
@@ -229,11 +240,15 @@
 
 							</form>
 
+
 						</div>
-		
+
 					</div>
 				</div>
 			</div>
+
+
+
 		</div>
 	</div>
           
@@ -260,7 +275,7 @@
 				      <div class="caption">
 				        <h3>Thumbnail label</h3>
 				        <p>...</p>
-				        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+				       
 				      </div>
 				    </div>
 				  </div>
@@ -271,10 +286,12 @@
 				      <div class="caption">
 				        <h3>Thumbnail label</h3>
 				        <p>...</p>
-				        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+				     
 				      </div>
 				    </div>
 				  </div>
+				  
+				  
 				</div>	
 
 			</div>
@@ -294,10 +311,7 @@
 							<div class="caption">
 								<h3>Thumbnail label</h3>
 								<p>...</p>
-								<p>
-									<a href="#" class="btn btn-primary" role="button">Button</a> <a
-										href="#" class="btn btn-default" role="button">Button</a>
-								</p>
+							
 							</div>
 						</div>
 					</div>
@@ -308,10 +322,7 @@
 							<div class="caption">
 								<h3>Thumbnail label</h3>
 								<p>...</p>
-								<p>
-									<a href="#" class="btn btn-primary" role="button">Button</a> <a
-										href="#" class="btn btn-default" role="button">Button</a>
-								</p>
+								
 							</div>
 						</div>
 					</div>
