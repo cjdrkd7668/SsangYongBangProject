@@ -40,7 +40,7 @@
 		<li><a href="javascript:;">알림 센터</a></li>
 		<li><a href="javascript:;">광고 관리</a></li>
 		<li><a href="javascript:;">허위 매물 삭제</a></li>
-		<li><a href="textManager.do">회사 운영정책</a></li>
+		<li><a href="textManager.do">회사운영정책</a></li>
 	</ul>
 </div>
 

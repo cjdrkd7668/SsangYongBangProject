@@ -24,7 +24,7 @@ a:focus{text-decoration:none;}
 .admin_style_01 select{appearance:none;-webkit-appearance:none;-moz-appearance:none;border-radius:0px; border:1px solid #c4c4c4;box-sizing:border-box;color:#2e2e2e;font-size:15px;background:#fff url("/css/images/ico_select.gif") no-repeat scroll right center;height:33px;line-height:20px;padding-right:30px;padding-left:3px; text-align:left;width:100%;vertical-align:middle;}
 .admin_style_01 .wauto select{width:auto;}
 .admin_style_01 select::-ms-expand{ display:none;}
-.admin_style_01 textarea{border:1px solid #c9c9c9;}
+.admin_style_01 textarea{border:1px solid #c9c9c9;width:100%;height:350px;resize:none;padding:10px;}
 .admin_style_01 td , .admin_style_01 th{border:1px solid #c9c9c9;padding:8px;color:#000;font-size:13px;background:#fff;}
 .admin_style_01 th{text-align:left;background:#f0f0f0;color:#000;font-size:14px;}
 .admin_style_01 input[type='text']{height:33px;color:#000;box-sizing:border-box;padding:0 10px;border:1px solid #c9c9c9;}
@@ -38,7 +38,7 @@ a:focus{text-decoration:none;}
 .admin_style_02 select::-ms-expand { display: none; }
 .admin_style_02 input[type='text'] {height:33px; color:#000; box-sizing:border-box; padding:0 2px; border:1px solid #c9c9c9;text-align:left;}
 .admin_style_02 input[type='file'] {width:100%;height:auto !important;padding:5px !important;}
-.admin_style_02 textarea {border:1px solid #c9c9c9; }
+.admin_style_02 textarea {border:1px solid #c9c9c9;}
 .admin_style_02.hoverstyle td,.admin_style_02.hoverstyle th{background:none;}
 .admin-color-text{color:#3191b7 !important;}
 .admin_tip{background:#F5F5F5;line-height:30px;position:relative;padding:10px 15px;box-sizing:border-box;margin-top:35px;border:1px solid #E5E6E8;}
