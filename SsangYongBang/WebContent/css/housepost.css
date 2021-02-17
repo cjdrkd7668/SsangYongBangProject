@@ -16,11 +16,11 @@ body {
 	text-align: center;
 }
 
-.container {
+.list-container {
 	padding: 20px;
 	width: 1000px;
 	margin: 30px auto;
-	height: 600px;
+	height: 1200px;
 }
 
 .table {
@@ -47,5 +47,29 @@ td {
 }
 
 .btns {
+	margin-top: 20px;
 	float: right;
+}
+
+.red {
+	margin-left: 3px;
+	color: red;
+}
+
+.well {
+	float: left;
+	width: 70%;
+}
+
+input[type="number"] {
+	width: 100px;
+}
+
+input[type="file"] {
+	width: 300px;
+	margin-bottom: 10px;
+}
+
+#sel1, #sel2 {
+	width: 150px;
 }
