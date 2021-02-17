@@ -5,8 +5,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <title>쌍용방</title>
 	<%@include file="/WEB-INF/views/inc/asset.jsp" %>
+	<link rel="stylesheet" href="/sybang/css/main.css">
     <style>
         
         
