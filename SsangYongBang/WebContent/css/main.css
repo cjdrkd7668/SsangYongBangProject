@@ -105,6 +105,11 @@ a:focus {
 	float: none;
 }
 
+.footer-cklee > .p-link > a {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
 /* main-header 시작 */
 .main-header {
 	text-align: center;

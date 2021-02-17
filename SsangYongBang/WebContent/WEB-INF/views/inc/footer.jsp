@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <div class="footer-cklee">
+	
+	<p class="p-link"><a href="#">회사소개</a>|<a href="#">이용약관</a>|<a href="#">개인정보처리방침</a>|<a href="/sybang/admin/index.do">관리자 메뉴</a></p>
+	
 	<nav class="navbar navbar-default">
 		<div class="container">
 			
