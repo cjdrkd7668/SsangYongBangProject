@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>회원정보수정</title>
+<title>내 정보 수정</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 <link rel="stylesheet" href="/sybang/css/mypage.css">
 <style>
@@ -19,7 +19,7 @@
 
 	<div class="container">
         <div class="page-header">
-            <h1>회원 정보 수정</h1>
+            <h1>내 정보 수정</h1>
         </div>
 
         <table class="table table-bordered">
