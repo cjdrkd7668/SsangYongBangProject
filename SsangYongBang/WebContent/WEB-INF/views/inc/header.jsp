@@ -60,7 +60,7 @@
         			</li>
 				</ul>
 				<p class="navbar-text navbar-right"><a href="#" class="navbar-link">회원가입</a></p>
-				<p class="navbar-text navbar-right"><a href="#" class="navbar-link">로그인</a></p>
+				<p class="navbar-text navbar-right"><a href="/sybang/member/login.do" class="navbar-link">로그인</a></p>
 				<p class="navbar-text navbar-right"><a href="/sybang/member/mypage.do" class="navbar-link">마이페이지</a></p>
 			
 			</div>
