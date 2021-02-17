@@ -1,4 +1,4 @@
-package com.test.sist.notice;
+package com.test.sist.inc;
 
 import java.io.IOException;
 
@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/inc/footer.do")
-public class Footer extends HttpServlet {
+@WebServlet("/inc/header.do")
+public class Header extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/inc/footer.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/inc/header.jsp");
 		dispatcher.forward(request, response);
 
 	}

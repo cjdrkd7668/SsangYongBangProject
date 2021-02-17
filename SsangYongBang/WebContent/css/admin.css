@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+/* main.css 해제 시작 */
+
+small {
+	float:none;
+	margin: 0px;
+}
+
+/* main.css 해제 끝 */
+
+.mg-main .welcome {
+	font-size: 5em;
+}
+
+.mg-main h2 {
+	margin-top: 100px;	
+}
+
+.mg-main .alarm {
+	width: 400px;
+	box-sizing: border-box;
+	float: left;
+	padding: 30px 50px;
+}
+
+.mg-main .alarm > div {	
+	border-bottom: 1px solid #44000A;
+}
+
+.mg-main .alarm > div > span {
+	font-size: 1.6em;
+}
+
+.mg-main .alarm > div > span > span:last-child {
+	float: right;
+}
+
+.mg-main .alarm .alarm-num {
+	color: #44000A;
+	font-size: 3em;
+}
+
+.mg-main .alarm > a {
+	clear: both;
+	float: right;
+	display: block;
+	color: #888;
+}
