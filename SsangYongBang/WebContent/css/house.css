@@ -15,6 +15,7 @@ body {
 h2 {
 	margin-left: 10px;
 	font-size: 1.4em;
+	float: left;
 }
 
 h3 {
@@ -22,12 +23,23 @@ h3 {
 	font-size: 1.2em;
 }
 
+small {
+	margin-right: 10px;
+	float: right;
+	font-size: 0.8em;
+}
+
 .search-box {
+	position: relative;
 	text-align: left;
 	margin-top: 30px;
 	padding: 20px;
-	height: 400px;
+	height: 300px;
 	border: 3px dashed pink;
+}
+
+.search-box .title {
+	width: 100px;
 }
 
 .btn-group {
@@ -39,4 +51,24 @@ h3 {
 	display: inline-block;
 	width: 100px;
 	margin: 10px 5px;
+}
+
+.dropdown, .dropdown-menu {
+	width: 300px;
+	padding: 10px;
+}
+
+.dropdown {
+	display: inline-block;
+}
+
+.detail {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.detail label {
+	font-size: 1.35em;
+	margin: 15px;
+	text-decoration: none;
 }
