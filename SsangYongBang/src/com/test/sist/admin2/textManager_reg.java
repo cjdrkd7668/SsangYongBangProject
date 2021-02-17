@@ -27,8 +27,6 @@ public class textManager_reg extends HttpServlet {
 		
 		textManagerDTO dto = dao.get(seq);
 		
-		System.out.println(dto.getSeq());
-		
 		req.setAttribute("dto",dto);
 		
 		
