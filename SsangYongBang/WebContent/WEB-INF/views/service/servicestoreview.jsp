@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>servicemain</title>
+<title>servicestoreview</title>
 
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 <link rel="stylesheet" href="/sybang/css/servicemain.css">
@@ -29,11 +29,13 @@
 	
 	<!-- ########## 좌측 시작 -->
 	<div class="menu col-sm-12 col-md-2">
-
-	<!-- 좌측 메뉴 사이드바-->
-
-	<%@include file="/WEB-INF/views/inc/service_left.jsp"%>	
 	
+	<%@include file="/WEB-INF/views/inc/service_left.jsp"%>	
+
+	<!-- 좌측 메뉴 사이드바 -->
+
+	
+
 	</div>
 	<!--좌측화면 끝 ##########  -->
 	
@@ -41,11 +43,49 @@
 	
 	<!-- ########## 내용 시작 -->
 	<div class="content col-sm-12 col-md-10">
-		<div class="jumbotron">
-		  <h2>청소/시공 업체</h2>
-		  <p>요청서를 작성하면 무료 견적을 받아보실 수 있습니다.</p>
+	
+	<!-- 본문 상단 -->
+	<div class="row">
+	<h4> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 전문업체 찾기</h4>
+	</div>
+	
+	<div class="row">
+	<form method="get" action="./index.jsp" class="form-inline mt-3">
+		<select name="" class="form-control mx-1 mt-2">
+			<option value="청소">청소</option>
+			<option value="시공">시공</option>
 
-			<!-- Button trigger modal -->
+		</select> <input type="text" name="search" class="form-control mx-1 mt-2"
+			placeholder="찾으시는 지역을 입력하세요">
+		<button type="submit" class="btn btn-primary mx-1 mt-2">검색</button>
+
+	</form>
+	</div>
+
+
+	<!-- 본문 중간 -->
+	<hr></hr>
+	
+	<div class="row">
+	    <div class="col-sm-10 text-center"><!-- 전체 컨테이너(12-2)의 8 크기로 띄우게 됨 -->
+			
+	
+				<div class="col-sm-6 col-md-4">
+					<div class="thumbnail">
+						<img src="../images/interior0001.jpg" alt="...">
+					</div>
+				</div>
+
+				<div>
+					<h3>업체명</h3>
+					<p>주소</p>
+					<p>후기 등록 개수</p>
+					<p>이 업체의 소개글입니다.</p>
+				</div>
+
+
+			<div>
+							<!-- Button trigger modal -->
 			<button type="button" class="btn btn-primary btn-lg"
 				data-toggle="modal" data-target="#myModal">무료 견적 받아보기</button>
 
@@ -148,81 +188,72 @@
 					</div>
 				</div>
 			</div>
-
-
+			<!-- 모달 끝 -->
+			
+			</div>
+		
+		
+		
+		
+	</div>
+	
+	</div>
+	
+	<hr></hr>
+	
+	<div class="row">
+		<div class="col-sm-10">
+			<h3>후기</h3>
+			<p>서비스를 이용한 고객님의 생생한 후기입니다.</p>
+		</div>
+	
+	</div>
+	
+	<hr></hr>
+	<div class="row">
+		<div class="col-sm-9">
+			<h4>김익명<span>2021.02.15</span></h4>
+			<div class="col-xs-6 col-md-3">
+				<a href="#" class="thumbnail"> <img src="../images/interior0001.jpg" alt="...">
+				</a>
+			</div>
+			<p>너무나 만족합니다.</p>
 
 		</div>
-		
-		
-          
-            
-    <!-- 본문 중간 -->
-
-
-
-	<div class="container pt-3">   
 	
-			<div class="row">
-			<!-- col-sm-6 -->
-			<div class="container">
-				<h4>후기</h4>
-								
-				<div class="row">
-				  
-				  <div class="col-sm-6 col-md-3">
-				    <div class="thumbnail">
-				      <img src="../images/clean0001.jpg" alt="...">
-				      <div class="caption">
-				        <h3>후기제목</h3>
-				        <p>내용입니다.</p>
-				       
-				      </div>
-				    </div>
-				  </div>
-				
-				  <div class="col-sm-6 col-md-3">
-				    <div class="thumbnail">
-				      <img src="../images/interior0001.jpg" alt="...">
-				      <div class="caption">
-				        <h3>후기제목</h3>
-				        <p>내용입니다</p>
-				     
-				      </div>
-				    </div>
-				  </div>
-				  
-				  <div class="col-sm-6 col-md-3">
-				    <div class="thumbnail">
-				      <img src="../images/interior0001.jpg" alt="...">
-				      <div class="caption">
-				        <h3>후기제목</h3>
-				        <p>내용입니다</p>
-				     
-				      </div>
-				    </div>
-				  </div>
-				  
-				</div>	
+	</div>	
 
+	<hr></hr>
+	<div class="row">
+		<div class="col-sm-9">
+			<h4>김익명<span>2021.02.15</span></h4>
+			<div class="col-xs-6 col-md-3">
+				<a href="#" class="thumbnail"> <img src="../images/interior0001.jpg" alt="...">
+				</a>
 			</div>
-			
-				
-		
-	</div>
-	</div>
+			<p>너무나 만족합니다.</p>
+
+		</div>
+	
+	</div>	
+	
+
 	
 	</div>
+	
+	
+	
 	</div>
 	<!-- ########## 본문 끝 -->
 	
 	<!-- 푸터가져오기 -->
-   
+	
 
-	<script type="text/javascript">
-		
-	</script>
+	
 
-
+	<script>
+    
+    </script>
 </body>
 
 </html>
