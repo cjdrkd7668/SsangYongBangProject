@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<style>
+.container{margin-left:180px;min-height:600px;}
 
+.left_menu{float:left;width:180px;border-right:1px solid #ddd;}
+.left_menu li{line-height:28px;}
+.left_menu li ul{display:none;text-indent:15px;}
+</style>
 
 <div class="left_menu">
 	<ul>
