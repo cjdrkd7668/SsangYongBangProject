@@ -7,22 +7,20 @@ body {
 }
 
 .jumbotron {
+	background-image: url('../images/serviceJumbo.jpg');
 	text-align: center;
 	margin: 25px auto;
 	background-size: cover;
-	width: 1000px;
-	color: white;
+	/* width: 800px; */
+	color: black;
 	height: 300px;
-}
-
-.well {
-		
 }
 
 
 .navbar {
-	
 	height: 60px;	
 }
 
-
+.row {
+	margin: 25px auto;
+}
