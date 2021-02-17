@@ -10,8 +10,8 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">홈</a></li>
-					<li><a href="#">방찾기</a></li>
+					<li class="active"><a href="/sybang/index.do">홈</a></li>
+					<li><a href="/sybang/house/search.do">방찾기</a></li>
 					<li><a href="#">희망입주하기</a></li>
 					<li><a href="#">방내놓기</a></li>
 					<li><a href="#">커뮤니티</a></li>
