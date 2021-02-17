@@ -15,7 +15,7 @@
 					<li><a href="#">희망입주하기</a></li>
 					<li><a href="#">방내놓기</a></li>
 					<li><a href="#">커뮤니티</a></li>
-					<li><a href="#">중개사공간</a></li>
+					<li><a href="/sybang/broker/brokerMain.do">중개사공간</a></li>
 					<li><a href="#">청소/시공</a></li>
 				</ul>
 					<p class="navbar-text navbar-right"><a href="#" class="navbar-link">회원가입</a></p>
