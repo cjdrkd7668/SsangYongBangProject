@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.panel-body {
+	padding: 0px;
+}
+
+
+
+.panel-body .table {
+	margin-bottom: 0px;
+}

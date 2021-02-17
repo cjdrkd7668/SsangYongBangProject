@@ -6,23 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
-
-
-<style>
-
-	.panel-body {
-		padding: 0px;
-	}
-
-	.panel-body table tr td {
-		padding-left: 15px
-	}
-
-	.panel-body .table {
-		margin-bottom: 0px;
-	}
-	
-</style>
+<link rel="stylesheet" href="/sybang/css/broker.css">
 
 </head>
 <body>
@@ -32,7 +16,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-3 col-md-3">
+			<div class="col-sm-2 col-md-2">
 				<div class="panel-group" id="accordion">
 
 					<!-- 중개사 > 내 프로필 메뉴  -->
@@ -168,11 +152,10 @@
 
 				</div>
 			</div>
+
 			
-			<div class="container">
-				가나다
-			</div>
-			
+
+		<div class="container">가나다</div>
 			<!--  
 			<div class="col-sm-9 col-md-9">
 				<div class="well">
@@ -180,9 +163,8 @@
 				</div>
 			</div>
 			-->
-			
-			
 		</div>
+		
 	</div>
 
 
