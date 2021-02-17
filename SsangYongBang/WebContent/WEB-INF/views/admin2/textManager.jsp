@@ -27,9 +27,15 @@
 				<th width="13%">관리</th>
 			</tr>
 
+<%
+			int i = 0;
+%>
 			<c:forEach items="${list}" var="dto">
+<%
+			i++;
+%>
 			<tr>
-				<td>${dto.seq}</td>
+				<td><%=i%></td>
 				<td>${dto.subject}</td>
 				<td>${dto.content}</td>
 				<td align="center"><span class="btn btn-default btn-xs" onclick="edit(${dto.seq})">수정</span></td>
@@ -38,6 +44,10 @@
 
 	
 			</table>
+			
+			<div class="btnWrap">
+				<a href="javascript:;" class="btn btns btn-default">추가</a>
+			</div>
 			
 		</div>
 	

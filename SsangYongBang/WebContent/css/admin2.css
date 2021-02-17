@@ -14,6 +14,7 @@ a:focus{text-decoration:none;}
 
 .wrap{width:1200px;margin:auto;}
 .container{padding-left:40px;}
+.container .btnWrap{padding:15px 0;text-align:right;}
 .page_title{font-size:17px;color:#333;position:relative;height:54px;margin-top:0;padding:0 20px;border:1px solid #c9c9c9;background:url('/sybang/images/bg_title.jpg') repeat-x left bottom;font-weight:bold;line-height:54px;letter-spacing:-1px;}
 .sub_title{font-size:18px;padding:15px 0 5px;}
 .sub_title.type2{background:#F5F5F5;line-height:30px;position:relative;padding:10px 15px;box-sizing:border-box;margin:15px 0 5px;border:1px solid #E5E6E8;font-size:14px;}
