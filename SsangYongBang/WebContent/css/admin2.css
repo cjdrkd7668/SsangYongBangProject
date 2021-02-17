@@ -4,5 +4,21 @@ a{outline:none;text-decoration:none;}
 a:hover{text-decoration:none;}
 a:focus{text-decoration:none;}
 
+/*공통*/
+.page_title{font-size:22px;color:#000;position:relative;height:54px;margin-top:0;padding:0 20px;border:1px solid #c9c9c9;background:url('/sybang/images/bg_title.jpg') repeat-x left bottom;font-weight:bold;line-height:54px;letter-spacing:-1px;}
+#panel{background:#f7f7f7;border:1px solid #c9c9c9;}
+.page_noti{width:100%;background:#fff;padding:10px 0;border:1px solid #c9c9c9;background:url('/sybang/images/bg_title.jpg') repeat-x left bottom;background-size:auto 100%;}
+.admin_style_01{width:100%;border:1px solid #c9c9c9;border-collapse:collapse;}
+.admin_style_01 select{appearance:none;-webkit-appearance:none;-moz-appearance:none;border-radius:0px; border:1px solid #c4c4c4;box-sizing:border-box;color:#2e2e2e;font-size:15px;background:#fff url("/css/images/ico_select.gif") no-repeat scroll right center;height:33px;line-height:20px;padding-right:30px;padding-left:3px; text-align:left;width:100%;vertical-align:middle;}
+.admin_style_01 .wauto select{width:auto;}
+.admin_style_01 select::-ms-expand{ display:none;}
+.admin_style_01 textarea{border:1px solid #c9c9c9;}
+.admin_style_01 td , .admin_style_01 th{border:1px solid #c9c9c9;padding:8px;color:#000;font-size:13px;background:#fff;}
+.admin_style_01 th{text-align:left;background:#f0f0f0;color:#000;font-size:14px;}
+.admin_style_01 input[type='text']{height:33px;color:#000;box-sizing:border-box;padding:0 10px;border:1px solid #c9c9c9;}
+.admin_style_01 input[type='file']{width:100%;height:auto !important;padding:5px !important;}
+.admin_style_01 input.box{height:33px;color:#000;box-sizing:border-box;padding:0 10px;border:1px solid #c9c9c9;box-sizing:border-box;}
+.admin_sub_title{position:relative;clear:both;height:54px;margin:15px 0 5px 0;padding:0 20px;border:1px solid #c9c9c9;background:url('/sybang/images/bg_title.jpg') repeat-x left bottom;font-size:16px;font-weight:bold;line-height:54px;letter-spacing:-1px;}
+.admin_sub_title span{font-size:12px;}
 
-
+/*사이트 환경설정*/
