@@ -13,6 +13,8 @@ body {
 }
 
 .list-container {
+	padding: 20px;
+	width: 1000px;
 	margin: 30px auto;
 	height: 600px;
 }
@@ -40,7 +42,7 @@ body {
 
 th {
 	background-color: #EEE;
-	width: 40px;
+	width: 20px;
 	margin: 20px;
 	height: 45px;
 	text-align: center;
@@ -48,6 +50,7 @@ th {
 }
 
 td {
+	width: 20px;
 	text-align: center;
 	cursor: pointer;
 }

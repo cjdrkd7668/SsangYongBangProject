@@ -13,14 +13,14 @@
 					<li class="active"><a href="/sybang/index.do">홈</a></li>
 					<li><a href="/sybang/house/search.do">방찾기</a></li>
 					<li><a href="/sybang/hope/list.do">희망입주하기</a></li>
-					<li><a href="#">방내놓기</a></li>
+					<li><a href="/sybang/house/post.do">방내놓기</a></li>
 					<li><a href="#">커뮤니티</a></li>
 					<li><a href="/sybang/broker/brokerMain.do">중개사공간</a></li>
 					<li><a href="#">청소/시공</a></li>
 				</ul>
 					<p class="navbar-text navbar-right"><a href="#" class="navbar-link">회원가입</a></p>
 					<p class="navbar-text navbar-right"><a href="#" class="navbar-link">로그인</a></p>
-					<p class="navbar-text navbar-right"><a href="#" class="navbar-link">마이페이지</a></p>
+					<p class="navbar-text navbar-right"><a href="/sybang/member/mypage.do" class="navbar-link">마이페이지</a></p>
 			
 			</div>
 		</div> <!-- container-fluid -->
