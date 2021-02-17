@@ -16,19 +16,23 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.test.sist.DBUtil;
 
-@WebServlet("/admin2/textManager.do")
-public class textManager extends HttpServlet {
+@WebServlet("/admin2/textManager_reg.do")
+public class textManager_reg extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		String seq = req.getParameter("seq");
+		
 		textManagerDAO dao = new textManagerDAO();
 		
-		ArrayList<textManagerDTO> list = dao.list();
+		textManagerDTO dto = dao.get(seq);
 		
-		req.setAttribute("list",list);
+		System.out.println(dto.getSeq());
+		
+		req.setAttribute("dto",dto);
 		
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin2/textManager.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin2/textManager_reg.jsp");
 		dispatcher.forward(req, resp);
 	}
 }

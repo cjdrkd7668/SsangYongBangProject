@@ -15,9 +15,25 @@
 	<div class="wrap">	
 		<%@include file="/WEB-INF/views/inc/admin_left.jsp"%>
 		<div class="container">
-			<h1 class="page_title">회사 운영정책</h1>
+			<h1 class="page_title">회사운영정책</h1>
 			
-			<div class="sub_title type2">배송안내 수정</div>
+			<div class="sub_title type2">${dto.subject} 수정</div>
+			
+			<table class="admin_style_01">
+			<colgroup>
+				<col width="10%"><col width="*">
+			</colgroup>
+			<tr>
+				<th>제목</th>
+				<td>
+					<input type="text" name="subject" class="box" style="width:350px" value="${dto.subject}">
+				</td>
+			</tr>
+			<tr>
+				<th>내용</th>
+				<td><textarea>${dto.content}</textarea></td>
+		</tr>
+		</table>
 			
 		</div>
 	
@@ -27,12 +43,6 @@
 	
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 
-	<script type="text/javascript">
-		function edit(uid) {
-			//location.href = "textManager_reg.jsp?uid="+uid;
-			location.href = "textManager_reg.jsp";
-		}
-	</script>
 
 </body>
 </html>
