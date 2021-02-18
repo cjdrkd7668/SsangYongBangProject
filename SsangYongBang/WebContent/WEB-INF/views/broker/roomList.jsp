@@ -10,9 +10,6 @@
 <link rel="stylesheet" type="text/css" href="/sybang/css/roomlist.css">
 
 <style>
-
-
-
 </style>
 
 
@@ -25,6 +22,12 @@
 
 	<div class="container">
 		<h1>등록된 매물</h1>
+
+		<div class="list-container">
+			<div class="well well-sm" style="float: left;">
+				총 <b>5</b>개의 방이 등록되어 있습니다.
+			</div>
+		</div>
 
 		<table class="table table-hover">
 			<thead>
@@ -115,6 +118,5 @@
 
 	<!-- footer 가져오기######## -->
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
-
 </body>
 </html>
