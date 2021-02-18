@@ -17,13 +17,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.test.sist.DBUtil;
 
 @WebServlet("/admin2/textManager.do")
-public class textManager extends HttpServlet {
+public class TextManager extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		textManagerDAO dao = new textManagerDAO();
+		TextManagerDAO dao = new TextManagerDAO();
 		
-		ArrayList<textManagerDTO> list = dao.list();
+		ArrayList<TextManagerDTO> list = dao.list();
 		
 		req.setAttribute("list",list);
 		

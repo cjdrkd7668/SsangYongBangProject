@@ -17,15 +17,15 @@ import javax.servlet.http.HttpServletResponse;
 import com.test.sist.DBUtil;
 
 @WebServlet("/admin2/textManager_reg.do")
-public class textManager_reg extends HttpServlet {
+public class TextManager_reg extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		String seq = req.getParameter("seq");
 		
-		textManagerDAO dao = new textManagerDAO();
+		TextManagerDAO dao = new TextManagerDAO();
 		
-		textManagerDTO dto = dao.get(seq);
+		TextManagerDTO dto = dao.get(seq);
 		
 		req.setAttribute("dto",dto);
 		
