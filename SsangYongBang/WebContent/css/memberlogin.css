@@ -68,6 +68,13 @@ input[type="checkbox"] {
 	width: 150px;
 	height: 100px;
 	font-size: 1.3em;
+	background-color: #3B79BC;
+}
+
+.btn-success:hover {
+	border: transparent;
+	background-color: #3B79BC;
+	opacity: 0.7;
 }
 
 .btns {
