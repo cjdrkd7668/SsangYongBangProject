@@ -2,11 +2,12 @@
 	pageEncoding="UTF-8"%>
 
 <style>
+/*  
 .container {
 	margin-left: 180px;
 	min-height: 600px;
 }
-
+*/
 .left_menu {
 	float: left;
 	width: 180px;
