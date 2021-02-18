@@ -55,11 +55,19 @@
 				            <li><a href="#">마이페이지</a></li>
 			         	</ul>
         			</li>
+        			<li class="dropdown">
+          			<a href="/sybang/member/mypage.do" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">마이페이지<span class="caret"></span></a>
+			          	<ul class="dropdown-menu" role="menu">
+				            <li><a href="#">내 정보 관리</a></li>
+				            <li><a href="#">내가 등록한 방</a></li>
+				            <li><a href="#">스케줄러</a></li>
+				            <li><a href="#">1:1 문의 내역</a></li>
+			         	</ul>
+        			</li>
+        			<li><a href="/sybang/member/login.do">로그인</a></li>
+        			<!-- <li><a href="#">로그아웃</a></li> -->
+        			<li><a href="#">회원가입</a></li>
 				</ul>
-				<p class="navbar-text navbar-right"><a href="#" class="navbar-link">회원가입</a></p>
-				<p class="navbar-text navbar-right"><a href="/sybang/member/login.do" class="navbar-link">로그인</a></p>
-				<p class="navbar-text navbar-right"><a href="/sybang/member/mypage.do" class="navbar-link">마이페이지</a></p>
-			
 			</div>
 		</div> <!-- container-fluid -->
 	</nav> <!-- navbar -->
@@ -75,5 +83,6 @@
 		$(this).removeClass('open');
 	  });
 	});
+	
 </script>
 
