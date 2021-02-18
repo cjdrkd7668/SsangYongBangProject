@@ -37,13 +37,6 @@
 <div class="left_menu">
 	<ul>
 		<li><a href="/sybang/broker/brokerMain.do">내 프로필</a></li>
-		<li><a href="/sybang/notice/boardList.do" target="_blank">공지사항</a></li>
-		<li><a href="javascript:;">커뮤니티 게시판</a>
-			<ul>
-				<li><a href="javascript:;">자유 게시판</a></li>
-				<li><a href="javascript:;">문의 게시판</a></li>
-			</ul></li>
-
 		<li><a href="javascript:;">매물 등록하기</a>
 			<ul>
 				<li><a href="/sybang/broker/roomList.do">등록된 매물 조회</a></li>
