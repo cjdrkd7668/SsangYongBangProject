@@ -9,8 +9,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>servicechat</title>
 
-<%@include file="/WEB-INF/views/inc/asset.jsp" %>
+
 <link rel="stylesheet" href="/sybang/css/servicemain.css">
+
+<%@include file="/WEB-INF/views/inc/asset.jsp" %>
 
 <style>
 
@@ -163,7 +165,12 @@
     justify-content: space-around;
 }
 
+
+
 </style>
+
+
+
 </head>
 
 <body>
@@ -272,10 +279,46 @@
 			
 			 -->
 				
+			<!-- 채팅창 -->>
 
+			<div class="text-center" id="contentWrap">
 
+				<div id="contentCover">
+				
+					<div id="chatWrap">
+					
+						<div id="chatHeader">1 : 1 온라인 상담</div>
+						
+						<!-- 채팅말풍선이 보이는 사각형 -->
+						<div id="chatLog">
+						
+							<div class="anotherMsg">
+								<span class="anotherName">업체명</span> <span class="msg">안녕하세요</span>
+							</div>
+							
+							<div class="myMsg">
+								<span class="msg">내용입니다.</span>
+							</div>
+							
+						</div>
+						<!-- 채팅 말풍선 보이는 사각형 끝 -->
+						
+						<!-- 메시지 전송 박스 -->
+						<form id="chatForm">
+							<input type="text" autocomplete="off" size="30" id="message"
+								placeholder="메시지를 입력하세요"> <input type="submit"
+								value="보내기">
+						</form>
+						<!-- 메시지 전송박스 끝 -->
+					</div>
+					
 
+					
+				</div>
+			</div>			
+			<!-- 채팅창 끝 -->
 
+	
 			</div>
 	
 	</div>
@@ -290,6 +333,7 @@
 	<!-- ########## 본문 끝 -->
 	
 	<!-- 푸터가져오기 -->
+   	<%@include file="/WEB-INF/views/inc/footer.jsp"%>	
 	
 
 	
