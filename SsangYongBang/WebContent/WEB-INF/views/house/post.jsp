@@ -61,14 +61,14 @@
             <tr>
                 <th>전용 면적<span class="glyphicon glyphicon-asterisk red"></span></th>
                 <td>
-                    <input type="number" min="10" max="300" step="1">&nbsp;㎠
+                    <input type="number" min="10" max="300" step="1">&nbsp;㎡
                 </td>
             </tr>
             </tr>
             <tr>
                 <th>공급 면적<span class="glyphicon glyphicon-asterisk red"></span></th>
                 <td>
-                    <input type="number" min="10" max="300" step="1">&nbsp;㎠
+                    <input type="number" min="10" max="300" step="1">&nbsp;㎡
                 </td>
             </tr>
             </tr>
