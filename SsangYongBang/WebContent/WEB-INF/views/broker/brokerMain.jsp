@@ -9,10 +9,6 @@
 <link rel="stylesheet" type="text/css" href="/sybang/css/broker.css">
 
 <style>
-.container {
-	margin-left: 50px;
-	min-height: 50px;
-}
 
 #left {
 	float: left;
@@ -59,7 +55,7 @@
 		</form>
 	</div>
 
-	<div class="container" id="right">
+	<div class="container" id="right" style='margin-left: 50px; min-height: 50px;'>
 
 		<form method="POST" action="">
 
