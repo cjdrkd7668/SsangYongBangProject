@@ -144,14 +144,28 @@
 				</tr>
 				
 				<tr>
-					<th align="center">중개사 신청 서류</th>
+					<th align="center">중개사 신청서류</th>
 					<td colspan="3">
 						<input type="text" name="etc2" class="box" size="50" value="" maxlength="100">
 					</td>
 				</tr>
 				
 				<tr>
-					<th align="center">테스트1</th>
+					<th align="center">업체 소개글</th>
+					<td colspan="3">
+						<input type="text" name="etc2" class="box" size="50" value="" maxlength="100">
+					</td>
+				</tr>
+				
+				<tr>
+					<th align="center">업체 포트폴리오</th>
+					<td colspan="3">
+						<input type="text" name="etc2" class="box" size="50" value="" maxlength="100">
+					</td>
+				</tr>
+				
+				<tr>
+					<th align="center">보유 포인트</th>
 					<td colspan="3">
 						<input type="text" name="etc2" class="box" size="50" value="" maxlength="100">
 					</td>
