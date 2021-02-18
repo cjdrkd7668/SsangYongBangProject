@@ -29,7 +29,12 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td class="text-left">제목입니다</td>
+					<td class="text-left"><a href="/sybang/admin/house/view.do">깨끗한 오피스텔이고, 사무실로도 사용가능합니다. 역삼/강남역 1분 거리!!</a></td>
+					<td class="text-center">홍길동</td>
+					<td class="text-center">2021-02-11</td>
+				</tr>
+				<tr>
+					<td class="text-left">제목입니다제목입니다</td>
 					<td class="text-center">홍길동</td>
 					<td class="text-center">2021-02-17</td>
 				</tr>
@@ -39,12 +44,7 @@
 					<td class="text-center">2021-02-17</td>
 				</tr>
 				<tr>
-					<td class="text-left">제목입니다제목입니다제목입니다</td>
-					<td class="text-center">홍길동</td>
-					<td class="text-center">2021-02-17</td>
-				</tr>
-				<tr>
-					<td class="text-left">제목입니다</td>
+					<td class="text-left">제목입니다제목입니다</td>
 					<td class="text-center">홍길동</td>
 					<td class="text-center">2021-02-17</td>
 				</tr>
@@ -54,17 +54,7 @@
 					<td class="text-center">2021-02-17</td>
 				</tr>
 				<tr>
-					<td class="text-left">제목입니다</td>
-					<td class="text-center">홍길동</td>
-					<td class="text-center">2021-02-17</td>
-				</tr>
-				<tr>
-					<td class="text-left">제목입니다제목입니다제목입니다</td>
-					<td class="text-center">홍길동</td>
-					<td class="text-center">2021-02-17</td>
-				</tr>
-				<tr>
-					<td class="text-left">제목입니다</td>
+					<td class="text-left">제목입니다제목입니다</td>
 					<td class="text-center">홍길동</td>
 					<td class="text-center">2021-02-17</td>
 				</tr>
@@ -74,12 +64,7 @@
 					<td class="text-center">2021-02-17</td>
 				</tr>
 				<tr>
-					<td class="text-left">제목입니다제목입니다제목입니다</td>
-					<td class="text-center">홍길동</td>
-					<td class="text-center">2021-02-17</td>
-				</tr>
-				<tr>
-					<td class="text-left">제목입니다</td>
+					<td class="text-left">제목입니다제목입니다</td>
 					<td class="text-center">홍길동</td>
 					<td class="text-center">2021-02-17</td>
 				</tr>
@@ -89,12 +74,27 @@
 					<td class="text-center">2021-02-17</td>
 				</tr>
 				<tr>
-					<td class="text-left">제목입니다</td>
+					<td class="text-left">제목입니다제목입니다</td>
 					<td class="text-center">홍길동</td>
 					<td class="text-center">2021-02-17</td>
 				</tr>
 				<tr>
-					<td class="text-left">제목입니다제목입니다제목입니다</td>
+					<td class="text-left">제목입니다제목입니다</td>
+					<td class="text-center">홍길동</td>
+					<td class="text-center">2021-02-17</td>
+				</tr>
+				<tr>
+					<td class="text-left">제목입니다제목입니다</td>
+					<td class="text-center">홍길동</td>
+					<td class="text-center">2021-02-17</td>
+				</tr>
+				<tr>
+					<td class="text-left">제목입니다제목입니다</td>
+					<td class="text-center">홍길동</td>
+					<td class="text-center">2021-02-17</td>
+				</tr>
+				<tr>
+					<td class="text-left">제목입니다제목입니다</td>
 					<td class="text-center">홍길동</td>
 					<td class="text-center">2021-02-17</td>
 				</tr>
