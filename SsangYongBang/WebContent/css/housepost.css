@@ -51,6 +51,10 @@ td {
 	float: right;
 }
 
+.btn-address {
+	margin-bottom: 10px;
+}
+
 .red {
 	margin-left: 3px;
 	color: red;
@@ -61,7 +65,13 @@ td {
 	width: 70%;
 }
 
+input[type="text"] {
+	width: 300px;
+	margin-left: 10px;
+}
+
 input[type="number"] {
+	text-align: center;
 	width: 100px;
 }
 
@@ -72,4 +82,5 @@ input[type="file"] {
 
 #sel1, #sel2 {
 	width: 150px;
+	height: 40px;
 }
