@@ -46,8 +46,9 @@
 					<li class="dropdown">
           			<a href="/sybang/service/servicemain.do" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">청소/시공<span class="caret"></span></a>
 			          	<ul class="dropdown-menu" role="menu">
+				            <li><a href="/sybang/service/servicemain.do">청소/시공업체 홈</a></li>			          	
 				            <li><a href="/sybang/service/ServicestoreList.do">전문업체 찾기</a></li>
-				            <li><a href="#">고객요청서</a></li>
+				            <li><a href="/sybang/request/requestlist.do">고객요청서</a></li>
 				            <li class="divider"></li>
 				            <li><a href="#">1:1 문의</a></li>
 				            <li><a href="#">후기</a></li>
@@ -58,8 +59,8 @@
         			<li class="dropdown">
           			<a href="/sybang/member/mypage.do" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">마이페이지<span class="caret"></span></a>
 			          	<ul class="dropdown-menu" role="menu">
-				            <li><a href="#">내 정보 관리</a></li>
-				            <li><a href="#">내가 등록한 방</a></li>
+				            <li><a href="/sybang/member/myinfo.do">내 정보 관리</a></li>
+				            <li><a href="/sybang/house/list.do">내가 내놓은 방</a></li>
 				            <li><a href="#">스케줄러</a></li>
 				            <li><a href="#">1:1 문의 내역</a></li>
 			         	</ul>

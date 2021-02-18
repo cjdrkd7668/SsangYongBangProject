@@ -9,8 +9,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>estimatelist</title>
 
-<%@include file="/WEB-INF/views/inc/asset.jsp" %>
+
 <link rel="stylesheet" href="/sybang/css/servicemain.css">
+<%@include file="/WEB-INF/views/inc/asset.jsp" %>
 
 <style>
 
@@ -44,7 +45,7 @@
 	
 	<!-- 본문 상단 -->
 	<div class="row">
-	<h4> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 받은 견적서</h4>
+	<h4> <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 받은 견적서</h4>
 	</div>
 	
 	<div class="row">
@@ -275,6 +276,8 @@
 	<!-- ########## 본문 끝 -->
 	
 	<!-- 푸터가져오기 -->
+   	<%@include file="/WEB-INF/views/inc/footer.jsp"%>	
+	
 	
 
 	

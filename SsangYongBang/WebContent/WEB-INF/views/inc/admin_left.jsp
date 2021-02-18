@@ -5,7 +5,7 @@
 %>
 
 <style>
-.container{margin-left:180px;min-height:600px;}
+.container{padding-left:180px;min-height:600px;}
 
 .left_menu{float:left;width:180px;border-right:1px solid #ddd;}
 .left_menu li{line-height:28px;}
@@ -19,9 +19,10 @@
 
 <div class="left_menu">
 	<ul>
+
 		<li><a href="/sybang/admin2/config_site.do">사이트 환경설정</a></li>
-		<li><a href="javascript:;">방 관리</a></li>
-		<li><a href="javascript:;">매물관리</a></li>
+		<li><a href="/sybang/admin/room/boardlist.do">방 관리</a></li>
+		<li><a href="/sybang/admin/house/boardlist.do">매물관리</a></li>
 		<li><a href="javascript:;">희망입주조건 관리</a></li>
 		<li>
 			<a href="/sybang/admin2/member_list.do">사용자 관리</a>
