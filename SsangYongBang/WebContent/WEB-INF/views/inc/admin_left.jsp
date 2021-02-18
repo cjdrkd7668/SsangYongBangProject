@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String qs = request.getQueryString();
+%>
 
 <style>
 .container{padding-left:180px;min-height:600px;}
@@ -24,9 +27,9 @@
 		<li>
 			<a href="/sybang/admin2/member_list.do">사용자 관리</a>
 			<ul>
-				<li><a href="/sybang/admin2/member_list.do">일반회원 관리</a></li>
-				<li><a href="javascript:;">부동산 중개사 관리</a></li>
-				<li><a href="javascript:;">서비스 업체 관리</a></li>
+				<li><a href="/sybang/admin2/member_list.do?type=normal">일반회원 관리</a></li>
+				<li><a href="/sybang/admin2/member_list.do?type=broker">부동산 중개사 관리</a></li>
+				<li><a href="/sybang/admin2/member_list.do?type=firm">서비스 업체 관리</a></li>
 			</ul>
 		</li>
 		<li>
@@ -43,32 +46,44 @@
 		<li><a href="javascript:;">알림 센터</a></li>
 		<li><a href="javascript:;">광고 관리</a></li>
 		<li><a href="javascript:;">허위 매물 삭제</a></li>
-		<li><a href="/sybang/admin2/textManager.do">회사운영정책</a></li>
+		<li class="test"><a href="/sybang/admin2/textManager.do">회사운영정책</a></li>
 	</ul>
 </div>
 
 
 <script>
-
 	$(".left_menu>ul>li").each(function(){
+
+		var url = $(this).children("a").attr("href");
+		
 		if ($(this).find("ul").length) {
 			$(this).addClass("depth")
 		}
-		if($(this).children("a").attr("href") == window.location.pathname){
+		if(url == window.location.pathname){
 			$(this).addClass("on");
+			
+			$(this).find("li").eq(0).addClass("on");
+			$(this).find("li").each(function(){
+				url = $(this).children("a").attr("href");
+				if (url.substr(url.lastIndexOf("?") + 1,url.length) == "<%=qs%>") {
+					$(this).siblings().removeClass("on");
+					$(this).addClass("on");
+				}
+				
+			});
 		}
-	})
+	});
 
 	$(".left_menu>ul>li").mouseenter(function(){
 			$(this).find("ul").stop().slideDown();
-	})
+	});
 	$(".left_menu>ul>li").mouseleave(function(){
 		if (!$(this).hasClass("on")) {
 			$(this).find("ul").stop().slideUp();
 		}
-	})
+	});
 	
-	console.log();
+
 
 </script>
 
