@@ -19,14 +19,9 @@ h2 {
 }
 
 h3 {
-	text-align: center;
+	margin-top: 10px;
+	text-align: left;
 	font-size: 1.2em;
-}
-
-small {
-	margin-right: 10px;
-	float: right;
-	font-size: 0.8em;
 }
 
 .search-box {
@@ -52,22 +47,102 @@ small {
 	margin: 10px 5px;
 }
 
-.dropdown, .dropdown-menu {
-	width: 300px;
-	padding: 10px;
+small {
+	width: 100px;
+	margin-right: 80px;
+	text-align: right;
+	float: right;
+	font-size: 0.9em;
 }
 
-.dropdown {
+.sliders {
+	margin-top: 5px;
+	height: 12px;
+	-webkit-appearance: none;
+	background: #486BB8;
+}
+
+.modal-title {
+	margin-top: 10px;
+}
+
+.modal-header {
+	height: 50px;
+	margin-left: 10px;
+	border: 0;
+}
+
+.modal-body {
+	height: 40px;
+	margin-left: 80px;
+	padding: 10px;
+	color: #486BB8;
+	width: 500px;
+}
+
+.value {
 	display: inline-block;
 }
 
-.detail {
-	margin-top: 20px;
+.modal-button {
+	margin: 10px;
+}
+
+.btn-success {
+	background-color: #3B79BC;
+}
+
+.btn-success:hover {
+	border: transparent;
+	background-color: #3B79BC;
+	opacity: 0.7;
+}
+
+.search-text {
+	float: right;
+	margin-right: 10px;
+}
+
+.search-text input[type="text"] {
+	width: 350px;
+	height: 40px;
+}
+
+.btn-detail {
 	text-align: center;
+	font-size: 1.35em;
+}
+
+.btn-detail a {
+	text-decoration: none;
+	background-color: transparent;
 }
 
 .detail label {
-	font-size: 1.35em;
+	font-size: 1.2em;
 	margin: 15px;
 	text-decoration: none;
+}
+
+.panel-group {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.panel-body .well {
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: transparent;
+	border: 0;
+}
+
+.panel-body .well-detail {
+	width: 200px;
+	text-align: center;
+}
+
+#map {
+	position: relative;
+	top: 10px;
 }
