@@ -127,6 +127,15 @@ h2 {
 	margin-left: 10px;	
 }
 
+.mg-view .panel {
+	margin-top: 30px;
+		
+}
+
+.mg-view .panel-body {
+	height: 60px;
+}
+
 
 
 

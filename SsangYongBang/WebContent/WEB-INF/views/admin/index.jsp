@@ -16,7 +16,7 @@
 	<%@include file="/WEB-INF/views/inc/admin_left.jsp"%>	
 	<div class="container mg-main">
 	
-		<h1 class="welcome">김진방<small> 관리자님, 반갑습니다.</small></h1>
+		<h1 class="welcome">김진방<small>관리자님, 반갑습니다.</small></h1>
 		
 		<h2>현재 사이트 내에서는 …</h2>
 		
