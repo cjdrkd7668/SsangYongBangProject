@@ -222,8 +222,9 @@
 				.querySelectorAll('.js-switch'));
 
 		elems.forEach(function(html) {
-			var switchery = new Switchery(html);
+			var switchery = new Switchery(html, { color: '#486DBE', jackColor: '#D6EFF8' });
 		});
+		
 	</script>
 </body>
 
