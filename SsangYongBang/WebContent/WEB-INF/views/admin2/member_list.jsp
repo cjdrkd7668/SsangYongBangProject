@@ -15,22 +15,25 @@
 	<div class="wrap">	
 		<%@include file="/WEB-INF/views/inc/admin_left.jsp"%>
 		<div class="container">
-			<h1 class="page_title">사이트 환경설정</h1>
+			<h1 class="page_title">일반회원 관리</h1>
 			
-			<table class="admin_style_02">
-				<tr align="center">
-					<th width="7%">No</th>
-					<th width="25%">제목</th>
-					<th width="55%">내용</th>
-					<th width="13%">관리</th>
-				</tr>
-				<tr>
-					<td>11</td>
-					<td>ㅇㅇㅇ</td>
-					<td>ㅇㅇㅇ</td>
-					<td>ㅇㅇㅇ</td>
-				</tr>
-			</table>
+			<div class="sub_title type2">총 <span>123</span>명의 회원이 조회되었으며 오늘 가입한 회원은 <span>123</span>명입니다</div>
+			
+			<table class="admin_style_01">
+			<colgroup>
+				<!-- <col width="10%"><col width="*"> -->
+			</colgroup>
+			<tr>
+				<th>제목</th>
+				<td>
+					
+				</td>
+			</tr>
+			<tr>
+				<th>내용</th>
+				<td><textarea>${dto.content}</textarea></td>
+		</tr>
+		</table>
 			
 		</div>
 	
@@ -40,9 +43,6 @@
 	
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 
-	<script type="text/javascript">
-		
-	</script>
 
 </body>
 </html>

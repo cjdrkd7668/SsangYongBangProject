@@ -8,15 +8,15 @@ import java.util.ArrayList;
 
 import com.test.sist.DBUtil;
 
-public class textManagerDAO {
+public class TextManagerDAO {
 	
 	private Connection conn;
 	private Statement stat;
 	private PreparedStatement pstat;
 	private ResultSet rs;
 	
-	public ArrayList<textManagerDTO> list() {
-		ArrayList<textManagerDTO> list = new ArrayList<textManagerDTO>();
+	public ArrayList<TextManagerDTO> list() {
+		ArrayList<TextManagerDTO> list = new ArrayList<TextManagerDTO>();
 		
 		try {
 			conn = DBUtil.open();
@@ -27,7 +27,7 @@ public class textManagerDAO {
 			rs = stat.executeQuery(sql);
 			
 			while (rs.next()) {
-				textManagerDTO dto = new textManagerDTO();
+				TextManagerDTO dto = new TextManagerDTO();
 				
 				dto.setSeq(rs.getString("seq"));
 				dto.setSubject(rs.getString("subject"));
@@ -47,9 +47,9 @@ public class textManagerDAO {
 		return list;
 	}
 
-	public textManagerDTO get(String seq) {
+	public TextManagerDTO get(String seq) {
 
-		textManagerDTO dto = new textManagerDTO();
+		TextManagerDTO dto = new TextManagerDTO();
 		
 		try {
 			conn = DBUtil.open();

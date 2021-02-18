@@ -1,6 +1,6 @@
 package com.test.sist.admin2;
 
-public class textManagerDTO {
+public class TextManagerDTO {
 	private String seq;
 	private String subject;
 	private String content;

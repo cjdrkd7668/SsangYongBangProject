@@ -10,3 +10,9 @@
 
 <script src="/sybang/asset/js/jquery-1.12.4.js"></script>
 <script src="/sybang/asset/js/bootstrap.js"></script>
+
+<%
+	String SITE_TITLE = "<title>쌍용방 관리자</title>";
+%>
+
+

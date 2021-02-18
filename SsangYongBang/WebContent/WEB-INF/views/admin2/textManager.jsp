@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <%@include file="/WEB-INF/views/inc/admin_asset.jsp"%>
 <link rel="stylesheet" type="text/css" href="/sybang/css/admin2.css">
-<title>Insert title here</title>
+<%=SITE_TITLE%>
 <style type="text/css">
 </style>
 </head>
@@ -46,7 +46,7 @@
 			</table>
 			
 			<div class="btnWrap">
-				<a href="javascript:;" class="btn btns btn-default">추가</a>
+				<a href="add" class="btn btns btn-default">추가</a>
 			</div>
 			
 		</div>
