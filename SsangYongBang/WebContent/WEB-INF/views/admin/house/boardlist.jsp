@@ -4,25 +4,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<%@include file="/WEB-INF/views/inc/asset.jsp" %>
+<%@include file="/WEB-INF/views/inc/asset.jsp"%>
+<link rel="stylesheet" type="text/css" href="/sybang/css/admin2.css">
+<link rel="stylesheet" type="text/css" href="/sybang/css/admin.css">
 <link rel="stylesheet" href="/sybang/css/board.css">
+<title>Insert title here</title>
+<style type="text/css">
+</style>
 </head>
 <body>
-
-   	<!-- header 가져오기######## -->
-   	<%@include file="/WEB-INF/views/inc/header.jsp"%>
-   	
-	<!-- container 시작 -->
-    <main class="container">
-    	
-    	<!-- 페이지 제목 -->
-    	<div class="page-header">
-  		<h1>뉴스 <small>부동산 관련 인터넷 뉴스</small></h1>
-		</div>
-    
-    <!-- 게시판 -->
-	    <table class="table table-hover table-type-list">
+	<%@include file="/WEB-INF/views/inc/header.jsp"%>
+	<%@include file="/WEB-INF/views/inc/admin_left.jsp"%>	
+	<div class="container">
+	
+		<h1 class="welcome">매물 관리<small> 중개사가 게시한 부동산 매물</small></h1>
+		
+		<table class="table table-hover table-type-list">
 			<thead>
 				<tr>
 					<th scope="col" class="text-center">제목</th>
@@ -66,10 +63,45 @@
 					<td class="text-center">홍길동</td>
 					<td class="text-center">2021-02-17</td>
 				</tr>
+				<tr>
+					<td class="text-left">제목입니다</td>
+					<td class="text-center">홍길동</td>
+					<td class="text-center">2021-02-17</td>
+				</tr>
+				<tr>
+					<td class="text-left">제목입니다제목입니다</td>
+					<td class="text-center">홍길동</td>
+					<td class="text-center">2021-02-17</td>
+				</tr>
+				<tr>
+					<td class="text-left">제목입니다제목입니다제목입니다</td>
+					<td class="text-center">홍길동</td>
+					<td class="text-center">2021-02-17</td>
+				</tr>
+				<tr>
+					<td class="text-left">제목입니다</td>
+					<td class="text-center">홍길동</td>
+					<td class="text-center">2021-02-17</td>
+				</tr>
+				<tr>
+					<td class="text-left">제목입니다제목입니다</td>
+					<td class="text-center">홍길동</td>
+					<td class="text-center">2021-02-17</td>
+				</tr>
+				<tr>
+					<td class="text-left">제목입니다</td>
+					<td class="text-center">홍길동</td>
+					<td class="text-center">2021-02-17</td>
+				</tr>
+				<tr>
+					<td class="text-left">제목입니다제목입니다제목입니다</td>
+					<td class="text-center">홍길동</td>
+					<td class="text-center">2021-02-17</td>
+				</tr>
 			</tbody>
 		</table>
-	    
-	    <!-- pagination -->
+		
+		<!-- pagination -->
 	    <nav class="nav-pagination">
 		  	<ul class="pagination">
 			    <li>
@@ -89,12 +121,14 @@
 			    </li>
 		  	</ul>
 		</nav>
-	    
-    </main>
-    <!-- container 끝 -->
-    
-   	<!-- footer 가져오기######## -->
-   	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
-   
+		
+	</div>
+	
+	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
+
+	<script type="text/javascript">
+		
+	</script>
+
 </body>
 </html>

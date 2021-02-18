@@ -22,52 +22,47 @@
 		</div>
     
     <!-- 게시판 -->
-	    <table class="table table-hover">
+	    <table class="table table-hover table-type-list">
 			<thead>
 				<tr>
 					<th scope="col" class="text-center">제목</th>
-					<th scope="col" class="text-center">글쓴이</th>
+					<th scope="col" class="text-center ">글쓴이</th>
 					<th scope="col" class="text-center">작성일</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td class="text-center">제목입니다</td>
+					<td class="text-left">제목입니다</td>
 					<td class="text-center">홍길동</td>
 					<td class="text-center">2021-02-17</td>
 				</tr>
 				<tr>
-					<td class="text-center">제목입니다</td>
+					<td class="text-left">제목입니다제목입니다</td>
 					<td class="text-center">홍길동</td>
 					<td class="text-center">2021-02-17</td>
 				</tr>
 				<tr>
-					<td class="text-center">제목입니다</td>
+					<td class="text-left">제목입니다제목입니다제목입니다</td>
 					<td class="text-center">홍길동</td>
 					<td class="text-center">2021-02-17</td>
 				</tr>
 				<tr>
-					<td class="text-center">제목입니다</td>
+					<td class="text-left">제목입니다</td>
 					<td class="text-center">홍길동</td>
 					<td class="text-center">2021-02-17</td>
 				</tr>
 				<tr>
-					<td class="text-center">제목입니다</td>
+					<td class="text-left">제목입니다제목입니다</td>
 					<td class="text-center">홍길동</td>
 					<td class="text-center">2021-02-17</td>
 				</tr>
 				<tr>
-					<td class="text-center">제목입니다</td>
+					<td class="text-left">제목입니다</td>
 					<td class="text-center">홍길동</td>
 					<td class="text-center">2021-02-17</td>
 				</tr>
 				<tr>
-					<td class="text-center">제목입니다</td>
-					<td class="text-center">홍길동</td>
-					<td class="text-center">2021-02-17</td>
-				</tr>
-				<tr>
-					<td class="text-center">제목입니다</td>
+					<td class="text-left">제목입니다제목입니다제목입니다</td>
 					<td class="text-center">홍길동</td>
 					<td class="text-center">2021-02-17</td>
 				</tr>
