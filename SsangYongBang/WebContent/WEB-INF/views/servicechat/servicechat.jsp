@@ -9,8 +9,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>servicechat</title>
 
-<%@include file="/WEB-INF/views/inc/asset.jsp" %>
+
 <link rel="stylesheet" href="/sybang/css/servicemain.css">
+
+<%@include file="/WEB-INF/views/inc/asset.jsp" %>
 
 <style>
 
@@ -163,7 +165,12 @@
     justify-content: space-around;
 }
 
+
+
 </style>
+
+
+
 </head>
 
 <body>
@@ -290,6 +297,7 @@
 	<!-- ########## 본문 끝 -->
 	
 	<!-- 푸터가져오기 -->
+   	<%@include file="/WEB-INF/views/inc/footer.jsp"%>	
 	
 
 	

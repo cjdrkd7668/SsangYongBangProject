@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>receivedrequestlist</title>
 
-<%@include file="/WEB-INF/views/inc/asset.jsp" %>
+
 <link rel="stylesheet" href="/sybang/css/servicemain.css">
 
 <%--datepicker를 쓰기 위해 CDN으로 가져온 플러그인들. --%>
@@ -43,7 +43,7 @@
 
     </script>
 
-
+<%@include file="/WEB-INF/views/inc/asset.jsp" %>
 
 
 
@@ -273,8 +273,7 @@
 	<!-- ########## 본문 끝 -->
 	
 	<!-- 푸터가져오기 -->
-	
-
+   	<%@include file="/WEB-INF/views/inc/footer.jsp"%>	
 	
 
 	<script>
