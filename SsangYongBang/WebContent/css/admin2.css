@@ -53,11 +53,10 @@ a:focus{text-decoration:none;}
 .header-cklee #logo{height:50px;}
 .header-cklee .navbar-nav > li > a{padding-top:20px;padding-bottom:20px;line-height:40px;padding-right:20px;padding-left:20px;font-size:1.3em;}
 .header-cklee .navbar-nav > li:nth-child(1) > a{margin-left:90px;}
-.header-cklee .navbar-nav > li:nth-child(n+8) > a{color:#444;font-size:1em;}
-.header-cklee .navbar-text{margin-top:30px;margin-bottom:30px;margin-right:10px;}  
-.header-cklee .navbar-link{color:#486BB8;font-weight:bold;}
-.header-cklee .navbar-link:hover,
-.header-cklee .navbar-link:foucs{color:#486BB8;text-decoration:none;}
+.header-cklee .navbar-nav > li:nth-child(8) > .dropdown-menu {min-width: 100px;}
+.header-cklee .navbar-nav > li:nth-child(n+8) > a {color: #486BB8;font-size: 0.8em;padding: 20px 10px;}
+.header-cklee .navbar-nav > li:nth-child(7) > a {margin-right: 50px;}
+.header-cklee .navbar-default .navbar-nav > .open > a, .header-cklee .navbar-default .navbar-nav > .open > a:hover, .header-cklee .navbar-default .navbar-nav > .open > a:focus {color: #486BB8;}
 
 /* footer-cklee */
 .footer-cklee{text-align:center;}

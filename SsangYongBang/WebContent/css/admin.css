@@ -7,9 +7,15 @@ small {
 	margin: 0px;
 }
 
+h2 {
+	margin-left: 0px;
+}
+
 /* main.css 해제 끝 */
 
+/* mg-main, 관리자 메인화면 CSS */
 .mg-main .welcome {
+	color: #486BB8;
 	font-size: 5em;
 }
 
@@ -21,7 +27,7 @@ small {
 	width: 400px;
 	box-sizing: border-box;
 	float: left;
-	padding: 30px 50px;
+	padding: 0px 50px 30px 0px;
 }
 
 .mg-main .alarm > div {	
@@ -47,3 +53,84 @@ small {
 	display: block;
 	color: #888;
 }
+
+/* mg-view, 특정 방/매물 조회화면 CSS*/
+.mg-main .welcome {
+	margin-bottom: 10px;
+}
+
+.mg-view .container-view {
+	width: 900px;
+}
+
+.mg-view #map {
+	border-top: 10px solid #486BB8;
+}
+
+
+.mg-view .address {
+	margin-bottom: 0px;
+	text-align: left;
+}
+
+.mg-view .address > span {
+	margin-top: 20px;
+	color: #486BB8;
+	font-size: 2.5em;
+	display: block;
+	position: relative;
+}
+
+.mg-view .address span > span {
+	font-size: 1.5em;
+	position: absolute;
+	left: 830px;
+	top: 2px;
+}
+
+.mg-view .address > span:first-child {
+	margin-top: 0px;
+	color: #666;
+	font-size: 1.4em;
+}
+
+.mg-view .address > span:first-child > span {
+	color: #666;
+	font-size: 2.5em;
+	position: static;
+	display: inline;
+}
+
+.mg-view .post-info {
+	text-align: left;
+	color: #888;
+	font-size: 1em;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #EEE;
+}
+
+.mg-view .post-info span:nth-child(n+2) {
+	padding-left: 10px;
+}
+
+.mg-view table {
+	margin-top: 20px;
+	border-top: 3px solid #486BB8;
+}
+
+.mg-view .buttons {
+	margin-top: 50px;
+	float: right;
+}
+
+.mg-view .buttons a {
+	margin-left: 10px;	
+}
+
+
+
+
+
+
+
+
