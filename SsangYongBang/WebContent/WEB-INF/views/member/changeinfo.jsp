@@ -17,12 +17,13 @@
 	<!-- header 가져오기######## -->
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
-	<div class="container">
+	<!-- info-container 시작 -->
+    <div class="info-container">
         <div class="page-header">
-            <h1>내 정보 수정</h1>
+            <h1>회원 정보 수정</h1>
         </div>
 
-        <table class="table table-bordered">
+        <table class="table table-bordered" id="changeinfo">
             <tr>
                 <th>아이디</th>
                 <td>hong</td>
@@ -71,6 +72,7 @@
         </div>
 
     </div>
+    <!-- info-container 끝 -->
 
 	<!-- footer 가져오기######## -->
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
