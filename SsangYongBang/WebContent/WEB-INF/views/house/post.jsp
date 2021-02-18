@@ -9,10 +9,7 @@
 <link rel="stylesheet" href="/sybang/css/housepost.css">
 </head>
 <body>
-	<!-- header 가져오기######## -->
-	<%@include file="/WEB-INF/views/inc/header.jsp"%>
-
-    <!-- list-container 시작 -->
+	<!-- list-container 시작 -->
     <div class="list-container">
         <div class="page-header">
             <h1>방 내놓기</h1>
@@ -53,7 +50,7 @@
             </tr>
             <tr>
                 <th>주소<span class="glyphicon glyphicon-asterisk red"></span></th>
-                <td><input type="button" class="btn btn-basic" value="우편번호 찾기">
+                <td><input type="button" class="btn btn-basic btn-address" value="우편번호 찾기">
                     <input type="text">
                     <p><input type="text" placeholder="상세 주소 입력"></p>
             </tr>
