@@ -179,6 +179,36 @@ height: 600px;
     width: 60px;
 }
 
+/* 희망입주조건을 목록으로 출력하기 위한 CSS 시작*/
+#tbl-post .tbody-hope > tr > th:nth-child(n),
+#tbl-post .tbody-hope > tr > td:nth-child(n) {
+	vertical-align: middle;
+}
+#tbl-post .tbody-hope tr th:nth-child(1),
+#tbl-post .tbody-hope tr td:nth-child(1) {
+	width:40px;
+}
+#tbl-post .tbody-hope tr th:nth-child(2),
+#tbl-post .tbody-hope tr td:nth-child(2) {
+	width:40px;
+}
+#tbl-post .tbody-hope tr th:nth-child(3),
+#tbl-post .tbody-hope tr td:nth-child(3) {
+	width:300px;
+}
+#tbl-post .tbody-hope tr th:nth-child(4),
+#tbl-post .tbody-hope tr td:nth-child(4) {
+	width:40px;
+}
+#tbl-post .tbody-hope tr th:nth-child(5),
+#tbl-post .tbody-hope tr td:nth-child(5) {
+	width:40px;
+}
+
+
+
+/* 희망입주조건 css 끝*/
+
 .post-content,
 .post-type,
 .review-content {

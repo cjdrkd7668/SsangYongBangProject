@@ -136,6 +136,28 @@ h2 {
 	height: 60px;
 }
 
+/* mg-hope, 희망입주조건 관리 */
+.mg-hope {
+	widht: 900px;
+}
+
+.mg-hope .table-hope td{
+	vertical-align: middle;
+}
+
+.mg-hope .table-hope td:nth-child(3) > div:nth-child(1) {
+	font-size: 1.4em;
+}
+
+.mg-hope .table-hope td:nth-child(3) > div:nth-child(n+2) {
+	font-size: 1em;
+	border-bottom: 1px #DDD solid;
+}
+
+.mg-hope .table-hope td:nth-child(3) > div:nth-child(n+2) > span {
+	float: right;
+}
+
 
 
 
