@@ -16,7 +16,7 @@ body {
 	padding: 20px;
 	width: 1000px;
 	margin: 30px auto;
-	height: 850px;
+	height: 900px;
 }
 
 .detail-container .page-header {
@@ -103,6 +103,7 @@ body {
 	outline: none;
 }
 
+/* 찜하기 버튼 영역 */
 #heart {
 	float: left;
 	width: 80px;
@@ -111,16 +112,19 @@ body {
 	margin: 5px;
 }
 
+/* 찜하기 버튼 */
 #btn-heart {
 	font-size: 25px;
 	color: #444;
 }
 
+/* 찜하기 버튼 hover */
 #btn-heart:hover {
 	color: red;
 	opacity: 0.7;
 }
 
+/* 허위 매물 신고 버튼 */
 #btn-detail2 {
 	float: right;
 	margin-right: 15px;
@@ -132,25 +136,43 @@ body {
 	font-size: 1.2em;
 }
 
+/* 뒤로 가기 버튼 */
 #btn-back {
 	float: right;
 	margin-top: 10px;
 }
 
-#modal1 {
-	border: 3px solid rebeccapurple;
-	width: 100px;
-	float: right;
-}
+/* #modal-false {
+			border: 3px solid rebeccapurple;
+			width: 100px;
+			float: right;
+		} */
 
+/* 중개사 상호명 */
 #broker {
 	margin-top: 10px;
 	margin-left: 5px;
 	font-size: 1.2em;
 }
 
+/* 중개사 이름 */
 #broker-name {
 	color: gray;
 	margin: 5px;
 	font-size: 1.2em;
+}
+
+#modal-chat input[type="text"] {
+	font-size: 1.5em;
+	height: 50px;
+	margin-bottom: 10px;
+}
+
+#modal-chat textarea {
+	font-size: 1.5em;
+}
+
+/* 모달에서 신고 사유 내용 칸 */
+#modal-false textarea {
+	font-size: 1.5em;
 }
