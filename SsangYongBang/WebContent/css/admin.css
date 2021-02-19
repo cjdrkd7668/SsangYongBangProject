@@ -137,11 +137,16 @@ h2 {
 }
 
 /* mg-hope, 희망입주조건 관리 */
-.mg-hope {
-	widht: 900px;
+.mg-hope .table-hope {
+	margin-top: 30px;
+}
+
+.mg-hope .table-hope th {
+	border-bottom: 5px solid #486BB8;
 }
 
 .mg-hope .table-hope td{
+	font-size: 14px;
 	vertical-align: middle;
 }
 
@@ -150,7 +155,7 @@ h2 {
 }
 
 .mg-hope .table-hope td:nth-child(3) > div:nth-child(n+2) {
-	font-size: 1em;
+	font-size: 0.9em;
 	border-bottom: 1px #DDD solid;
 }
 
@@ -158,10 +163,10 @@ h2 {
 	float: right;
 }
 
-
-
-
-
+.mg-hope .table-hope td:nth-child(1)
+ {
+	background-color: #EFEFEF;
+}
 
 
 

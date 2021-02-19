@@ -10,6 +10,14 @@ small {
 	text-align: center;
 }
 
+.table-type-list {
+	margin-top: 30px;
+}
+
+.table-type-list .board-table-head th {
+	border-bottom: 5px solid #486BB8;
+}
+
 .table-type-list th:nth-child(1) {
 	width: 70%;
 }
@@ -28,6 +36,7 @@ small {
 	color: #666;
 	padding-left: 10px;
 	background-color: #EFEFEF;
+
 }
 
 .table-type-view td {

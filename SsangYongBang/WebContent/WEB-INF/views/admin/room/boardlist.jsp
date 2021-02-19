@@ -20,7 +20,7 @@
 		<h1 class="welcome">방 관리<small> 회원이 게시한 방 정보</small></h1>
 		
 		<table class="table table-hover table-type-list">
-			<thead>
+			<thead class="board-table-head">
 				<tr>
 					<th scope="col" class="text-center">제목</th>
 					<th scope="col" class="text-center ">글쓴이</th>
