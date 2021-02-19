@@ -15,14 +15,19 @@
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 
 <style>
+
+.main {
+	padding-left: 80px;
+}
+
 #chating {
-   
+   display: inline-block;
    width: 700px;
    border: 1px solid #ddd;
    min-height: 500px;
    padding: 0px 0px 30px 0px;
    text-align: center;
-   margin-left: 300px;
+   margin-left: 20px;
    
    
 }
@@ -40,7 +45,9 @@
 
 #chatinglog {
 
-   min-height: 400px;
+   height: 400px;
+   overflow: scroll;
+   margin-bottom: 10px;
 }
 
 .servicestore {
@@ -69,7 +76,7 @@
 
 .enterbox {
    
-   margin-bottom: 10px;
+   margin-bottom: 5px;
 }
 
 
@@ -83,6 +90,46 @@
 	text-align: right;
 	margin-bottom: 18px;
 	margin-right: 10px;
+}
+
+.inputplace {
+	margin-left: 30px;
+	margin-right: 20px;
+	width: 500px;
+	display: inline-block;
+	text-align: left;
+
+}
+
+.btnplace {
+	display: inline-block;
+	text-align: right;
+}
+
+.leftchatlist {
+	display: inline-block;
+	height: 510px;
+	width: 230px;
+	border: 3px solid  #ddd;
+	border-radius: 10px;
+	position: relative;
+	top: 30px;
+	left: -5px;
+	overflow: scroll;
+
+}
+
+ul {
+	list-style: none;
+}
+
+.servicelist {
+
+	border-radius: 5px;
+	margin: 3px;
+	padding: 10px;
+	font-size:1.3em;
+	
 }
 
 </style>
@@ -105,17 +152,22 @@
    <div class="main">
    
    <!-- ########## 좌측 시작 -->
+	
+	<div class="leftchatlist">
+	<ul class="chatgroup">
+		<li class="servicelist"> 청소의전설&nbsp;&nbsp;<span class="badge">2</span></li>
+		<li class="servicelist">굿청소&nbsp;&nbsp;<span class="badge">1</span> </li>
+		<li class="servicelist"> 청소의전설&nbsp;&nbsp;<span class="badge">2</span></li>
+		<li class="servicelist">굿청소&nbsp;&nbsp;<span class="badge">1</span> </li>
+		<li class="servicelist"> 청소의전설&nbsp;&nbsp;<span class="badge">2</span></li>
+		<li class="servicelist">굿청소&nbsp;&nbsp;<span class="badge">1</span> </li>
 
-   
 
+	</ul>
+	</div>
 
-   <!--좌측화면 끝 ##########  -->
-   
-   
-   
-   <!-- ########## 내용 시작 -->
- 
-   
+		<!--좌측화면 끝 ##########  -->
+    
    <!-- 본문 상단 -->
 
 
@@ -163,16 +215,34 @@
                      </div>
                      <div style="clear: both"></div>
                      
+                     <div class="memberway">
+                        <span class="member">내용입니다.</span>
+                     </div>
+                     <div style="clear: both"></div>
+                     
+                     <div class="serviceway">
+                        <span class="servicestore">업체명</span> <span class="msg">안녕하세요</span>
+                     </div>
+                     <div style="clear: both"></div>
+                     <div class="serviceway">
+                        <span class="servicestore">업체명</span> <span class="msg">안녕하세요</span>
+                     </div>
+                     <div style="clear: both"></div>
+                      <div class="serviceway">
+                        <span class="servicestore">업체명</span> <span class="msg">안녕하세요</span>
+                     </div>
+                     <div style="clear: both"></div>
+                     
                   </div>
                   <!-- 채팅 말풍선 보이는 사각형 끝 -->
                   
                   <!-- 메시지 전송 박스 -->
                   <div class="enterbox">
                      <form action="" method="POST">
-                     <div class="col-sm-11">
+                     <div class="inputplace">
                      <input type="text" class="form-control" placeholder="내용을 입력하세요">
                      </div>
-                     <div class="col-sm-1">
+                     <div class="btnplace">
                      <button type="submit" class="btn btn-success">입력</button>
                      </div>
                      </form>
