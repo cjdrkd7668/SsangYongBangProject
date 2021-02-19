@@ -69,8 +69,8 @@
 
 							<!-- 문의 내용 -->
 							<div class="modal-body">
-								<input type="text" class="form-control" placeholder="제목을 입력해주세요.">
-								<textarea class="form-control" cols="50" rows="10" placeholder="문의 내용을 입력해주세요."
+								<div style="font-size: 1.2em;">제목</div><input type="text" class="form-control" placeholder="제목을 입력해주세요.">
+								<div style="font-size: 1.2em;">내용</div><textarea class="form-control" cols="50" rows="10" placeholder="문의 내용을 입력해주세요."
 									style="resize: none; overflow: visible;"></textarea>
 							</div>
 							<div class="modal-footer">
@@ -153,7 +153,6 @@
 				<th>반려동물</th>
 				<td>불가능</td>
 			</tr>
-		
 		</table>
 
 		<button type="button" class="btn btn-default" id="btn-back">
