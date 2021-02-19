@@ -14,7 +14,7 @@
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 	
 	<!-- list-container 시작 -->
-    <div class="list-container">
+    <div class="list-container" style="height: 570px;">
         <div class="page-header">
             <h1>희망 입주하기</h1>
         </div>
