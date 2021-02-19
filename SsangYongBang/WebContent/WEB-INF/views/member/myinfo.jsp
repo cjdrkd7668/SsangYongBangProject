@@ -33,8 +33,8 @@
                     </tr>
                     <tr>
                         <td>
-                            총 게시물&nbsp;&nbsp;<b>5개</b>
-                            / 총 댓글&nbsp;&nbsp;<b>10개</b>
+                            총 게시물&nbsp;&nbsp;<strong style="color: #3777BA;">5</strong>개
+                            / 총 댓글&nbsp;&nbsp;<strong style="color: #3777BA;">10</strong>개
                         </td>
                     </tr>
                 </table>
