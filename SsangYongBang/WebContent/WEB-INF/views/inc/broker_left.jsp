@@ -4,7 +4,7 @@
 <style>
   
 .container {
-	margin-left: 180px;
+	padding-left: 180px;
 	min-height: 600px;
 }
 
