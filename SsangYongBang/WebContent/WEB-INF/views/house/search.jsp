@@ -18,6 +18,9 @@
         integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> 
+<style>
+.modal-open{overflow:auto;padding-right:0 !important;}
+</style>
 </head>
 <body>
 
