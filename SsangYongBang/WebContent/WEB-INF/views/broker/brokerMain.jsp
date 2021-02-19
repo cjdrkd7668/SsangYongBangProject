@@ -129,7 +129,7 @@
 				
 				<button type="button" class="btn btn-default">
 					<span class="glyphicon glyphicon-remove"></span> 취소하기
-				</button>
+				</button>	
 			</div>
 			<div class ="btn-del">
 				<button type="button" class="btn btn-default">
