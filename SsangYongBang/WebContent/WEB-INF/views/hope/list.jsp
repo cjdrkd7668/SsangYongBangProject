@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>희망입주정보</title>
+<title>희망 입주 정보</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 <link rel="stylesheet" href="/sybang/css/hopelist.css">
 </head>
