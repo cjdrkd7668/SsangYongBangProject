@@ -16,7 +16,7 @@ body {
 	padding: 20px;
 	width: 1000px;
 	margin: 30px auto;
-	height: 1000px;
+	height: 850px;
 }
 
 .detail-container .page-header {
@@ -134,6 +134,7 @@ body {
 
 #btn-back {
 	float: right;
+	margin-top: 10px;
 }
 
 #modal1 {
