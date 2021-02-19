@@ -32,7 +32,7 @@
                 <th>방 개수</th>
                 <th>상태</th>
             </tr>
-            <tr>
+            <tr onclick="location.href='/sybang/house/detail.do'">
                 <td><input type="checkbox"></td>
                 <td>1</td>
                 <td>매매</td>
@@ -111,7 +111,7 @@
 
     <div class="btns btn-group">
         <button type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-pencil"></span> 등록하기
+            <span class="glyphicon glyphicon-pencil"></span> 글쓰기
         </button>
         <button type="button" class="btn btn-default">
             <span class="glyphicon glyphicon-trash"></span> 삭제하기

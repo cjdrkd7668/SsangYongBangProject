@@ -123,7 +123,7 @@
             <tr>
                 <th>설명</th>
                 <td colspan="3">
-                    <textarea class="form-control" rows="3" style="resize: none;"></textarea>
+                    <textarea class="form-control" rows="3" style="resize: none; font-size: 1em;"></textarea>
                 </td>
             </tr>
         </table>
