@@ -20,7 +20,7 @@
 		<h1 class="welcome">매물 관리<small> 중개사가 게시한 부동산 매물</small></h1>
 		
 		<table class="table table-hover table-type-list">
-			<thead>
+			<thead class= "board-table-head">
 				<tr>
 					<th scope="col" class="text-center">제목</th>
 					<th scope="col" class="text-center ">글쓴이</th>
