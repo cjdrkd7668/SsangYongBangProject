@@ -96,6 +96,9 @@
             <button type="button" class="btn btn-default">
                 <span class="glyphicon glyphicon-remove"></span> 취소하기
             </button>
+            <button type="button" class="btn btn-default" onclick="location.href='/sybang/hope/list.do'">
+                <span class="glyphicon glyphicon-list"></span> 목록보기
+            </button>
         </div>
 
     </div>
