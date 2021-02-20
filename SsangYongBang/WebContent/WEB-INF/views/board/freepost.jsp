@@ -16,35 +16,85 @@
 	
 <!-- board-container 시작 -->
     <div class="board-container">
-            <div class="page-header">
-                <h2><strong>
-                    <small class="blue">자유게시판</small> 글쓰기&nbsp;<i class="fas fa-pencil-alt blue"></i></strong>
-                    
-                
-            </h2>
-            <div class="divider"></div>
-            
-            </div>
-            
-
-        <table class="table table-default">
-            <tr>
-                <td><input type="text" id="board-title" class="form-control" placeholder="제목을 입력해주세요." style="height: 50px; width: 890px; font-size: 1.4em; box-shadow: 1px 0px 3px #486BB8;"></td>
-                <td><textarea type="text" id="board-content" class="form-control" placeholder="내용을 입력해주세요." style="height: 200px; width: 890px; font-size: 1.1em; resize: none;  box-shadow: 1px 0px 3px #486BB8;"></textarea></td>
-            </tr>
-        </table>
-
-        <div class="btns btn-group">
-            <button type="button" class="btn btn-info" style="background-color: #486BB8;">
-                <span class="glyphicon glyphicon-ok"></span> 등록하기
+        <div class="btns btn-group btn1">
+            <button type="button" class="btn btn-default">
+                <i class="fas fa-caret-square-left"></i> 이전 글
             </button>
             <button type="button" class="btn btn-default" onclick="location.href='/sybang/board/freelist.do'">
-                <span class="glyphicon glyphicon-remove"></span> 취소하기
+                <i class="fas fa-trash-alt"></i> 목록보기
+            </button>
+            <button type="button" class="btn btn-default">
+                다음 글 <i class="fas fa-caret-square-right"></i>
             </button>
         </div>
 
-        
-        
+        <!-- 자유게시판 글 시작 -->
+        <table class="table table-default tbl-content ">
+            <tr>
+                <td colspan="3" style="height: 30px;color: gray; padding-left: 20px;">자유게시판</td>
+            </tr>
+            <tr>
+                <td colspan="3" id="content-title" style="height: 40px; font-weight: bold; font-size: 1.1em;">자유게시판 글
+                    제목입니다.</td>
+            </tr>
+            <tr id="content-profile">
+                <td id="content-name">홍길동</td>
+                <td id="content-date">21.02.20 15:50</td>
+                <td id="content-readcount">조회&nbsp;&nbsp;<small class="blue">0</small></td>
+            </tr>
+            <tr>
+                <td colspan="3" id="content-content">자유게시판 글 내용입니다.자유게시판 글 내용입니다.자유게시판 글 내용입니다.자유게시판 글 내용입니다.자유게시판 글
+                    내용입니다.자유게시판 글
+                    내용입니다.자유게시판 글 내용입니다.자유게시판 글 내용입니다.자유게시판 글 내용입니다.자유게시판 글 내용입니다.자유게시판 글 내용입니다.</td>
+            </tr>
+        </table>
+        <!-- 자유게시판 글 끝 -->
+
+
+
+        <div class="btns btn-group btn2" style="float: right;">
+            <button type="button" class="btn btn-default">
+                <i class="fas fa-edit"></i> 수정하기
+            </button>
+            <button type="button" class="btn btn-default">
+                <i class="fas fa-trash-alt"></i> 삭제하기
+            </button>
+            <button type="button" class="btn btn-default">
+                <i class="fas fa-comment-alt"></i> 댓글달기
+            </button>
+        </div>
+
+        <!-- 자유게시판 댓글 시작 -->
+        <table class="table table-default tbl-comment">
+            <tr>
+                <td class="well well-sm">
+                    <div id="cmt-name">홍길동</div>
+                    <div id="cmt-date">21.02.20 15:59&nbsp;&nbsp;<span class="badge"
+                            style="background-color: red;">N</span></div>
+                    <div class="btn-cmt">
+                        <div class="edit">[&nbsp;<i class="fas fa-edit"></i>수정]</div>
+                        <span class="delete">[&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;삭제]</span>
+                    </div>
+                    <textarea id="cmt-comment"
+                        readonly>댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다.</textarea>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="well well-sm">
+                    <div id="cmt-name">홍길동</div>
+                    <div id="cmt-date">21.02.20 15:59&nbsp;&nbsp;</div>
+                    <div class="btn-cmt">
+                        <div class="edit">[&nbsp;<i class="fas fa-edit"></i>수정]</div>
+                        <span class="delete">[&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;삭제]</span>
+                    </div>
+                    <textarea id="cmt-comment"
+                        readonly>댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다.</textarea>
+
+                </td>
+            </tr>
+        </table>
+        <!-- 자유게시판 댓글 끝 -->
 
     </div>
     <!-- board-container 끝 -->

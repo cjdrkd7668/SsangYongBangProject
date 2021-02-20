@@ -43,7 +43,8 @@
             </tr>
             <tr onclick="location.href='/sybang/board/freedetail.do'">
                 <td class="num">1</td>
-                <td class="title">제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.</td>
+                <td class="title">제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.&nbsp;<span class="badge"
+                    style="background-color: red;">N</span></td>
                 <td class="writer">홍길동</td>
                 <td class="date">21.02.17</td>
                 <td class="readcount">1</td>
