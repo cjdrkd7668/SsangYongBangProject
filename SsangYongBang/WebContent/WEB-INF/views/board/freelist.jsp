@@ -27,7 +27,7 @@
                 <th>작성자</th>
                 <th>등록일</th>
             </tr>
-            <tr>
+            <tr onclick="location.href='/sybang/board/freedetail.do'">
                 <td>1</td>
                 <td>제목입니다.</td>
                 <td>홍길동</td>
@@ -80,7 +80,7 @@
     <!-- page-bar 끝 -->
 
     <div class="btns btn-group">
-        <button type="button" class="btn btn-default"  onclick="location.href='/sybang/board/freepost.do'">
+        <button type="button" class="btn btn-default" onclick="location.href='/sybang/board/freepost.do'">
             <span class="glyphicon glyphicon-pencil"></span> 글쓰기
         </button>
         <button type="button" class="btn btn-default">
