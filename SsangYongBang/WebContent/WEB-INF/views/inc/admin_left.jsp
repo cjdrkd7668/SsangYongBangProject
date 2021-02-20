@@ -42,7 +42,7 @@
 				<li><a href="javascript:;">구매자 성별별 거래량</a></li>
 			</ul>
 		</li>
-		<li><a href="javascript:;">업체 승인</a></li>
+		<li><a href="/sybang/approval/boardlist.do">업체 승인</a></li>
 		<li><a href="javascript:;">알림 센터</a></li>
 		<li><a href="javascript:;">광고 관리</a></li>
 		<li><a href="javascript:;">허위 매물 삭제</a></li>

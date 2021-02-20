@@ -168,5 +168,57 @@ h2 {
 	background-color: #EFEFEF;
 }
 
+/* mg-approval, 업체승인 */
+.mg-approval .buttons {
+	text-align: right;
+	margin-top: 20px;
+}
+
+.mg-approval .buttons a {
+	margin-left: 10px;
+}
+
+.mg-approval .table-approval th {
+	border-bottom: 5px solid #486BB8;
+}
+
+.mg-approval .table-approval td{
+	font-size: 14px;
+	vertical-align: middle;
+}
+
+.mg-approval .table-approval td:nth-child(2) > div:nth-child(1) {
+	font-size: 1.4em;
+}
+
+.mg-approval .table-approval td:nth-child(2) > div:nth-child(n+2) {
+	font-size: 0.9em;
+	border-bottom: 1px #DDD solid;
+}
+
+.mg-approval .table-approval td:nth-child(2) > div:nth-child(n+2) > span {
+	float: right;
+}
+
+.mg-approval .table-approval td:nth-child(1)
+ {
+	background-color: #EFEFEF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
