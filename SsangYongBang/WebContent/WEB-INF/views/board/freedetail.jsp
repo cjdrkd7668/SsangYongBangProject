@@ -71,7 +71,7 @@
                     <div id="cmt-name">홍길동</div>
                     <div id="cmt-date">21.02.20 15:59&nbsp;&nbsp;<span class="badge"
                             style="background-color: red;">N</span></div>
-                    <div id="cmt-comment">댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다.</div>
+                    <textarea id="cmt-comment" readonly>댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다.</textarea>
                     <div class="btn-cmt">
                         <div class="edit">[&nbsp;<i class="fas fa-edit"></i>]</div>
                         <span class="delete">[&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;]</span>
@@ -82,7 +82,7 @@
                 <td class="well well-sm">
                     <div id="cmt-name">홍길동</div>
                     <div id="cmt-date">21.02.20 15:59</div>
-                    <div id="cmt-comment">댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다.</div>
+                    <textarea id="cmt-comment" readonly>댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다.</textarea>
                     <div class="btn-cmt">
                         <div class="edit">[&nbsp;<i class="fas fa-edit"></i>]</div>
                         <div class="delete">[&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;]</div>
