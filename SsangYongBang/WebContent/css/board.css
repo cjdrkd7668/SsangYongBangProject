@@ -18,12 +18,9 @@ small {
 	border-bottom: 5px solid #486BB8;
 }
 
-.table-type-list th:nth-child(1) {
-	width: 70%;
-}
-
-.table-type-list th:last-child {
-	width: 10%;
+.table-type-list .board-table-head th,
+.table-type-list .board-table-body td {
+	vertical-align: middle;
 }
 
 .table-type-view tr {

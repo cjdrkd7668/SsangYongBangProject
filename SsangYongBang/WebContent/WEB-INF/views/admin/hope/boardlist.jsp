@@ -83,7 +83,7 @@
 						    <div class="modal-content">
 						      <div class="modal-header">
 						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						        <h4 class="modal-title" id="myModalLabel">상세설명</h4>
+						        <h4 class="modal-title">상세설명</h4>
 						      </div>
 						      <div class="modal-body">
 						        강아지를 키울 수 있어야 해요! 연락주시면 날짜를 맞춰서 방 보러 가겠습니다.강아지를 키울 수 있어야 해요! 연락주시면 날짜를 맞춰서 방 보러 가겠습니다.강아지를 키울 수 있어야 해요! 연락주시면 날짜를 맞춰서 방 보러 가겠습니다.강아지를 키울 수 있어야 해요! 연락주시면 날짜를 맞춰서 방 보러 가겠습니다.강아지를 키울 수 있어야 해요! 연락주시면 날짜를 맞춰서 방 보러 가겠습니다.
