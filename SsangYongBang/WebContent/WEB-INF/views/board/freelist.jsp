@@ -80,7 +80,7 @@
     <!-- page-bar 끝 -->
 
     <div class="btns btn-group">
-        <button type="button" class="btn btn-default">
+        <button type="button" class="btn btn-default"  onclick="location.href='/sybang/board/freepost.do'">
             <span class="glyphicon glyphicon-pencil"></span> 글쓰기
         </button>
         <button type="button" class="btn btn-default">

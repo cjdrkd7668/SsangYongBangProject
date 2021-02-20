@@ -16,7 +16,7 @@
     <!-- list-container 시작 -->
     <div class="list-container" style="height: 550px;">
         <div class="page-header">
-            <h1>희망 입주하기</h1>
+            <h1>희망 입주 정보</h1>
         </div>
 
         <table class="table table-bordered">
