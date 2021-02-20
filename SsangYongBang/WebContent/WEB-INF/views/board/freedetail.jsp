@@ -14,14 +14,14 @@
 	<!-- header 가져오기######## -->
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 	
-	<!-- board-container 시작 -->
+	   <!-- board-container 시작 -->
     <div class="board-container">
         <div class="btns btn-group btn1">
             <button type="button" class="btn btn-default">
                 <i class="fas fa-caret-square-left"></i> 이전 글
             </button>
             <button type="button" class="btn btn-default" onclick="location.href='/sybang/board/freelist.do'">
-                <i class="fas fa-list"></i> 목록보기
+                <i class="fas fa-list-alt"></i> 목록보기
             </button>
             <button type="button" class="btn btn-default">
                 다음 글 <i class="fas fa-caret-square-right"></i>
@@ -54,10 +54,10 @@
 
         <div class="btns btn-group btn2" style="float: right;">
             <button type="button" class="btn btn-default">
-                <span class="glyphicon glyphicon-minus"></span> 수정하기
+                <i class="fas fa-edit"></i> 수정하기
             </button>
             <button type="button" class="btn btn-default">
-                <span class="glyphicon glyphicon-trash"></span> 삭제하기
+                <i class="fas fa-trash-alt"></i> 삭제하기
             </button>
             <button type="button" class="btn btn-default">
                 <i class="fas fa-comment-alt"></i> 댓글달기
@@ -71,22 +71,26 @@
                     <div id="cmt-name">홍길동</div>
                     <div id="cmt-date">21.02.20 15:59&nbsp;&nbsp;<span class="badge"
                             style="background-color: red;">N</span></div>
-                    <textarea id="cmt-comment" readonly>댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다.</textarea>
                     <div class="btn-cmt">
-                        <div class="edit">[&nbsp;<i class="fas fa-edit"></i>]</div>
-                        <span class="delete">[&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;]</span>
+                        <div class="edit">[&nbsp;<i class="fas fa-edit"></i>수정]</div>
+                        <span class="delete">[&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;삭제]</span>
                     </div>
+                    <textarea id="cmt-comment"
+                        readonly>댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다.</textarea>
+
                 </td>
             </tr>
             <tr>
                 <td class="well well-sm">
                     <div id="cmt-name">홍길동</div>
-                    <div id="cmt-date">21.02.20 15:59</div>
-                    <textarea id="cmt-comment" readonly>댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다.</textarea>
+                    <div id="cmt-date">21.02.20 15:59&nbsp;&nbsp;</div>
                     <div class="btn-cmt">
-                        <div class="edit">[&nbsp;<i class="fas fa-edit"></i>]</div>
-                        <div class="delete">[&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;]</div>
+                        <div class="edit">[&nbsp;<i class="fas fa-edit"></i>수정]</div>
+                        <span class="delete">[&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;삭제]</span>
                     </div>
+                    <textarea id="cmt-comment"
+                        readonly>댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다.</textarea>
+
                 </td>
             </tr>
         </table>
