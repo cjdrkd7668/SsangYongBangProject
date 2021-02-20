@@ -14,7 +14,7 @@
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
         <!-- list-container 시작 -->
-    <div class="list-container">
+    <div class="list-container" style="margin-top: -50px;">
         <div class="page-header">
             <h1>내놓은 방</h1>
             <div class="well well-sm" style="float:left;">총 <b>5</b>개의 방이 등록되어 있습니다.</div>

@@ -18,7 +18,7 @@
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
 <!-- list-container 시작 -->
-    <div class="list-container">
+    <div class="list-container" style="margin-top: -50px;">
         <div class="page-header">
             <h1>내 정보 관리</h1>
             <hr>
