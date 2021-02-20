@@ -18,7 +18,7 @@
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
 	<!-- detail-container 시작 -->
-	<div class="detail-container">
+	<div class="detail-container" style="margin-top: -50px;">
 		<div class="page-header">
 			
 			<h1>&ldquo;매물 게시물에 대한 제목입니다.&bdquo;</h1>

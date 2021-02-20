@@ -28,7 +28,7 @@
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
 <!-- list-container 시작 -->
-    <div class="list-container">
+    <div class="list-container" style="margin-top: 10px;">
 
         <!-- search-box 시작 -->
         <div class="search-box">

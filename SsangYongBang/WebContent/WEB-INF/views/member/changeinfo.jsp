@@ -18,7 +18,7 @@
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
 	<!-- info-container 시작 -->
-    <div class="info-container">
+    <div class="info-container" style="margin-top: -50px;">
         <div class="page-header">
             <h1>회원 정보 수정</h1>
         </div>
