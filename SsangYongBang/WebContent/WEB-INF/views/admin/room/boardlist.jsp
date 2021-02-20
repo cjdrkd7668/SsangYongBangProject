@@ -27,7 +27,7 @@
 					<th scope="col" class="text-center">작성일</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="board-table-body">
 				<tr>
 					<td class="text-left"><a href="/sybang/admin/room/view.do">깨끗한 오피스텔이고, 사무실로도 사용가능합니다. 역삼/강남역 1분 거리!!</a></td>
 					<td class="text-center">홍길동</td>

@@ -205,9 +205,19 @@ h2 {
 	background-color: #EFEFEF;
 }
 
+/* mg-false, 허위 매물 삭제 */
+.mg-false .buttons {
+	text-align: right;
+	margin-top: 20px;
+}
 
+.mg-false .buttons a {
+	margin-left: 10px;
+}
 
-
+.mg-false .table-type-list {
+	margin-top: 10px;
+}
 
 
 
