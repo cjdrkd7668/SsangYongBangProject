@@ -15,8 +15,8 @@ body {
 .board-container {
 	padding: 20px;
 	width: 1000px;
-	margin: 30px auto;
-	height: 450px;
+	margin: -20px auto;
+	height: 500px;
 }
 
 .board-container .page-header {
