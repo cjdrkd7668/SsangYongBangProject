@@ -53,7 +53,7 @@
 				            <li><a href="/sybang/servicechat/servicechat.do">1:1 문의</a></li>
 				            <li><a href="/sybang/servicereview/servicereview.do">후기</a></li>
 				            <li class="divider"></li>
-				            <li><a href="#">마이페이지</a></li>
+				            <li><a href="/sybang/service/servicemypage.do">마이페이지</a></li>
 			         	</ul>
         			</li>
         			<li class="dropdown">
