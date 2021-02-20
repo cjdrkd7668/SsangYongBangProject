@@ -130,7 +130,7 @@
 
 
         <div class="btns btn-group">
-            <button type="button" class="btn btn-default">
+            <button type="button" class="btn btn-info" style="background-color: #486BB8;">
                 <span class="glyphicon glyphicon-ok"></span> 등록하기
             </button>
             <button type="button" class="btn btn-default">
