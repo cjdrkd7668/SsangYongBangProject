@@ -14,14 +14,14 @@
 	<!-- header 가져오기######## -->
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 	
-	   <!-- board-container 시작 -->
+    <!-- board-container 시작 -->
     <div class="board-container">
         <div class="btns btn-group btn1">
             <button type="button" class="btn btn-default">
                 <i class="fas fa-caret-square-left"></i> 이전 글
             </button>
             <button type="button" class="btn btn-default" onclick="location.href='/sybang/board/freelist.do'">
-                <i class="fas fa-list-alt"></i> 목록보기
+                <i class="fas fa-trash-alt"></i> 목록보기
             </button>
             <button type="button" class="btn btn-default">
                 다음 글 <i class="fas fa-caret-square-right"></i>
@@ -75,7 +75,7 @@
                         <div class="edit">[&nbsp;<i class="fas fa-edit"></i>수정]</div>
                         <span class="delete">[&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;삭제]</span>
                     </div>
-                    <textarea id="cmt-comment"
+                    <textarea id="cmt-comment" style="width: 850px; padding-left: 10px;"
                         readonly>댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다.</textarea>
 
                 </td>
@@ -88,7 +88,7 @@
                         <div class="edit">[&nbsp;<i class="fas fa-edit"></i>수정]</div>
                         <span class="delete">[&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;삭제]</span>
                     </div>
-                    <textarea id="cmt-comment"
+                    <textarea id="cmt-comment" style="width: 850px; padding-left: 10px;"
                         readonly>댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다. 댓글입니다.댓글입니다.댓글입니다.댓글입니다.</textarea>
 
                 </td>
