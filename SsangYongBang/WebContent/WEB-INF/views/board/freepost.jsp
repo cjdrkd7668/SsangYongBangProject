@@ -7,6 +7,7 @@
 <title>자유게시판 글쓰기</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 <link rel="stylesheet" href="/sybang/css/freepost.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 </head>
 <body>
 
@@ -17,7 +18,7 @@
     <div class="board-container">
             <div class="page-header">
                 <h2><strong>
-                    <small class="blue">자유게시판</small> 글쓰기&nbsp;<span class="glyphicon glyphicon-pencil blue"></span></strong>
+                    <small class="blue">자유게시판</small> 글쓰기&nbsp;<i class="fas fa-pencil-alt blue"></i></strong>
                     
                 
             </h2>

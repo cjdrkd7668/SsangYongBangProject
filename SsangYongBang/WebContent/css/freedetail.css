@@ -103,29 +103,27 @@ body {
 }
 
 #cmt-date {
-	width: 700px;
+	float: left;
+	width: 120px;
 	height: 30px;
-	padding-left: 80px;
 	margin-top: -1px;
 }
 
 .btn-cmt {
 	float: left;
-	padding-left: 40px;
 	width: 150px;
-	margin-left: 10px;
 }
 
 .btn-cmt .edit {
-	font-size: 1.3em;
+	font-size: 1em;
 	float: left;
-	width: 45px;
-	margin-left: 5px;
+	width: 60px;
+	margin-left: 10px;
 }
 
 .btn-cmt .delete {
-	font-size: 1.3em;
+	font-size: 1em;
 	float: left;
-	width: 45px;
-	margin-left: 5px;
+	width: 60px;
+	margin-left: 0px;
 }
