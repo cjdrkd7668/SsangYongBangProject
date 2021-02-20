@@ -28,6 +28,7 @@
    padding: 0px 0px 30px 0px;
    text-align: center;
    margin-left: 20px;
+   margin-top: 40px;
    
    
 }
@@ -113,7 +114,7 @@
 	border: 3px solid  #ddd;
 	border-radius: 10px;
 	position: relative;
-	top: 30px;
+	top: 10px;
 	left: -5px;
 	overflow: scroll;
 
