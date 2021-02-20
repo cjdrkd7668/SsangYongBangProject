@@ -32,7 +32,7 @@
 
 .mypageMenu {
 	
-	font-size: 2em;
+	font-size: 1.7em;
 	padding-top: 10px;
 }
 
@@ -48,7 +48,7 @@
 
 	padding-left: 30px;
 	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-bottom: 18px;
 	border-bottom: 1px solid #ddd;
 	margin-bottom: 40px;
 	color: #666;
@@ -104,6 +104,8 @@
 				<li class="mypageItem"><span class="mypageMenu">
 				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;내 프로필 관리</span>
 				</li>
+				<li class="mypageItem"><span class="mypageMenu"><a href="/sybang/request/receivedrequestlist.do">
+				<span class="glyphicon glyphicon-pencil aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;받은 요청서</span></li>
 				<li class="mypageItem"><span class="mypageMenu">
 				<span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;일정 관리</span>
 				</li>
