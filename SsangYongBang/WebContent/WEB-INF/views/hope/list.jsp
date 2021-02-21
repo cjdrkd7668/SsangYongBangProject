@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>희망입주정보</title>
+<title>희망 입주 정보</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 <link rel="stylesheet" href="/sybang/css/hopelist.css">
 </head>
@@ -14,7 +14,7 @@
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
     <!-- list-container 시작 -->
-    <div class="list-container">
+    <div class="list-container" style="margin-top: -50px;">
         <div class="page-header">
             <h1>희망 입주 정보</h1>
             <div class="well well-sm" style="float:left;">총 <b>5</b>개의 희망 입주글이 등록되어 있습니다.</div>
@@ -24,20 +24,20 @@
             <tr>
                 <th><input type="checkbox"></th>
                 <th>번호</th>
-                <th>유형</th>
+                <th>거래 유형</th>
                 <th>가격</th>
                 <th>지역</th>
                 <th>면적</th>
                 <th>방 개수</th>
             </tr>
-            <tr>
+            <tr onclick="location.href='/sybang/hope/view.do'">
                 <td><input type="checkbox"></td>
                 <td>1</td>
-                <td>매매</td>
-                <td>2억 5000만</td>
+                <td>전세</td>
+                <td>2억 3000만원</td>
                 <td>강남구</td>
-                <td>27</td>
-                <td>2개</td>
+                <td>36.24</td>
+                <td>1개</td>
             </tr>
             <tr>
                 <td><input type="checkbox"></td>
@@ -98,8 +98,9 @@
     <!-- page-bar 끝 -->
 
     <div class="btns btn-group">
-        <button type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-pencil"></span> 등록하기
+        <button type="button" class="btn btn-default" onclick="location.href='/sybang/hope/post.do'">
+
+            <span class="glyphicon glyphicon-pencil"></span> 글쓰기
         </button>
         <button type="button" class="btn btn-default">
             <span class="glyphicon glyphicon-trash"></span> 삭제하기

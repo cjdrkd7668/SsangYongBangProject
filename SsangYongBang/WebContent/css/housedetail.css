@@ -1,0 +1,178 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap')
+	;
+
+body {
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Noto Sans KR', sans-serif;
+	letter-spacing: -1px;
+}
+
+.detail-container {
+	padding: 20px;
+	width: 1000px;
+	margin: 30px auto;
+	height: 900px;
+}
+
+.detail-container .page-header {
+	width: 1000px;
+	text-align: center;
+}
+
+.detail-container .page-header h1 {
+	font-size: 2.4em;
+	text-align: center;
+}
+
+.detail-container .page-header b {
+	font-size: 1.1em;
+	text-align: center;
+}
+
+.detail-container .page-header small {
+	font-size: 0.8em;
+	text-align: center;
+	float: none;
+}
+
+.detail-container .table {
+	position: relative;
+	top: 10px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5px;
+	font-size: 1.2em;
+	border-bottom: 1px solid #CCC;
+}
+
+.detail-container th {
+	background-color: #EEE;
+	width: 12%;
+	margin: 20px;
+	height: 45px;
+	text-align: center;
+}
+
+.detail-container td {
+	width: 16%;
+	text-align: left;
+}
+
+.head-container {
+	width: 900px;
+	height: 420px;
+	margin: 10px auto;
+	padding: 10px;
+}
+
+#head-img {
+	text-align: center;
+	margin-top: auto;
+	margin-bottom: auto;
+	display: inline-block;
+}
+
+#head-img img {
+	width: 100vh;
+}
+
+#head-title {
+	height: 40px;
+	font-size: 2em;
+}
+
+#head-content {
+	height: 150px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 10px;
+	overflow: visible;
+	font-size: 1.2em;
+}
+
+#btn-detail1 {
+	width: 150px;
+	height: 50px;
+	font-size: 1.2em;
+	outline: none;
+}
+
+/* 찜하기 버튼 영역 */
+#heart {
+	float: left;
+	width: 80px;
+	height: 60px;
+	text-align: center;
+	margin: 5px;
+}
+
+/* 찜하기 버튼 */
+#btn-heart {
+	font-size: 25px;
+	color: #444;
+}
+
+/* 찜하기 버튼 hover */
+#btn-heart:hover {
+	color: red;
+	opacity: 0.7;
+}
+
+/* 허위 매물 신고 버튼 */
+#btn-detail2 {
+	float: right;
+	margin-right: 15px;
+	width: 150px;
+	height: 50px;
+	background-color: red;
+	color: #EEE;
+	border: 0;
+	font-size: 1.2em;
+}
+
+/* 뒤로 가기 버튼 */
+#btn-back {
+	float: right;
+	margin-top: 10px;
+}
+
+/* #modal-false {
+			border: 3px solid rebeccapurple;
+			width: 100px;
+			float: right;
+		} */
+
+/* 중개사 상호명 */
+#broker {
+	margin-top: 10px;
+	margin-left: 5px;
+	font-size: 1.2em;
+}
+
+/* 중개사 이름 */
+#broker-name {
+	color: gray;
+	margin: 5px;
+	font-size: 1.2em;
+}
+
+#modal-chat input[type="text"] {
+	font-size: 1.5em;
+	height: 50px;
+	margin-bottom: 10px;
+}
+
+#modal-chat textarea {
+	font-size: 1.5em;
+}
+
+/* 모달에서 신고 사유 내용 칸 */
+#modal-false textarea {
+	font-size: 1.5em;
+}

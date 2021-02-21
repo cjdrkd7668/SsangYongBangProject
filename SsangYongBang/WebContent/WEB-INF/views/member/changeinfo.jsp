@@ -18,7 +18,7 @@
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
 	<!-- info-container 시작 -->
-    <div class="info-container">
+    <div class="info-container" style="margin-top: -50px;">
         <div class="page-header">
             <h1>회원 정보 수정</h1>
         </div>
@@ -66,7 +66,7 @@
             <button type="button" class="btn btn-default">
                 <span class="glyphicon glyphicon-ok"></span> 수정하기
             </button>
-            <button type="button" class="btn btn-default">
+            <button type="button" class="btn btn-default" onclick="location.href='/sybang/member/myinfo.do'">
                 <span class="glyphicon glyphicon-remove"></span> 취소하기
             </button>
         </div>

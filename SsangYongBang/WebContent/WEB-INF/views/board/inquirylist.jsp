@@ -16,7 +16,7 @@
             <!-- list-container 시작 -->
     <div class="list-container">
         <div class="page-header">
-            <h1>문의게시판</h1>
+            <h1><strong style="color: #3777BA;">문의</strong>게시판</h1>
             <!-- <div class="well well-sm" style="float:left;">총 <b>5</b>개의 자유게시판 글이 등록되어 있습니다.</div> -->
         </div>
 
@@ -83,9 +83,9 @@
         <button type="button" class="btn btn-default">
             <span class="glyphicon glyphicon-pencil"></span> 글쓰기
         </button>
-        <!-- <button type="button" class="btn btn-default">
+        <button type="button" class="btn btn-default">
             <span class="glyphicon glyphicon-trash"></span> 삭제하기
-        </button> -->
+        </button>
     </div>
 
 </div>

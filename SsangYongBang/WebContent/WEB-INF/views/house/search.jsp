@@ -17,6 +17,10 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
         integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> 
+<style>
+.modal-open{overflow:auto;padding-right:0 !important;}
+</style>
 </head>
 <body>
 
@@ -24,7 +28,7 @@
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
 <!-- list-container 시작 -->
-    <div class="list-container">
+    <div class="list-container" style="margin-top: 10px;">
 
         <!-- search-box 시작 -->
         <div class="search-box">
@@ -278,7 +282,7 @@
             <!-- search-box 끝 -->
 
             <!-- map 시작 -->
-            <div id="map" style="width:100%;height:600px;"></div>
+			<div id="map" style="width:100%;height:600px;"></div>
             <!-- map 끝 -->
 
         </div>
@@ -288,19 +292,33 @@
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 
 
-	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=950df7fcc5aace4db5b109e8c92b5034"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=950df7fcc5aace4db5b109e8c92b5034&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=950df7fcc5aace4db5b109e8c92b5034"></script>
+
+	<script src="/sybang/js/address.js"></script>
 	<script>
 		var container = document.getElementById('map');
 		var options = {
-			center : new kakao.maps.LatLng(33.450701, 126.570667),
+			center : new kakao.maps.LatLng(37.499426242183034, 127.03425370768977),
 			level : 3
 		};
-
+	
 		var map = new kakao.maps.Map(container, options);
-	</script>
-
-	<script>
+		
+		list.forEach(function(item, index) {
+			
+			var marker2 = new daum.maps.Marker({
+				position: new daum.maps.LatLng(item.position.lat, item.position.lng)	
+			});
+			
+			var infowindow2 = new kakao.maps.InfoWindow({
+				content: item.name.substring(8),
+				removable: true });
+			
+			infowindow2.open(map, marker2);
+			marker2.setMap(map);
+		});
+	
 		var elems = Array.prototype.slice.call(document
 				.querySelectorAll('.js-switch'));
 

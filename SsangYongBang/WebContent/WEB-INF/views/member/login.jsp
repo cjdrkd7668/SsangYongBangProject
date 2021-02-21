@@ -18,7 +18,7 @@
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
 	    <!-- list-container 시작 -->
-    <div class="list-container">
+    <div class="list-container" style="margin-top: -50px;">
         <div class="page-header">
             <h1>로그인</h1>
             <!-- <div class="well well-sm" style="float:left;">총 <b>5</b>개의 자유게시판 글이 등록되어 있습니다.</div> -->
@@ -28,7 +28,7 @@
             <div>
                 <input type="text" class="form-control" placeholder="아이디">
                 <input type="password" class="form-control" placeholder="비밀번호">
-                <button type="button" class="btn btn-success">로그인</button>
+                <button type="button" class="btn btn-info" style="background-color: #486BB8; font-size: 1.3em; width:150px; height:100px;">로그인</button>
                 
             </div>
             <div>

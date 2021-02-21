@@ -21,8 +21,8 @@
    	
    	
 	
-    <!-- container 시작 -->
-    <main class="container">
+        <!-- container 시작 -->
+    <main class="container" id="main-container">
 
         <!-- main-header 시작 -->
         <header class="jumbotron main-header">
@@ -149,7 +149,7 @@
             </div>
 
             <div class="col-sm-4">
-                <h2 class="notice-title"><a href="/sybang/notice/boardList.do">공지사항</a><small>더보기<span class="glyphicon glyphicon-chevron-right"></span></small>
+                <h2 class="notice-title">공지사항<small>더보기<span class="glyphicon glyphicon-chevron-right"></span></small>
                 </h2>
                 <a href="#" class="list-group-item notice2">공지사항입니다.</a>
                 <a href="#" class="list-group-item notice2">공지사항입니다.</a>

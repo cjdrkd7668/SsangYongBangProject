@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap')
+	;
+
+body {
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Noto Sans KR', sans-serif;
+	letter-spacing: -1px;
+}
+
+.list-container {
+	padding: 20px;
+	width: 1000px;
+	margin: -20px auto;
+	height: 750px;
+}
+
+.list-container .divider {
+	width: 200px;
+	height: 4px;
+	background: #486BB8;
+	margin-top: -10px;
+	margin-left: 0px;
+}
+
+.list-container .blue {
+	color: #486BB8;
+}
+
+.list-container .page-header {
+	width: 900px;
+	margin: 20px;
+}
+
+.list-container .table {
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5px;
+	font-size: 1.2em;
+	border-bottom: 1px solid #CCC;
+}
+
+.list-container th {
+	height: 45px;
+	text-align: center;
+}
+
+.list-container td {
+	height: 45px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.list-container .num {
+	width: 70px;
+}
+
+.list-container .title {
+	width: 600px;
+	margin-left: 10px;
+	text-align: left;
+}
+
+.list-container .writer {
+	width: 80px;
+}
+
+.list-container .date {
+	width: 120px;
+}
+
+.list-container .readcount {
+	width: 80px;
+}
+
+.list-conatiner td {
+	width: 20px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.page-bar {
+	text-align: center;
+}
+
+.list-container .page-bar a {
+	color: #444;
+	margin-top: -10px;
+}
+
+.list-container .btns {
+	float: right;
+	margin-top: -20px;
+	margin-right: 35px;
+}
+
+.search input[type="text"] {
+	width: 200px;
+	height: 35px;
+	font-size: 1em;
+	outline: none;
+	float: left;
+	margin-right: 5px;
+}
+
+.search button {
+	text-align: center;
+	padding: 3px;
+	width: 35px;
+	height: 35px;
+	font-size: 1em;
+	background-color: #486BB8;
+	color: #EEE;
+	outline: none;
+	border-radius: 50%;
+}
+
+.list-container .well {
+	font-size: 1em;
+	width: 350px;
+	float: left;
+	margin-left: 30px;
+}
+
+.list-container .well .blue {
+	float: left;
+}
+
+.list-container .search {
+	width: 250px;
+	height: 40px;
+	float: right;
+	margin-right: 40px;
+	margin-bottom: 10px;
+}

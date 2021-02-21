@@ -23,7 +23,7 @@
 		<li><a href="/sybang/admin2/config_site.do">사이트 환경설정</a></li>
 		<li><a href="/sybang/admin/room/boardlist.do">방 관리</a></li>
 		<li><a href="/sybang/admin/house/boardlist.do">매물관리</a></li>
-		<li><a href="javascript:;">희망입주조건 관리</a></li>
+		<li><a href="/sybang/admin/hope/boardlist.do">희망입주조건 관리</a></li>
 		<li>
 			<a href="/sybang/admin2/member_list.do">사용자 관리</a>
 			<ul>
@@ -42,10 +42,12 @@
 				<li><a href="/sybang/admin2/statistics/type_gender.do">구매자 성별별 거래량</a></li>
 			</ul>
 		</li>
-		<li><a href="javascript:;">업체 승인</a></li>
+		<li><a href="/sybang/approval/boardlist.do">업체 승인</a></li>
 		<li><a href="javascript:;">알림 센터</a></li>
 		<li><a href="javascript:;">광고 관리</a></li>
 		<li><a href="/sybang/admin2/falseReport.do">허위 매물 삭제</a></li>
+		<li><a href="javascript:;">후기 삭제 요청</a></li>
+		<li><a href="/sybang/falsepost/boardlist.do">허위 매물 삭제</a></li>
 		<li class="test"><a href="/sybang/admin2/textManager.do">회사운영정책</a></li>
 	</ul>
 </div>

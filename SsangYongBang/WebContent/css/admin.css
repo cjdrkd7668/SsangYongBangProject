@@ -127,6 +127,104 @@ h2 {
 	margin-left: 10px;	
 }
 
+.mg-view .panel {
+	margin-top: 30px;
+		
+}
+
+.mg-view .panel-body {
+	height: 60px;
+}
+
+/* mg-hope, 희망입주조건 관리 */
+.mg-hope .table-hope {
+	margin-top: 30px;
+}
+
+.mg-hope .table-hope th {
+	border-bottom: 5px solid #486BB8;
+}
+
+.mg-hope .table-hope td{
+	font-size: 14px;
+	vertical-align: middle;
+}
+
+.mg-hope .table-hope td:nth-child(3) > div:nth-child(1) {
+	font-size: 1.4em;
+}
+
+.mg-hope .table-hope td:nth-child(3) > div:nth-child(n+2) {
+	font-size: 0.9em;
+	border-bottom: 1px #DDD solid;
+}
+
+.mg-hope .table-hope td:nth-child(3) > div:nth-child(n+2) > span {
+	float: right;
+}
+
+.mg-hope .table-hope td:nth-child(1)
+ {
+	background-color: #EFEFEF;
+}
+
+/* mg-approval, 업체승인 */
+.mg-approval .buttons {
+	text-align: right;
+	margin-top: 20px;
+}
+
+.mg-approval .buttons a {
+	margin-left: 10px;
+}
+
+.mg-approval .table-approval th {
+	border-bottom: 5px solid #486BB8;
+}
+
+.mg-approval .table-approval td{
+	font-size: 14px;
+	vertical-align: middle;
+}
+
+.mg-approval .table-approval td:nth-child(2) > div:nth-child(1) {
+	font-size: 1.4em;
+}
+
+.mg-approval .table-approval td:nth-child(2) > div:nth-child(n+2) {
+	font-size: 0.9em;
+	border-bottom: 1px #DDD solid;
+}
+
+.mg-approval .table-approval td:nth-child(2) > div:nth-child(n+2) > span {
+	float: right;
+}
+
+.mg-approval .table-approval td:nth-child(1)
+ {
+	background-color: #EFEFEF;
+}
+
+/* mg-false, 허위 매물 삭제 */
+.mg-false .buttons {
+	text-align: right;
+	margin-top: 20px;
+}
+
+.mg-false .buttons a {
+	margin-left: 10px;
+}
+
+.mg-false .table-type-list {
+	margin-top: 10px;
+}
+
+
+
+
+
+
+
 
 
 

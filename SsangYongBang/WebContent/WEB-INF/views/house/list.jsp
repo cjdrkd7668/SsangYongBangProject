@@ -14,7 +14,7 @@
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
         <!-- list-container 시작 -->
-    <div class="list-container">
+    <div class="list-container" style="margin-top: -50px;">
         <div class="page-header">
             <h1>내놓은 방</h1>
             <div class="well well-sm" style="float:left;">총 <b>5</b>개의 방이 등록되어 있습니다.</div>
@@ -32,7 +32,7 @@
                 <th>방 개수</th>
                 <th>상태</th>
             </tr>
-            <tr>
+            <tr onclick="location.href='/sybang/house/detail.do'">
                 <td><input type="checkbox"></td>
                 <td>1</td>
                 <td>매매</td>
@@ -110,8 +110,9 @@
     <!-- page-bar 끝 -->
 
     <div class="btns btn-group">
-        <button type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-pencil"></span> 등록하기
+        <button type="button" class="btn btn-default" onclick="location.href='/sybang/house/post.do'">
+
+            <span class="glyphicon glyphicon-pencil"></span> 글쓰기
         </button>
         <button type="button" class="btn btn-default">
             <span class="glyphicon glyphicon-trash"></span> 삭제하기

@@ -20,7 +20,7 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/sybang/index.do">홈</a></li>
 					<li><a href="/sybang/house/search.do">방찾기</a></li>
-					<li><a href="/sybang/hope/list.do">희망입주하기</a></li>
+					<li><a href="/sybang/hope/post.do">희망입주하기</a></li>
 					<li><a href="/sybang/house/post.do">방내놓기</a></li>
 					<li class="dropdown">
           			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">커뮤니티<span class="caret"></span></a>
@@ -50,17 +50,16 @@
 				            <li><a href="/sybang/service/ServicestoreList.do">전문업체 찾기</a></li>
 				            <li><a href="/sybang/request/requestlist.do">고객요청서</a></li>
 				            <li class="divider"></li>
-				            <li><a href="#">1:1 문의</a></li>
-				            <li><a href="#">후기</a></li>
+				            <li><a href="/sybang/servicechat/servicechat.do">1:1 문의</a></li>
+				            <li><a href="/sybang/servicereview/servicereview.do">후기</a></li>
 				            <li class="divider"></li>
-				            <li><a href="#">마이페이지</a></li>
+				            <li><a href="/sybang/service/servicemypage.do">마이 서비스</a></li>
 			         	</ul>
         			</li>
         			<li class="dropdown">
           			<a href="/sybang/member/mypage.do" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">마이페이지<span class="caret"></span></a>
 			          	<ul class="dropdown-menu" role="menu">
 				            <li><a href="/sybang/member/myinfo.do">내 정보 관리</a></li>
-				            <li><a href="/sybang/house/list.do">내가 내놓은 방</a></li>
 				            <li><a href="#">스케줄러</a></li>
 				            <li><a href="#">1:1 문의 내역</a></li>
 			         	</ul>
