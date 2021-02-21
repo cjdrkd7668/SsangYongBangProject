@@ -15,8 +15,6 @@
     padding-left: 15px;
 }
 
-
-
 </style>
 
 </head>
@@ -27,7 +25,7 @@
 	<%@include file="/WEB-INF/views/inc/broker_left.jsp"%>
 
 	<div class="container">
-		<h1>등록된 매물</h1>
+		<h1>희망 매물 조회하기</h1>
 
 		<div class="list-container">
 			<div class="well well-sm" style="float: left;">
@@ -42,58 +40,58 @@
 					<th scope="col" class="text-center" style="width: 250px;">제목</th>
 					<th scope="col" class="text-center">작성자</th>
 					<th scope="col" class="text-center">날짜</th>
-					<th scope="col" class="text-center">거래 상태</th>
+					<th scope="col" class="text-center">조회수</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<td>1</td>
-					<td class="title"><a href="/sybang/broker/house/housedetail.do" target="_blank">🟥🟥단기방1등👍최저가약속🟥🟥단독테라스/고급형복층</a></td>
+					<td class="title"><a href="/sybang/hope/view.do" target="_blank">깨끗한 오피스텔이고, 사무실로도 사용가능합니다. 역삼/강남역 1분 거리!!</a></td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
-					<td>거래 완료</td>
+					<td>3</td>
 				</tr>
 				<tr>
 					<td>1</td>
 					<td class="title">방 올립니다.</td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
-					<td>미거래</td>
+					<td>3</td>
 				</tr>
 				<tr>
 					<td>1</td>
 					<td class="title">방 올립니다.</td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
-					<td>미거래</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+			 		<td class="title">방 올립니다.</td>
+					<td>홍길동</td>
+					<td>2020.02.18</td>
+					<td>3</td>
 				</tr>
 				<tr>
 					<td>1</td>
 					<td class="title">방 올립니다.</td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
-					<td>미거래</td>
+					<td>3</td>
 				</tr>
 				<tr>
 					<td>1</td>
 					<td class="title">방 올립니다.</td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
-					<td>미거래</td>
+					<td>3</td>
 				</tr>
 				<tr>
 					<td>1</td>
 					<td class="title">방 올립니다.</td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
-					<td>거래완료</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td class="title">방 올립니다.</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-					<td>거래완료</td>
+					<td>3</td>
 				</tr>
 			</tbody>
 		</table>

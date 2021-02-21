@@ -14,6 +14,15 @@
 	text-align: left;
     padding-left: 15px;
 }
+.btn-group {
+	float: left;
+    position: relative;
+    left: 38%
+}
+
+.btn-start {
+	margin-right: 5px;
+}
 
 
 
@@ -27,7 +36,7 @@
 	<%@include file="/WEB-INF/views/inc/broker_left.jsp"%>
 
 	<div class="container">
-		<h1>등록된 매물</h1>
+		<h1>광고 시작하기</h1>
 
 		<div class="list-container">
 			<div class="well well-sm" style="float: left;">
@@ -38,65 +47,74 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
+					<th><input type="checkbox"></th>
 					<th scope="col" class="text-center">번호</th>
-					<th scope="col" class="text-center" style="width: 250px;">제목</th>
+					<th scope="col" class="text-center" style="width: 180px;">제목</th>
 					<th scope="col" class="text-center">작성자</th>
 					<th scope="col" class="text-center">날짜</th>
-					<th scope="col" class="text-center">거래 상태</th>
+					<th scope="col" class="text-center">광고 상태</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
+					<td><input type="checkbox"></td>
 					<td>1</td>
 					<td class="title"><a href="/sybang/broker/house/housedetail.do" target="_blank">🟥🟥단기방1등👍최저가약속🟥🟥단독테라스/고급형복층</a></td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
-					<td>거래 완료</td>
+					<td>광고 중</td>
 				</tr>
 				<tr>
+					<td><input type="checkbox"></td>
 					<td>1</td>
 					<td class="title">방 올립니다.</td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
-					<td>미거래</td>
+					<td>광고 중</td>
 				</tr>
 				<tr>
+					<td><input type="checkbox"></td>
 					<td>1</td>
 					<td class="title">방 올립니다.</td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
-					<td>미거래</td>
+					<td>미 광고</td>
 				</tr>
 				<tr>
+					<td><input type="checkbox"></td>
 					<td>1</td>
 					<td class="title">방 올립니다.</td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
-					<td>미거래</td>
+					<td>광고 중</td>
 				</tr>
 				<tr>
+					<td><input type="checkbox"></td>
 					<td>1</td>
 					<td class="title">방 올립니다.</td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
-					<td>미거래</td>
+					<td>광고 중</td>
 				</tr>
 				<tr>
+					<td><input type="checkbox"></td>
 					<td>1</td>
 					<td class="title">방 올립니다.</td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
-					<td>거래완료</td>
+					<td>미 광고</td>
 				</tr>
 				<tr>
+					<td><input type="checkbox"></td>
 					<td>1</td>
 					<td class="title">방 올립니다.</td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
-					<td>거래완료</td>
+					<td>광고 중</td>
 				</tr>
 			</tbody>
 		</table>
+		
 		<!-- pagination -->
 		<nav class="nav-pagination">
 			<ul class="pagination">
@@ -113,7 +131,11 @@
 			</ul>
 		</nav>
 
-
+		<div class="btns btn-group">
+	        <button type="button" class="btn btn-default btn-start">광고 시작하기</button>
+	        <button type="button" class="btn btn-default">광고 취소하기</button>
+    	</div>
+    	
 	</div>
 
 

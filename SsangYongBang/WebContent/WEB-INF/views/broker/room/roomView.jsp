@@ -101,7 +101,7 @@
 			</table>
 			
 			<div class="buttons">
-				<a class="btn btn-default" href="/sybang/broker/brokerRegister.do" role="button">매물등록하기로 이동</a>
+				<a class="btn btn-default" href="/sybang/broker/house/register.do" role="button">매물등록하기로 이동</a>
 			</div>
 			
 		</div>
