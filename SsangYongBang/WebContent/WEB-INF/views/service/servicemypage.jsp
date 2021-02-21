@@ -101,19 +101,19 @@
 		<div class="wrapper">
 			<ul class="mypage">
 				<li class="mypageItem"><span class="mypageMenu"><a href="/sybang/service/editserviceinfo.do">
-				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;내 프로필 관리</span>
+				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;내 프로필 관리</a></span>
 				</li>
 				<li class="mypageItem"><span class="mypageMenu"><a href="/sybang/request/receivedrequestlist.do">
-				<span class="glyphicon glyphicon-pencil aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;받은 요청서</span>
+				<span class="glyphicon glyphicon-pencil aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;받은 요청서</a></span>
+				</li>
+				<li class="mypageItem"><span class="mypageMenu"><a href="/sybang/servicescheduler/servicescheduler.do">
+				<span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;일정 관리</a></span>
+				</li>
+				<li class="mypageItem"><span class="mypageMenu"><a href="/sybang/servicesales/saleschart.do">
+				<span class="glyphicon glyphicon-usd" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;매출 조회</a></span>
 				</li>
 				<li class="mypageItem"><span class="mypageMenu">
-				<span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;일정 관리</span>
-				</li>
-				<li class="mypageItem"><span class="mypageMenu">
-				<span class="glyphicon glyphicon-usd" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;매출 조회</span>
-				</li>
-				<li class="mypageItem"><span class="mypageMenu">
-				<span class="glyphicon glyphicon-pencil aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;후기 관리</span></li>
+				<span class="glyphicon glyphicon-pencil aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;포인트 충전</span></li>
 			</ul>
 		</div>
       
