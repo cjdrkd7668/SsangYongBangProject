@@ -274,8 +274,7 @@
             </div>
             <!-- detail-search 끝 -->
 
-            <div class="search-text"><input type="text" class="form-control" value="" placeholder="리스트 내 검색 ex) 동 이름, 학교 이름, 역 이름"><i
-                    class="fas fa-search" style="color: #486BB8;"></i></div>
+            <div class="search-text"><input type="text" class="form-control" value="" placeholder="리스트 내 검색 ex) 동 이름, 학교 이름, 역 이름"><button type="button" class="form-control" style="display: inline-block; text-align: center; padding: 3px; width: 35px; height: 35px; font-size: 1em;background-color: #486BB8; color: #EEE; outline: none; border-radius: 50%;"><i class="fas fa-search"></i></button></div>
 
 
             </div>

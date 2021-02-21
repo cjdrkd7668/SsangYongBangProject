@@ -210,6 +210,22 @@ main-notice 시작
 	height: 400px;
 }
 
+#main-container .main-header input[type="text"] {
+	display: inline-block;
+}
+
+#main-container .main-header #main-btn {
+	
+	text-align: center;
+	padding: 3px;
+	width: 35px;
+	height: 35px;
+	font-size: 1em;
+	background-color: #486BB8;
+	color: #EEE;
+	outline: none;
+	border-radius: 50%;
+}
 #main-container .main-header .main-txt {
 	margin: 100px;
 	font-size: 3em;
@@ -257,3 +273,4 @@ main-notice 시작
 	{
 	border: 0px;
 }
+
