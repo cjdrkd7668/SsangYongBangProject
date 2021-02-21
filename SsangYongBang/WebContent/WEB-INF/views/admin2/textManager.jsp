@@ -15,10 +15,10 @@
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 	<div class="wrap">	
 		<%@include file="/WEB-INF/views/inc/admin_left.jsp"%>
-		<div class="container">
+		<div class="conWrap">
 			<h1 class="page_title">회사 운영정책</h1>
 			
-			<div class="sub_title type2">총 <span>${list.size()}</span>개의 정보가 등록되어 있습니다.</div>
+			<div class="sub_title t2">총 <span>${list.size()}</span>개의 정보가 등록되어 있습니다.</div>
 			<table class="admin_style_02">
 			<tr align="center">
 				<th width="7%">No</th>

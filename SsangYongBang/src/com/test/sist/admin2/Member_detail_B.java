@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/admin2/member_detail.do")
-public class Member_detail extends HttpServlet {
+@WebServlet("/admin2/member_detail_B.do")
+public class Member_detail_B extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin2/member_detail.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin2/member_detail_B.jsp");
 		dispatcher.forward(req, resp);
 	}
 }
