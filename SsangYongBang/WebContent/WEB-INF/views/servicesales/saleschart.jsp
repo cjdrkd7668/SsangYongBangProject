@@ -18,15 +18,24 @@
 
 
 .upperBar {
-	margin-left: 200px;
+	margin-left: 130px;
 	width: 750px;
+	display: inline-block;
 }
 
+.leftSide {
+	margin-top: 70px;
+	width: 150px;
+	float: left;
+	
+}
+
+
 .wrapper {
-	margin-left: 185px;
+	display: inline-block;
 	width: 750px;
 	height: 800px;
-
+	margin-left: 70px;
 	padding: 17px;
 }
 
@@ -37,6 +46,10 @@
 	border-radius: 7px;
 	padding: 8px;
 
+}
+
+.salesYear {
+	margin-left: 100px;
 }
 
 </style>
@@ -88,7 +101,9 @@
    
    <!-- ########## 좌측 시작 -->
 	
-
+	<div class="leftSide">
+	<%@include file="/WEB-INF/views/inc/service_left.jsp"%>	
+	</div>
 		<!--좌측화면 끝 ##########  -->
     
    <!-- 본문 상단 -->
@@ -111,8 +126,17 @@
 			<!-- 본문 중간 -->
 
 		<div class="wrapper">
+			<div class="salesYear">
+			<select name="salesYear">
+				<option value="2017">2017</option>
+				<option value="2018">2018</option>
+				<option value="2019">2019</option>
+				<option value="2020">2020</option>
+				<option value="2021">2021</option>
+			</select>
+			<label>년도</label>
+			</div>
 			
-			<select></select>
 			<!--  구글 선차트 가져오기 -->
 			<div id="curve_chart" style="width: 900px; height: 500px"></div>
 			<!-- 구글차트 끝 -->
