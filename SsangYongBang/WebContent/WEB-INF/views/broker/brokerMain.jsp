@@ -10,11 +10,6 @@
 
 <style>
 
-.container {
-	padding: 0;
-	margin: 0;
-}
-
 .wrap-box {
 	float: right; width: calc(1200px - 180px); padding-left: 15px; position: relative
 }
@@ -31,7 +26,6 @@
 }
 
 .btn-group {
-
 	float: left;
     position: relative;
     left: 45%
