@@ -40,9 +40,9 @@
 		<li><a href="/sybang/broker/brokerMain.do">내 프로필</a></li>
 		<li><a href="javascript:;">매물 등록하기</a>
 			<ul>
-				<li><a href="/sybang/broker/roomList.do">등록된 매물 조회</a></li>
-				<li><a href="/sybang/broker/brokerRegister.do">매물 등록하기</a></li>
-				<li><a href="javascript:;">내가 등록한 매물</a></li>
+				<li><a href="/sybang/broker/room/roomList.do">등록된 매물 조회</a></li>
+				<li><a href="/sybang/broker/house/register.do">매물 등록하기</a></li>
+				<li><a href="/sybang/broker/house/myreghouse.do">내가 등록한 매물</a></li>
 			</ul></li>
 		<li><a href="javascript:;">광고</a>
 			<ul>
