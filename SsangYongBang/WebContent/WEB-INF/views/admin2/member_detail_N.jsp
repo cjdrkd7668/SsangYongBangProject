@@ -14,7 +14,7 @@
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 	<div class="wrap memberList">	
 		<%@include file="/WEB-INF/views/inc/admin_left.jsp"%>
-		<div class="conWrap">
+		<div class="conWrap funkyradio">
 			<h1 class="page_title">일반회원 목록</h1>
 			
 			<form method="post" name="Frm">
@@ -102,7 +102,7 @@
 			
 			<table class="admin_style_02">
 				<tr>
-					<th><input type="checkbox" name="cbListAll"></th>
+					<th><label><input type="checkbox" name="cbListAll"><span></span></label></th>
 					<th>번호</th>
 					<th>거래유형</th>
 					<th>건물유형</th>
@@ -113,7 +113,7 @@
 					<th>상태</th>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="cbList"></td>
+					<td><label><input type="checkbox" name="cbList"><span></span></label></td>
 					<td>111</td>
 					<td>매매</td>
 					<td>아파트</td>
@@ -124,7 +124,7 @@
 					<td>게시</td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="cbList"></td>
+					<td><label><input type="checkbox" name="cbList"><span></span></label></td>
 					<td>222</td>
 					<td>월세</td>
 					<td>원룸</td>
@@ -161,7 +161,7 @@
 			
 			<table class="admin_style_02">
 				<tr>
-					<th><input type="checkbox" name="cbListAll"></th>
+					<th><label><input type="checkbox" name="cbListAll" id="d1"><span></span></label></th>
 					<th>번호</th>
 					<th>유형</th>
 					<th>가격</th>
@@ -171,7 +171,7 @@
 					<th>작성일</th>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="cbList"></td>
+					<td><label><input type="checkbox" name="cbList"><span></span></label></td>
 					<td>111</td>
 					<td>매매</td>
 					<td>2억5000</td>
@@ -181,7 +181,7 @@
 					<td>2021-02-01</td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="cbList"></td>
+					<td><label><input type="checkbox" name="cbList"><span></span></label></td>
 					<td>111</td>
 					<td>매매</td>
 					<td>2억5000</td>
@@ -215,7 +215,7 @@
 			<div class="sub_title">찜 목록</div>
 			<table class="admin_style_02">
 				<tr>
-					<th><input type="checkbox" name="cbListAll"></th>
+					<th><label><input type="checkbox" name="cbListAll"><span></span></label></th>
 					<th>번호</th>
 					<th>유형</th>
 					<th>가격</th>
@@ -225,7 +225,7 @@
 					<th>작성일</th>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="cbList"></td>
+					<td><label><input type="checkbox" name="cbList"><span></span></label></td>
 					<td>111</td>
 					<td>매매</td>
 					<td>2억5000</td>
@@ -235,7 +235,7 @@
 					<td>2021-02-01</td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="cbList"></td>
+					<td><label><input type="checkbox" name="cbList"><span></span></label></td>
 					<td>111</td>
 					<td>매매</td>
 					<td>2억5000</td>
