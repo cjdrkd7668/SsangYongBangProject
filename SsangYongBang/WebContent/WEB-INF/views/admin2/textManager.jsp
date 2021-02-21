@@ -46,7 +46,7 @@
 			</table>
 			
 			<div class="btnWrap">
-				<a href="add" class="btn btns btn-default">추가</a>
+				<span class="btn btn-default" onclick="add();">추가</span>
 			</div>
 			
 		</div>
@@ -62,6 +62,15 @@
 		function edit(uid){
 			location.href="/sybang/admin2/textManager_reg.do?seq=" + uid;
 		}
+		
+		function add(){
+			location.href="/sybang/admin2/textManager_reg.do";
+		}
+		
+		
+		
+		
+		
 	</script>
 
 
