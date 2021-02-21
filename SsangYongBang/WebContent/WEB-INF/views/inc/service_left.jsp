@@ -25,8 +25,7 @@
   }
   
   .sidebar-nav li a:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.2);
+    color: black;
   }
   
   .sidebar-nav > .sidebar-brand {
@@ -41,17 +40,13 @@
  <!-- <div id="sidebar-wrapper"> --> 
     <ul class="sidebar-nav">
       <li class="sidebar-brand">
-        <a href="#">Zeta</a>
+        <a href="/sybang/service/servicemain.do">청소 & 시공</a>
       </li>
-      <li><a href="#">메뉴 1</a></li>
-      <li><a href="#">메뉴 2</a></li>
-      <li><a href="#">메뉴 3</a></li>
-      <li><a href="#">메뉴 4</a></li>
-      <li><a href="#">메뉴 5</a></li>
-      <li><a href="#">메뉴 6</a></li>
-      <li><a href="#">메뉴 7</a></li>
-      <li><a href="#">메뉴 8</a></li>
-      <li><a href="#">메뉴 9</a></li>
+      <li><a href="/sybang/service/servicemypage.do">마이 서비스</a></li>
+      <li><a href="/sybang/request/requestlist.do">요청서 리스트</a></li>
+      <li><a href="/sybang/servicereview/servicereview.do">후기 리스트</a></li>
+      <li><a href="/sybang/servicechat/servicechat.do">1:1 문의</a></li>
+      <li><a href="/sybang/servicescheduler/servicescheduler.do">일정 관리</a></li>
     </ul>
   <!-- </div> -->
   <!-- /사이드바 -->

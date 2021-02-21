@@ -18,15 +18,22 @@
 
 
 .upperBar {
-	margin-left: 200px;
+	margin-left: 130px;
 	width: 750px;
+	display: inline-block;
+}
+
+.leftSide {
+	margin-top: 30px;
+	width: 150px;
+	float: left;
+	
 }
 
 .wrapper {
-	margin-left: 285px;
-	width: 750px;
+	margin-left: 300px;
+	width: 680px;
 	height: 800px;
-
 	padding: 17px;
 }
 
@@ -75,7 +82,9 @@
    <div class="main">
    
    <!-- ########## 좌측 시작 -->
-	
+	<div class="leftSide">
+	<%@include file="/WEB-INF/views/inc/service_left.jsp"%>	
+	</div>	
 
 		<!--좌측화면 끝 ##########  -->
     

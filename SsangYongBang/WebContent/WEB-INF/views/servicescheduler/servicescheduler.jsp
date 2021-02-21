@@ -16,11 +16,19 @@
 
 <style>
 
-
 .upperBar {
-	margin-left: 200px;
+	margin-left: 130px;
 	width: 750px;
+	display: inline-block;
 }
+
+.leftSide {
+	margin-top: 30px;
+	width: 150px;
+	float: left;
+	
+}
+
 
 .wrapper {
 	margin-left: 200px;
@@ -33,8 +41,8 @@
 
 
 .btns {
-	margin-left: 430px;
-	margin-bottom: 100px;
+	margin-left: 450px;
+	margin-bottom: 40px;
 	
 }
 
@@ -69,7 +77,9 @@ td{
    <div class="main">
    
    <!-- ########## 좌측 시작 -->
-	
+	<div class="leftSide">
+	<%@include file="/WEB-INF/views/inc/service_left.jsp"%>	
+	</div>	
 
 		<!--좌측화면 끝 ##########  -->
     
@@ -91,6 +101,15 @@ td{
 
 
 			<!-- 본문 중간 -->
+
+		<form>
+		<div class="btns">
+			<button type="button" class="btn btn-default serviceinfobtn">견적상담 일정 등록</button>
+			<button type="button" class="btn btn-default serviceinfobtn"><a href="/sybang/servicescheduler/editschedule.do">서비스 일정 등록</a></button>
+			<button type="button" class="btn btn-default serviceinfobtn"><a href="/sybang/servicescheduler/editschedule.do">서비스 완료 등록</a></button>
+		</div>   
+   		</form>
+
 
 		<div class="wrapper">
 
@@ -122,13 +141,7 @@ td{
 
 
 	<!-- 본문 하단 -->
-		<form>
-		<div class="btns">
-			<button type="button" class="btn btn-default serviceinfobtn">견적상담 일정 등록</button>
-			<button type="button" class="btn btn-default serviceinfobtn"><a href="/sybang/servicescheduler/editschedule.do">서비스 일정 등록</a></button>
-			<button type="button" class="btn btn-default serviceinfobtn"><a href="/sybang/servicescheduler/editschedule.do">서비스 완료 등록</a></button>
-		</div>   
-   		</form>
+
    
    <!-- 본문하단 끝 -->>
    

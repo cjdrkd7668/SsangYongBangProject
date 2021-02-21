@@ -16,9 +16,20 @@
 
 <style>
 
-.main {
-	padding-left: 80px;
+.upperBar {
+	margin-left: 130px;
+	width: 750px;
+	display: inline-block;
 }
+
+.leftSide {
+	margin-top: 40px;
+	width: 170px;
+	float: left;
+	
+}
+
+
 
 #chating {
    display: inline-block;
@@ -27,8 +38,9 @@
    min-height: 500px;
    padding: 0px 0px 30px 0px;
    text-align: center;
-   margin-left: 20px;
+   margin-left: 45px;
    margin-top: 40px;
+   margin-right: 40px;
    
    
 }
@@ -110,7 +122,7 @@
 .leftchatlist {
 	display: inline-block;
 	height: 510px;
-	width: 230px;
+	width: 200px;
 	border: 3px solid  #ddd;
 	border-radius: 10px;
 	position: relative;
@@ -154,19 +166,11 @@ ul {
    
    <!-- ########## 좌측 시작 -->
 	
-	<div class="leftchatlist">
-	<ul class="chatgroup">
-		<li class="servicelist"> 청소의전설&nbsp;&nbsp;<span class="badge">2</span></li>
-		<li class="servicelist">굿청소&nbsp;&nbsp;<span class="badge">1</span> </li>
-		<li class="servicelist"> 청소의전설&nbsp;&nbsp;<span class="badge">2</span></li>
-		<li class="servicelist">굿청소&nbsp;&nbsp;<span class="badge">1</span> </li>
-		<li class="servicelist"> 청소의전설&nbsp;&nbsp;<span class="badge">2</span></li>
-		<li class="servicelist">굿청소&nbsp;&nbsp;<span class="badge">1</span> </li>
-
-
-	</ul>
+	
+	<div class="leftSide">
+	<%@include file="/WEB-INF/views/inc/service_left.jsp"%>	
 	</div>
-
+	
 		<!--좌측화면 끝 ##########  -->
     
    <!-- 본문 상단 -->
@@ -253,9 +257,25 @@ ul {
             
          </div>         
          <!-- 채팅창 끝 -->
+         
+         <!-- 채팅방 목록 -->
 
+	
+	<div class="leftchatlist">
+	<ul class="chatgroup">
+		<li class="servicelist"> 청소의전설&nbsp;&nbsp;<span class="badge">2</span></li>
+		<li class="servicelist">굿청소&nbsp;&nbsp;<span class="badge">1</span> </li>
+		<li class="servicelist"> 청소의전설&nbsp;&nbsp;<span class="badge">2</span></li>
+		<li class="servicelist">굿청소&nbsp;&nbsp;<span class="badge">1</span> </li>
+		<li class="servicelist"> 청소의전설&nbsp;&nbsp;<span class="badge">2</span></li>
+		<li class="servicelist">굿청소&nbsp;&nbsp;<span class="badge">1</span> </li>
+
+
+	</ul>
+	</div>   
    
-      
+   
+      	<!-- 채팅방목록끝 -->
    
 
 

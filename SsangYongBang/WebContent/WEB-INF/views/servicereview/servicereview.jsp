@@ -18,9 +18,18 @@
 
 
 .upperBar {
-	margin-left: 200px;
+	margin-left: 130px;
 	width: 750px;
+	display: inline-block;
 }
+
+.leftSide {
+	margin-top: 30px;
+	width: 150px;
+	float: left;
+	
+}
+
 
 .reviews {
 	margin-left: 245px;
@@ -99,7 +108,10 @@
    
    <!-- ########## 좌측 시작 -->
 	
-
+	<div class="leftSide">
+	<%@include file="/WEB-INF/views/inc/service_left.jsp"%>	
+	</div>
+	
 		<!--좌측화면 끝 ##########  -->
     
    <!-- 본문 상단 -->
