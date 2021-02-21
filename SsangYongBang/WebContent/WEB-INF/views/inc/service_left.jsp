@@ -21,11 +21,11 @@
   .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #999;
+    color: #black;
   }
   
   .sidebar-nav li a:hover {
-    color: black;
+    color: #999;
   }
   
   .sidebar-nav > .sidebar-brand {
