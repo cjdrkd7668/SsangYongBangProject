@@ -14,7 +14,7 @@
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 	<div class="wrap member_detail_B">	
 		<%@include file="/WEB-INF/views/inc/admin_left.jsp"%>
-		<div class="conWrap">
+		<div class="conWrap funkyradio">
 			<h1 class="page_title">중개사 목록</h1>
 			
 			<div class="sub_title">중개사 정보</div>
@@ -104,7 +104,7 @@
 			<div class="sub_title">등록한 매물</div>
 			<table class="admin_style_02">
 				<tr>
-					<th><input type="checkbox" name="cbListAll"></th>
+					<th><label><input type="checkbox" name="cbListAll"><span></span></label></th>
 					<th>번호</th>
 					<th>유형</th>
 					<th>가격</th>
@@ -114,7 +114,7 @@
 					<th>중개사</th>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="cbList"></td>
+					<td><label><input type="checkbox" name="cbList"><span></span></label></td>
 					<td>111</td>
 					<td>매매</td>
 					<td>2억5000</td>
@@ -124,7 +124,7 @@
 					<td>vip공인중개사</td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="cbList"></td>
+					<td><label><input type="checkbox" name="cbList"><span></span></label></td>
 					<td>111</td>
 					<td>매매</td>
 					<td>2억5000</td>
@@ -176,6 +176,19 @@
 		function userInfo(uid){
 			location.href="/sybang/admin2/member_detail.do?seq=" + uid;
 		}
+		
+		$("input[name=cbListAll]").on("change",function(){
+			var c;
+			if ($(this).is(":checked")) {
+				c = true;
+			}else{
+				c = false;
+			}
+			$(this).parents("table").find("input[name=cbList]").prop("checked",c);
+		});
+		
+		
+		
 	</script>
 
 </body>
