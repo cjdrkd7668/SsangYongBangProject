@@ -23,10 +23,13 @@ public class Member_list extends HttpServlet {
 		
 		if (t.equals("normal") || t.equals("null")) {
 			req.setAttribute("member_tName","회원");
+			req.setAttribute("member_t","N");
 		}else if (t.equals("broker")) {
 			req.setAttribute("member_tName","중개사");
+			req.setAttribute("member_t","B");
 		}else if (t.equals("firm")) {
 			req.setAttribute("member_tName","업체");
+			req.setAttribute("member_t","F");
 		}
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin2/member_list.jsp");

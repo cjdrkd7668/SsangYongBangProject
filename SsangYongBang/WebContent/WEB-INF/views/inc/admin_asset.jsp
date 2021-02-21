@@ -13,6 +13,7 @@
 
 <%
 	String SITE_TITLE = "<title>쌍용방 관리자</title>";
+	String SITE_COLOR = "#486BB8"; 
 %>
 
 
