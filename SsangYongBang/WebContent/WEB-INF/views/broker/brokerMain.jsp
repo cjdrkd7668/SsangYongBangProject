@@ -32,7 +32,7 @@
 }
 
 .btn-edit {
-	margin-right: 5px
+	margin-right: 5px;
 }
 
 .btn-del {

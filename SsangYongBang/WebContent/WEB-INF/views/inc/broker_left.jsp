@@ -46,12 +46,12 @@
 			</ul></li>
 		<li><a href="javascript:;">광고</a>
 			<ul>
-				<li><a href="javascript:;">광고 결제하기</a></li>
-				<li><a href="javascript:;">광고 시작하기</a></li>
-				<li><a href="javascript:;">진행 중인 광고 조회</a></li>
+				<li><a href="/sybang/broker/ad/payment.do">광고 결제하기</a></li>
+				<li><a href="/sybang/broker/ad/start.do">광고 시작하기</a></li>
+				<li><a href="/sybang/broker/ad/cancel.do">진행 중인 광고 조회</a></li>
 			</ul></li>
-		<li><a href="javascript:;">구매자와 상담하기</a></li>
-		<li><a href="javascript:;">희망 매물 조회하기</a></li>
+		<li><a href="/sybang/broker/chat/chatlist.do">구매자와 상담하기</a></li>
+		<li><a href="/sybang/broker/hope/hopelist.do">희망 매물 조회하기</a></li>
 		<li><a href="javascript:;">후기/평점 조회하기</a></li>
 	</ul>
 </div>
