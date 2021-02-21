@@ -10,8 +10,12 @@
 <link rel="stylesheet" type="text/css" href="/sybang/css/roomlist.css">
 
 <style>
-</style>
+.title {
+	text-align: left;
+    padding-left: 15px;
+}
 
+</style>
 
 </head>
 <body>
@@ -33,7 +37,7 @@
 			<thead>
 				<tr>
 					<th scope="col" class="text-center">번호</th>
-					<th scope="col" class="text-center">제목</th>
+					<th scope="col" class="text-center" style="width: 250px;">제목</th>
 					<th scope="col" class="text-center">작성자</th>
 					<th scope="col" class="text-center">날짜</th>
 					<th scope="col" class="text-center">조회수</th>
@@ -42,49 +46,49 @@
 			<tbody>
 				<tr>
 					<td>1</td>
-					<td>방 올립니다.</td>
+					<td class="title"><a href="/sybang/broker/roomView.do">깨끗한 오피스텔이고, 사무실로도 사용가능합니다. 역삼/강남역 1분 거리!!</a></td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
 					<td>3</td>
 				</tr>
 				<tr>
 					<td>1</td>
-					<td>방 올립니다.</td>
+					<td class="title">방 올립니다.</td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
 					<td>3</td>
 				</tr>
 				<tr>
 					<td>1</td>
-					<td>방 올립니다.</td>
+					<td class="title">방 올립니다.</td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
 					<td>3</td>
 				</tr>
 				<tr>
 					<td>1</td>
-					<td>방 올립니다.</td>
+			 		<td class="title">방 올립니다.</td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
 					<td>3</td>
 				</tr>
 				<tr>
 					<td>1</td>
-					<td>방 올립니다.</td>
+					<td class="title">방 올립니다.</td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
 					<td>3</td>
 				</tr>
 				<tr>
 					<td>1</td>
-					<td>방 올립니다.</td>
+					<td class="title">방 올립니다.</td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
 					<td>3</td>
 				</tr>
 				<tr>
 					<td>1</td>
-					<td>방 올립니다.</td>
+					<td class="title">방 올립니다.</td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
 					<td>3</td>

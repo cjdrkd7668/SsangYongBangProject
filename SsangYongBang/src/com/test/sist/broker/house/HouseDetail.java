@@ -1,4 +1,4 @@
-package com.test.sist.broker;
+package com.test.sist.broker.house;
 
 import java.io.IOException;
 
@@ -9,16 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/broker/brokerRegister.do")
-public class Register extends HttpServlet {
+@WebServlet("/broker/house/housedetail.do")
+public class HouseDetail extends HttpServlet {
    
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	   
-      RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/broker/brokerRegister.jsp");
+      RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/broker/house/housedetail.jsp");
       dispatcher.forward(request, response);
       
    }
 
 }
-
-

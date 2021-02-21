@@ -35,7 +35,7 @@
           			<a href="/sybang/broker/brokerMain.do" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">중개사공간<span class="caret"></span></a>
 			          	<ul class="dropdown-menu" role="menu">
 				            <li><a href="/sybang/broker/brokerMain.do">내 프로필</a></li>
-				            <li><a href="#">매물 등록하기</a></li>
+				            <li><a href="/sybang/broker/room/roomList.do">매물 등록하기</a></li>
 				            <li><a href="#">광고</a></li>
 				            <li><a href="#">구매자와 상담하기</a></li>
 				            <li class="divider"></li>
