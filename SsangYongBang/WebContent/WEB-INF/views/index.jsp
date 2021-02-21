@@ -8,6 +8,7 @@
     <title>쌍용방</title>
 	<%@include file="/WEB-INF/views/inc/asset.jsp" %>
 	<link rel="stylesheet" href="/sybang/css/main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <style>
         
         
@@ -28,8 +29,10 @@
         <header class="jumbotron main-header">
             <h1 class="main-txt">어떤 집에서 살고 싶으신가요?</h1>
             <div>
-                <input type="text" class="well well-sm" placeholder="원하시는 지역명, 지하철역, 단지명(아파트명)을 입력해주세요." size="60">
-                <button class="btn btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+                <input type="text" class="well well-sm" placeholder="원하시는 지역명, 지하철역, 단지명(아파트명)을 입력해주세요." size="60" style="font-size: 1.2em;">
+               
+                    <button type="button" class="form-control" id="main-btn" style="display: inline-block; text-align: center; padding: 3px; width: 35px; height: 35px; font-size: 1em;background-color: #486BB8; color: #EEE; outline: none; border-radius: 50%;"><i class="fas fa-search"></i></button>
+               
             </div>
         </header>
         <!-- main-header 끝 -->
