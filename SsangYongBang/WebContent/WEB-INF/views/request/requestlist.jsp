@@ -50,7 +50,7 @@
 	
 	<div class="row">
 	<form method="GET" action="/sybang/request/requestlist.do" class="form-inline mt-3">
-		<select name="" class="form-control mx-1 mt-2">
+		<select name="search" id="search" class="form-control mx-1 mt-2">
 			<option value="청소">청소</option>
 			<option value="시공">시공</option>
 		</select>
@@ -74,7 +74,12 @@
 	
 				<div class="col-sm-6 col-md-4">
 					<div class="thumbnail">
+						<c:if test="${dto.stype == '시공'}">
 						<img src="../images/interiormark.jpg" alt="...">
+						</c:if>
+						<c:if test="${dto.stype == '청소'}">
+						<img src="../images/cleanmark.jpg" alt="...">
+						</c:if>
 					</div>
 					<div>
 																<!-- Button trigger modal -->
@@ -94,7 +99,7 @@
 											<h4 class="modal-title" id="myModalLabel">견적서 작성하기</h4>
 										</div>
 										<div class="modal-body">
-											<form action="./requestRegister.jsp" method="POST">
+											<form action="/sybang/request/writeok.jsp" method="POST">
 												<div class="form-row">
 													<div class="form-group col-sm-12">
 														<label>예상비용(숫자만 입력하세요)</label> <input type="text" name=""

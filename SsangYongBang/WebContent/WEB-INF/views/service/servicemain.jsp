@@ -11,6 +11,8 @@
 
 <link rel="stylesheet" href="/sybang/css/servicemain.css">
 
+<%@include file="/WEB-INF/views/inc/asset.jsp" %>
+
 <%--datepicker를 쓰기 위해 CDN으로 가져온 플러그인들. --%>
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 	<link rel="stylesheet" href="/css/jquery-ui.min.css">
@@ -43,9 +45,13 @@
     </script>
 
     
-<%@include file="/WEB-INF/views/inc/asset.jsp" %>
+
 
 <style>
+	
+	body {
+		padding-left: 28px;
+	}
 
 </style>
 </head>
