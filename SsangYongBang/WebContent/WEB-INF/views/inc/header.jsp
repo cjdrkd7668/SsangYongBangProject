@@ -54,6 +54,7 @@
 				            <li><a href="/sybang/servicereview/servicereview.do">후기</a></li>
 				            <li class="divider"></li>
 				            <li><a href="/sybang/service/servicemypage.do">마이 서비스</a></li>
+				           	<li><a href="/sybang/service/auth.do">업주 로그인</a></li>
 			         	</ul>
         			</li>
         			
