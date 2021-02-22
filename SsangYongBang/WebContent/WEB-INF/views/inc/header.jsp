@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
 	/* house.css와 width, padding 충돌 */
 	.header-cklee .dropdown, .dropdown-menu {
@@ -56,6 +56,16 @@
 				            <li><a href="/sybang/service/servicemypage.do">마이 서비스</a></li>
 			         	</ul>
         			</li>
+        			
+        			
+        			<!-- 로그인 전 -->
+        			<c:if test="${empty email }">
+        			<li><a href="/sybang/member/login.do">로그인</a></li>
+        			<li><a href="#">회원가입</a></li>
+        			</c:if>
+        			
+        			<!-- 로그인 후 -->
+        			<c:if test="${not empty email }">
         			<li class="dropdown">
           			<a href="/sybang/member/mypage.do" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="font-size: 1.1em;">마이페이지<span class="caret"></span></a>
 			          	<ul class="dropdown-menu" role="menu">
@@ -64,9 +74,10 @@
 				            <li><a href="#" style="font-size: 1.1em;">1:1 문의 내역</a></li>
 			         	</ul>
         			</li>
-        			<li><a href="/sybang/member/login.do">로그인</a></li>
-        			<!-- <li><a href="#">로그아웃</a></li> -->
-        			<li><a href="#">회원가입</a></li>
+        			
+        			<li><a href="/sybang/member/logout.do">로그아웃</a></li>
+        			</c:if>
+        			
 				</ul>
 			</div>
 		</div> <!-- container-fluid -->
