@@ -235,7 +235,13 @@ h2 {
 	margin-left: 10px;
 }
 
+/* mg-ad, 광고중인 중개사 조회 */
+.mg-ad .bg-positive {
+	background-color: #C8EFD4;
+}
 
-
+.mg-ad .bg-negative {
+	background-color: #FBCFD0;
+}
 
 

@@ -40,7 +40,7 @@
 		<h1 class="welcome">허위 매물 삭제<small> 회원이 허위 매물을 신고한 내역</small></h1>
 		
 		<div class="buttons">
-			<a class="btn btn-default btn-danger" href="#" role="button">삭제</a>
+			<a class="btn btn-default btn-danger" href="#" role="button">신고 삭제</a>
 			<a class="btn btn-default" href="#" role="button">전체 선택</a>
 		</div>
 		
