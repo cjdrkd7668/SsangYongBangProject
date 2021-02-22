@@ -43,7 +43,7 @@
 			</ul>
 		</li>
 		<li><a href="/sybang/approval/boardlist.do">업체 승인</a></li>
-		<li><a href="javascript:;">광고 관리</a></li>
+		<li><a href="/sybang/admin/ad/boardlist.do">광고중인 중개사 목록</a></li>
 		<li><a href="/sybang/admin/review/boardlist.do">후기 삭제 요청</a></li>
 		<li><a href="/sybang/falsepost/boardlist.do">허위 매물 삭제</a></li>
 		<li class="test"><a href="/sybang/admin2/textManager.do">회사운영정책</a></li>
