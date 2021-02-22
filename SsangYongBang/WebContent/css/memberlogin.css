@@ -60,10 +60,12 @@ input[type="text"], input[type="password"] {
 	float: left;
 }
 
-input[type="checkbox"] {
+.checkbox-inline {
 	display: inline-block;
+	width: 130px;
 }
 
 .btns {
-	float: right;
+	display: block;
+	float: left;
 }

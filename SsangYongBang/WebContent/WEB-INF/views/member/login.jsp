@@ -25,11 +25,12 @@
         </div>
 
         <div class="jumbotron">
+        <!-- 로그인 form 시작 -->
+        <form method="POST" action="/sybang/member/loginok.do" id="login-form">
             <div>
-                <input type="text" class="form-control" placeholder="아이디">
-                <input type="password" class="form-control" placeholder="비밀번호">
-                <button type="button" class="btn btn-info" style="background-color: #486BB8; font-size: 1.3em; width:150px; height:100px;">로그인</button>
-                
+                <input type="text" name="email" id="email" class="form-control" placeholder="아이디" required>
+                <input type="password" name="pw" id="pw" class="form-control" placeholder="비밀번호" required>
+                <button type="submit" class="btn btn-info" style="background-color: #486BB8; font-size: 1.3em; width:150px; height:100px;">로그인</button>
             </div>
             <div>
                 <label class="checkbox-inline"><input type="checkbox">아이디 저장</label>
@@ -47,7 +48,8 @@
                     </button>
                 </div>
             </div>
-            
+            </form>
+            <!-- 로그인 form 끝 -->
             
             
                 
