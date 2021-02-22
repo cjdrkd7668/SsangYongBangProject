@@ -64,7 +64,7 @@
 				            <li><a href="#" style="font-size: 1.1em;">1:1 문의 내역</a></li>
 			         	</ul>
         			</li>
-        			<li><a href="/sybang/member/login.do">로그인</a></li>
+        			<li><a href="/sybang/login/loginbuttons.do">로그인</a></li>
         			<!-- <li><a href="#">로그아웃</a></li> -->
         			<li><a href="#">회원가입</a></li>
 				</ul>
