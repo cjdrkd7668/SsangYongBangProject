@@ -40,7 +40,7 @@
 				            <li><a href="/sybang/broker/chat/chatlist.do">구매자와 상담하기</a></li>
 				            <li class="divider"></li>
 				            <li><a href="/sybang/broker/hope/hopelist.do">희망 매물 조회하기</a></li>
-				            <li><a href="#">후기/평점 조회하기</a></li>
+				            <li><a href="/sybang/broker/review/reviewlist.do">후기/평점 조회하기</a></li>
 			         	</ul>
         			</li>
 					<li class="dropdown">
@@ -60,7 +60,7 @@
         			
         			<!-- 로그인 전 -->
         			<c:if test="${empty email }">
-        			<li><a href="/sybang/member/login.do">로그인</a></li>
+        			<li><a href="/sybang/login/loginbuttons.do">로그인</a></li>
         			<li><a href="#">회원가입</a></li>
         			</c:if>
         			
@@ -74,10 +74,11 @@
 				            <li><a href="#" style="font-size: 1.1em;">1:1 문의 내역</a></li>
 			         	</ul>
         			</li>
-        			
+	
         			<li><a href="/sybang/member/logout.do">로그아웃</a></li>
         			</c:if>
-        			
+
+
 				</ul>
 			</div>
 		</div> <!-- container-fluid -->

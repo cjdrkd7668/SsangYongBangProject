@@ -53,7 +53,7 @@
 					<td class="text-center">
 						<div class="checkbox">
 							<label>
-						    	<input type="checkbox" value="">
+						    	<input type="checkbox">
 							</label>
 						</div>
                     </td>				
