@@ -26,6 +26,7 @@
 
 	<div class="container">
 		<h1>구매자와 상담하기</h1>
+		<hr>
 
 		<div class="list-container">
 			<div class="well well-sm" style="float: left;">
@@ -45,7 +46,7 @@
 			<tbody>
 				<tr>
 					<td>1</td>
-					<td class="title"><a href="#">보증금 올리고 월세 낮출 수 있나요??</a></td>
+					<td class="title"><a href="/sybang/broker/chat/view.do	">보증금 올리고 월세 낮출 수 있나요??</a></td>
 					<td>홍길동</td>
 					<td>2020.02.18</td>
 				</tr>
