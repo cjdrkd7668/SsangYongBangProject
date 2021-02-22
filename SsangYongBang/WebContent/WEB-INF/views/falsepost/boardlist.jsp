@@ -78,7 +78,7 @@
 						    <div class="modal-content">
 						      <div class="modal-header">
 						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						        <h4 class="modal-title">상세설명</h4>
+						        <h4 class="modal-title">신고 사유</h4>
 						      </div>
 						      <div class="modal-body">
 						        이미 팔린 매물이네요.. 이런 식이면 사이트 관리 안하시나요? 이미 팔린 매물이네요.. 이런 식이면 사이트 관리 안하시나요? 이미 팔린 매물이네요.. 이런 식이면 사이트 관리 안하시나요?
@@ -90,7 +90,7 @@
                     <td class="text-center">
 						<div class="checkbox">
 							<label>
-						    	<input type="checkbox" value="">
+						    	<input type="checkbox">
 							</label>
 						</div>
                     </td>

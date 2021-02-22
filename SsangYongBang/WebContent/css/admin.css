@@ -11,7 +11,13 @@ h2 {
 	margin-left: 0px;
 }
 
+.checkbox label input[type='checkbox'], .radio label input[type='radio'] {
+	display: block;
+}
+
 /* main.css 해제 끝 */
+
+
 
 /* mg-main, 관리자 메인화면 CSS */
 .mg-main .welcome {
@@ -219,14 +225,15 @@ h2 {
 	margin-top: 10px;
 }
 
+/* mg-review, 후기 삭제 요청*/
+.mg-review .buttons {
+	text-align: right;
+	margin-top: 20px;
+}
 
-
-
-
-
-
-
-
+.mg-review .buttons a {
+	margin-left: 10px;
+}
 
 
 
