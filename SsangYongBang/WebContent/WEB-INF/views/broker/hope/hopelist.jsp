@@ -26,7 +26,7 @@
 
 	<div class="container">
 		<h1>희망 매물 조회하기</h1>
-
+		<hr>
 		<div class="list-container">
 			<div class="well well-sm" style="float: left;">
 				총 <b>5</b>개의 방이 등록되어 있습니다.

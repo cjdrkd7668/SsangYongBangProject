@@ -26,6 +26,7 @@
 
 	<div class="container">
 		<h1>등록된 매물</h1>
+		<hr>
 
 		<div class="list-container">
 			<div class="well well-sm" style="float: left;">

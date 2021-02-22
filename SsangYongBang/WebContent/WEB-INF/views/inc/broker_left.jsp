@@ -52,7 +52,7 @@
 			</ul></li>
 		<li><a href="/sybang/broker/chat/chatlist.do">구매자와 상담하기</a></li>
 		<li><a href="/sybang/broker/hope/hopelist.do">희망 매물 조회하기</a></li>
-		<li><a href="javascript:;">후기/평점 조회하기</a></li>
+		<li><a href="/sybang/broker/review/reviewlist.do">후기/평점 조회하기</a></li>
 	</ul>
 </div>
 

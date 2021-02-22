@@ -33,6 +33,7 @@
 
 	<div class="container">
 		<h1>진행 중인 광고 조회하기</h1>
+		<hr>
 
 		<div class="list-container">
 			<div class="well well-sm" style="float: left;">

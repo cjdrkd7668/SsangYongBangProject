@@ -37,6 +37,7 @@
 
 	<div class="container">
 		<h1>광고 시작하기</h1>
+		<hr>
 
 		<div class="list-container">
 			<div class="well well-sm" style="float: left;">
