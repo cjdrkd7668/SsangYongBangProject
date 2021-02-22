@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 
 
 <style>
@@ -21,7 +22,7 @@
   .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #black;
+    color: black;
   }
   
   .sidebar-nav li a:hover {
@@ -47,6 +48,10 @@
       <li><a href="/sybang/servicereview/servicereview.do">후기 리스트</a></li>
       <li><a href="/sybang/servicechat/servicechat.do">1:1 문의</a></li>
       <li><a href="/sybang/servicescheduler/servicescheduler.do">일정 관리</a></li>
+      <c:if test="${not empty email}"> <!-- 업주 이메일로 로그인시 보이는 사이드메뉴 -->
+      <li><a href="/sybang/request/receivedrequestlist.do">받은 견적서 리스트</a></li>
+      </c:if>
+    
     </ul>
   <!-- </div> -->
   <!-- /사이드바 -->
