@@ -28,7 +28,7 @@
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 
 <!-- list-container 시작 -->
-    <div class="list-container" style="margin-top: 10px;">
+    <div class="list-container">
 
         <!-- search-box 시작 -->
         <div class="search-box">
@@ -40,9 +40,9 @@
                     <h2 class="title">거래 유형</h2>
                     <div class="btn-group" data-toggle="buttons">
 
-                        <label class="btn btn-default"><input type="checkbox" value="1">매매</label>
-                        <label class="btn btn-default"><input type="checkbox" value="2">전세</label>
-                        <label class="btn btn-default"><input type="checkbox" value="3">월세</label>
+                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="1">매매</label>
+                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="2">전세</label>
+                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="3">월세</label>
                     </div>
                 </div>
                 <!-- dealtype 끝 -->
@@ -50,31 +50,70 @@
                 <!-- address 시작 -->
                 <div class="col-md-6 address">
                     <h2 class="title">지역</h2>
-                    <select class="form-control">
+                    <select class="form-control" style="width: 130px; padding: 5px; font-size: 1.2em;">
                         <option value="">시/도</option>
-                        <option value="1">서울시</option>
-                        <option value="2">경기도</option>
-                        <option value="3">인천시</option>
-                        <option value="4">강원도</option>
-                        <option value="5">대전시</option>
+                        <option value="1">서울특별시</option>
+                        <option value="2">부산광역시</option>
+                        <option value="3">대구광역시</option>
+                        <option value="4">인천광역시</option>
+                        <option value="5">광주광역시</option>
+                        <option value="6">경기도</option>
+                        <option value="7">강원도</option>
+                        <option value="8">충청북도</option>
+                        <option value="9">충청남도</option>
+                        <option value="10">전라북도</option>
+                        <option value="11">전라남도</option>
+                        <option value="12">경상북도</option>
+                        <option value="13">경상남도</option>
+                        <option value="14">제주특별자치도</option>
+
 
                     </select>
-                    <select class="form-control">
+                    <select class="form-control" style="width: 120px; padding: 5px; font-size: 1.2em;">
                         <option value="">시/군/구</option>
-                        <option value="1">서울시</option>
-                        <option value="2">경기도</option>
-                        <option value="3">인천시</option>
-                        <option value="4">강원도</option>
-                        <option value="5">대전시</option>
+                        <option value="1">강남구</option>
+                        <option value="2">강동구</option>
+                        <option value="3">강북구</option>
+                        <option value="4">강서구</option>
+                        <option value="5">관악구</option>
+                        <option value="6">광진구</option>
+                        <option value="7">구로구</option>
+                        <option value="8">금천구</option>
+                        <option value="9">노원구</option>
+                        <option value="10">도봉구</option>
+                        <option value="11">동대문구</option>
+                        <option value="12">동작구</option>
+                        <option value="13">마포구</option>
+                        <option value="14">서대문구</option>
+                        <option value="15">서초구</option>
+                        <option value="16">성동구</option>
+                        <option value="17">성북구</option>
+                        <option value="18">송파구</option>
+                        <option value="19">양천구</option>
+                        <option value="20">영등포구</option>
+                        <option value="21">용산구</option>
+                        <option value="22">은평구</option>
+                        <option value="23">종로구</option>
+                        <option value="24">중구</option>
+                        <option value="25">중랑구</option>
 
                     </select>
-                    <select class="form-control">
+                    <select class="form-control" style="width: 120px; padding: 5px; font-size: 1.2em;">
                         <option value="">읍/면/동</option>
-                        <option value="1">서울시</option>
-                        <option value="2">경기도</option>
-                        <option value="3">인천시</option>
-                        <option value="4">강원도</option>
-                        <option value="5">대전시</option>
+                        <option value="1">개포동</option>
+                        <option value="2">논현동</option>
+                        <option value="3">대치동</option>
+                        <option value="4">도곡동</option>
+                        <option value="5">삼성동</option>
+                        <option value="6">세곡동</option>
+                        <option value="7">수서동</option>
+                        <option value="8">신사동</option>
+                        <option value="9">압구정동</option>
+                        <option value="10">역삼동</option>
+                        <option value="11">율현동</option>
+                        <option value="12">일원동</option>
+                        <option value="13">자곡동</option>
+                        <option value="14">청담동</option>
 
                     </select>
                 </div>
@@ -87,10 +126,10 @@
                 <div class="col-md-6 buildingtype">
                     <h2 class="title">건물 종류</h2>
                     <div class="btn-group" data-toggle="buttons">
-                        <label class="btn btn-default"><input type="checkbox" value="1">아파트</label>
-                        <label class="btn btn-default"><input type="checkbox" value="2">빌라/주택</label>
-                        <label class="btn btn-default"><input type="checkbox" value="3">원룸/투룸</label>
-                        <label class="btn btn-default"><input type="checkbox" value="4">오피스텔</label>
+                        <label class="btn btn-default" style="width: 95px; font-size: 1.2em;"><input type="checkbox" value="1">아파트</label>
+                        <label class="btn btn-default" style="width: 100px; font-size: 1.2em;"><input type="checkbox" value="2">빌라/주택</label>
+                        <label class="btn btn-default" style="width: 100px; font-size: 1.2em;"><input type="checkbox" value="3">원룸/투룸</label>
+                        <label class="btn btn-default" style="width: 95px; font-size: 1.2em;"><input type="checkbox" value="4">오피스텔</label>
                     </div>
                 </div>
                 <!-- buildingtype 끝 -->
@@ -99,7 +138,7 @@
                 <div class="col-md-6 area">
                     <h2 class="title">면적</h2>
                     <button class="btn btn-default modal-button" type="button" data-toggle="modal"
-                        data-target="#areamodal">
+                        data-target="#areamodal" style="width: 390px; font-size: 1.2em;">
                         === 면적을 설정하시려면 클릭하세요 ===
                     </button>
 
@@ -110,19 +149,19 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h3 class="modal-title" style="text-align: center;">면적을 설정하고 적용을 눌러주세요.</h3>
+                                    <h3 class="modal-title" style="text-align: center; font-size: 1.4em;">면적을 설정하고 적용을 눌러주세요.</h3>
                                 </div>
 
                                 <!-- 방 크기/전용 면적 -->
                                 <div class="modal-header">
-                                    <h3 class="modal-title">방 크기/전용 면적</h3>
+                                    <h3 class="modal-title" style="font-size: 1.2em;">방 크기/전용 면적</h3>
                                 </div>
 
 
                                 <div class="modal-body">
-                                    <small>
-                                        <div id="slider0value1" class="value"></div>㎡ ~
-                                        <div id="slider0value2" class="value"></div>㎡
+                                    <small style="width: 180px; margin-right: 10px;">
+                                        <div id="slider0value1" class="value" style="font-size: 1.2em;"></div> ㎡ ~
+                                        <div id="slider0value2" class="value" style="font-size: 1.2em;"></div> ㎡
                                     </small>
                                     <div id="slider0" class="sliders" style="width: 300px;"></div>
                                 </div>
@@ -150,9 +189,9 @@
                     <h2 class="title">방 개수</h2>
                     <div class="btn-group" data-toggle="buttons">
 
-                        <label class="btn btn-default"><input type="checkbox" value="1">1개</label>
-                        <label class="btn btn-default"><input type="checkbox" value="2">2~4개</label>
-                        <label class="btn btn-default"><input type="checkbox" value="3">5개 이상</label>
+                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="1">1개</label>
+                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="2">2~4개</label>
+                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="3">5개 이상</label>
                     </div>
                 </div>
                 <!-- roomnum 끝 -->
@@ -163,7 +202,7 @@
                 <div class="col-md-6 price">
                     <h2 class="title">가격대</h2>
                     <button class="btn btn-default modal-button" type="button" data-toggle="modal"
-                        data-target="#pricemodal">
+                        data-target="#pricemodal" style="width: 390px; font-size: 1.2em;">
                         === 가격을 설정하시려면 클릭하세요 ===
                     </button>
 
@@ -174,7 +213,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h3 class="modal-title " style="text-align: center;">가격을 설정하고 적용을 눌러주세요.</h3>
+                                    <h3 class="modal-title " style="text-align: center; font-size: 1.4em;">가격을 설정하고 적용을 눌러주세요.</h3>
                                 </div>
 
                                 <!-- 보증금/전세가 -->
@@ -184,9 +223,9 @@
 
 
                                 <div class="modal-body">
-                                    <small>
-                                        <div id="slider1value1" class="value"></div>억원 ~
-                                        <div id="slider1value2" class="value"></div>억원
+                                    <small style="width: 180px;">
+                                        <div id="slider1value1" class="value"></div> 억원&nbsp;~
+                                        <div id="slider1value2" class="value"></div>&nbsp;&nbsp; 억원
                                     </small>
                                     <div id="slider1" class="sliders" style="width: 300px;"></div>
                                 </div>
@@ -198,9 +237,9 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    <small>
-                                        <div id="slider2value1" class="value"></div>만원 ~
-                                        <div id="slider2value2" class="value"></div>만원
+                                    <small style="width: 180px;">
+                                        <div id="slider2value1" class="value"></div> 만원 ~
+                                        <div id="slider2value2" class="value"></div>&nbsp;&nbsp; 만원
                                     </small>
                                     <div id="slider2" class="sliders" style="width: 300px;"></div>
                                 </div>
@@ -211,10 +250,10 @@
                                     <h3 class="modal-title">매매가</h3>
                                 </div>
 
-                                <div class="modal-body">
-                                    <small>
-                                        <div id="slider3value1" class="value"></div>억원 ~
-                                        <div id="slider3value2" class="value"></div>억원
+                                <div class="modal-body" >
+                                    <small style="width: 180px;">
+                                        <div id="slider3value1" class="value"></div> 억원 ~
+                                        <div id="slider3value2" class="value"></div>&nbsp;&nbsp; 억원
                                     </small>
                                     <div id="slider3" class="sliders" style="width: 300px;"></div>
                                 </div>
@@ -241,7 +280,7 @@
                 <div class="panel">
                     <!-- panel-heading 시작 -->
                     <div class="panel-heading btn-detail">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" style="color: #444;">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" style="color: #444; font-size: 1.1em;">
                             상세 검색&nbsp;&nbsp;<i class="fas fa-sort-down" style="color: #486BB8;"></i>
                         </a>
                     </div>
@@ -274,7 +313,7 @@
             </div>
             <!-- detail-search 끝 -->
 
-            <div class="search-text"><input type="text" class="form-control" value="" placeholder="리스트 내 검색 ex) 동 이름, 학교 이름, 역 이름"><button type="button" class="form-control" style="display: inline-block; text-align: center; padding: 3px; width: 35px; height: 35px; font-size: 1em;background-color: #486BB8; color: #EEE; outline: none; border-radius: 50%;"><i class="fas fa-search"></i></button></div>
+            <div class="search-text"><input type="text" class="form-control" value="" placeholder="리스트 내 검색 ex) 동 이름, 학교 이름, 역 이름"  style="font-size: 1.2em;"><button type="button" class="form-control" style="display: inline-block; text-align: center; padding: 3px; width: 35px; height: 35px; font-size: 1em;background-color: #486BB8; color: #EEE; outline: none; border-radius: 50%;"><i class="fas fa-search"></i></button></div>
 
 
             </div>
