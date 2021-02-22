@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+body {
+	width: 1200px;
+	font-family: 'Noto Sans KR', sans-serif;
+	letter-spacing: -1px;
+}
+
+.jumbotron {
+	background-image: url('../images/serviceJumbo.jpg');
+	text-align: center;
+	margin: 25px auto;
+	background-size: cover;
+	/* width: 800px; */
+	color: black;
+	height: 350px;
+}
+
+
+.row {
+	margin: 25px auto;
+}
+
+.sidebar-nav {
+	
+	margin: 50px auto;
+}

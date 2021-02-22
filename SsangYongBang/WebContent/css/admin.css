@@ -1,0 +1,247 @@
+@charset "UTF-8";
+
+/* main.css 해제 시작 */
+
+small {
+	float:none;
+	margin: 0px;
+}
+
+h2 {
+	margin-left: 0px;
+}
+
+.checkbox label input[type='checkbox'], .radio label input[type='radio'] {
+	display: block;
+}
+
+/* main.css 해제 끝 */
+
+
+
+/* mg-main, 관리자 메인화면 CSS */
+.mg-main .welcome {
+	color: #486BB8;
+	font-size: 5em;
+}
+
+.mg-main h2 {
+	margin-top: 100px;	
+}
+
+.mg-main .alarm {
+	width: 400px;
+	box-sizing: border-box;
+	float: left;
+	padding: 0px 50px 30px 0px;
+}
+
+.mg-main .alarm > div {	
+	border-bottom: 1px solid #44000A;
+}
+
+.mg-main .alarm > div > span {
+	font-size: 1.6em;
+}
+
+.mg-main .alarm > div > span > span:last-child {
+	float: right;
+}
+
+.mg-main .alarm .alarm-num {
+	color: #44000A;
+	font-size: 3em;
+}
+
+.mg-main .alarm > a {
+	clear: both;
+	float: right;
+	display: block;
+	color: #888;
+}
+
+/* mg-view, 특정 방/매물 조회화면 CSS*/
+.mg-main .welcome {
+	margin-bottom: 10px;
+}
+
+.mg-view .container-view {
+	width: 900px;
+}
+
+.mg-view #map {
+	border-top: 10px solid #486BB8;
+}
+
+
+.mg-view .address {
+	margin-bottom: 0px;
+	text-align: left;
+}
+
+.mg-view .address > span {
+	margin-top: 20px;
+	color: #486BB8;
+	font-size: 2.5em;
+	display: block;
+	position: relative;
+}
+
+.mg-view .address span > span {
+	font-size: 1.5em;
+	position: absolute;
+	left: 830px;
+	top: 2px;
+}
+
+.mg-view .address > span:first-child {
+	margin-top: 0px;
+	color: #666;
+	font-size: 1.4em;
+}
+
+.mg-view .address > span:first-child > span {
+	color: #666;
+	font-size: 2.5em;
+	position: static;
+	display: inline;
+}
+
+.mg-view .post-info {
+	text-align: left;
+	color: #888;
+	font-size: 1em;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #EEE;
+}
+
+.mg-view .post-info span:nth-child(n+2) {
+	padding-left: 10px;
+}
+
+.mg-view table {
+	margin-top: 20px;
+	border-top: 3px solid #486BB8;
+}
+
+.mg-view .buttons {
+	margin-top: 50px;
+	float: right;
+}
+
+.mg-view .buttons a {
+	margin-left: 10px;	
+}
+
+.mg-view .panel {
+	margin-top: 30px;
+		
+}
+
+.mg-view .panel-body {
+	height: 60px;
+}
+
+/* mg-hope, 희망입주조건 관리 */
+.mg-hope .table-hope {
+	margin-top: 30px;
+}
+
+.mg-hope .table-hope th {
+	border-bottom: 5px solid #486BB8;
+}
+
+.mg-hope .table-hope td{
+	font-size: 14px;
+	vertical-align: middle;
+}
+
+.mg-hope .table-hope td:nth-child(3) > div:nth-child(1) {
+	font-size: 1.4em;
+}
+
+.mg-hope .table-hope td:nth-child(3) > div:nth-child(n+2) {
+	font-size: 0.9em;
+	border-bottom: 1px #DDD solid;
+}
+
+.mg-hope .table-hope td:nth-child(3) > div:nth-child(n+2) > span {
+	float: right;
+}
+
+.mg-hope .table-hope td:nth-child(1)
+ {
+	background-color: #EFEFEF;
+}
+
+/* mg-approval, 업체승인 */
+.mg-approval .buttons {
+	text-align: right;
+	margin-top: 20px;
+}
+
+.mg-approval .buttons a {
+	margin-left: 10px;
+}
+
+.mg-approval .table-approval th {
+	border-bottom: 5px solid #486BB8;
+}
+
+.mg-approval .table-approval td{
+	font-size: 14px;
+	vertical-align: middle;
+}
+
+.mg-approval .table-approval td:nth-child(2) > div:nth-child(1) {
+	font-size: 1.4em;
+}
+
+.mg-approval .table-approval td:nth-child(2) > div:nth-child(n+2) {
+	font-size: 0.9em;
+	border-bottom: 1px #DDD solid;
+}
+
+.mg-approval .table-approval td:nth-child(2) > div:nth-child(n+2) > span {
+	float: right;
+}
+
+.mg-approval .table-approval td:nth-child(1)
+ {
+	background-color: #EFEFEF;
+}
+
+/* mg-false, 허위 매물 삭제 */
+.mg-false .buttons {
+	text-align: right;
+	margin-top: 20px;
+}
+
+.mg-false .buttons a {
+	margin-left: 10px;
+}
+
+.mg-false .table-type-list {
+	margin-top: 10px;
+}
+
+/* mg-review, 후기 삭제 요청*/
+.mg-review .buttons {
+	text-align: right;
+	margin-top: 20px;
+}
+
+.mg-review .buttons a {
+	margin-left: 10px;
+}
+
+/* mg-ad, 광고중인 중개사 조회 */
+.mg-ad .bg-positive {
+	background-color: #C8EFD4;
+}
+
+.mg-ad .bg-negative {
+	background-color: #FBCFD0;
+}
+
+

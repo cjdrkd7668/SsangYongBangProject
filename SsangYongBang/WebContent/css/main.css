@@ -1,9 +1,276 @@
-@charset "UTF-8";
 /*
-
-전체 너비 : 1200px
-
-
-
+전체너비: 1200px;
+로고색: #486BB8;
 
 */
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap')
+	;
+
+body {
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Noto Sans KR', sans-serif;
+	letter-spacing: -1px;
+}
+
+/* small {
+	margin-right: 10px;
+	float: right;
+}
+
+h2 {
+	margin-left: 10px;
+	font-size: 1.4em;
+}
+
+.well {
+	outline: none;
+}
+
+.btn-sm {
+	outline: none;
+	height: 35px;
+} */
+
+/* a 태그에 대한 hover, focus 제거 */
+a {
+	color: black;
+}
+
+a:hover {
+	color: black;
+	text-decoration: none;
+}
+
+a:focus {
+	color: black;
+	text-decoration: none;
+}
+
+/* header-cklee */
+.header-cklee .navbar {
+	min-height: 80px;
+}
+
+.header-cklee #logo {
+	height: 50px;
+}
+
+.header-cklee .navbar-nav>li>a {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	line-height: 40px;
+	padding-right: 20px;
+	padding-left: 20px;
+	font-size: 1.3em;
+}
+
+.header-cklee .navbar-nav>li:nth-child(1)>a {
+	margin-left: 90px;
+}
+
+.header-cklee .navbar-nav>li:nth-child(8)>.dropdown-menu {
+	min-width: 100px;
+}
+
+.header-cklee .navbar-nav>li:nth-child(n+8)>a {
+	color: #486BB8;
+	font-size: 0.8em;
+	padding: 20px 10px;
+}
+
+.header-cklee .navbar-nav>li:nth-child(7)>a {
+	margin-right: 50px;
+}
+
+.header-cklee .navbar-default .navbar-nav>.open>a, .header-cklee .navbar-default .navbar-nav>.open>a:hover,
+	.header-cklee .navbar-default .navbar-nav>.open>a:focus {
+	color: #486BB8;
+}
+
+/*
+.header-cklee .navbar-text {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-right: 10px;
+}  
+
+.header-cklee .navbar-link {
+	color: #486BB8;
+	font-weight: bold;
+}
+
+.header-cklee .navbar-link:hover,
+.header-cklee .navbar-link:foucs {
+	color: #486BB8;
+	text-decoration: none;
+}
+*/
+
+/* footer-cklee */
+.footer-cklee {
+	text-align: center;
+}
+
+.footer-cklee #footer-text {
+	float: none;
+}
+
+.footer-cklee>.p-link {
+	margin-top: 50px;
+}
+
+.footer-cklee>.p-link>a {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+/* main-header 시작 */
+/* .main-header {
+	text-align: center;
+	margin-top: 30px;
+	height: 400px;
+}
+
+.main-header .main-txt {
+	margin: 100px;
+	font-size: 3em;
+}
+
+main-history 시작
+.main-history {
+	width: 95%;
+	margin: 30px auto;
+	padding: 10px;
+	height: 350px;
+	text-align: center;
+}
+
+.main-history-img {
+	width: 400px;
+	height: 200px;
+}
+
+main-notice 시작
+.main-notice {
+	width: 95%;
+	margin: 20px auto;
+	padding: 10px;
+	height: 300px;
+}
+
+.main-notice h2 {
+	font-size: 1.3em;
+}
+
+.main-notice small {
+	font-size: 0.7em;
+}
+
+.main-notice .notice-title {
+	margin-bottom: 20px;
+}
+
+.main-notice .notice1 {
+	border: 1px solid slategrey;
+}
+
+.main-notice .notice2, .main-notice .notice3 {
+	border: 0px;
+} */
+
+/* Main CSS(index.do) 수정 */
+#main-container small {
+	margin-right: 10px;
+	float: right;
+}
+
+#main-container h2 {
+	margin-left: 10px;
+	font-size: 1.4em;
+}
+
+#main-container .well {
+	outline: none;
+}
+
+#main-container .btn-sm {
+	outline: none;
+	height: 35px;
+}
+
+/* main-header 시작 */
+#main-container .main-header {
+	text-align: center;
+	margin-top: 30px;
+	height: 400px;
+}
+
+#main-container .main-header input[type="text"] {
+	display: inline-block;
+}
+
+#main-container .main-header #main-btn {
+	
+	text-align: center;
+	padding: 3px;
+	width: 35px;
+	height: 35px;
+	font-size: 1em;
+	background-color: #486BB8;
+	color: #EEE;
+	outline: none;
+	border-radius: 50%;
+}
+#main-container .main-header .main-txt {
+	margin: 100px;
+	font-size: 3em;
+}
+
+/* main-history 시작 */
+#main-container .main-history {
+	width: 95%;
+	margin: 30px auto;
+	padding: 10px;
+	height: 350px;
+	text-align: center;
+}
+
+#main-container .main-history-img {
+	width: 400px;
+	/* height: 200px; */
+}
+
+/* main-notice 시작 */
+#main-container .main-notice {
+	width: 95%;
+	margin: 20px auto;
+	padding: 10px;
+	height: 300px;
+}
+
+#main-container .main-notice h2 {
+	font-size: 1.3em;
+}
+
+#main-container .main-notice small {
+	font-size: 0.7em;
+}
+
+#main-container .main-notice .notice-title {
+	margin-bottom: 20px;
+}
+
+#main-container .main-notice .notice1 {
+	border: 1px solid slategrey;
+}
+
+#main-container .main-notice .notice2, #main-container .main-notice .notice3
+	{
+	border: 0px;
+}
+

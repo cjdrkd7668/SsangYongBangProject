@@ -1,0 +1,194 @@
+@charset "UTF-8";
+
+     @import
+	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap')
+	;
+
+body {
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Noto Sans KR', sans-serif;
+	letter-spacing: -1px;
+}
+
+.list-container h2 {
+	margin-left: 10px;
+	font-size: 1.5em;
+	float: left;
+}
+
+.list-container h3 {
+	margin-top: 10px;
+	text-align: left;
+	font-size: 1.5em;
+
+}
+
+.list-container .search-box {
+	position: relative;
+	text-align: left;
+	margin-top: 30px;
+	padding: 20px;
+	height: 300px;
+}
+
+.list-container .search-box .title {
+	width: 100px;
+}
+
+.list-container .btn-group {
+	margin: 10px;
+	display: inline-block;
+    
+}
+
+.list-container .btn-group .btn{
+	font-size: 1.2em;
+    
+}
+
+.list-container .form-control {
+	display: inline-block;
+	width: 120px;
+	margin: 10px 5px;
+    padding: 5px;
+    font-size: 1.2em;
+
+
+}
+
+.list-container small {
+	
+	text-align: right;
+	float: right;
+    font-size: 1.2em;
+	border: transparent;
+}
+
+.list-container .sliders {
+	margin-top: 5px;
+    margin-bottom: 20px;
+	height: 12px;
+	-webkit-appearance: none;
+	background: #486BB8;
+
+
+}
+
+.list-container .modal-title {
+	margin-top: 10px;
+
+
+}
+
+.list-container .modal-header {
+	height: 50px;
+	margin-left: 10px;
+	border: 0;
+
+}
+
+.list-container .modal-body {
+	height: 40px;
+	margin-left: 30px;
+    margin-top: 10px;
+	padding: 10px;
+	color: #486BB8;
+	width: 550px;
+
+}
+
+.list-container .modal-body .value {
+	display: inline-block;
+    width: 30px;
+    margin-right: 20px;
+    font-size: 1.1em;
+	border: 0px;
+
+}
+
+.list-container .modal-button {
+	margin: 10px;
+    font-size: 1.2em;
+    text-align: center;
+    width: 380px;
+
+}
+
+.list-container .btn-success {
+	background-color: #3B79BC;
+}
+
+.list-container .btn-success:hover {
+	border: transparent;
+	background-color: #3B79BC;
+	opacity: 0.7;
+}
+
+.list-container .search-text {
+	float: right;
+	margin-right: 10px;
+
+}
+
+.list-container .search-text input[type="text"] {
+	width: 350px;
+	height: 40px;
+}
+
+.list-container .search-text button {
+	text-align: center;
+            padding: 3px;
+            width: 35px;
+            height: 35px;
+            font-size: 1em;
+            background-color: #486BB8;
+            color: #EEE;
+            outline: none;
+            border-radius: 50%;
+}
+
+.list-container .btn-detail {
+	text-align: center;
+	font-size: 1.35em;
+
+}
+
+.list-container .btn-detail a {
+	text-decoration: none;
+	background-color: transparent;
+
+}
+
+.list-container .detail label {
+	font-size: 1.3em;
+	margin: 15px;
+	text-decoration: none;
+
+}
+
+.list-container .panel-group {
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+}
+
+.list-container .panel-body .well {
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: transparent;
+	border: 0;
+
+}
+
+.list-container .panel-body .well-detail {
+	width: 200px;
+	text-align: center;
+}
+
+.list-container #map {
+	position: relative;
+	top: 10px;
+}

@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap')
+	;
+
+body {
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Noto Sans KR', sans-serif;
+	letter-spacing: -1px;
+}
+
+.list-container {
+	padding: 20px;
+	width: 1000px;
+	margin: 30px auto;
+	height: 600px;
+}
+
+.page-header {
+	text-align: center;
+}
+
+.well {
+	margin-top: 20px;
+}
+
+.well b {
+	color: slateblue;
+}
+
+.table {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5px;
+	font-size: 1.2em;
+	border-bottom: 1px solid #CCC;
+}
+
+th {
+	background-color: #EEE;
+	width: 20px;
+	margin: 20px;
+	height: 45px;
+	text-align: center;
+	cursor: pointer;
+}
+
+td {
+	width: 20px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.page-bar {
+	text-align: center;
+}
+
+.btns {
+	float: right;
+}

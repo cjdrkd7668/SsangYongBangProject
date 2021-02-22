@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+/* main.css 에서의 float과 margin 해제 */
+small {
+	float:none;
+	margin: 0px;
+}
+
+.nav-pagination {
+	text-align: center;
+}
+
+.table-type-list {
+	margin-top: 30px;
+}
+
+.table-type-list .board-table-head th {
+	border-bottom: 5px solid #486BB8;
+}
+
+.table-type-list .board-table-head th,
+.table-type-list .board-table-body td {
+	vertical-align: middle;
+}
+
+.table-type-view tr {
+	border-bottom: 1px solid #CCC;
+}
+
+.table-type-view th {
+	min-width: 120px;
+	line-height: 60px;
+	color: #666;
+	padding-left: 10px;
+	background-color: #EFEFEF;
+
+}
+
+.table-type-view td {
+	color: #444;
+	padding-left: 10px;
+}
+
+.table-type-view-detail th {
+	min-width: 120px;
+	line-height: 60px;
+	color: #666;
+	padding-left: 10px;
+	background-color: #EFEFEF;
+}
+
+.table-type-view-detail td {
+	color: #444;
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+
+
+
+
+
+
+

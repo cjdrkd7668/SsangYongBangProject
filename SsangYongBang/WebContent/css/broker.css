@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+ul {
+	padding: 0;
+}
+
+ul li {
+	list-style: none;
+}
+
+a {
+	outline: none;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:focus {
+	text-decoration: none;
+}
+
+
+
+
