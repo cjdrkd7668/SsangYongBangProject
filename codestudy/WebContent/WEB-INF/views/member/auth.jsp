@@ -65,15 +65,17 @@
 			<div>
 				<h1>인증 <small>Auth</small></h1>
                 
+                <form method="POST" action="/codestudy/member/login.do" id="form1">
+                
                 <div class="loginbox panel panel-default">
                     <div class="panel-heading">Auth</div>
                     <div class="panel-body">
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <input type="text" id="id" placeholder="ID" class="form-control">
+                                <input type="text" id="id" name="id" placeholder="ID" class="form-control" required>
                             </li>
                             <li class="list-group-item">
-                                <input type="password" id="pw" placeholder="Password" class="form-control">
+                                <input type="password" id="pw" name="pw" placeholder="Password" class="form-control" required>
                             </li>
                             <li class="list-group-item">
                                 <button type="submit" class="btn btn-default">
@@ -83,7 +85,19 @@
                             </li>
                         </ul>
                     </div>
+                    
+                    <!-- 테스트용 -->
+	                <button type="button" onclick="test('hong','111');">홍길동</button>
+	                <button type="button" onclick="test('test','111');">테스트</button>
+	                <button type="button" onclick="test('hohoho','111');">호호호</button>
+                    
                 </div>
+                
+                
+                </form>
+                
+                
+                
 			</div>
 		</div>
 		<!-- ########## 내용 끝 -->
@@ -98,7 +112,23 @@
 	
 	<script>
     
+		function test(id, pw) {
+			$("#id").val(id);
+			$("#pw").val(pw);
+			$("#form1").submit();//에뮬레이터 함수
+			
+		}
+	
     </script>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+

@@ -65,25 +65,25 @@
 			<div>
 				<h1>자유 게시판 <small>Board</small></h1>
                 
-
+				<form method="POST" action="/codestudy/board/writeok.do" enctype="multipart/form-data">
                 <table class="table write">
                     <tr>
                         <td>
-                            <input type="text" class="form-control" placeholder="subject" id="subject">
+                            <input type="text" class="form-control" placeholder="subject" id="subject" name="subject" required>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <textarea class="form-control" id="content" placeholder="content"></textarea>
+                            <textarea class="form-control" id="content" placeholder="content" name="content" required></textarea>
                         </td>
                     </tr>
-                    <!-- 
+                    
                     <tr>
                         <td>
-                            <input type="file" class="form-control" placeholder="file" id="file">
+                            <input type="file" class="form-control" placeholder="file" id="file" name="attach">
                         </td>
                     </tr>
-                     -->
+                    
                 </table>
 
 
@@ -94,11 +94,16 @@
                         <span class="glyphicon glyphicon-chevron-left"></span>
                         뒤로
                     </button>
-                    <button type="button" class="btn btn-default" onclick="location.href='/codestudy/board/wridok.do';">
+                    <button type="submit" class="btn btn-default">
                         <span class="glyphicon glyphicon-plus"></span>
                         쓰기
                     </button>
                 </div>
+                
+                <input type="hidden" name="reply" value="${reply}">
+                <input type="hidden" name="thread" value="${thread}">
+                <input type="hidden" name="depth" value="${depth}">
+                </form>
                 <div style="clear:both;"></div>
 			</div>
 		</div>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +19,7 @@
 
 <body>
 
-	<!-- ########## 상단 헤더 시작 -->
+	<!-- ########## 상단 헤더 시작 -->	
 	<%
 		out.flush();
 	    RequestDispatcher dheader = request.getRequestDispatcher("/inc/header.do");
@@ -65,7 +67,50 @@
 				<h1>
 					시작 <small>Hello</small>
 				</h1>
-				<div style="height: 747px"></div>
+				<div style="min-height: 747px">
+				
+					<table class="table table-bordered">
+						<tr>
+							<th>번호</th>
+							<th>이름</th>
+							<th>게시물수</th>
+						</tr>
+						<c:forEach items="${blist}" var="bdto">
+						<tr>
+							<td>${bdto.mseq}</td>
+							<td>${bdto.name}</td>
+							<td>${bdto.cnt}</td>
+						</tr>
+						</c:forEach>
+					</table>
+					
+					
+					<table class="table table-bordered">
+						<tr>
+							<th>번호</th>
+							<th>이름</th>
+							<th>게시물수</th>
+						</tr>
+						<c:forEach items="${plist}" var="pdto">
+						<tr>
+							<td>${pdto.mseq}</td>
+							<td>${pdto.name}</td>
+							<td>${pdto.cnt}</td>
+						</tr>
+						</c:forEach>
+					</table>
+					
+					<hr>
+					
+					<div id="chart1"></div>
+					
+					<hr>
+					
+					<div id="chart2"></div>
+					
+					
+				
+				</div>
 			</div>
 		</div>
 		<!-- ########## 내용 끝 -->
@@ -78,9 +123,164 @@
 	<%@include file="/WEB-INF/views/inc/footer.jsp" %>
 	<!-- ########## 하단 끝 -->
 	
+	<script src="/codestudy/js/highcharts.js"></script>
 	<script>
     
+	
+	//바 차트
+	Highcharts.chart('chart1', {
+	    chart: {
+	        type: 'bar'
+	    },
+	    title: {
+	        text: '회원별 게시물 수 + 댓글 수'
+	    },
+	    xAxis: {
+	        categories: [
+	        			<c:forEach items="${blist}" var="bdto" varStatus="status">
+	        			'${bdto.name}'
+	        			<c:if test="${status.index < blist.size() - 1}">
+	        			,
+	        			</c:if>
+	        			</c:forEach>
+	        			],
+	        title: {
+	            text: null
+	        }
+	    },
+	    yAxis: {
+	        min: 0,
+	        title: {
+	            text: '게시물수 + 댓글수',
+	            align: 'high'
+	        },
+	        labels: {
+	            overflow: 'justify'
+	        }
+	    },
+	    tooltip: {
+	        valueSuffix: '개'
+	    },
+	    plotOptions: {
+	        bar: {
+	            dataLabels: {
+	                enabled: true
+	            }
+	        }
+	    },
+	    legend: {
+	        layout: 'vertical',
+	        align: 'right',
+	        verticalAlign: 'top',
+	        x: -40,
+	        y: 80,
+	        floating: true,
+	        borderWidth: 1,
+	        backgroundColor:
+	            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+	        shadow: true
+	    },
+	    credits: {
+	        enabled: false
+	    },
+	    series: [
+	    
+	    
+	    {
+	        name: '게시물 수',
+	        data: [
+	        	<c:forEach items="${blist}" var="bdto" varStatus="status">	
+	        	${bdto.cnt}
+	        	<c:if test="${status.index < blist.size() - 1}">
+    			,
+    			</c:if>
+	        	</c:forEach>
+	        	]
+	    }
+	    
+	    ,
+	    
+	    {
+	        name: '댓글 수',
+	        data: [
+	        	<c:forEach items="${plist}" var="pdto" varStatus="status">	
+	        	${pdto.cnt}
+	        	<c:if test="${status.index < plist.size() - 1}">
+    			,
+    			</c:if>
+	        	</c:forEach>
+	        	]
+	    }
+	    
+	    
+	    
+	    ]
+	});
+	
+	
+	
+	//파이 차트
+	Highcharts.chart('chart2', {
+	    chart: {
+	        plotBackgroundColor: null,
+	        plotBorderWidth: null,
+	        plotShadow: false,
+	        type: 'pie'
+	    },
+	    title: {
+	        text: '게시물 수'
+	    },
+	    tooltip: {
+	        pointFormat: '{series.name}: <b>{point.y:.0f}개</b>'
+	    },
+	    accessibility: {
+	        point: {
+	            valueSuffix: '개'
+	        }
+	    },
+	    plotOptions: {
+	        pie: {
+	            allowPointSelect: true,
+	            cursor: 'pointer',
+	            dataLabels: {
+	                enabled: true,
+	                format: '<b>{point.name}</b>: {y:.0f}개'
+	            }
+	        }
+	    },
+	    series: [{
+	        name: '게시물수',
+	        colorByPoint: true,
+	        data: [
+	        	
+	        <c:forEach items="${blist}" var="bdto">	
+	        {
+	            name: '${bdto.name}',
+	            y: ${bdto.cnt}    
+	        }
+	        	        
+	        ,
+	        
+	        </c:forEach>	        
+	        
+	        ]
+	    }]
+	});
+	
     </script>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+

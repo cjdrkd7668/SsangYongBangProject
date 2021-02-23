@@ -61,22 +61,24 @@
         			
         			<!-- 로그인 전 -->
         			<c:if test="${empty email }">
-        			<li><a href="/sybang/login/loginbuttons.do">로그인</a></li>
-        			<li><a href="#">회원가입</a></li>
+        			<li><a href="/sybang/login/loginbuttons.do" style="font-size: 1.3em;">로그인</a></li>
+        			<li><a href="#" style="font-size: 1.3em;">회원가입</a></li>
         			</c:if>
         			
         			<!-- 로그인 후 -->
         			<c:if test="${not empty email }">
+        			<c:if test="${access == 1 }">
         			<li class="dropdown">
-          			<a href="/sybang/member/mypage.do" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="font-size: 1.1em;">마이페이지<span class="caret"></span></a>
+          			<a href="/sybang/member/mypage.do" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="font-size: 1.3em;">마이페이지<span class="caret"></span></a>
 			          	<ul class="dropdown-menu" role="menu">
 				            <li><a href="/sybang/member/myinfo.do" style="font-size: 1.1em;">내 정보 관리</a></li>
 				            <li><a href="#" style="font-size: 1.1em;">스케줄러</a></li>
 				            <li><a href="#" style="font-size: 1.1em;">1:1 문의 내역</a></li>
 			         	</ul>
         			</li>
+        			</c:if>
 	
-        			<li><a href="/sybang/member/logout.do">로그아웃</a></li>
+        			<li><a href="/sybang/member/logout.do" style="font-size: 1.3em;">로그아웃</a></li>
         			</c:if>
 
 

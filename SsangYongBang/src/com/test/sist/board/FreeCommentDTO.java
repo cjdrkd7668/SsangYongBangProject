@@ -17,7 +17,17 @@ public class FreeCommentDTO {
 	private String authorseq;
 	
 	private String zerobonem; //중개사 0 회원 1
+	private int gap;
 	
+	
+	public int getGap() {
+		return gap;
+	}
+
+	public void setGap(int gap) {
+		this.gap = gap;
+	}
+
 	public String getZerobonem() {
 		return zerobonem;
 	}
