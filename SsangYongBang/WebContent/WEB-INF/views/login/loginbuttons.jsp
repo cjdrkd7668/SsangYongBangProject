@@ -38,12 +38,12 @@
         </div>
 
         <div class="jumbotron">
-            
+                      
             <div class="buttons">
   				<button type="button" class="btn btn-primary btn-lg" onclick="location.href=''">부동산 중개사 로그인</button>
   				<button type="button" class="btn btn-info btn-lg" onclick="location.href='/sybang/member/login.do'">회원 로그인</button>
-  				<button type="button" class="btn btn-success btn-lg" onclick="location.href=''">서비스업체 로그인</button>
-  				<button type="button" class="btn btn-danger btn-lg" onclick="location.href=''">관리자 로그인</button>
+  				<button type="button" class="btn btn-success btn-lg" onclick="location.href='/sybang/service/auth.do'">서비스업체 로그인</button>
+  				<button type="button" class="btn btn-danger btn-lg" onclick="location.href='/sybang/admin/auth.do'">관리자 로그인</button>
 			</div>
             
             
