@@ -72,9 +72,9 @@ public class ServiceDAO {
 				
 				ServiceDTO dto = new ServiceDTO();
 				
-				dto.setSeq(rs.getString("seq"));
-				dto.setCategorySeq(rs.getString("categorySeq"));
-				dto.setApproval(rs.getString("approval"));
+				dto.setSeq(rs.getString("seq")); //업체번호(업체전체 테이블)
+				dto.setCategorySeq(rs.getString("categorySeq")); //업체 카테고리번호
+				dto.setApproval(rs.getString("approval")); //업체 승인번호
 				
 				return dto;	
 			}
