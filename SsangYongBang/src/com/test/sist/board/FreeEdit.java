@@ -11,32 +11,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/board/freepost.do")
-public class FreePost extends HttpServlet {
-	
+@WebServlet("/board/freeedit.do")
+public class FreeEdit extends HttpServlet {
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		
+		String seq = req.getParameter("seq");
+
+		FreeDAO dao = new FreeDAO();
+		FreeDTO dto = dao.detail(seq);
+
 		HttpSession session = req.getSession();
-		
-		//로그인 안 한 사람이 URL로 접근 시
-		if (session.getAttribute("email") == null) {
+		// 작성자가 아닐 경우
+		if (!dto.getAuthorseq().equals((String) session.getAttribute("seq"))) {
+
 			PrintWriter writer = resp.getWriter();
 
 			writer.print("<html><body>");
 			writer.print("<script>");
 			writer.print("alert('failed');");
-			writer.print("location.href='/sybang/board/freelist.do';");
+			writer.print("history.back();");
 			writer.print("</script>");
 			writer.print("</body></html>");
 
 			writer.close();
-			
-			return;
+			return; // ***
 		}
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/freepost.jsp");
+		req.setAttribute("dto", dto);
+
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/freeedit.jsp");
 		dispatcher.forward(req, resp);
 	}
 }

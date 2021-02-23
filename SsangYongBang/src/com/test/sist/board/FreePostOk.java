@@ -1,4 +1,4 @@
-package com.test.sist.member;
+package com.test.sist.board;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,41 +11,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/member/loginok.do")
-public class LoginOk extends HttpServlet {
-
+@WebServlet("/board/freepostok.do")
+public class FreePostOk extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String email = req.getParameter("email");
-		String pw = req.getParameter("pw");
+		HttpSession session = req.getSession();
 		
-		MemberDAO dao = new MemberDAO();
-		MemberDTO dto = new MemberDTO();
+		req.setCharacterEncoding("UTF-8");
 		
-		dto.setEmail(email);
-		dto.setPw(pw);
+		String subject = req.getParameter("subject");
+		String detail = req.getParameter("detail");
+
+		FreeDAO dao = new FreeDAO();
+		FreeDTO dto = new FreeDTO();
 		
-		int result = dao.login(dto);
+		dto.setAuthorseq((String)session.getAttribute("seq")); //로그인 한 회원 번호
+		dto.setSubject(subject);
+		dto.setDetail(detail);
 		
-		//로그인 성공 시
+		//글쓰기
+		int result = dao.post(dto);
+		
 		if (result == 1) {
 			
-			HttpSession session = req.getSession();
-			
-			session.setAttribute("email", dto.getEmail());
-			
-			MemberDTO gdto = dao.getMember(email);
-			
-			session.setAttribute("seq", gdto.getSeq());
-			session.setAttribute("name", gdto.getName());
-			session.setAttribute("zerobonem", gdto.getZerobonem());
-			
-			resp.sendRedirect("/sybang/index.do");
+			//글쓰기 성공 시
+			resp.sendRedirect("/sybang/board/freelist.do");
 			
 		} else {
-			//로그인 실패 시
+			
+			//글쓰기 실패 시
 			PrintWriter writer = resp.getWriter();
 			
 			writer.print("<html><body>");
@@ -57,6 +53,5 @@ public class LoginOk extends HttpServlet {
 			
 			writer.close();
 		}
-		
 	}
 }

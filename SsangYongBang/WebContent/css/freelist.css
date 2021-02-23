@@ -56,27 +56,7 @@ body {
 	cursor: pointer;
 }
 
-.list-container .num {
-	width: 70px;
-}
 
-.list-container .title {
-	width: 600px;
-	margin-left: 10px;
-	text-align: left;
-}
-
-.list-container .writer {
-	width: 80px;
-}
-
-.list-container .date {
-	width: 120px;
-}
-
-.list-container .readcount {
-	width: 80px;
-}
 
 .list-conatiner td {
 	width: 20px;

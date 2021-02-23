@@ -5,18 +5,20 @@
 	;
 
 body {
-	width: 1200px;
-	margin-left: auto;
-	margin-right: auto;
-	font-family: 'Noto Sans KR', sans-serif;
-	letter-spacing: -1px;
+	position: relative;
+	left: 0;
+	top: 0;
+	/* min-height: 100%; */
 }
 
 .board-container {
 	padding: 20px;
 	width: 1000px;
+	/* overflow-y: scroll; */
 	margin: 30px auto;
-	height: 750px;
+	font-family: 'Noto Sans KR', sans-serif;
+	letter-spacing: -1px;
+	height: 100%;
 }
 
 .board-container .btn1 {
@@ -30,6 +32,7 @@ body {
 	margin-bottom: 15px;
 }
 
+/* 글 내용 */
 .board-container .tbl-content {
 	width: 900px;
 	height: 300px;
@@ -37,8 +40,10 @@ body {
 	margin: 15px auto;
 }
 
+/* 댓글 */
 .board-container .tbl-comment {
 	width: 850px;
+	height: auto;
 	margin-top: 10px;
 	margin-left: 50px;
 	font-size: 1em;
@@ -65,64 +70,6 @@ body {
 	padding-left: 20px;
 }
 
-#content-name {
-	padding-left: 20px;
-	float: left;
-	width: 70px;
-}
-
-#content-date {
-	float: left;
-	width: 120px;
-	padding-left: 20px;
-}
-
-#content-readcount {
-	float: left;
-	width: 707px;
-	padding-left: 20px;
-}
-
 #content-content {
 	padding: 20px;
-}
-
-#cmt-name {
-	float: left;
-	padding-left: 10px;
-	width: 70px;
-	font-weight: bold;
-}
-
-#cmt-comment {
-	float: left;
-	height: 50px;
-	font-size: 1.1em;
-	resize: none;
-}
-
-#cmt-date {
-	float: left;
-	width: 120px;
-	height: 30px;
-	margin-top: -1px;
-}
-
-.btn-cmt {
-	float: left;
-	width: 150px;
-}
-
-.btn-cmt .edit {
-	font-size: 1em;
-	float: left;
-	width: 60px;
-	margin-left: 10px;
-}
-
-.btn-cmt .delete {
-	font-size: 1em;
-	float: left;
-	width: 60px;
-	margin-left: 0px;
 }
