@@ -52,7 +52,7 @@ public class BrokerDAO {
 	
 	
 	
-	public BrokerDTO getMember(String email) {
+	public BrokerDTO getBroker(String email) {
 		
 		try {
 			
