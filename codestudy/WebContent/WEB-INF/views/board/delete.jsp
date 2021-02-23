@@ -71,14 +71,17 @@
                     </tr>
                     <tr>
                         <td>
-                            <button type="button" class="btn btn-default" onclick="location.href='/codestudy/board/view.do';">
+                        
+                            <button type="button" class="btn btn-default" onclick="location.href='/codestudy/board/view.do?seq=${seq}';">
                                 <span class="glyphicon glyphicon-chevron-left"></span>
 								뒤로
                             </button>
-                            <button type="button" class="btn btn-default">
+                                                        
+                            <button type="button" class="btn btn-default" onclick="location.href='deleteok.do?seq=${seq}';">
                                 <span class="glyphicon glyphicon-remove"></span>
 								삭제
                             </button>
+                            
                         </td>
                     </tr>
                 </table>

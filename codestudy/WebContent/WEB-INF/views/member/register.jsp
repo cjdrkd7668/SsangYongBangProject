@@ -65,24 +65,29 @@
 			<div>
 				<h1>가입 <small>Register</small></h1>
                 
+                <form method="POST" action="/codestudy/member/registerok.do" enctype="multipart/form-data" id="form1">
+                
                 <div class="registerbox panel panel-default">
                     <div class="panel-heading">Register</div>
                     <div class="panel-body">
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <input type="text" id="id" placeholder="ID" class="form-control">
+                                <input type="text" id="name" name="name" placeholder="Name" class="form-control" required>
                             </li>
                             <li class="list-group-item">
-                                <input type="email" id="email" placeholder="Email" class="form-control">
+                                <input type="text" id="id" name="id" placeholder="ID" class="form-control" required>
                             </li>
                             <li class="list-group-item">
-                                <input type="password" id="pw" placeholder="Password" class="form-control">
+                                <input type="email" id="email" name="email" placeholder="Email" class="form-control" required>
                             </li>
                             <li class="list-group-item">
-                                <input type="cpassword" id="pw" placeholder="Confirm Password" class="form-control">
+                                <input type="password" id="pw" name="pw" placeholder="Password" class="form-control" required>
                             </li>
                             <li class="list-group-item">
-                                <input type="file" id="pic" placeholder="Picture" class="form-control">
+                                <input type="password" id="cpw" name="cpw" placeholder="Confirm Password" class="form-control" required>
+                            </li>
+                            <li class="list-group-item">
+                                <input type="file" id="pic" name="pic" placeholder="Picture" class="form-control">
                             </li>
                             <li class="list-group-item">
                                 <button type="submit" class="btn btn-default">
@@ -93,6 +98,8 @@
                         </ul>
                     </div>
                 </div>
+                
+                </form>
 			</div>
 		</div>
 		<!-- ########## 내용 끝 -->
@@ -107,7 +114,31 @@
 	
 	<script>
     
+		//<form onsubmit="">
+		// - 폼이 전송되기 바로 직전에 발생하는 이벤트
+		$("#form1").submit(function(evt) {
+			
+			//암호 & 암호 확인이 일치하는지?
+			if ($("#pw").val() != $("#cpw").val()) {
+				alert("암호가 일치하지 않습니다.");
+				
+				//폼 전송을 취소
+				//evt == window.event
+				evt.preventDefault(); //발생한 이벤트의 동작을 없던일로 취소
+				return false; //발생한 이벤트의 동작을 없던일로 취소
+			}
+			
+		});
+	
     </script>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
