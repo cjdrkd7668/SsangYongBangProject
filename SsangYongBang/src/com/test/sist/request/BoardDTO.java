@@ -13,8 +13,16 @@ public class BoardDTO {
 	private String area; //면적
 	private String regDate; //작성일
 	
+	private String serviceSeq; // 고객요청서 테이블 열(서비스품목번호)과 이름 동일하게 맞춘것.
 	
 	
+	
+	public String getServiceSeq() {
+		return serviceSeq;
+	}
+	public void setServiceSeq(String serviceSeq) {
+		this.serviceSeq = serviceSeq;
+	}
 	public String getMseq() {
 		return mseq;
 	}

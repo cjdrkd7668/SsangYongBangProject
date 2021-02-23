@@ -27,9 +27,8 @@ public class BoardDAO {
 	}
 
 	
-	//WriteOk서블릿의 호출 -> 견적서 쓰기
+	//estimate.  WriteOk서블릿의 호출 -> 견적서 쓰기
 	public int write(BoardDTO dto) {
-		
 		
 		try {
 			

@@ -52,13 +52,16 @@
 	body {
 		padding-left: 28px;
 	}
+	
 
 </style>
 </head>
 
 <body>
 	<!-- 헤더 가져오기 -->
+	<div id="header">
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
+	</div>
 	<!-- 헤더 끝 -->
 
 
@@ -101,15 +104,16 @@
 							<h4 class="modal-title" id="myModalLabel">내 요청서</h4>
 						</div>
 						<div class="modal-body">
-							<form action="./requestRegister.jsp" method="POST">
+						<!-- write페이지를 생략해도 될지.. 질문 필요함 -->
+							<form action="/sybang/request/writeok.do" method="POST">
 								<div class="form-row">
 									<div class="form-group col-sm-6">
-										<label>주소</label> <input type="text" name=""
+										<label>주소</label> <input type="text" name="address"
 											class="form-control" maxlength="20">
 									</div>
 									<div class="form-group col-sm-6">
 										<label>서비스 종류</label>
-										<select name="serviceCategory"
+										<select name="serviceSeq"
 											class="form-control">
 											<option value="1">청소</option>
 											<option value="2">시공</option>
@@ -119,17 +123,17 @@
 
 								<div class="form-row">
 									<div class="form-group col-sm-6">
-										<label>가옥구조</label> <select name=""
+										<label>가옥구조</label> <select name="shape"
 											class="form-control">
-											<option value="1">아파트</option>
-											<option value="2">빌라주택</option>
-											<option value="3">전원주택</option>
-											<option value="4">오피스텔</option>
-											<option value="5">기타</option>
+											<option value="아파트">아파트</option>
+											<option value="빌라주택">빌라주택</option>
+											<option value="전원주택">전원주택</option>
+											<option value="오피스텔">오피스텔</option>
+											<option value="기타">기타</option>
 										</select>
 									</div>
 									<div class="form-group col-sm-6">
-										<label>면적</label> <select name=""
+										<label>면적</label> <select name="area"
 											class="form-control">
 											<option value="15">15평</option>
 											<option value="16">16평</option>
@@ -167,13 +171,13 @@
 									
 											<!-- 데이트피커 -->	
 									<div class="input-group date">
-							            <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+							            <input type="text" name="desiredDay" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 							        </div>
 									
 								</div>
 								<div class="form-group">
 									<label>상세내용</label>
-									<textarea name="evaluationContent" class="form-control"
+									<textarea name="detail" class="form-control"
 										maxlength="2000" style="height: 180px;"></textarea>
 								</div>
 
@@ -183,7 +187,7 @@
 										data-dismiss="modal">취소</button>
 									<button type="submit" class="btn btn-primary">등록</button>
 								</div>
-
+								<!-- 로그인한 회원이 작성하게 되니, 세션 안의 회원번호를 쓰면 된다 히든태그 사용x -->>
 							</form>
 
 

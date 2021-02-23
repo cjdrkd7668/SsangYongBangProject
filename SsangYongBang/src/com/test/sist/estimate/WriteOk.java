@@ -34,7 +34,9 @@ public class WriteOk extends HttpServlet {
 		String approvalFSeq = (String) session.getAttribute("approvalFSeq"); //업체승인번호 ->세션에서 가져오기
 		String requestSeq = req.getParameter("requestSeq"); //고객요청서번호 -> hidden 태그로 받아오기
 		
-		int estimatedCost = Integer.parseInt(req.getParameter("estimatedCost")); //예상비용
+		int estimatedCost = Integer.parseInt(req.getParameter("estimatedCost")); 
+		//예상비용 -> 인트자료형인데... 유효성검사 나중에 필요할 듯.. 아니면 셀렉트박스로 바꾸기
+		
 		String eContent = req.getParameter("eContent"); //상세 내용
 		
 		//여기까지 가져와야할 데이터 목록들.
