@@ -40,8 +40,12 @@ public class Login extends HttpServlet{
 			
 			BrokerDTO bdto = dao.getBroker(email);
 			
+			if (bdto.getApproBrokerSeq() == null || bdto.getApproBrokerSeq() == "") { 
+				session.setAttribute("approBrokerSeq", 0);
+			};
+			
 			session.setAttribute("email", email);
-
+			
 			
 			//승인 중개사 번호
 			session.setAttribute("approBrokerSeq", bdto.getApproBrokerSeq()); //승인 중개사 번호
