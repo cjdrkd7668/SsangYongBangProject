@@ -31,7 +31,7 @@ public class BrokerDAO {
 		
 		try {
 			
-			String sql = "select count(*) as cnt from tblBroker where id = ? and pw = ?";
+			String sql = "select count(*) as cnt from tblBroker where email = ? and pw = ?";
 			
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, dto.getEmail());
