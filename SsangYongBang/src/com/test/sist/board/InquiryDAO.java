@@ -104,4 +104,25 @@ public class InquiryDAO {
 		return null;
 	}
 
+	//InquiryPostOk 서블릿 -> 글쓰기
+	public int post(InquiryDTO dto) {
+		try {
+
+			String sql = "{ call procAddInquiryMember(?, ?, ?, ?) }";
+
+			cstat = conn.prepareCall(sql);
+
+			cstat.setString(1, dto.getAuthorseq());
+			cstat.setString(2, dto.getSubject());
+			cstat.setString(3, dto.getDetail());
+			cstat.setString(4, dto.getOpenflag());
+
+			return cstat.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return 0;
+	}
+
 }

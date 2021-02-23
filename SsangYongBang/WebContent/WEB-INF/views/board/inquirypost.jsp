@@ -32,18 +32,35 @@
 		<form method="POST" action="/sybang/board/inquirypostok.do">
 			<table class="table table-default">
 				<tr>
-					<td><input type="text" name="subject" id="subject"
+					<td>
+					<!-- 문의 제목 -->
+					<input type="text" name="subject" id="subject"
 						class="form-control" placeholder="제목을 입력해주세요."
-						style="height: 50px; width: 890px; font-size: 1.4em; box-shadow: 1px 0px 3px #486BB8;"
-						required></td>
-					<td><textarea type="text" name="detail" id="detail"
+						style="height: 50px; width: 780px; font-size: 1.4em; box-shadow: 1px 0px 3px #486BB8; float:left; margin-right: 5px;"
+						required>
+						
+						<!-- 공개 여부 -->
+						<!-- 비공개 -->
+						<div style="float: left; padding: 10px;">
+						<input type="radio" name="openflag" id="openflag1" value="0" style="margin-right: 5px; border:0px;" checked><label for="openflag1"><i class="fas fa-lock" style="font-size: 1.5em; color: #486BB8;"></i></label>
+						<!-- 공개 -->
+						<input type="radio" name="openflag" id="openflag2" value="1" style="margin-right: 5px; margin-left: 5px; border:0px;"><label for="openflag2"><i class="fas fa-lock-open" style="font-size: 1.5em; color: #486BB8;"></i></label>
+						</div>
+						</td>
+					<td>
+					<!-- 문의 내용 -->
+					<textarea type="text" name="detail" id="detail"
 							class="form-control" placeholder="내용을 입력해주세요."
 							style="height: 200px; width: 890px; font-size: 1.1em; resize: none; box-shadow: 1px 0px 3px #486BB8;"
-							required></textarea></td>
+							required></textarea>
+							</td>
 				</tr>
 			</table>
+			
+			
 
 			<div class="btns btn-group">
+				
 				<button type="submit" class="btn btn-info"
 					style="background-color: #486BB8;">
 					<span class="glyphicon glyphicon-ok"></span> 등록하기

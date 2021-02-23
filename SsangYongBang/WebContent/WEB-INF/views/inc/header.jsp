@@ -28,11 +28,14 @@
 				            <li><a href="/sybang/notice/boardList.do">공지사항</a></li>
 				            <li><a href="/sybang/news/boardList.do">뉴스</a></li>
 				            <li><a href="/sybang/board/freelist.do">자유게시판</a></li>
+				            <c:if test="${not empty email }">
 				            <li><a href="/sybang/board/inquirylist.do">문의게시판</a></li>
+				            </c:if>
 			         	</ul>
         			</li>
 					<li class="dropdown">
           			<a href="/sybang/broker/brokerMain.do" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">중개사공간<span class="caret"></span></a>
+			          	<c:if test="${not empty email && access == 0 }">
 			          	<ul class="dropdown-menu" role="menu">
 				            <li><a href="/sybang/broker/brokerMain.do">내 프로필</a></li>
 				            <li><a href="/sybang/broker/room/roomList.do">매물 등록하기</a></li>
@@ -42,9 +45,12 @@
 				            <li><a href="/sybang/broker/hope/hopelist.do">희망 매물 조회하기</a></li>
 				            <li><a href="/sybang/broker/review/reviewlist.do">후기/평점 조회하기</a></li>
 			         	</ul>
+			         	</c:if>
         			</li>
+        			
 					<li class="dropdown">
           			<a href="/sybang/service/servicemain.do" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">청소/시공<span class="caret"></span></a>
+			          	<c:if test="${not empty email && access == 2 }">
 			          	<ul class="dropdown-menu" role="menu">
 				            <li><a href="/sybang/service/servicemain.do">청소/시공업체 홈</a></li>			          	
 				            <li><a href="/sybang/service/ServicestoreList.do">전문업체 찾기</a></li>
@@ -56,7 +62,9 @@
 				            <li><a href="/sybang/service/servicemypage.do">마이 서비스</a></li>
 				           	
 			         	</ul>
+			         	</c:if>
         			</li>
+        			
         			
         			
         			<!-- 로그인 전 -->

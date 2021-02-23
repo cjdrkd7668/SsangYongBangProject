@@ -36,6 +36,7 @@ public class InquiryList extends HttpServlet {
 
 		String authorseq = (String) session.getAttribute("seq");
 		String access = session.getAttribute("access").toString();
+		System.out.println(access);
 
 		InquiryDAO dao = new InquiryDAO();
 
