@@ -178,8 +178,14 @@
 				<tr>
 					<td class="well well-sm">
 						<div class="cmt-name">${cdto.authorname }</div>
-						<div class="cmt-date">${cdto.regdate }&nbsp;<span class="badge"
+						<div class="cmt-date">${cdto.regdate }&nbsp;
+						
+							<!-- 최신 댓글일 경우 -->
+							<c:if test="${cdto.gap < 1 }">
+							<span class="badge"
 								style="background-color: red;">N</span>
+							</c:if>
+							
 						</div> <!-- 자기가 쓴 댓글이면 버튼이 보인다. --> <c:if
 							test="${cdto.authorseq == seq && cdto.zerobonem == zerobonem }">
 							<div class="btn-cmt">
