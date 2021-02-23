@@ -9,6 +9,73 @@
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 <link rel="stylesheet" href="/sybang/css/memberlogin.css">
 <style>
+        .list-container {
+            width: 1000px;
+            height: 600px;
+            margin: 30px auto;
+            font-family: 'Noto Sans KR', sans-serif;
+            letter-spacing: -1px;
+            padding: 20px;
+        }
+
+        .list-container .page-header {
+            text-align: center;
+        }
+
+        .list-container .jumbotron {
+            position: relative;
+            top: 0;
+            left: 0;
+            height: 400px;
+            text-align: center;
+        }
+
+        .list-container .jumbotron .loginbtn {
+            width: 500px;
+            padding-top: 80px;
+            display: inline-block;
+        }
+
+        .list-container .jumbotron .loginbtn input[type="text"], .list-container .jumbotron .loginbtn input[type="password"] {
+            text-align: left;
+            margin: 10px;
+            width: 250px;
+            float: left;
+        }
+
+        .list-container .jumbotron .checkbox-inline {
+            width: 150px;
+            height: 60px;
+            margin-left: 240px;
+            padding-top: 20px;
+            float: left;
+        }
+
+        .list-container .jumbotron .checkbox-inline input[type="checkbox"] {
+            display: inline-block;
+            
+        }
+
+        .list-container .jumbotron .btns {
+            width: 300px;
+            height: 60px;
+            margin-left: 23px;
+            float: left;
+            padding-top: 15px;
+        }
+        
+        .list-container .btn-info {
+            width: 150px;
+            height: 100px;
+            font-size: 1.3em;
+            background-color: #3B79BC;
+        }
+
+        .list-container .btn-info:hover {
+           
+            opacity: .8;
+        }
+
 </style>
 </head>
 

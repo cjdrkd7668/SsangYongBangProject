@@ -43,16 +43,19 @@
       <li class="sidebar-brand">
         <a href="/sybang/service/servicemain.do">청소 & 시공</a>
       </li>
+      <c:if test="${access == '2' }"> <!-- 업체 아이디로 로그인시 보이는 사이드메뉴 -->
       <li><a href="/sybang/service/servicemypage.do">마이 서비스</a></li>
+      </c:if>
       <li><a href="/sybang/request/requestlist.do">요청서 리스트</a></li>
       <li><a href="/sybang/servicereview/servicereview.do">후기 리스트</a></li>
       <li><a href="/sybang/servicechat/servicechat.do">1:1 문의</a></li>
       <li><a href="/sybang/servicescheduler/servicescheduler.do">일정 관리</a></li>
-      <c:if test="${not empty email}"> <!-- 업주 이메일로 로그인시 보이는 사이드메뉴 -->
-      <li><a href="/sybang/request/receivedrequestlist.do">받은 견적서 리스트</a></li>
+      <c:if test="${access == '2' }"> <!-- 업체 아이디로 로그인시 보이는 사이드메뉴 -->
+      <li><a href="/sybang/request/receivedrequestlist.do">받은 요청서 리스트</a></li>
       </c:if>
-    
+      <c:if test="${access == '1'}"> <!-- 회원 아이디로 로그인시 보이는 사이드메뉴 -->
+   	  <li><a href="/sybang/estimate/receivedestimatelist.do">내가 받은 견적서</a></li> 
+      </c:if>
     </ul>
   <!-- </div> -->
   <!-- /사이드바 -->
-
