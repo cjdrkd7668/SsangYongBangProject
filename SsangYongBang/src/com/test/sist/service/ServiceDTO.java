@@ -14,6 +14,16 @@ public class ServiceDTO {
 	private String approval; //업체 승인여부
 	private String delFlag; //업체 탈퇴여부
 	private String categorySeq; //업체 카테고리번호
+	
+	
+	private String approvalFSeq; //업체승인번호
+	
+	public String getApprovalFSeq() {
+		return approvalFSeq;
+	}
+	public void setApprovalFSeq(String approvalFSeq) {
+		this.approvalFSeq = approvalFSeq;
+	}
 	public String getSeq() {
 		return seq;
 	}

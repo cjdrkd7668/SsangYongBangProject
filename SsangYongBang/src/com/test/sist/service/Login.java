@@ -51,10 +51,14 @@ public class Login extends HttpServlet {
 		  
 		  
 		  ServiceDTO sdto = dao.getService(email);
+		  //조인하지 않은 순수 업체 테이블만 가져와 세션에 담을 때는 로그인 기능 제대로 돌아갔음..		  
+		  //session.setAttribute("serviceSeq", sdto.getSeq()); //업체번호
+		  //session.setAttribute("categorySeq", sdto.getCategorySeq()); //업체 카테고리 번호(청소, 시공)
+		  //session.setAttribute("approval", sdto.getApproval()); // 승인 여부
 		  
-		  session.setAttribute("serviceSeq", sdto.getSeq()); //업체번호
-		  session.setAttribute("categorySeq", sdto.getCategorySeq()); //업체 카테고리 번호(청소, 시공)
-		  session.setAttribute("approval", sdto.getApproval()); // 승인 여부
+		  
+		  //승인업체 테이블과 조인한 정보 가져와 담기.. 여기서 오류 발생함(널포인익셉션)
+		  session.setAttribute("approvalFSeq", sdto.getApprovalFSeq()); //업체승인번호
 		  
 		  
 		  //로그인된 상태로, 서비스홈 메인페이지로 보내기

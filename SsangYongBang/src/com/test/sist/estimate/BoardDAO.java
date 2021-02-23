@@ -25,6 +25,31 @@ public class BoardDAO {
 			System.out.println(e);
 		}
 	}
+
+	
+	//WriteOk서블릿의 호출 -> 견적서 쓰기
+	public int write(BoardDTO dto) {
+		
+		
+		try {
+			
+			String sql = "insert into tblEstimate1th (seq, regDate, approvalFSeq, requestSeq, estimatedCost, eContent, adoptFlag) values (seqEstimate1th.nextVal, default, ?, ?, ?, ?, 0)";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getApprovalFSeq());
+			pstat.setString(2, dto.getRequestSeq());
+			pstat.setInt(3, dto.getEstimatedCost());
+			pstat.setString(4, dto.geteContent());
+			
+			return pstat.executeUpdate();
+			
+			
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		return 0;
+	}
 	
 	
 	
