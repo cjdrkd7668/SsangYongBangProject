@@ -17,15 +17,10 @@ public class Login extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// 1. 데이터 가져오기(email, pw)
-		// 2. DB 작업 > select(등록된 회원이 맞는지 확인)
-		// 3. 결과 처리
-
-		// 1.
 		String email = request.getParameter("email");
 		String pw = request.getParameter("pw");
 
-		// 2.
+		
 		BrokerDAO dao = new BrokerDAO();
 		BrokerDTO dto = new BrokerDTO();
 
@@ -34,26 +29,24 @@ public class Login extends HttpServlet{
 
 		int result = dao.login(dto); // 1 or 0
 
-		HttpSession session = request.getSession();
-
 		if (result == 1) {
 			
+			HttpSession session = request.getSession();
+
+			session.setAttribute("email", dto.getEmail());
 			BrokerDTO bdto = dao.getBroker(email);
+			
 			
 			if (bdto.getApproBrokerSeq() == null || bdto.getApproBrokerSeq() == "") { 
 				session.setAttribute("approBrokerSeq", 0);
+			} else {				
+				//승인 중개사 번호
+				session.setAttribute("approBrokerSeq", bdto.getApproBrokerSeq()); //승인 중개사 번호
 			};
 			
-			session.setAttribute("email", email);
-			
-			
-			//승인 중개사 번호
-			session.setAttribute("approBrokerSeq", bdto.getApproBrokerSeq()); //승인 중개사 번호
-
 			
 			session.setAttribute("access", 0);
-			
-			
+	
 			response.sendRedirect("/sybang/index.do"); //메인 페이지로 이동
 
 		} else {

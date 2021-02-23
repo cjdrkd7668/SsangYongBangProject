@@ -33,7 +33,7 @@
 					<button type="submit" class="btn btn-info" style="background-color: #486BB8; font-size: 1.3em; width: 150px; height: 100px;">로그인</button>
 				</div>
 				
-				<button type="button" onclick="test('hong123@gmail.com','ghdrlfehd');">1번 중개사 간편 로그인</button>
+				<button type="button" onclick="test('wowbudongsan@naver.com','ghdrlfehd');">2번 중개사 간편 로그인</button>
 			
 			</form>
 			<div>

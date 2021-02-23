@@ -34,6 +34,7 @@ public class BrokerDAO {
 			String sql = "select count(*) as cnt from tblBroker where email = ? and pw = ?";
 			
 			pstat = conn.prepareStatement(sql);
+			
 			pstat.setString(1, dto.getEmail());
 			pstat.setString(2, dto.getPw());
 			
@@ -56,7 +57,7 @@ public class BrokerDAO {
 		
 		try {
 			
-			String sql = "select b.seq as ApproBrokerSeq Afrom tblBroker a inner join tblApproBroker b on a.seq = b.brokerSeq where a.email = '?'";
+			String sql = "select b.seq, b.email, b.pw, b.name, b.businessName, b.brokerNum, b.address, b.tel, b.businessNum, b.documentURL, b.delFlag, a.seq as approBrokerSeq from tblApproBroker a inner join tblBroker b on a.brokerSeq = b.seq where b.email = ?";
 			
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, email);
@@ -67,7 +68,20 @@ public class BrokerDAO {
 				
 				BrokerDTO dto = new BrokerDTO();
 				
-				dto.setApproBrokerSeq(rs.getString("ApproBrokerSeq")); //승인 중개사 번호
+				
+				dto.setSeq(rs.getString("seq")); //중개사 번호
+				dto.setEmail(rs.getString("email"));//이메일
+				dto.setPw(rs.getString("pw"));//비밀번호
+				dto.setSeq(rs.getString("name"));//사업자 대표명
+				dto.setSeq(rs.getString("businessName"));//사업자 상호
+				dto.setSeq(rs.getString("brokerNum"));//중개 등록 번호
+				dto.setSeq(rs.getString("address"));//주소지
+				dto.setSeq(rs.getString("tel"));//전화번호
+				dto.setSeq(rs.getString("businessNum"));//사업자 등록번호
+				dto.setSeq(rs.getString("documentURL"));//서류경로
+				dto.setSeq(rs.getString("delFlag"));//탈퇴여부
+			
+				dto.setApproBrokerSeq(rs.getString("ApproBrokerSeq")); //***승인 중개사 번호
 				
 				return dto;
 			}
