@@ -40,7 +40,7 @@ public class AdminHopeDAO {
 	}
 	
 	//현재 페이지를 매개로 해당 페이지의 글 목록을 가져오는 프로시저를 이용
-	public ArrayList<AdminHopeDTO> getlist(int nowPage) {
+	public ArrayList<AdminHopeDTO> getList(int nowPage) {
 		
 		try {
 			

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,8 +40,8 @@
 		<h1 class="welcome">후기 삭제 요청<small> 중개사가 삭제를 요청한 후기 목록</small></h1>
 		
 		<div class="buttons">
-			<a class="btn btn-default btn-danger" href="#" role="button">요청 삭제</a>
-			<a class="btn btn-default" href="#" role="button">전체 선택</a>
+			<a class="btn btn-default btn-danger" role="button">요청 삭제</a>
+			<a class="btn btn-default" role="button" id="select-all">전체 선택</a>
 		</div>
 		
 		<table class="table table-hover table-type-list">
@@ -55,24 +56,26 @@
 				<tr>
 					<th scope="col" class="text-center">삭제 사유</th>
 					<th scope="col" class="text-center ">글쓴이</th>
-					<th scope="col" class="text-center ">작성일</th>
+					<th scope="col" class="text-center ">처리 여부</th>
 					<th scope="col" class="text-center">후기 확인</th>
 					<th scope="col" class="text-center">선택</th>
 				</tr>
 			</thead>
 			<tbody class="board-table-body">
+			
+				<c:forEach items="${list}" var="ardto">
 				<tr>
-					<td class="text-left">저희 중개사와 거래한 고객이 아닙니다.</td>
-					<td class="text-center">대박공인중개사사무소</td>
-					<td class="text-center">2021-02-20</td>
+					<td class="text-left">${ardto.detail}</td>
+					<td class="text-center">${ardto.businessName}</td>
+					<td class="text-center">${ardto.doneFlag}</td>
 					<td class="text-center">
 						<button class="btn btn-default modal-button" type="button" data-toggle="modal"
-	                        data-target="#false-detail">
+	                        data-target="#false-detail-${ardto.seq}">
 	                        <span class="glyphicon glyphicon-comment"></span>
 	                    </button>
 	                    
 						<!-- Modal -->
-						<div class="modal" id="false-detail" tabindex="-1" role="dialog" data-backdrop="false">
+						<div class="modal" id="false-detail-${ardto.seq}" tabindex="-1" role="dialog" data-backdrop="false">
 						  <div class="modal-dialog">
 						    <div class="modal-content">
 						      <div class="modal-header">
@@ -80,8 +83,8 @@
 						        <h4 class="modal-title">후기 확인</h4>
 						      </div>
 						      <div class="modal-body">
-								<div><img src="/sybang/images/room01.jpg" alt="room01.jpg" class="img-thumbnail"></div>
-								<div><h4>강하늘(kangsky@naver.com)</h4><p>전화로 친절하게 말씀해주셔서 고마웠어요~</p></div>
+								<div><img style="width: 400px" src="/sybang/images/${ardto.imgURL}" alt="${ardto.imgURL}" class="img-thumbnail"></div>
+								<div><h4>${ardto.brvName}(${ardto.brvId})</h4><p>${ardto.reviewContent}</p></div>
 						      </div>
 						      <div class="modal-footer">
 						      	<button type="button" class="btn btn-danger">후기 삭제</button>
@@ -92,34 +95,21 @@
 						</div>
                     </td>
                     <td class="text-center">
-						<div class="checkbox">
+						<div class="checkbox" >
 							<label>
-						    	<input type="checkbox">
+						    	<input type="checkbox" value="${ardto.seq}" name="check" class="checkbuttons">
 							</label>
 						</div>
                     </td>
 				</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 		
 		<!-- pagination -->
 	    <nav class="nav-pagination">
 		  	<ul class="pagination">
-			    <li>
-			    	<a href="#" aria-label="Previous">
-				   		<span aria-hidden="true">&laquo;</span>
-					</a>
-				</li>
-			    <li><a href="#">1</a></li>
-			    <li><a href="#">2</a></li>
-			    <li><a href="#">3</a></li>
-			    <li><a href="#">4</a></li>
-			    <li><a href="#">5</a></li>
-			    <li>
-					<a href="#" aria-label="Next">
-				    	<span aria-hidden="true">&raquo;</span>
-			      	</a>
-			    </li>
+			    ${pageBar}
 		  	</ul>
 		</nav>
 		
@@ -128,7 +118,6 @@
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 
 	<script type="text/javascript">
-		
 	</script>
 
 </body>
