@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/board/freepost.do")
-public class FreePost extends HttpServlet {
+@WebServlet("/board/inquirypost.do")
+public class InquiryPost extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -26,7 +26,7 @@ public class FreePost extends HttpServlet {
 			writer.print("<html><body>");
 			writer.print("<script>");
 			writer.print("alert('failed');");
-			writer.print("location.href='/sybang/board/freelist.do';");
+			writer.print("location.href='/sybang/board/inquirylist.do';");
 			writer.print("</script>");
 			writer.print("</body></html>");
 
@@ -35,7 +35,7 @@ public class FreePost extends HttpServlet {
 			return;
 		}
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/freepost.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/inquirypost.jsp");
 		dispatcher.forward(req, resp);
 	}
 }

@@ -1,13 +1,11 @@
 package com.test.sist.board;
 
 /**
- * FreeDTO. seq 글 번호 subject 글 제목 detail 글 내용 regdate 작성일 delflag 삭제 여부
- * readcount 조회수 authorseq 작성자 번호 authorname 작성자 이름 ccount 댓글수 gap 최신글
  * 
  * @author 이찬미
  *
  */
-public class FreeDTO {
+public class InquiryDTO {
 	private String seq;
 	private String subject;
 	private String detail;
@@ -20,22 +18,6 @@ public class FreeDTO {
 
 	private String ccount;
 	private int gap;
-
-	public String getCcount() {
-		return ccount;
-	}
-
-	public void setCcount(String ccount) {
-		this.ccount = ccount;
-	}
-
-	public int getGap() {
-		return gap;
-	}
-
-	public void setGap(int gap) {
-		this.gap = gap;
-	}
 
 	public String getSeq() {
 		return seq;
@@ -99,6 +81,22 @@ public class FreeDTO {
 
 	public void setAuthorname(String authorname) {
 		this.authorname = authorname;
+	}
+
+	public String getCcount() {
+		return ccount;
+	}
+
+	public void setCcount(String ccount) {
+		this.ccount = ccount;
+	}
+
+	public int getGap() {
+		return gap;
+	}
+
+	public void setGap(int gap) {
+		this.gap = gap;
 	}
 
 }
