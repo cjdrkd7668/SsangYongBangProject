@@ -6,7 +6,7 @@ public class Pagination {
 	//totalCount		//총 게시물 수
 	//pageSize			//한페이지 당 출력 개수
 	//blockSize			//페이지바 관련 변수
-	//pathWithoutPage 	//page를 제외한, 페이지 이동 path
+	//pathWithoutPage 	//page를 제외한, 페이지 이동 path (예: /sybang/admin/hope/boardlist.do)
 	
 	public static String getPageBarTag(int nowPage, int totalCount, int pageSize, int blockSize, String pathWithoutPage) {
 	
