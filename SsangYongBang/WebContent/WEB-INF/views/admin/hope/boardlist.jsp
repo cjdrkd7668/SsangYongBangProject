@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,6 +43,7 @@
 		
 		<h1 class="welcome">희망입주조건 관리<small> 일반 회원이 게시한 희망 입주 조건 게시글</small></h1>
 		
+		<!-- 
 		<form method="GET" action="/sybang/admin/hope/boardlist.do" id="admin-hope-search">
 			<div class="search">
 				<h3>희망입주조건 지역별 검색</h3>
@@ -49,10 +51,11 @@
 				<span onclick="$('#admin-hope-search').submit();"><span class="glyphicon glyphicon-search"></span></span>
 			</div>
 		</form>
-		
+		 
 		<div class="message">
-        	'${search}'(으)로 ${list.size()}건의 게시물을 검색했습니다.
+        	'${search}'(으)로 ${ahlist.size()}건의 게시물을 검색했습니다.
         </div>
+		 -->
 		
 		<table class="table table-hope">
 			<colgroup>
@@ -74,24 +77,27 @@
 				</tr>	
 			</thead>		
 			<tbody>
+				<c:forEach items="${ahlist}" var="ahdto">
 				<tr>
-					<td class="text-center">월세</td>
-					<td class="text-center">1000/73</td>
-					<td>
-						<div>서울시 강남구 역삼동</div>
-						<div>희망 면적(전용 면적): <span>31 &#13217;</span></div>
-						<div>희망 방 개수: <span>1 개</span></div>
+					<td class="text-center">${ahdto.hdtype}</td>
+					<td class="text-center">
+						${ahdto.hprice}<c:if test="${ahdto.hdtype == '월세'}"> / ${ahdto.hrent}</c:if>
 					</td>
-					<td class="text-center">홍동길</td>
-					<td class="text-center">010-2222-3333</td>
+					<td>
+						<div>${ahdto.haddress}</div>
+						<div>희망 면적(전용 면적): <span>${ahdto.harea} &#13217;</span></div>
+						<div>희망 방 개수: <span>${ahdto.hroomnum} 개</span></div>
+					</td>
+					<td class="text-center">${ahdto.mname}</td>
+					<td class="text-center">${ahdto.phone}</td>
 					<td class="text-center">
 						<button class="btn btn-default modal-button" type="button" data-toggle="modal"
-	                        data-target="#hope-detail">
+	                        data-target="#hope-detail${ahdto.seq}">
 	                        <span class="glyphicon glyphicon-comment"></span>
 	                    </button>
 	                    
 						<!-- Modal -->
-						<div class="modal" id="hope-detail" tabindex="-1" role="dialog" data-backdrop="false">
+						<div class="modal" id="hope-detail${ahdto.seq}" tabindex="-1" role="dialog" data-backdrop="false">
 						  <div class="modal-dialog">
 						    <div class="modal-content">
 						      <div class="modal-header">
@@ -99,25 +105,14 @@
 						        <h4 class="modal-title">상세설명</h4>
 						      </div>
 						      <div class="modal-body">
-						        강아지를 키울 수 있어야 해요! 연락주시면 날짜를 맞춰서 방 보러 가겠습니다.강아지를 키울 수 있어야 해요! 연락주시면 날짜를 맞춰서 방 보러 가겠습니다.강아지를 키울 수 있어야 해요! 연락주시면 날짜를 맞춰서 방 보러 가겠습니다.강아지를 키울 수 있어야 해요! 연락주시면 날짜를 맞춰서 방 보러 가겠습니다.강아지를 키울 수 있어야 해요! 연락주시면 날짜를 맞춰서 방 보러 가겠습니다.
+						        ${ahdto.content}
 						      </div>
 						    </div>
 						  </div>
 						</div>
                     </td>				
 				</tr>
-				<tr>
-					<td class="text-center">전세</td>
-					<td class="text-center">12억 5000</td>
-					<td>
-						<div>서울시 강남구 천호동</div>
-						<div>희망 면적(전용 면적): <span>59 &#13217;</span></div>
-						<div>희망 방 개수: <span>2 개</span></div>
-					</td>
-					<td class="text-center">하호히</td>
-					<td class="text-center">010-4444-5555</td>
-					<td class="text-center"><span class="glyphicon glyphicon-comment"></span></td>				
-				</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	        
@@ -125,21 +120,7 @@
 		<!-- pagination -->
 	    <nav class="nav-pagination">
 		  	<ul class="pagination">
-			    <li>
-			    	<a href="#" aria-label="Previous">
-				   		<span aria-hidden="true">&laquo;</span>
-					</a>
-				</li>
-			    <li><a href="#">1</a></li>
-			    <li><a href="#">2</a></li>
-			    <li><a href="#">3</a></li>
-			    <li><a href="#">4</a></li>
-			    <li><a href="#">5</a></li>
-			    <li>
-					<a href="#" aria-label="Next">
-				    	<span aria-hidden="true">&raquo;</span>
-			      	</a>
-			    </li>
+				${pageBar}
 		  	</ul>
 		</nav>
        

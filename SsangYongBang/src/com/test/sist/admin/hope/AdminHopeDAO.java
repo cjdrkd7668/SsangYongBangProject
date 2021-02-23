@@ -21,7 +21,14 @@ public class AdminHopeDAO {
 	private ResultSet rs;
 	
 	public AdminHopeDAO() {
-		conn = DBUtil.open();
+		
+		try {
+			conn = DBUtil.open();
+			stat = conn.createStatement();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
 	}
 	
 	public void close() {
@@ -53,12 +60,22 @@ public class AdminHopeDAO {
 			while (rs.next()) {
 				AdminHopeDTO dto = new AdminHopeDTO();
 				
+				dto.setSeq(rs.getString("seq"));
 				dto.setHdtype(rs.getString("hdtype"));
 				dto.setHprice(rs.getString("hprice"));
+				dto.setHrent(rs.getString("hrent"));
+				dto.setHaddress(rs.getString("haddress"));
+				dto.setHarea(rs.getString("harea"));
+				dto.setHroomnum(rs.getString("hroomnum"));
+				dto.setMname(rs.getString("mname"));
+				dto.setPhone(rs.getString("phone"));
+				dto.setContent(rs.getString("content"));
+				dto.setImgURL(rs.getString("imgURL"));
 				
-				
+				list.add(dto);
 			}
 			
+			return list;
 			
 		} catch (Exception e) {
 			System.out.println(e);
@@ -66,6 +83,27 @@ public class AdminHopeDAO {
 		
 		return null;
 	}
+
+	//특정 테이블의 총 게시글 수 반환
+	public int getTotalCountHope() {
+
+		try {
+			
+			String sql = "select count(*) as cnt from vwHopeWrite";
+			rs = stat.executeQuery(sql);
+			
+			if (rs.next()) {
+				return rs.getInt("cnt");
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return 0;
+	}
+	
+	
 	
 	
 	
