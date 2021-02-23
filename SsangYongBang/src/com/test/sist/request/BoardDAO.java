@@ -10,7 +10,7 @@ import java.util.HashMap;
 import com.test.sist.DBUtil;
 
 public class BoardDAO {
-	
+	//고객요청서 전체리스트 DAO
 	
 	private Connection conn;
 	private Statement stat;
@@ -104,6 +104,34 @@ public class BoardDAO {
 				return rs.getInt("cnt");
 			}
 			
+			
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		
+		return 0;
+	}
+
+	
+	
+	//request.writeok 서블릿의 호출 -> 요청서 쓰기
+	public int write(BoardDTO dto) {
+		
+		try {
+			
+			String sql = "INSERT INTO tblRequest (seq, regDate, address, shape, desiredDay, detail, area, serviceSeq, memberSeq) VALUES (seqRequest.nextVal, default, ?, ?, to_date(?,'yyyy-mm-dd'), ?, ?, ?, ?)";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getAddress());
+			pstat.setString(2, dto.getShape());
+			pstat.setString(3, dto.getDesiredDay());
+			pstat.setString(4, dto.getDetail());
+			pstat.setString(5, dto.getArea());
+			pstat.setString(6, dto.getServiceSeq());
+			pstat.setString(7, dto.getMseq());
+			
+			return pstat.executeUpdate();
 			
 		} catch(Exception e) {
 			System.out.println(e);
