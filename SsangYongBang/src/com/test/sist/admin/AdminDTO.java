@@ -3,7 +3,7 @@ package com.test.sist.admin;
 public class AdminDTO {
 	
 	private String seq;
-	private String email;
+	private String id; //관리자의 이메일은 id라는 컬럼으로 저장되어 있습니다.
 	private String pw;
 	private String name;
 	
@@ -13,11 +13,11 @@ public class AdminDTO {
 	public void setSeq(String seq) {
 		this.seq = seq;
 	}
-	public String getEmail() {
-		return email;
+	public String getId() {
+		return id;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getPw() {
 		return pw;
