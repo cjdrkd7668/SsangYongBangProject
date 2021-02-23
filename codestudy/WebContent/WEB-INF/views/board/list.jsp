@@ -75,6 +75,7 @@
                 </div>
                 </c:if>
                 
+                
                 <!-- 검색은 주로 GET을 사용한다.(상태 유지를 위해서) -->
                 <form id="searchForm" method="GET" action="/codestudy/board/list.do">
                 <div class="input-group search">
