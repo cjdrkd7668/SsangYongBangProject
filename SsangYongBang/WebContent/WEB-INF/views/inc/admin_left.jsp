@@ -1,11 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String qs = request.getQueryString();
+	String qs = request.getQueryString()+""; //쿼리스트링 값이없는 경우 null이 아닌 빈문자열 반환
+	
+	/* System.out.println("qs : " + qs);
+	System.out.println("qs.indexOf(\"&\") : " + qs.indexOf("&")); */
+	
+	if(qs.indexOf("&") > 0){ //쿼리스트링이 2개이상인 경우
+		qs = qs.substring(0,qs.indexOf("&")); //첫번째 값만 반환
+	}
+	
+	/* System.out.println("qs : " + qs);
+	System.out.println("qs.indexOf(\"&\") : " + qs.indexOf("&")); */
 %>
 
 <style>
-.container{padding-left:180px;min-height:600px;}
+.left_menu + script + .container{padding-left:180px;min-height:600px;}
 
 .left_menu{float:left;width:180px;border-right:1px solid #ddd;}
 .left_menu li{line-height:28px;}
@@ -53,19 +63,20 @@
 
 <script>
 	$(".left_menu>ul>li").each(function(){
-
-		var url = $(this).children("a").attr("href");
+	
+		var url = window.location.pathname;
+		var href = $(this).children("a").attr("href");
 		
 		if ($(this).find("ul").length) {
 			$(this).addClass("depth")
 		}
-		if(url == window.location.pathname){
+		if(href == url){
 			$(this).addClass("on");
 			
 			$(this).find("li").eq(0).addClass("on");
 			$(this).find("li").each(function(){
-				url = $(this).children("a").attr("href");
-				if (url.substr(url.lastIndexOf("?") + 1,url.length) == "<%=qs%>") {
+				href = $(this).children("a").attr("href");
+				if (href.substr(href.lastIndexOf("?") + 1,href.length) == "<%=qs%>") {
 					$(this).siblings().removeClass("on");
 					$(this).addClass("on");
 				}

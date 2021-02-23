@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <style>
-	.footer-cklee .container{margin-left:0px; min-height:0px;}
+	.footer-cklee .container{margin:auto;}
 </style>
 <div class="footer-cklee">
 	
