@@ -35,6 +35,7 @@ public class InquiryList extends HttpServlet {
 		HttpSession session = req.getSession();
 
 		String authorseq = (String) session.getAttribute("seq");
+		String access = session.getAttribute("access").toString();
 
 		InquiryDAO dao = new InquiryDAO();
 
@@ -43,7 +44,7 @@ public class InquiryList extends HttpServlet {
 
 		// 페이징
 		int nowPage = 0; // 현재 페이지 번호
-		int totalPage = dao.totalPage(authorseq); // 총 페이지 수
+		int totalPage = dao.totalPage(); // 총 페이지 수
 
 		// inquirylist.do?page=1 식으로 호출할 것이므로
 		String page = req.getParameter("page");
@@ -101,7 +102,7 @@ public class InquiryList extends HttpServlet {
 					n);
 		}
 
-		ArrayList<InquiryDTO> list = dao.list(map, authorseq);
+		ArrayList<InquiryDTO> list = dao.list(map, access, authorseq);
 
 		// 제목, 작성자 길이 수정
 		for (InquiryDTO dto : list) {

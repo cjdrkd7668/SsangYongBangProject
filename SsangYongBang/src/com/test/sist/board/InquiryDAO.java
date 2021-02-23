@@ -41,16 +41,14 @@ public class InquiryDAO {
 	}
 
 	// InquiryList 서블릿 -> 총 페이지 수 반환
-	public int totalPage(String seq) {
+	public int totalPage() {
 
 		try {
 
-			String sql = "select ceil((select count(seq) from vwInquiry where openFlag = 1 or authorSeq = ?) / 10) as total from dual";
+			String sql = "select ceil((select count(*) from vwInquiry) / 10) as total from dual";
 
-			pstat = conn.prepareStatement(sql);
-			pstat.setString(1, seq);
-
-			rs = pstat.executeQuery();
+			stat = conn.createStatement();
+			rs = pstat.executeQuery(sql);
 
 			if (rs.next()) {
 				return rs.getInt("total");
@@ -63,22 +61,23 @@ public class InquiryDAO {
 	}
 
 	// InquiryList 서블릿 -> 글 목록
-	public ArrayList<InquiryDTO> list(HashMap<String, String> map, String authorseq) {
+	public ArrayList<InquiryDTO> list(HashMap<String, String> map, String access, String authorseq) {
 
 		try {
 
-			String sql = "{call procListInquiry(?, ?, ?, ?)}";
+			String sql = "{call procListInquiry(?, ?, ?, ?, ?)}";
 
 			cstat = conn.prepareCall(sql);
 
-			cstat.setString(1, authorseq);
-			cstat.setString(2, map.get("page"));
-			cstat.setString(3, map.get("search"));
-			cstat.registerOutParameter(4, OracleTypes.CURSOR);
+			cstat.setString(1, access);
+			cstat.setString(2, authorseq);
+			cstat.setString(3, map.get("page"));
+			cstat.setString(4, map.get("search"));
+			cstat.registerOutParameter(5, OracleTypes.CURSOR);
 
 			cstat.executeQuery();
 
-			rs = (ResultSet) cstat.getObject(4);
+			rs = (ResultSet) cstat.getObject(5);
 
 			ArrayList<InquiryDTO> list = new ArrayList<InquiryDTO>();
 
