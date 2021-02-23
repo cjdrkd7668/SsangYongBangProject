@@ -1,4 +1,4 @@
-package com.test.sist.admin2;
+package com.test.sist.admin2.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.test.sist.DBUtil;
+import com.test.sist.admin2.dto.TextManagerDTO;
 
 public class TextManagerDAO {
 	
@@ -15,6 +16,10 @@ public class TextManagerDAO {
 	private PreparedStatement pstat;
 	private ResultSet rs;
 	
+	/**
+	 * @return DB에서 가져온 운영정책DTO
+	 * @author icw
+	 */
 	public ArrayList<TextManagerDTO> list() {
 		ArrayList<TextManagerDTO> list = new ArrayList<TextManagerDTO>();
 		
@@ -47,6 +52,10 @@ public class TextManagerDAO {
 		return list;
 	}
 
+	/**
+	 * @param 운영정책 번호
+	 * @return 운영정책DTO
+	 */
 	public TextManagerDTO get(String seq) {
 
 		TextManagerDTO dto = new TextManagerDTO();

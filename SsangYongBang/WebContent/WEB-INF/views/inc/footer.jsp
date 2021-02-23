@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
-	.footer-cklee .container{margin-left:0px; min-height:0px;}
+	.footer-cklee .container{margin:auto;}
 </style>
 <div class="footer-cklee">
 	

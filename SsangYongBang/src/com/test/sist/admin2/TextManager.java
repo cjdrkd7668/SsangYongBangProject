@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.test.sist.DBUtil;
+import com.test.sist.admin2.dao.TextManagerDAO;
+import com.test.sist.admin2.dto.TextManagerDTO;
 
 @WebServlet("/admin2/textManager.do")
 public class TextManager extends HttpServlet {

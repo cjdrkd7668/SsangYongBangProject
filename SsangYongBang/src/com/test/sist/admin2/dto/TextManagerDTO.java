@@ -1,4 +1,4 @@
-package com.test.sist.admin2;
+package com.test.sist.admin2.dto;
 
 public class TextManagerDTO {
 	private String seq;
