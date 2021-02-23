@@ -61,8 +61,8 @@
         			
         			<!-- 로그인 전 -->
         			<c:if test="${empty email }">
-        			<li><a href="/sybang/login/loginbuttons.do">로그인</a></li>
-        			<li><a href="#">회원가입</a></li>
+        			<li><a href="/sybang/login/loginbuttons.do" style="font-size: 1.3em;">로그인</a></li>
+        			<li><a href="#" style="font-size: 1.3em;">회원가입</a></li>
         			</c:if>
         			
         			<!-- 로그인 후 -->
