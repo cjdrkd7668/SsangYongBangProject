@@ -22,10 +22,7 @@ public class BoardList extends HttpServlet {
 		int nowPage = 0;		//현재 페이지 번호
 		int totalCount = 0;		//총 게시물 수
 		int pageSize = 10;		//한페이지 당 출력 개수
-		int totalPage = 0;		//총 페이지 수
-		int n = 0;				//페이지바 관련 변수
-		int loop = 0;			//페이지바 관련 변수
-		int blockSize = 10;		//페이지바 관련 변수
+		int blockSize = 10;		//페이지바 사이즈
 		
 		String page = request.getParameter("page");
 		
@@ -38,7 +35,7 @@ public class BoardList extends HttpServlet {
 		//글 목록
 		AdminHopeDAO dao = new AdminHopeDAO();
 
-		ArrayList<AdminHopeDTO> ahlist = dao.getlist(nowPage);
+		ArrayList<AdminHopeDTO> ahlist = dao.getList(nowPage);
 		
 		//페이지 바
 		totalCount = dao.getTotalCountHope(); //총 게시물 수
@@ -50,13 +47,9 @@ public class BoardList extends HttpServlet {
 		request.setAttribute("pageBar", pageBar);
 		request.setAttribute("nowPage", nowPage);
 		
-		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/admin/hope/boardlist.jsp");
 		dispatcher.forward(request, response);
 
-		
-		
-		
 	}
 
 }
