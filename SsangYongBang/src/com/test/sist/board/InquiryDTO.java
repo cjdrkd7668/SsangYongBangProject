@@ -10,14 +10,23 @@ public class InquiryDTO {
 	private String subject;
 	private String detail;
 	private String regdate;
-	private String delflag;
+	private String openflag;
 	private String readcount;
 
+	private String zerobonem;
 	private String authorseq;
 	private String authorname;
 
 	private String ccount;
 	private int gap;
+	
+	public String getZerobonem() {
+		return zerobonem;
+	}
+
+	public void setZerobonem(String zerobonem) {
+		this.zerobonem = zerobonem;
+	}
 
 	public String getSeq() {
 		return seq;
@@ -51,12 +60,12 @@ public class InquiryDTO {
 		this.regdate = regdate;
 	}
 
-	public String getDelflag() {
-		return delflag;
+	public String getOpenflag() {
+		return openflag;
 	}
 
-	public void setDelflag(String delflag) {
-		this.delflag = delflag;
+	public void setOpenflag(String openflag) {
+		this.openflag = openflag;
 	}
 
 	public String getReadcount() {
