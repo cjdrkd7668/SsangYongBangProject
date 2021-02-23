@@ -60,10 +60,11 @@
 }
 
 .list-container .btn-info {
-	width: 150px;
+	width: 200px;
 	height: 100px;
 	font-size: 1.3em;
 	background-color: #3B79BC;
+	opacity: .8;
 }
 
 .list-container .btn-info:hover {
@@ -71,5 +72,5 @@
 	height: 100px;
 	font-size: 1.3em;
 	background-color: #3B79BC;
-	opacity: .8;
+	opacity: 1;
 }

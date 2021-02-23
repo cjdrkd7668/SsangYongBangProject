@@ -44,12 +44,12 @@
 	<div class="list-container">
 		<div class="page-header">
 			<h2>
-				<strong> <span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;자유</span>게시판&nbsp;
-				</strong>
+				<strong> <span class="blue">&nbsp;&nbsp;&nbsp;&nbsp;자유</span>게시판&nbsp;<i class="fas fa-chalkboard-teacher blue"></i></strong>
 			</h2>
 			<div class="divider"></div>
 
 		</div>
+		
 		<!-- 검색했을 때 출력 -->
 		<c:if test="${not empty search }">
 			<div class="well well-sm">
@@ -59,7 +59,7 @@
 		</c:if>
 
 
-		<!-- form 태그 시작 -->
+		<!-- 검색 form 태그 시작 -->
 		<form method="GET" action="/sybang/board/freelist.do" id="search-form">
 			<div class="search">
 				<input type="text" name="search" id="search" class="form-control"
@@ -70,7 +70,7 @@
 				</button>
 			</div>
 		</form>
-		<!-- form 태그 끝 -->
+		<!-- 검색 form 태그 끝 -->
 
 		<table class="table table-hover table-default">
 			<tr>
@@ -80,6 +80,7 @@
 				<th class="date">작성일</th>
 				<th class="readcount">조회</th>
 			</tr>
+			
 			<!-- 게시글이 하나도 없을 때 -->
 			<c:if test="${list.size() == 0 }">
 				<tr>
@@ -97,11 +98,13 @@
 					<c:if test="${dto.ccount > 0 }">
 						<span class="badge" style="background-color: #486BB8;">${dto.ccount }</span>
 					</c:if>
+					
 					<!-- 최신 글일 경우 -->
 					<c:if test="${dto.gap < 1 }">
 						<span class="badge"
 							style="background-color: red;">N</span>
 					</c:if>
+					
 						</a>
 						</td>
 					<td class="writer">${dto.authorname }</td>

@@ -43,7 +43,7 @@
 }
 
 /* 댓글 내용 */
-.cmt-comment {
+.cmtcomment {
 	float: left;
 	height: 50px;
 	font-size: 1.1em;
@@ -66,23 +66,42 @@
 
 /* 댓글 버튼 */
 .btn-cmt {
-	float: right;
-	width: 150px;
+	float: left;
+	width: 300px;
+	
 }
 
 /* 댓글 수정 버튼 */
 .btn-cmt .edit {
+	border: 0px;
 	font-size: 1em;
 	float: left;
-	width: 60px;
+	width: 80px;
 	margin-left: 10px;
 }
 
 /* 댓글 삭제 버튼 */
 .btn-cmt .delete {
+	border: 0px;
 	font-size: 1em;
 	float: left;
-	width: 60px;
+	width: 80px;
+	margin-left: 0px;
+}
+
+.btn-cmt .reg {
+	border: 0px;
+	font-size: 1em;
+	float: left;
+	width: 80px;
+	margin-left: 10px;
+}
+
+.btn-cmt .noreg {
+	border: 0px;
+	font-size: 1em;
+	float: left;
+	width: 80px;
 	margin-left: 0px;
 }
 
@@ -90,7 +109,7 @@
 #cmtform {
 	width: 860px;
 	height: 80px;
-	margin: -35px auto;
+	margin: -30px auto;
 }
 
 /* 댓글 작성 text */
@@ -105,6 +124,10 @@
 
 .showbtn {
 	display: block;
+}
+
+.read {
+	readonly: "false";
 }
 </style>
 </head>
@@ -167,16 +190,22 @@
 			</c:if>
 
 			<button type="button" class="btn btn-default" id="cmtbtn">
-				<i class="fas fa-comment-alt"></i> 댓글달기
+				<i class="fas fa-comment"></i> 댓글달기
 			</button>
 		</div>
 
 		<!-- 자유게시판 댓글 시작 -->
 		<table class="table table-default tbl-comment">
-
+			
 			<c:forEach items="${clist }" var="cdto">
 				<tr>
+					
 					<td class="well well-sm">
+					
+					<!-- 댓글 번호 -->
+					<input type="hidden" name="seq" value="${cdto.seq }">
+					
+						
 						<div class="cmt-name">${cdto.authorname }</div>
 						<div class="cmt-date">${cdto.regdate }&nbsp;
 						
@@ -186,25 +215,35 @@
 								style="background-color: red;">N</span>
 							</c:if>
 							
-						</div> <!-- 자기가 쓴 댓글이면 버튼이 보인다. --> <c:if
-							test="${cdto.authorseq == seq && cdto.zerobonem == zerobonem }">
+							
+													
+						</div> <!-- 자기가 쓴 댓글이면 버튼이 보인다. --> 
+						<c:if test="${cdto.authorseq == seq && cdto.zerobonem == zerobonem }">
 							<div class="btn-cmt">
 
-								<div class="edit" style="cursor: pointer;" onclick="location.href='/sybang/board/freeeditcommentok.do?seq=${cdto.seq}&frseq=${cdto.frseq }';">
+								<button class="edit" style="cursor: pointer;" >
 									[&nbsp;<i class="fas fa-edit"></i>수정]
-								</div>
-								<span class="delete" style="cursor: pointer;" onclick="location.href='/sybang/board/freedeletecommentok.do?seq=${cdto.seq}&frseq=${cdto.frseq }';">[&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;삭제]
-								</span>
+								</button>
+								<button class="delete" style="cursor: pointer;" onclick="location.href='/sybang/board/freedeletecommentok.do?seq=${cdto.seq}&frseq=${cdto.frseq }';">[&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;삭제]
+								</button>
+								
+								
+								<button type="submit" class="reg hidebtn" style="cursor: pointer;">[&nbsp;<i class="fas fa-check-circle"></i>등록]</button>
+								
+								<button class="noreg hidebtn" style="cursor: pointer;">[&nbsp;<i class="fas fa-ban"></i>&nbsp;취소]
+								</button>
+								
 							</div>
-						</c:if> <textarea class="cmt-comment"
-							style="width: 850px; padding-left: 10px;" readonly>${cdto.detail }</textarea>
-
+						</c:if>
+						
+						<textarea class="cmtcomment"
+							style="width: 850px; padding-left: 10px;">${cdto.detail }</textarea>
+							
+						
 					</td>
+					
 				</tr>
 			</c:forEach>
-			<tr>
-				<td></td>
-			</tr>
 
 		</table>
 		<!-- 자유게시판 댓글 끝 -->
@@ -231,12 +270,48 @@
 	<script>
 		var cmtbtn = document.getElementById("cmtbtn");
 		var cmtform = document.getElementById("cmtform");
+		
+		var edit = document.getElementsByClassName("edit");
+		var del = document.getElementsByClassName("delete");
+		var reg = document.getElementsByClassName("reg");
+		var noreg = document.getElementsByClassName("noreg");
+		var cmt = document.getElementsByClassName("cmtcomment");
 
+		/* 댓글달기 클릭 전 보이지 않게 */
 		cmtform.classList.toggle("hidebtn");
+		
+		$(".cmtcomment").attr("readonly", "true");
 
+		/* 댓글달기 클릭하면 보인다 */
 		cmtbtn.onclick = function() {
 			cmtform.classList.toggle("showbtn");
 		};
+		
+		/* 댓글 수정 클릭 시 */
+		$(".edit").click(function() {
+			var index = $(".edit").index(this);
+            this.classList.add("hidebtn");
+            del[index].classList.add("hidebtn");
+            reg[index].classList.toggle("showbtn");
+            noreg[index].classList.toggle("showbtn");
+            
+        });
+
+        $(".noreg").click(function() {
+        	var index = $(".noreg").index(this);
+            this.classList.remove("showbtn");
+            reg[index].classList.remove("showbtn");
+            edit[index].classList.remove("hidebtn");
+            del[index].classList.remove("hidebtn");
+            
+        });
+        
+        $(".reg").click(function() {
+        	var index = $(".reg").index(this);
+        });
+
+		
+		
 	</script>
 </body>
 </html>
