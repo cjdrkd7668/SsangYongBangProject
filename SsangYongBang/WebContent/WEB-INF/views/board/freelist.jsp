@@ -90,8 +90,20 @@
 			<c:forEach items="${list }" var="dto">
 				<tr>
 					<td class="num">${dto.seq }</td>
-					<td class="title"><a href="/sybang/board/freedetail.do?seq=${dto.seq}&search=${search}&page=${nowPage}">${dto.subject }&nbsp;<span class="badge"
-						style="background-color: red;">N</span></a></td>
+					<td class="title">
+					<a href="/sybang/board/freedetail.do?seq=${dto.seq}&search=${search}&page=${nowPage}">
+					${dto.subject }&nbsp;
+					<!-- 댓글 수 -->
+					<c:if test="${dto.ccount > 0 }">
+						<span class="badge" style="background-color: #486BB8;">${dto.ccount }</span>
+					</c:if>
+					<!-- 최신 글일 경우 -->
+					<c:if test="${dto.gap < 1 }">
+						<span class="badge"
+							style="background-color: red;">N</span>
+					</c:if>
+						</a>
+						</td>
 					<td class="writer">${dto.authorname }</td>
 					<td class="date">${dto.regdate }</td>
 					<td class="readcount">${dto.readcount }</td>
