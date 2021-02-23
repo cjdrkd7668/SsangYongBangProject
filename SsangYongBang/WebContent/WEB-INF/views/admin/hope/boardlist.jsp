@@ -38,8 +38,21 @@
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 	<%@include file="/WEB-INF/views/inc/admin_left.jsp"%>	
 	<div class="container mg-hope">
-	
+		
+		
 		<h1 class="welcome">희망입주조건 관리<small> 일반 회원이 게시한 희망 입주 조건 게시글</small></h1>
+		
+		<form method="GET" action="/sybang/admin/hope/boardlist.do" id="admin-hope-search">
+			<div class="search">
+				<h3>희망입주조건 지역별 검색</h3>
+				<input type="text" placeholder="강남구 역삼동" id="search" name="search">
+				<span onclick="$('#admin-hope-search').submit();"><span class="glyphicon glyphicon-search"></span></span>
+			</div>
+		</form>
+		
+		<div class="message">
+        	'${search}'(으)로 ${list.size()}건의 게시물을 검색했습니다.
+        </div>
 		
 		<table class="table table-hope">
 			<colgroup>
@@ -92,102 +105,6 @@
 						  </div>
 						</div>
                     </td>				
-				</tr>
-				<tr>
-					<td class="text-center">전세</td>
-					<td class="text-center">12억 5000</td>
-					<td>
-						<div>서울시 강남구 천호동</div>
-						<div>희망 면적(전용 면적): <span>59 &#13217;</span></div>
-						<div>희망 방 개수: <span>2 개</span></div>
-					</td>
-					<td class="text-center">하호히</td>
-					<td class="text-center">010-4444-5555</td>
-					<td class="text-center"><span class="glyphicon glyphicon-comment"></span></td>				
-				</tr>
-				<tr>
-					<td class="text-center">월세</td>
-					<td class="text-center">1000/73</td>
-					<td>
-						<div>서울시 강남구 역삼동</div>
-						<div>희망 면적(전용 면적): <span>31 &#13217;</span></div>
-						<div>희망 방 개수: <span>1 개</span></div>
-					</td>
-					<td class="text-center">홍동길</td>
-					<td class="text-center">010-2222-3333</td>
-					<td class="text-center"><span class="glyphicon glyphicon-comment"></span></td>				
-				</tr>
-				<tr>
-					<td class="text-center">전세</td>
-					<td class="text-center">12억 5000</td>
-					<td>
-						<div>서울시 강남구 천호동</div>
-						<div>희망 면적(전용 면적): <span>59 &#13217;</span></div>
-						<div>희망 방 개수: <span>2 개</span></div>
-					</td>
-					<td class="text-center">하호히</td>
-					<td class="text-center">010-4444-5555</td>
-					<td class="text-center"><span class="glyphicon glyphicon-comment"></span></td>				
-				</tr>
-				<tr>
-					<td class="text-center">월세</td>
-					<td class="text-center">1000/73</td>
-					<td>
-						<div>서울시 강남구 역삼동</div>
-						<div>희망 면적(전용 면적): <span>31 &#13217;</span></div>
-						<div>희망 방 개수: <span>1 개</span></div>
-					</td>
-					<td class="text-center">홍동길</td>
-					<td class="text-center">010-2222-3333</td>
-					<td class="text-center"><span class="glyphicon glyphicon-comment"></span></td>				
-				</tr>
-				<tr>
-					<td class="text-center">전세</td>
-					<td class="text-center">12억 5000</td>
-					<td>
-						<div>서울시 강남구 천호동</div>
-						<div>희망 면적(전용 면적): <span>59 &#13217;</span></div>
-						<div>희망 방 개수: <span>2 개</span></div>
-					</td>
-					<td class="text-center">하호히</td>
-					<td class="text-center">010-4444-5555</td>
-					<td class="text-center"><span class="glyphicon glyphicon-comment"></span></td>				
-				</tr>
-				<tr>
-					<td class="text-center">월세</td>
-					<td class="text-center">1000/73</td>
-					<td>
-						<div>서울시 강남구 역삼동</div>
-						<div>희망 면적(전용 면적): <span>31 &#13217;</span></div>
-						<div>희망 방 개수: <span>1 개</span></div>
-					</td>
-					<td class="text-center">홍동길</td>
-					<td class="text-center">010-2222-3333</td>
-					<td class="text-center"><span class="glyphicon glyphicon-comment"></span></td>				
-				</tr>
-				<tr>
-					<td class="text-center">전세</td>
-					<td class="text-center">12억 5000</td>
-					<td>
-						<div>서울시 강남구 천호동</div>
-						<div>희망 면적(전용 면적): <span>59 &#13217;</span></div>
-						<div>희망 방 개수: <span>2 개</span></div>
-					</td>
-					<td class="text-center">하호히</td>
-					<td class="text-center">010-4444-5555</td>
-					<td class="text-center"><span class="glyphicon glyphicon-comment"></span></td>				
-				</tr>
-				<tr>
-					<td class="text-center">월세</td>
-					<td class="text-center">1000/73</td>
-					<td>
-						<div>서울시 강남구 역삼동</div>
-						<div>희망 면적(전용 면적): <span>31 &#13217;</span></div>
-						<div>희망 방 개수: <span>1 개</span></div>
-					</td>
-					<td class="text-center">홍동길</td>
-					<td class="text-center">010-2222-3333</td>
-					<td class="text-center"><span class="glyphicon glyphicon-comment"></span></td>				
 				</tr>
 				<tr>
 					<td class="text-center">전세</td>
