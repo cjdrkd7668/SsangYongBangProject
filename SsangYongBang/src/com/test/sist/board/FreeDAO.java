@@ -195,6 +195,7 @@ public class FreeDAO {
 				dto.setZerobonem(rs.getString("zerobonem"));
 				dto.setRegdate(rs.getString("regdate"));
 				dto.setDetail(rs.getString("detail"));
+				dto.setGap(rs.getInt("gap"));
 				
 				clist.add(dto);
 			}
