@@ -99,10 +99,11 @@
 											<h4 class="modal-title" id="myModalLabel">견적서 작성하기</h4>
 										</div>
 										<div class="modal-body">
-											<form action="/sybang/request/writeok.jsp" method="POST">
+											<!-- write페이지가 없다고 봐야한다... 모달로 바로 쓰여진 내용을 전송하기 때문에.. -->
+											<form action="/sybang/estimate/writeok.do" method="POST">
 												<div class="form-row">
 													<div class="form-group col-sm-12">
-														<label>예상비용(숫자만 입력하세요)</label> <input type="text" name=""
+														<label>예상비용(숫자만 입력하세요)</label> <input type="text" name="estimatedCost"
 															class="form-control" maxlength="30">
 													</div>
 												</div>
@@ -110,7 +111,7 @@
 												<div class="form-row">
 												<div class="form-group">
 													<label>견적서 상세 내용</label>
-													<textarea name="evaluationContent" class="form-control"
+													<textarea name="eContent" class="form-control"
 														maxlength="2000" style="height: 180px;"></textarea>
 												</div>
 												</div>
@@ -120,7 +121,10 @@
 														data-dismiss="modal">취소</button>
 													<button type="submit" class="btn btn-primary">등록</button>
 												</div>
-				
+												
+												
+												<input type="hidden" name="requestSeq" value="${dto.rseq}"> <!-- 요청서번호 들고가기 -->
+												<!-- 업체승인번호는 세션에 넣어두었음  -->
 											</form>
 				
 				
