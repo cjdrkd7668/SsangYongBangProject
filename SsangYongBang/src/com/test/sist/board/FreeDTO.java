@@ -8,7 +8,10 @@ package com.test.sist.board;
  * regdate 작성일
  * delflag 삭제 여부
  * readcount 조회수
- * name 이름
+ * authorseq 작성자 번호
+ * authorname 작성자 이름
+ * ccount 댓글수
+ * gap 최신글
  * @author 이찬미
  *
  */
@@ -20,7 +23,27 @@ public class FreeDTO {
 	private String delflag;
 	private String readcount;
 
-	private String name;
+	private String authorseq;
+	private String authorname;
+
+	private String ccount;
+	private int gap;
+	
+	public String getCcount() {
+		return ccount;
+	}
+
+	public void setCcount(String ccount) {
+		this.ccount = ccount;
+	}
+
+	public int getGap() {
+		return gap;
+	}
+
+	public void setGap(int gap) {
+		this.gap = gap;
+	}
 
 	public String getSeq() {
 		return seq;
@@ -70,12 +93,22 @@ public class FreeDTO {
 		this.readcount = readcount;
 	}
 
-	public String getName() {
-		return name;
+	public String getAuthorseq() {
+		return authorseq;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setAuthorseq(String authorseq) {
+		this.authorseq = authorseq;
 	}
+
+	public String getAuthorname() {
+		return authorname;
+	}
+
+	public void setAuthorname(String authorname) {
+		this.authorname = authorname;
+	}
+
+
 
 }
