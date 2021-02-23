@@ -40,7 +40,12 @@ public class LoginOk extends HttpServlet {
 			
 			session.setAttribute("seq", gdto.getSeq());
 			session.setAttribute("name", gdto.getName());
+			
+			//자유게시판 내 일반 회원, 중개사를 구분할 정보
 			session.setAttribute("zerobonem", gdto.getZerobonem());
+			
+			//접근 권한 1 -> 일반 회원
+			session.setAttribute("access", 1);
 			
 			resp.sendRedirect("/sybang/index.do");
 			

@@ -4,68 +4,72 @@
 	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap')
 	;
 
-body {
-	width: 1200px;
-	margin-left: auto;
-	margin-right: auto;
+.list-container {
+	width: 1000px;
+	height: 600px;
+	margin: 30px auto;
 	font-family: 'Noto Sans KR', sans-serif;
 	letter-spacing: -1px;
-}
-
-.list-container {
 	padding: 20px;
-	width: 1000px;
-	margin: 30px auto;
-	height: 600px;
 }
 
-.page-header {
+.list-container .page-header {
 	text-align: center;
 }
 
-.well {
-	margin-top: 20px;
-}
-
-.well b {
-	color: slateblue;
-}
-
-.jumbotron {
-	width: 1000px;
+.list-container .jumbotron {
+	position: relative;
+	top: 0;
+	left: 0;
 	height: 400px;
 	text-align: center;
 }
 
-.jumbotron div:first-child {
+.list-container .jumbotron .loginbtn {
 	width: 500px;
 	padding-top: 80px;
 	display: inline-block;
 }
 
-.jumbotron>div:nth-child(2) {
-	width: 450px;
-	height: 60px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	padding-top: 20px;
-	text-align: left;
-}
-
-input[type="text"], input[type="password"] {
+.list-container .jumbotron .loginbtn input[type="text"], .list-container .jumbotron .loginbtn input[type="password"]
+	{
 	text-align: left;
 	margin: 10px;
 	width: 250px;
 	float: left;
 }
 
-.checkbox-inline {
-	display: inline-block;
-	width: 130px;
+.list-container .jumbotron .checkbox-inline {
+	width: 150px;
+	height: 60px;
+	margin-left: 220px;
+	padding-top: 20px;
+	float: left;
 }
 
-.btns {
-	display: block;
+.list-container .jumbotron .checkbox-inline input[type="checkbox"] {
+	display: inline-block;
+}
+
+.list-container .jumbotron .btns {
+	width: 300px;
+	height: 60px;
+	margin-left: 23px;
 	float: left;
+	padding-top: 15px;
+}
+
+.list-container .btn-info {
+	width: 150px;
+	height: 100px;
+	font-size: 1.3em;
+	background-color: #3B79BC;
+}
+
+.list-container .btn-info:hover {
+	width: 150px;
+	height: 100px;
+	font-size: 1.3em;
+	background-color: #3B79BC;
+	opacity: .8;
 }
