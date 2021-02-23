@@ -12,8 +12,23 @@ public class BoardDTO {
 	private String adoptFlag; //견적서 채택 여부
 	
 	
+	//견적서 (테이블 조인) 정보 추가
+	private String portfolio;
+	private String firmName;
 	
-	
+
+	public String getFirmName() {
+		return firmName;
+	}
+	public void setFirmName(String firmName) {
+		this.firmName = firmName;
+	}
+	public String getPortfolio() {
+		return portfolio;
+	}
+	public void setPortfolio(String portfolio) {
+		this.portfolio = portfolio;
+	}
 	public String getSeq() {
 		return seq;
 	}

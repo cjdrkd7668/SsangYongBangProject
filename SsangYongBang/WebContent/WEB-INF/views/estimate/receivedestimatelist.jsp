@@ -65,6 +65,7 @@
 
 	
 	<!-- 본문 중간 -->
+	<c:forEach items="${list}" var="dto">
 	<hr></hr>
 	
 	<div class="row">
@@ -73,14 +74,14 @@
 	
 				<div class="col-sm-6 col-md-4">
 					<div class="thumbnail">
-						<img src="../images/interior0001.jpg" alt="...">
+						<img src="../images/${dto.portfolio}" alt="...">
 					</div>
 				</div>
 
 				<div>
-					<h3>업체명</h3>
-					<p>예상비용</p>
-					<p>견적서 내용입니다.견적서 내용입니다.견적서 내용입니다.견적서 내용입니다.견적서 내용입니다.견적서 내용입니다.견적서 내용입니다.견적서 내용입니다.</p>
+					<h3>${dto.firmName}</h3>
+					<p>${dto.estimatedCost}</p>
+					<p>${dto.eContent }</p>
 				</div>
 
 
@@ -130,145 +131,9 @@
 	</div>
 	
 	</div>
+	</c:forEach>
 	<!-- 1줄에 받아본 견적서 1개씩 뜨도록 하기 -->
 
-	<hr></hr>
-	
-	<div class="row">
-	    <div class="col-sm-10 text-center"><!-- 전체 컨테이너(12-2)의 8 크기로 띄우게 됨 -->
-			
-	
-				<div class="col-sm-6 col-md-4">
-					<div class="thumbnail">
-						<img src="../images/interior0001.jpg" alt="...">
-					</div>
-				</div>
-
-				<div>
-					<h3>업체명</h3>
-					<p>예상비용</p>
-					<p>견적서 내용입니다.견적서 내용입니다.견적서 내용입니다.견적서 내용입니다.견적서 내용입니다.견적서 내용입니다.견적서 내용입니다.견적서 내용입니다.</p>
-				</div>
-
-
-			<div>
-							<!-- Button trigger modal -->
-			<button type="button" class="btn btn-primary btn-lg"
-				data-toggle="modal" data-target="#myModal">채택 & 1:1 상담</button>
-
-			<!-- Modal -->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-				aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-							<h4 class="modal-title" id="myModalLabel">채택 확인</h4>
-						</div>
-						<div class="modal-body">
-							<form action="./requestRegister.jsp" method="POST">
-								<div class="form-row">
-									<p>정말 채택하시겠습니까?</p>
-								</div>
-
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-dismiss="modal">취소</button>
-									<button type="submit" class="btn btn-primary">채택</button>
-								</div>
-
-							</form>
-
-						</div>
-
-					</div>
-				</div>
-			</div>
-			<!-- 모달 끝 -->
-			
-			</div>
-		
-		
-		
-		
-	</div>
-	
-	</div>
-	<!-- 1줄에 받아본 견적서 1개씩 뜨도록 하기 -->
-
-	<hr></hr>
-	
-	<div class="row">
-	    <div class="col-sm-10 text-center"><!-- 전체 컨테이너(12-2)의 8 크기로 띄우게 됨 -->
-			
-	
-				<div class="col-sm-6 col-md-4">
-					<div class="thumbnail">
-						<img src="../images/interior0001.jpg" alt="...">
-					</div>
-				</div>
-
-				<div>
-					<h3>업체명</h3>
-					<p>예상비용</p>
-					<p>견적서 내용입니다.견적서 내용입니다.견적서 내용입니다.견적서 내용입니다.견적서 내용입니다.견적서 내용입니다.견적서 내용입니다.견적서 내용입니다.</p>
-				</div>
-
-
-			<div>
-							<!-- Button trigger modal -->
-			<button type="button" class="btn btn-primary btn-lg"
-				data-toggle="modal" data-target="#myModal">채택 & 1:1 상담</button>
-
-			<!-- Modal -->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-				aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-							<h4 class="modal-title" id="myModalLabel">채택 확인</h4>
-						</div>
-						<div class="modal-body">
-							<form action="./requestRegister.jsp" method="POST">
-								<div class="form-row">
-									<p>정말 채택하시겠습니까?</p>
-								</div>
-
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-dismiss="modal">취소</button>
-									<button type="submit" class="btn btn-primary">채택</button>
-								</div>
-
-							</form>
-
-						</div>
-
-					</div>
-				</div>
-			</div>
-			<!-- 모달 끝 -->
-			
-			</div>
-		
-		
-		
-		
-	</div>
-	
-	</div>
-	<!-- 1줄에 받아본 견적서 1개씩 뜨도록 하기 -->
-		
-
-	
-	
 	
 	
 	

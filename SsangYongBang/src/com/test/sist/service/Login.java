@@ -18,7 +18,7 @@ public class Login extends HttpServlet {
 	   //로그인시, from method는 post임
 	   
 	   
-	   //id는 serviceId로 함.
+	   //email은 email
 	   //pw는 pw로 함.
 	   //seq는 serviceSeq로 함.
 	   
@@ -53,8 +53,17 @@ public class Login extends HttpServlet {
 		  ServiceDTO sdto = dao.getService(email);
 		  
 		  //승인업체 테이블과 조인한 정보 가져와 담기.. 여기서 오류 발생함(널포인익셉션)
-		  session.setAttribute("approvalFSeq", sdto.getApprovalFSeq()); //업체승인번호
+		  session.setAttribute("approvalFSeq", sdto.getApprovalFSeq()); //서비스업체승인번호
+		  session.setAttribute("access", 2); //서비스업체 접근권한 코드
 		  
+		  /*
+		   * 접근권한
+		   * 0 중개사
+		   * 1 회원
+		   * 2 서비스업체
+		   * 3 관리자
+		   * 
+		   * */
 		  
 		  //로그인된 상태로, 서비스홈 메인페이지로 보내기
 		  response.sendRedirect("/sybang/service/servicemain.do");
