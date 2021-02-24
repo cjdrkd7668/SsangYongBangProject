@@ -73,15 +73,19 @@ public class ReceivedEstimateList extends HttpServlet {
 	   //1.
 	   BoardDAO dao = new BoardDAO();
 	   
+	   System.out.println(333);
 	   ArrayList<BoardDTO> list = dao.list(map);
-	  
+	   System.out.println(444);
+	   
 	   //1.5 데이터 조작 > 등록일 시간없이 출력필요
 	   for (BoardDTO dto : list) {
 		   
 		   dto.setRegDate(dto.getRegDate().substring(0, 10));
 	   }
 	   
+	   System.out.println(555);
 	   totalCount = dao.getTotalCount(map); //총 게시물수
+	   System.out.println(666);
 	   
 	   totalPage = (int)Math.ceil((double) totalCount / pageSize); //총페이지 수
 	   

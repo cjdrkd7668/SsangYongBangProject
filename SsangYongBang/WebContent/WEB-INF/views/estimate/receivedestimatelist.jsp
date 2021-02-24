@@ -79,7 +79,7 @@
 				</div>
 
 				<div>
-					<h3>${dto.firmName}</h3>
+					<h3>${dto.firmName} 견적서번호: ${dto.seq}</h3>
 					<p>${dto.estimatedCost}</p>
 					<p>${dto.eContent }</p>
 				</div>
@@ -103,7 +103,9 @@
 							<h4 class="modal-title" id="myModalLabel">채택 확인</h4>
 						</div>
 						<div class="modal-body">
-							<form action="./requestRegister.jsp" method="POST">
+						
+							<!-- 모달창 상태에서 별도의 쓰기화면 이동없이 바로 정보가 전송된다. 채택ok로 이동시키기 -->
+							<form action="/sybang/estimate/adoptok.do" method="POST">
 								<div class="form-row">
 									<p>정말 채택하시겠습니까?</p>
 								</div>
@@ -113,7 +115,11 @@
 										data-dismiss="modal">취소</button>
 									<button type="submit" class="btn btn-primary">채택</button>
 								</div>
-
+								<!-- 채택 시, 들고갈 정보들 hidden 태그로 가져가지 -->
+								<!--  지금작성해놓은 것은.. 제일 맨처음에 만들어졌던 것의 정보가 가져와지는 셈임... 그러면 안되고 해당 정보를 가져와야 함 -->
+								<input type="hidden" name="approvalFSeq" value="${dto.approvalFSeq}"> <!-- 업체승인번호 -->
+								<input type="hidden" name="estimate1thSeq" value="${dto.seq}"> <!-- 받은견적서의 번호 -->
+								<input type="hidden" name="firmName" value="${dto.firmName}"> <!--업체 이름 -->
 							</form>
 
 						</div>
