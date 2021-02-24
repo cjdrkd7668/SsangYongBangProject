@@ -1,5 +1,10 @@
 package com.test.sist.notice;
 
+/**
+ * 
+ * @author 이찬미
+ *
+ */
 public class NoticeDTO {
 	private String seq;
 	private String subject;

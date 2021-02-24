@@ -7,132 +7,9 @@
     <meta charset="UTF-8">
     <title>쌍용방</title>
 	<%@include file="/WEB-INF/views/inc/asset.jsp" %>
+	<link rel="stylesheet" href="/sybang/css/index.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
-
-        #maincontainer {
-            width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-            font-family: 'Noto Sans KR', sans-serif;
-            letter-spacing: -1px;
-        }
-
-        #maincontainer .mainheader .well {
-            outline: none;
-        }
-
-        /* main-header 시작 */
-        #maincontainer .mainheader {
-            text-align: center;
-            margin-top: 30px;
-            height: 50vh;
-            background: url(/sybang/images/mainbg.jpg) center;
-            background-size: cover;
-            width: 100%;
-            opacity: 1;
-        }
-
-        /* 어떤 방에 살고 ~~ 텍스트 */
-        #maincontainer .mainheader .headertxt {
-            font-weight: bold;
-            margin: 100px;
-            padding-top: 30px;
-            font-size: 3em;
-        }
-
-        /* 검색 버튼 */
-        #maincontainer .mainheader #searchbtn {
-            width: 35px; 
-            height: 35px; 
-            display: inline-block; 
-            text-align: center; 
-            padding: 3px; 
-            font-size: 1em;
-            background-color: #486BB8; 
-            color: #EEE; 
-            outline: none; 
-            border-radius: 50%;
-            
-        }
-
-        #maincontainer .mainheader #searchbtn:hover {
-            background: none;
-            border: 3px solid #486BB8;
-        }
-
-        /* mainhistory(최근에 본 매물, 찜한 매물) 시작 */
-        #maincontainer .mainhistory {
-            width: 90%;
-            height: 40vh;
-            margin: 10px auto;
-        }
-
-        #maincontainer .mainhistory th {
-            font-size: 1.3em;
-            height: 40px;
-            background-color: #EEE;
-        }
-
-        #maincontainer .mainhistory td {
-            height: 30px;
-            text-decoration: none;
-            text-align: center;
-            font-size: 1.1em;
-        }
-
-        #maincontainer .mainhistory a {
-            color: #000;
-        }
-
-        #maincontainer .mainhistory a:hover {
-            color: #486BB8;
-            text-decoration-line: none;
-        }
-
-        /* 사진 */
-        #maincontainer .mainhistory .thumbnail {
-            height: 100px;
-        }
-
-        #maincontainer .mainhistory small, #maincontainer .mainnotice small {
-            margin-right: 20px;
-            float: right;
-            font-size: 0.9em;
-        }
-
-        /* mainnotice 시작 */
-        #maincontainer .mainnotice {
-            width: 90%;
-            height: auto;
-            margin: 10px auto;
-        }
-        
-        #maincontainer .mainnotice th {
-            width: 30%;
-            margin-left: 10px;
-            font-size: 1.3em;
-            background-color: #EEE;
-            text-align: center;
-        }
-
-        #maincontainer .mainnotice td {
-            margin-left: 30px;
-            font-size: 1.1em;
-        }
-
-        #maincontainer .mainnotice a {
-            color: #000;
-        }
-
-        #maincontainer .mainnotice a:hover {
-            color: #486BB8;
-            text-decoration-line: none;
-        }
-
-
-
     </style>
 </head>
 
@@ -140,8 +17,6 @@
 	
 	<!-- header 가져오기######## -->
    	<%@include file="/WEB-INF/views/inc/header.jsp"%>
-   	
-   	
 	
     <!-- maincontainer 시작 -->
     <main class="container" id="maincontainer">
@@ -366,7 +241,7 @@
                     	<!-- 자주 묻는 질문 modal 시작 -->
                         <button id="qna" type="button" class="btn btn-default" data-toggle="modal"
                             data-target="#modalqna">
-                            <span class="glyphicon glyphicon-list"></span>&nbsp;자주 묻는 질문</a>
+                            <span class="glyphicon glyphicon-list"></span>&nbsp;자주 묻는 질문
                         </button>
 
                         <div class="modal fade" role="diaglog" data-keyboard="true" id="modalqna">
