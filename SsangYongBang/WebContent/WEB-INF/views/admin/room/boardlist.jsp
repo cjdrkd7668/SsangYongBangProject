@@ -28,97 +28,25 @@
 				</tr>
 			</thead>
 			<tbody class="board-table-body">
+				<c:forEach items="${armList}" var="armdto">
 				<tr>
-					<td class="text-left"><a href="/sybang/admin/room/view.do">깨끗한 오피스텔이고, 사무실로도 사용가능합니다. 역삼/강남역 1분 거리!!</a></td>
-					<td class="text-center">홍길동</td>
-					<td class="text-center">2021-02-11</td>
+					<td class="text-left">
+						<a href="/sybang/admin/room/view.do?seq=${armdto.seq}&page=${nowPage}">
+						${armdto.subject}
+						</a>
+					</td>
+					<td class="text-center">${armdto.name}</td>
+					<td class="text-center">${armdto.regDate}</td>
 				</tr>
-				<tr>
-					<td class="text-left">제목입니다제목입니다</td>
-					<td class="text-center">홍길동</td>
-					<td class="text-center">2021-02-17</td>
-				</tr>
-				<tr>
-					<td class="text-left">제목입니다제목입니다</td>
-					<td class="text-center">홍길동</td>
-					<td class="text-center">2021-02-17</td>
-				</tr>
-				<tr>
-					<td class="text-left">제목입니다제목입니다</td>
-					<td class="text-center">홍길동</td>
-					<td class="text-center">2021-02-17</td>
-				</tr>
-				<tr>
-					<td class="text-left">제목입니다제목입니다</td>
-					<td class="text-center">홍길동</td>
-					<td class="text-center">2021-02-17</td>
-				</tr>
-				<tr>
-					<td class="text-left">제목입니다제목입니다</td>
-					<td class="text-center">홍길동</td>
-					<td class="text-center">2021-02-17</td>
-				</tr>
-				<tr>
-					<td class="text-left">제목입니다제목입니다</td>
-					<td class="text-center">홍길동</td>
-					<td class="text-center">2021-02-17</td>
-				</tr>
-				<tr>
-					<td class="text-left">제목입니다제목입니다</td>
-					<td class="text-center">홍길동</td>
-					<td class="text-center">2021-02-17</td>
-				</tr>
-				<tr>
-					<td class="text-left">제목입니다제목입니다</td>
-					<td class="text-center">홍길동</td>
-					<td class="text-center">2021-02-17</td>
-				</tr>
-				<tr>
-					<td class="text-left">제목입니다제목입니다</td>
-					<td class="text-center">홍길동</td>
-					<td class="text-center">2021-02-17</td>
-				</tr>
-				<tr>
-					<td class="text-left">제목입니다제목입니다</td>
-					<td class="text-center">홍길동</td>
-					<td class="text-center">2021-02-17</td>
-				</tr>
-				<tr>
-					<td class="text-left">제목입니다제목입니다</td>
-					<td class="text-center">홍길동</td>
-					<td class="text-center">2021-02-17</td>
-				</tr>
-				<tr>
-					<td class="text-left">제목입니다제목입니다</td>
-					<td class="text-center">홍길동</td>
-					<td class="text-center">2021-02-17</td>
-				</tr>
-				<tr>
-					<td class="text-left">제목입니다제목입니다</td>
-					<td class="text-center">홍길동</td>
-					<td class="text-center">2021-02-17</td>
-				</tr>
+				</c:forEach>
+				
 			</tbody>
 		</table>
 		
 		<!-- pagination -->
 	    <nav class="nav-pagination">
 		  	<ul class="pagination">
-			    <li>
-			    	<a href="#" aria-label="Previous">
-				   		<span aria-hidden="true">&laquo;</span>
-					</a>
-				</li>
-			    <li><a href="#">1</a></li>
-			    <li><a href="#">2</a></li>
-			    <li><a href="#">3</a></li>
-			    <li><a href="#">4</a></li>
-			    <li><a href="#">5</a></li>
-			    <li>
-					<a href="#" aria-label="Next">
-				    	<span aria-hidden="true">&raquo;</span>
-			      	</a>
-			    </li>
+			    ${pageBar}
 		  	</ul>
 		</nav>
 		
