@@ -46,7 +46,7 @@ public class AdoptOk extends HttpServlet {
 		
 		//dto.setMseq(memberSeq); //여기서 왜 오류가 나는가?...
 		System.out.println(estimate1thSeq); //1번이 뜬다.. 뭔가 다른 번호가 가져와졌다 -> 번호 43이 떠야 된다
-		System.out.println("위점검필요");
+		System.out.println("위 숫자 점검필요");
 		int result = dao.adopt(dto);
 		System.out.println(222);
 		

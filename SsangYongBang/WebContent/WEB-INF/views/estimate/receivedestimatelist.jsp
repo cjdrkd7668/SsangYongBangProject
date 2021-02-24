@@ -79,7 +79,7 @@
 				</div>
 
 				<div>
-					<h3>${dto.firmName} 견적서번호: ${dto.seq}</h3>
+					<h3>${dto.firmName} 견적서번호: ${dto.seq}</h3> <!-- 이곳에서는 견적서 번호 제대로 뜬다 -->
 					<p>${dto.estimatedCost}</p>
 					<p>${dto.eContent }</p>
 				</div>
