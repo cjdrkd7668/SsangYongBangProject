@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>자유게시판 글 보기</title>
+<title>문의게시판 글 보기</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 <link rel="stylesheet" href="/sybang/css/freedetail.css">
 <link rel="stylesheet"
@@ -35,7 +35,7 @@
 }
 
 /* 댓글 작성자 */
-.cmtname {
+.cmt-name {
 	float: left;
 	padding-left: 10px;
 	width: 180px;
@@ -143,7 +143,7 @@
 				<i class="fas fa-caret-square-left"></i> 이전 글
 			</button> -->
 			<button type="button" class="btn btn-default"
-				onclick="location.href='/sybang/board/freelist.do?search=${search}&page=${page }';">
+				onclick="location.href='/sybang/board/inquirylist.do?search=${search}&page=${page }';">
 				<i class="fas fa-list-alt"></i> 목록보기
 			</button>
 			<%-- <button type="button" class="btn btn-default" onclick="location.href='/sybang/board/freedetail.do?seq=${dto.seq + 1}';">
@@ -151,11 +151,11 @@
 			</button> --%>
 		</div>
 
-		<!-- 자유게시판 글 시작 -->
+		<!-- 문의게시판 글 시작 -->
 		<table class="table table-default tbl-content ">
 			<tr>
 				<td colspan="3"
-					style="height: 30px; color: gray; padding-left: 20px;">자유게시판</td>
+					style="height: 30px; color: gray; padding-left: 20px;">문의게시판</td>
 			</tr>
 			<tr>
 				<td colspan="3" id="content-title"
@@ -170,7 +170,7 @@
 				<td colspan="3" id="content-content">${dto.detail }</td>
 			</tr>
 		</table>
-		<!-- 자유게시판 글 끝 -->
+		<!-- 문의게시판 글 끝 -->
 
 
 		<hr style="width: 850px;">
@@ -178,23 +178,26 @@
 		<div class="btns btn-group btn2" style="float: right;">
 
 			<!-- 본인이 쓴 글일 경우 -->
-			<c:if test="${dto.authorseq.equals(seq)}">
+			
 				<button type="button" class="btn btn-default"
-					onclick="location.href='/sybang/board/freeedit.do?seq=${dto.seq}';">
+					onclick="location.href='/sybang/board/inquiryedit.do?seq=${dto.seq}';">
 					<i class="fas fa-edit"></i> 수정하기
 				</button>
 				<button type="button" class="btn btn-default"
-					onclick="location.href='/sybang/board/freedelete.do?seq=${dto.seq}';">
+					onclick="location.href='/sybang/board/inquirydelete.do?seq=${dto.seq}';">
 					<i class="fas fa-trash-alt"></i> 삭제하기
 				</button>
-			</c:if>
-
+			
+			
+			<!-- 관리자일 경우 -->
+			<c:if test="${access == 3 }">
 			<button type="button" class="btn btn-default" id="cmtbtn">
 				<i class="fas fa-comment"></i> 댓글달기
 			</button>
+			</c:if>
 		</div>
 
-		<!-- 자유게시판 댓글 시작 -->
+		<!-- 문의게시판 댓글 시작 -->
 		<table class="table table-default tbl-comment">
 			
 			<c:forEach items="${clist }" var="cdto">
@@ -206,7 +209,7 @@
 					<input type="hidden" name="seq" value="${cdto.seq }">
 					
 						
-						<div class="cmtname">${cdto.authorname }</div>
+						<div class="cmt-name">${cdto.admname }</div>
 						<div class="cmt-date">${cdto.regdate }&nbsp;
 						
 							<!-- 최신 댓글일 경우 -->
@@ -217,20 +220,14 @@
 							
 							
 													
-						</div> 
-						
-						
-						
-						<!-- 자기가 쓴 댓글이면 버튼이 보인다. --> 
-						<c:if test="${cdto.authorseq == seq && cdto.zerobonem == zerobonem }">
+						</div> <!-- 자기가 쓴 댓글이면 버튼이 보인다. --> 
+						<c:if test="${cdto.admseq == seq}">
 							<div class="btn-cmt">
 
-								<button class="edit" id="cmtedit" style="cursor: pointer;" onclick="location.href='/sybang/board/freeeditok.do?seq=${cdto.seq}&detail=${cdto.detail }';" >
+								<button class="edit" style="cursor: pointer;" >
 									[&nbsp;<i class="fas fa-edit"></i>수정]
 								</button>
-								<input type="hidden" id="cseq" name="cseq" value="${cdto.seq }">
-						<input type="hidden" id="ccomment" name="ccomment" value="${cdto.detail }">
-								<button class="delete" style="cursor: pointer;" onclick="location.href='/sybang/board/freedeletecommentok.do?seq=${cdto.seq}&frseq=${cdto.frseq }';">[&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;삭제]
+								<button class="delete" style="cursor: pointer;" onclick="location.href='/sybang/board/inquirydeletecommentok.do?seq=${cdto.seq}&iqrseq=${cdto.iqrseq }';">[&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;삭제]
 								</button>
 								
 								
@@ -246,31 +243,25 @@
 							style="width: 850px; padding-left: 10px;">${cdto.detail }</textarea>
 							
 						
-						<!-- 댓글 수정에 쓰일 댓글 정보 form 시작 -->
-						<form method="POST" id="cmttempform">
-						<!-- 히든 태그 안에 댓글 정보를 담는다. -->
-						
-						</form>
-						<!-- 댓글 수정에 쓰일 댓글 정보 form 끝 -->
-						
 					</td>
 					
 				</tr>
 			</c:forEach>
 
 		</table>
-		<!-- 자유게시판 댓글 끝 -->
+		<!-- 문의게시판 댓글 끝 -->
 
 		<!-- 댓글 form 시작 -->
-		<form method="POST" action="/sybang/board/freecommentok.do">
+		<form method="POST" action="/sybang/board/inquirycommentok.do">
 			<div class="well" id="cmtform">
 
 				<input type="text" class="form-control"
 					placeholder="댓글을 작성하고 엔터를 눌러주세요." name="detail" id="detail" >
 
 			</div>
-			<!-- 게시글 번호 -->
-			<input type="hidden" name="frseq" value="${dto.seq }">
+			<!-- 문의게시글 번호 -->
+			<input type="hidden" name="iqrseq" value="${dto.seq }">
+			
 		</form>
 		<!-- 댓글 form 끝 -->
 
@@ -310,6 +301,11 @@
             noreg[index].classList.toggle("showbtn");
             
             
+            var seq = ${cdto.seq};
+            var detail = ${cdto.detail};
+            
+            
+            
             
         });
 
@@ -324,14 +320,6 @@
         
         $(".reg").click(function() {
         	var index = $(".reg").index(this);
-        	
-        	var cseq = $("#cseq").val();
-            var ccomment = $("#ccomment").val();
-            
-            document.cmttempform.action="freeeditcomment.do?cseq="+cseq+"&ccomment="+ccomment;
-            document.cmttempform.submit();
-            
-            alert("수정되었습니다.");
         });
 
 		

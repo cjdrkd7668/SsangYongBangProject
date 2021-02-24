@@ -10,42 +10,38 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * 
- * @author 이찬미
- *
- */
-@WebServlet("/board/freeeditok.do")
-public class FreeEditOk extends HttpServlet {
+@WebServlet("/board/inquirycommentok.do")
+public class InquiryCommentOk extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		HttpSession session = req.getSession();
 		
-		req.setCharacterEncoding("UTF-8");
+		req.setCharacterEncoding("UTF-8"
+				);
 		
-		String seq = req.getParameter("seq"); //글 번호
-		String subject = req.getParameter("subject");
+		//게시글 번호
+		String iqrseq = req.getParameter("iqrseq");
 		String detail = req.getParameter("detail");
 		
-		FreeDAO dao = new FreeDAO();
-		FreeDTO dto = new FreeDTO();
+		InquiryCommentDAO dao =  new InquiryCommentDAO();
+		InquiryCommentDTO dto = new InquiryCommentDTO();
 		
-		dto.setSeq(seq);
-		dto.setSubject(subject);
+		dto.setIqrseq(iqrseq);
 		dto.setDetail(detail);
+		//관리자 번호
+		dto.setAdmseq((String)session.getAttribute("seq"));
 		
-		//글 수정하기
-		int result = dao.edit(dto);
+		//댓글 작성
+		int result = dao.post(dto);
 		
 		if (result == 1) {
+			// 댓글 작성 성공 시 -> 보고 있던 게시글로 이동
+			resp.sendRedirect("/sybang/board/inquirydetail.do?seq=" + iqrseq);
 			
-			//글 수정 성공 시 해당 글로
-			resp.sendRedirect("/sybang/board/freedetail.do?seq=" + seq);
-		
 		} else {
-			
+			// 댓글 작성 실패 시
 			PrintWriter writer = resp.getWriter();
 
 			writer.print("<html><body>");
@@ -57,5 +53,6 @@ public class FreeEditOk extends HttpServlet {
 
 			writer.close();
 		}
+		
 	}
 }

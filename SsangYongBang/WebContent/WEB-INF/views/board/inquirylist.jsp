@@ -90,11 +90,16 @@
 				</tr>
 			</c:if>
 
+
+			<!-- 게시글 목록 출력 시작 -->
 			<c:forEach items="${list }" var="dto">
 				<tr>
 					<td class="num">${dto.seq }</td>
-					<td class="title"><a
-						href="/sybang/board/inquirydetail.do?seq=${dto.seq}&search=${search}&page=${nowPage}">
+					<td class="title" id="atitle">
+					
+					<a id="atitle" href="/sybang/board/inquirydetail.do?seq=${dto.seq}&search=${search}&page=${nowPage}" >
+
+					<!-- 본인 글이거나 공개 글인 경우 끝 -->
 							${dto.subject }&nbsp; <!-- 댓글 수 --> <c:if
 								test="${dto.ccount > 0 }">
 								<span class="badge" style="background-color: #486BB8;">${dto.ccount }</span>
@@ -106,9 +111,16 @@
 					<td class="writer">${dto.authorname }</td>
 					<td class="date">${dto.regdate }</td>
 					<td class="readcount">${dto.readcount }</td>
+					
+					<input type="hidden" id="authorseq" name="authorseq" value="${dto.authorseq }">
+					<input type="hidden" id="zerobonem" name="zerobonem" value="${dto.zerobonem }">
+					<input type="hidden" id="openflag" name="openflag" value="${dto.openflag }">
+					<input type="hidden" id="seq" name="seq" value="${seq}">
+					<input type="hidden" id="access" name="access" value="${access }">
 				</tr>
 			</c:forEach>
-
+			<!-- 게시글 목록 출력 끝 -->
+			
 		</table>
 
 
@@ -121,7 +133,7 @@
 
 		<div class="btns btn-group">
 
-			<c:if test="${not empty email }">
+			<c:if test="${not empty email && access != 3 }">
 				<button type="button" class="btn btn-default"
 					onclick="location.href='/sybang/board/inquirypost.do'">
 					<i class="fas fa-pencil-alt"></i> 글쓰기
@@ -137,5 +149,24 @@
 
 	<!-- footer 가져오기######## -->
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
+	
+	<script>
+		/* 제목 클릭 시(정확히 말하면 a 태그 클릭 시) */
+		$("#atitle").click = function() {
+			var authorseq = $("#authorseq").val();
+			var zerobonem = $("#zerobonem").val();
+			var openflag = $("#openflag").val();
+			var seq = $("#seq").val();
+			var access = $("#access").val();
+			
+			/* 해당 글의 작성자가 아니거나 공개글이 아닐 경우 */
+			if (!((authorseq == seq) && (zerobonem == access) || (openflag == 1))) {
+				$("#atitle").attr("href", "/sybang/board/inquirylist.do");
+			}
+			
+			
+		};
+	
+	</script>
 </body>
 </html>

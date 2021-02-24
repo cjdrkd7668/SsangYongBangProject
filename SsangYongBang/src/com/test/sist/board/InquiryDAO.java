@@ -48,7 +48,7 @@ public class InquiryDAO {
 			String sql = "select ceil((select count(*) from vwInquiry) / 10) as total from dual";
 
 			stat = conn.createStatement();
-			rs = pstat.executeQuery(sql);
+			rs = stat.executeQuery(sql);
 
 			if (rs.next()) {
 				return rs.getInt("total");
@@ -91,7 +91,11 @@ public class InquiryDAO {
 				dto.setReadcount(rs.getString("readcount"));
 				dto.setGap(rs.getInt("gap"));
 				dto.setCcount(rs.getString("ccount"));
-
+				
+				dto.setAuthorseq(rs.getString("authorseq"));
+				dto.setZerobonem(rs.getString("zerobonem"));
+				dto.setOpenflag(rs.getString("openflag"));
+				
 				list.add(dto);
 
 			}
@@ -104,7 +108,7 @@ public class InquiryDAO {
 		return null;
 	}
 
-	//InquiryPostOk 서블릿 -> 글쓰기
+	// InquiryPostOk 서블릿 -> 글쓰기
 	public int post(InquiryDTO dto) {
 		try {
 
@@ -119,6 +123,131 @@ public class InquiryDAO {
 
 			return cstat.executeUpdate();
 
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return 0;
+	}
+
+	// InquiryDetail 서블릿 -> 조회수 증가
+	public void updateReadcount(String seq) {
+
+		try {
+
+			String sql = "update tblInquiry set readcount = readcount + 1 where seq = ?";
+
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+			pstat.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
+	// InquiryDetail 서블릿 -> 글 하나 반환
+	public InquiryDTO detail(String seq) {
+		try {
+
+			String sql = "select * from vwInquiry where seq = ?";
+
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+
+			rs = pstat.executeQuery();
+
+			if (rs.next()) {
+
+				InquiryDTO dto = new InquiryDTO();
+
+				dto.setSeq(rs.getString("seq"));
+				dto.setAuthorname(rs.getString("authorName"));
+				dto.setAuthorseq(rs.getString("authorSeq"));
+				dto.setSubject(rs.getString("subject"));
+				dto.setDetail(rs.getString("detail"));
+				dto.setRegdate(rs.getString("regDate"));
+				dto.setReadcount(rs.getString("readcount"));
+
+				return dto;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	}
+
+	// InquiryDetail 서블릿 -> 댓글 목록
+	public ArrayList<InquiryCommentDTO> commentList(String seq) {
+		
+		try {
+
+			String sql = "select * from vwInquiryComment where iqrSeq = ? order by regdate asc";
+
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+
+			rs = pstat.executeQuery();
+
+			ArrayList<InquiryCommentDTO> clist = new ArrayList<InquiryCommentDTO>();
+
+			while (rs.next()) {
+				InquiryCommentDTO dto = new InquiryCommentDTO();
+
+				dto.setSeq(rs.getString("seq"));
+				dto.setIqrseq(rs.getString("iqrSeq"));
+				dto.setAdmseq(rs.getString("admSeq"));
+				dto.setAdmname(rs.getString("admName"));
+				dto.setDetail(rs.getString("detail"));
+				dto.setRegdate(rs.getString("regdate"));
+				dto.setGap(rs.getInt("gap"));
+
+				clist.add(dto);
+			}
+
+			return clist;
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	}
+
+	//InquiryDeleteOk 서블릿 -> 글 삭제
+	public int del(String seq) {
+		
+		try {
+			
+			String sql = "update tblInquiry set delFlag = 1 where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setString(1, seq);
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return 0;
+	}
+
+	//InquiryEditOk 서블릿 -> 글 수정
+	//TODO openflag 없다
+	public int edit(InquiryDTO dto) {
+		
+		try {
+			
+			String sql = "update tblInquiry set subject = ?, detail = ?, openFlag = ? where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setString(1, dto.getSubject());
+			pstat.setString(2, dto.getDetail());
+			pstat.setString(3, dto.getOpenflag());
+			pstat.setString(4, dto.getSeq());
+			
+			return pstat.executeUpdate();
+			
 		} catch (Exception e) {
 			System.out.println(e);
 		}
