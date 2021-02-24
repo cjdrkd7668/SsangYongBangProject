@@ -33,16 +33,17 @@
         <!-- search-box 시작 -->
         <div class="search-box">
 
-            <!-- <form method="POST" action="/project/search/searchok.do"> -->
+			<!-- form 태그 시작 -->
+            <form method="POST" action="/project/search/search.do">
             <div class="row">
                 <!-- dealtype 시작 -->
                 <div class="col-md-6 dealtype">
                     <h2 class="title">거래 유형</h2>
-                    <div class="btn-group" data-toggle="buttons">
+                    <div class="btn-group" data-toggle="buttons" id="dtype" name="dtype">
 
-                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="1">매매</label>
-                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="2">전세</label>
-                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="3">월세</label>
+                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="매매">매매</label>
+                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="전세">전세</label>
+                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="월세">월세</label>
                     </div>
                 </div>
                 <!-- dealtype 끝 -->
@@ -52,34 +53,34 @@
                     <h2 class="title">지역</h2>
                     <select class="form-control" style="width: 130px; padding: 5px; font-size: 1.2em;">
                         <option value="">시/도</option>
-                        <option value="1">서울특별시</option>
-                        <option value="2">부산광역시</option>
-                        <option value="3">대구광역시</option>
-                        <option value="4">인천광역시</option>
-                        <option value="5">광주광역시</option>
-                        <option value="6">경기도</option>
-                        <option value="7">강원도</option>
-                        <option value="8">충청북도</option>
-                        <option value="9">충청남도</option>
-                        <option value="10">전라북도</option>
-                        <option value="11">전라남도</option>
-                        <option value="12">경상북도</option>
-                        <option value="13">경상남도</option>
-                        <option value="14">제주특별자치도</option>
+                        <option value="서울">서울특별시</option>
+                        <option value="부산">부산광역시</option>
+                        <option value="대구">대구광역시</option>
+                        <option value="인천">인천광역시</option>
+                        <option value="광주">광주광역시</option>
+                        <option value="경기">경기도</option>
+                        <option value="강원">강원도</option>
+                        <option value="충청">충청북도</option>
+                        <option value="충청">충청남도</option>
+                        <option value="전라">전라북도</option>
+                        <option value="전라">전라남도</option>
+                        <option value="경상">경상북도</option>
+                        <option value="경상">경상남도</option>
+                        <option value="제주">제주특별자치도</option>
 
 
                     </select>
                     <select class="form-control" style="width: 120px; padding: 5px; font-size: 1.2em;">
                         <option value="">시/군/구</option>
-                        <option value="1">강남구</option>
-                        <option value="2">강동구</option>
-                        <option value="3">강북구</option>
-                        <option value="4">강서구</option>
-                        <option value="5">관악구</option>
-                        <option value="6">광진구</option>
-                        <option value="7">구로구</option>
-                        <option value="8">금천구</option>
-                        <option value="9">노원구</option>
+                        <option value="강남">강남구</option>
+                        <option value="강동">강동구</option>
+                        <option value="강북">강북구</option>
+                        <option value="강서">강서구</option>
+                        <option value="관악">관악구</option>
+                        <option value="광진">광진구</option>
+                        <option value="구로">구로구</option>
+                        <option value="금천">금천구</option>
+                        <option value="노원">노원구</option>
                         <option value="10">도봉구</option>
                         <option value="11">동대문구</option>
                         <option value="12">동작구</option>
@@ -313,7 +314,14 @@
             </div>
             <!-- detail-search 끝 -->
 
-            <div class="search-text"><input type="text" class="form-control" value="" placeholder="리스트 내 검색 ex) 동 이름, 학교 이름, 역 이름"  style="font-size: 1.2em;"><button type="button" class="form-control" style="display: inline-block; text-align: center; padding: 3px; width: 35px; height: 35px; font-size: 1em;background-color: #486BB8; color: #EEE; outline: none; border-radius: 50%;"><i class="fas fa-search"></i></button></div>
+            <div class="search-text">
+            	<input type="text" name="search" id="search" class="form-control" value="" placeholder="리스트 내 검색 ex) 동 이름, 학교 이름, 역 이름"  style="font-size: 1.2em;">
+            	<button type="submit" class="form-control" style="display: inline-block; text-align: center; padding: 3px; width: 35px; height: 35px; font-size: 1em;background-color: #486BB8; color: #EEE; outline: none; border-radius: 50%;">
+            	<i class="fas fa-search"></i>
+            	</button>
+            </div>
+            </form>
+            <!-- form 태그 끝 -->
 
 
             </div>
@@ -335,6 +343,11 @@
 
 	<script src="/sybang/js/address.js"></script>
 	<script>
+		
+		window.onload = function() {
+			$("#search").focus();
+		};
+		
 		var container = document.getElementById('map');
 		var options = {
 			center : new kakao.maps.LatLng(37.499426242183034, 127.03425370768977),
