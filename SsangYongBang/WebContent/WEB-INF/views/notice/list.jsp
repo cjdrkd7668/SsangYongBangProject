@@ -76,6 +76,7 @@
 			<tr>
 				<th class="num">번호</th>
 				<th class="title" style="text-align: center;">제목</th>
+				<th class="writer">글쓴이</th>
 				<th class="date">작성일</th>
 				<th class="readcount">조회</th>
 			</tr>
@@ -83,7 +84,7 @@
 			<!-- 게시글이 하나도 없을 때 -->
 			<c:if test="${list.size() == 0 }">
 				<tr>
-					<td colspan="4" style="text-align: center;">게시물이 없습니다.</td>
+					<td colspan="5" style="text-align: center;">게시물이 없습니다.</td>
 				</tr>
 			</c:if>
 
@@ -91,7 +92,7 @@
 				<tr>
 					<td class="num">${dto.seq }</td>
 					<td class="title">
-					<a href="/sybang/notice/detail.do?seq=${dto.seq}&search=${search}&page=${nowPage}">
+					<a href="/sybang/notice/detail.do?seq=${dto.seq}&page=${nowPage}">
 					${dto.subject }&nbsp;
 					<%-- <!-- 댓글 수 -->
 					<c:if test="${dto.ccount > 0 }">
@@ -106,6 +107,7 @@
 					
 						</a>
 						</td>
+					<td class="writer">${dto.adminname } <b>관리자</b></td>
 					<td class="date">${dto.regdate }</td>
 					<td class="readcount">${dto.readcount }</td>
 				</tr>

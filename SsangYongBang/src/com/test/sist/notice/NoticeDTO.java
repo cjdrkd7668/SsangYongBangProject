@@ -10,13 +10,13 @@ public class NoticeDTO {
 	
 	private String readcount;
 	private String adminname;
-	private String gap;
-	
-	public String getGap() {
+	private int gap;
+
+	public int getGap() {
 		return gap;
 	}
 
-	public void setGap(String gap) {
+	public void setGap(int gap) {
 		this.gap = gap;
 	}
 

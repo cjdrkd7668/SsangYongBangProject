@@ -72,6 +72,9 @@ public class NoticeDAO {
 			
 			cstat.executeQuery();
 			
+			//TODO 결과셋 받는 거!
+			rs = (ResultSet)cstat.getObject(2);
+			
 			ArrayList<NoticeDTO> list = new ArrayList<NoticeDTO>();
 			
 			while (rs.next()) {
@@ -85,12 +88,63 @@ public class NoticeDAO {
 				dto.setRegdate(rs.getString("regdate"));
 				dto.setAdminname(rs.getString("adminname"));
 				dto.setReadcount(rs.getString("readcount"));
-				dto.setGap(rs.getString("gap"));
+				dto.setGap(rs.getInt("gap"));
 				
 				list.add(dto);
 			}
 			
 			return list;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	}
+
+	//Detail 서블릿 -> 조회수 증가
+	public void updateReadcount(String seq) {
+		
+		try {
+			
+			String sql = "update tblNotice set readcount = readcount + 1 where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setString(1, seq);
+			pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
+	//Detail 서블릿 -> 글 가져오기
+	public NoticeDTO detail(String seq) {
+		
+		try {
+			
+			String sql = "select * from vwnotice where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+			
+			rs = pstat.executeQuery();
+			
+			if (rs.next()) {
+				
+				NoticeDTO dto = new NoticeDTO();
+				
+				dto.setSeq(rs.getString("seq"));
+				dto.setAdminseq(rs.getString("adminseq"));
+				dto.setSubject(rs.getString("subject"));
+				dto.setDetail(rs.getString("detail"));
+				dto.setRegdate(rs.getString("regdate"));
+				dto.setAdminname(rs.getString("adminname"));
+				dto.setReadcount(rs.getString("readcount"));
+				dto.setGap(rs.getInt("gap"));
+				return dto;
+				
+			}
 			
 		} catch (Exception e) {
 			System.out.println(e);
