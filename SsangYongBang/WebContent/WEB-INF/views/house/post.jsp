@@ -20,7 +20,9 @@
         </div>
 
         <div class="well red"><span class="glyphicon glyphicon-asterisk red"></span>&nbsp;내놓은 방의 정보가 부정확하거나 운영 방침에 위배되는 경우 중개가 종료됩니다.</div>
-
+		
+		<form method="POST" action="/sybang/house/postok.do">
+		
         <table class="table table-bordered">
             <tr>
                 <th>거래 유형<span class="glyphicon glyphicon-asterisk red"></span></th>
@@ -140,7 +142,9 @@
                 <span class="glyphicon glyphicon-list"></span> 목록보기
             </button>
         </div>
-
+	
+		</form>
+		
     </div>
     <!-- list-container 끝 -->
     
