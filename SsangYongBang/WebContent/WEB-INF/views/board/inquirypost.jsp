@@ -50,8 +50,7 @@
 					<td>
 					<!-- 문의 내용 -->
 					<textarea type="text" name="detail" id="detail"
-							class="form-control" placeholder="내용을 입력해주세요."
-							style="height: 200px; width: 890px; font-size: 1.1em; resize: none; box-shadow: 1px 0px 3px #486BB8;"
+							class="form-control" placeholder="내용을 입력해주세요." style="height: 200px; width: 890px; font-size: 1.1em; resize: none; box-shadow: 1px 0px 3px #486BB8;"
 							required></textarea>
 							</td>
 				</tr>

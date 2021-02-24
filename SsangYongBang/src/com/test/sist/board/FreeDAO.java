@@ -177,7 +177,7 @@ public class FreeDAO {
 
 		try {
 
-			String sql = "select * from vwFreeComment where frseq = ?";
+			String sql = "select * from vwFreeComment where frseq = ? order by regdate asc";
 
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, seq);

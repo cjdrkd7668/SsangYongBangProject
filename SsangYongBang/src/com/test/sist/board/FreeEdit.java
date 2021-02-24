@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 
+ * @author 이찬미
+ *
+ */
 @WebServlet("/board/freeedit.do")
 public class FreeEdit extends HttpServlet {
 
@@ -23,6 +28,7 @@ public class FreeEdit extends HttpServlet {
 		FreeDTO dto = dao.detail(seq);
 
 		HttpSession session = req.getSession();
+		
 		// 작성자가 아닐 경우
 		if (!dto.getAuthorseq().equals((String) session.getAttribute("seq"))) {
 

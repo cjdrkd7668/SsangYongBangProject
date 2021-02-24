@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 
+ * @author 이찬미
+ *
+ */
 @WebServlet("/board/inquirypost.do")
 public class InquiryPost extends HttpServlet {
 

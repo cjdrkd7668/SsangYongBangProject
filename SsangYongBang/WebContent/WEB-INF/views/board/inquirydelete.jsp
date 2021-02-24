@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>자유게시판 글 삭제</title>
+<title>문의게시판 글 삭제</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 <link rel="stylesheet" href="/sybang/css/freedelete.css">
 <link rel="stylesheet"
@@ -38,11 +38,11 @@
 			<tr>
 				<td>
 					<button type="button" class="btn btn-default"
-						onclick="location.href='/sybang/board/freedetail.do?seq=${seq}';">
+						onclick="location.href='/sybang/board/inquirydetail.do?seq=${seq}';">
 						<i class="fas fa-arrow-left"></i> 돌아가기
 					</button>
 					<button type="button" class="btn btn-default"
-						onclick="location.href='/sybang/board/freedeleteok.do?seq=${seq}';">
+						onclick="location.href='/sybang/board/inquirydeleteok.do?seq=${seq}';">
 						<i class="fas fa-trash-alt"></i> 삭제하기
 					</button>
 				</td>
