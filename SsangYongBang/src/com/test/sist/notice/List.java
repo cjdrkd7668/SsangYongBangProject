@@ -90,8 +90,15 @@ public class List extends HttpServlet {
 		ArrayList<NoticeDTO> list = dao.list(map);
 		
 		//제목 길이 수정
+		for (NoticeDTO dto : list) {
+			if (dto.getSubject().length() > 30) {
+				dto.setSubject(dto.getSubject().substring(0, 30) + "...");
+			}
+		}
 		
-		
+		req.setAttribute("list", list);
+		req.setAttribute("pagebar", pagebar);
+		req.setAttribute("nowPage", nowPage);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/notice/list.jsp");
 		dispatcher.forward(req, resp);
