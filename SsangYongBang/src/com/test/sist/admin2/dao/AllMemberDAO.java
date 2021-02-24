@@ -273,14 +273,7 @@ public class AllMemberDAO {
 				dto.setId(rs.getString("email"));
 				dto.setGender(rs.getString("ssn").substring(7,8).equals("1")?"남자":"여자");
 				dto.setBirthY(yearTwo + rs.getString("ssn").substring(0,2));
-				dto.setBirthM(rs.getString("ssn").substring(2,4));
-				dto.setBirthD(rs.getString("ssn").substring(4,6));
 				dto.setAge(now.get(Calendar.YEAR) - Integer.parseInt(yearTwo + rs.getString("ssn").substring(0,2)) + "");
-				dto.setSsnF(rs.getString("ssn").substring(0,6));
-				dto.setSsnL(rs.getString("ssn").substring(7,14));
-				dto.setPhoneF(rs.getString("phone").substring(0,3));
-				dto.setPhoneM(rs.getString("phone").substring(3,7));
-				dto.setPhoneL(rs.getString("phone").substring(7,11));
 				
 				return dto;
 			}
@@ -290,6 +283,87 @@ public class AllMemberDAO {
 			e.printStackTrace();
 		}
 		
+		return null;
+	}
+
+	public BrokerDTO getBrokerInfo(String seq) {
+		
+		try {
+			
+			String sql = "select b.seq as bseq,email,pw,name,businessname,brokernum,address,tel,businessnum,documenturl,delflag,a.seq as aseq,regdate,brokerseq from tblBroker b left outer join tblApproBroker a on b.seq = a.brokerSeq where delFlag != 1 and b.seq=?";
+			
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1,seq);
+			
+			rs = pstat.executeQuery();
+
+			if (rs.next()) {
+				
+				BrokerDTO dto = new BrokerDTO();
+				
+				dto.setSeq(rs.getString("bseq"));
+				dto.setEmail(rs.getString("email"));
+				dto.setPw(rs.getString("pw"));
+				dto.setName(rs.getString("name"));
+				dto.setBusinessName(rs.getString("businessName"));
+				dto.setBrokerNum(rs.getString("brokerNum"));
+				dto.setAddress(rs.getString("address"));
+				dto.setTel(rs.getString("tel"));
+				dto.setBusinessNum(rs.getString("businessNum"));
+				dto.setDocumentURL(rs.getString("documentURL"));
+				dto.setDelFlag(rs.getString("delFlag"));
+				dto.setRegdate(rs.getString("regdate") == null ? "미승인" : rs.getString("regdate"));
+				
+				dto.setId(rs.getString("email"));
+				
+				return dto;
+			}
+			
+		} catch (Exception e) {
+			System.out.println("Member_listDAO.getMemberInfo()");
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+	public FirmDTO getFirmInfo(String seq) {
+		
+		try {
+			
+			String sql = "select * from tblFirm where delFlag != 1 and seq=?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1,seq);
+			
+			rs = pstat.executeQuery();
+
+			if (rs.next()) {
+				
+				FirmDTO dto = new FirmDTO();
+				
+				dto.setSeq(rs.getString("seq"));
+				dto.setId(rs.getString("id"));
+				dto.setPw(rs.getString("pw"));
+				dto.setEmail(rs.getString("email"));
+				dto.setAddress(rs.getString("address"));
+				dto.setTel(rs.getString("tel"));
+				dto.setIntroduction(rs.getString("introduction"));
+				dto.setPortfolio(rs.getString("portfolio"));
+				dto.setAvailablePoint(rs.getString("availablePoint"));
+				dto.setApproval(rs.getString("approval"));
+				dto.setDelFlag(rs.getString("delFlag"));
+				dto.setCategorySeq(rs.getString("categorySeq"));
+				
+				return dto;
+			}
+			
+		} catch (Exception e) {
+			System.out.println("Member_listDAO.getMemberInfo()");
+			e.printStackTrace();
+		}
+
 		return null;
 	}
 
