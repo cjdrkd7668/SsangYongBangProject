@@ -14,6 +14,14 @@ public class MemberDTO {
 	private String gender;
 	private String age;
 	private String cnt;
+	private String ssnF;
+	private String ssnL;
+	private String birthY;
+	private String birthM;
+	private String birthD;
+	private String phoneF;
+	private String phoneM;
+	private String phoneL;
 	
 	public String getCnt() {
 		return cnt;
@@ -63,6 +71,12 @@ public class MemberDTO {
 	public String getDelFlag() {
 		return delFlag;
 	}
+	public String getSsnF() {
+		return ssnF;
+	}
+	public String getSsnL() {
+		return ssnL;
+	}
 	public void setSeq(String seq) {
 		this.seq = seq;
 	}
@@ -87,6 +101,49 @@ public class MemberDTO {
 	public void setDelFlag(String delFlag) {
 		this.delFlag = delFlag;
 	}
+	public void setSsnF(String ssnF) {
+		this.ssnF = ssnF;
+	}
+	public void setSsnL(String ssnL) {
+		this.ssnL = ssnL;
+	}
+	public String getBirthY() {
+		return birthY;
+	}
+	public String getBirthM() {
+		return birthM;
+	}
+	public String getBirthD() {
+		return birthD;
+	}
+	public void setBirthY(String birthY) {
+		this.birthY = birthY;
+	}
+	public void setBirthM(String birthM) {
+		this.birthM = birthM;
+	}
+	public void setBirthD(String birthD) {
+		this.birthD = birthD;
+	}
+	public String getPhoneF() {
+		return phoneF;
+	}
+	public String getPhoneM() {
+		return phoneM;
+	}
+	public String getPhoneL() {
+		return phoneL;
+	}
+	public void setPhoneF(String phoneF) {
+		this.phoneF = phoneF;
+	}
+	public void setPhoneM(String phoneM) {
+		this.phoneM = phoneM;
+	}
+	public void setPhoneL(String phoneL) {
+		this.phoneL = phoneL;
+	}
+	
 	
 	
 }

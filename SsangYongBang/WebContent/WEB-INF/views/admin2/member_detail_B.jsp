@@ -25,7 +25,7 @@
 				<tr>
 					<th width="20%" align="center">아이디(E-mail)</th>
 					<td width="30%">
-						<b>ssungoon</b>
+						<b>${dto.id}</b>
 					</td>
 					<th width="20%" align="center">비밀번호</th>
 					<td width="30%">

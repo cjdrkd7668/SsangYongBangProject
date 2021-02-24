@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.test.sist.admin2.dao.Member_listDAO;
+import com.test.sist.admin2.dao.AllMemberDAO;
 import com.test.sist.admin2.dto.BrokerDTO;
 import com.test.sist.admin2.dto.FirmDTO;
 import com.test.sist.admin2.dto.MemberDTO;
@@ -69,13 +69,13 @@ public class Member_list extends HttpServlet {
 		map.put("end", end + "");
 		
 		
-		Member_listDAO dao = new Member_listDAO();
+		AllMemberDAO dao = new AllMemberDAO();
 		
 		if (mType.equals("normal") || mType.equals("null")) { //회원메뉴
 			req.setAttribute("member_tName","회원");
 			req.setAttribute("member_t","N");
 			
-			ArrayList<MemberDTO> list = dao.getMemberInfo(map);
+			ArrayList<MemberDTO> list = dao.getMemberList(map);
 			int cnt = dao.getMemberCnt();
 			
 			req.setAttribute("list",list);
@@ -85,7 +85,7 @@ public class Member_list extends HttpServlet {
 			req.setAttribute("member_tName","중개사");
 			req.setAttribute("member_t","B");
 			
-			ArrayList<BrokerDTO> list = dao.getBrokerInfo(map);
+			ArrayList<BrokerDTO> list = dao.getBrokerList(map);
 			int cnt = dao.getBrokerCnt();
 			
 			req.setAttribute("list",list);
@@ -95,7 +95,7 @@ public class Member_list extends HttpServlet {
 			req.setAttribute("member_tName","업체");
 			req.setAttribute("member_t","F");
 			
-			ArrayList<FirmDTO> list = dao.getFirmInfo(map);
+			ArrayList<FirmDTO> list = dao.getFirmList(map);
 			int cnt = dao.getFirmCnt();
 			
 			req.setAttribute("list",list);

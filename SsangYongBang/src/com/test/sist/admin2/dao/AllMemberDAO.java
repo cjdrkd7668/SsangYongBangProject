@@ -13,14 +13,14 @@ import com.test.sist.admin2.dto.BrokerDTO;
 import com.test.sist.admin2.dto.FirmDTO;
 import com.test.sist.admin2.dto.MemberDTO;
 
-public class Member_listDAO {
+public class AllMemberDAO {
 
 	private Connection conn;
 	private Statement stat;
 	private PreparedStatement pstat;
 	private ResultSet rs;
 	
-	public Member_listDAO() {
+	public AllMemberDAO() {
 		//DB 연결
 		conn = DBUtil.open();
 	}
@@ -34,7 +34,7 @@ public class Member_listDAO {
 		}
 	}
 
-	public ArrayList<MemberDTO> getMemberInfo(HashMap<String,String> map) {
+	public ArrayList<MemberDTO> getMemberList(HashMap<String,String> map) {
 		
 		try {
 			ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
@@ -107,7 +107,7 @@ public class Member_listDAO {
 		return 0;
 	}
 	
-	public ArrayList<BrokerDTO> getBrokerInfo(HashMap<String,String> map) {
+	public ArrayList<BrokerDTO> getBrokerList(HashMap<String,String> map) {
 		
 		try {
 			ArrayList<BrokerDTO> list = new ArrayList<BrokerDTO>();
@@ -174,7 +174,7 @@ public class Member_listDAO {
 		return 0;
 	}
 	
-	public ArrayList<FirmDTO> getFirmInfo(HashMap<String,String> map) {
+	public ArrayList<FirmDTO> getFirmList(HashMap<String,String> map) {
 		
 		try {
 			ArrayList<FirmDTO> list = new ArrayList<FirmDTO>();
@@ -238,6 +238,59 @@ public class Member_listDAO {
 		}
 		
 		return 0;
+	}
+
+	public MemberDTO getMemberInfo(String seq) {
+		
+		try {
+			
+			String sql = "select * from tblMember where delFlag != 1 and seq=?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1,seq);
+			
+			rs = pstat.executeQuery();
+
+			if (rs.next()) {
+				MemberDTO dto = new MemberDTO();
+				Calendar now = Calendar.getInstance();
+				String yearTwo;
+				if (Integer.parseInt((now.get(Calendar.YEAR)+"").substring(0,2)) + 10 < Integer.parseInt(rs.getString("ssn").substring(0,2))) {
+					yearTwo = "19";
+				}else {
+					yearTwo = "20";
+				}
+				
+				dto.setSeq(rs.getString("seq"));
+				dto.setEmail(rs.getString("email"));
+				dto.setPw(rs.getString("pw"));
+				dto.setName(rs.getString("name"));
+				dto.setSsn(rs.getString("ssn"));
+				dto.setPhone(rs.getString("phone").substring(0,3) + "-" + rs.getString("phone").substring(3,7) + "-" + rs.getString("phone").substring(7,11));
+				dto.setAddress(rs.getString("address"));
+				dto.setDelFlag(rs.getString("delFlag"));
+				
+				dto.setId(rs.getString("email"));
+				dto.setGender(rs.getString("ssn").substring(7,8).equals("1")?"남자":"여자");
+				dto.setBirthY(yearTwo + rs.getString("ssn").substring(0,2));
+				dto.setBirthM(rs.getString("ssn").substring(2,4));
+				dto.setBirthD(rs.getString("ssn").substring(4,6));
+				dto.setAge(now.get(Calendar.YEAR) - Integer.parseInt(yearTwo + rs.getString("ssn").substring(0,2)) + "");
+				dto.setSsnF(rs.getString("ssn").substring(0,6));
+				dto.setSsnL(rs.getString("ssn").substring(7,14));
+				dto.setPhoneF(rs.getString("phone").substring(0,3));
+				dto.setPhoneM(rs.getString("phone").substring(3,7));
+				dto.setPhoneL(rs.getString("phone").substring(7,11));
+				
+				return dto;
+			}
+			
+		} catch (Exception e) {
+			System.out.println("Member_listDAO.getMemberInfo()");
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 	
