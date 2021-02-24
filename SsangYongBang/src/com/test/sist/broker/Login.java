@@ -34,6 +34,7 @@ public class Login extends HttpServlet{
 			HttpSession session = request.getSession();
 
 			session.setAttribute("email", dto.getEmail());
+			
 			BrokerDTO bdto = dao.getBroker(email);
 			
 			
@@ -43,6 +44,18 @@ public class Login extends HttpServlet{
 				//승인 중개사 번호
 				session.setAttribute("approBrokerSeq", bdto.getApproBrokerSeq()); //승인 중개사 번호
 			};
+			
+			
+//			session.setAttribute("seq", bdto.getSeq());
+//			session.setAttribute("pw", bdto.getPw());
+//			session.setAttribute("name", bdto.getName());
+//			session.setAttribute("businessName", bdto.getBusinessName());
+//			session.setAttribute("brokerNum", bdto.getBrokerNum());
+//			session.setAttribute("address", bdto.getAddress());
+//			session.setAttribute("tel", bdto.getTel());
+//			session.setAttribute("businessNum", bdto.getBusinessNum());
+//			session.setAttribute("documentURL", bdto.getDocumentURL());
+
 			
 			
 			session.setAttribute("access", 0);
