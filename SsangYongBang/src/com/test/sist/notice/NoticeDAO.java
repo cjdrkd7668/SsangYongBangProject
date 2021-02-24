@@ -151,6 +151,25 @@ public class NoticeDAO {
 		}
 		return null;
 	}
+
+	//DeleteOk 서블릿 -> 글 삭제
+	public int del(String seq) {
+		
+		try {
+			
+			String sql = "update tblNotice set delflag = 1 where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setString(1, seq);
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return 0;
+	}
 	
 	
 
