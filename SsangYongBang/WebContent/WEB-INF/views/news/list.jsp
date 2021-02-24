@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>자유게시판</title>
+<title>뉴스</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 <link rel="stylesheet" href="/sybang/css/globallist.css">
 <link rel="stylesheet"
@@ -23,37 +23,9 @@
     <div class="listContainer">
 
         <div class="page-header">
-            <h1><strong>자유게시판 <i class="fas fa-chalkboard-teacher blue"></i>&nbsp;&nbsp;&nbsp;</strong><small></small></h1>
+            <h1><strong>뉴스&nbsp;&nbsp; <i class="fas fa-user-alt blue"></i> <i class="fas fa-newspaper blue"></i>&nbsp;&nbsp;&nbsp;</strong><small></small></h1>
             <div class="divider"></div>
         </div>
-        
-        <!-- searchTable 시작 -->
-        <!-- 검색 결과 알려줄 창 -->
-        <table class="searchTable table table-default">
-            <tr>
-                <th class="col-md-6">
-                	<!-- 검색 안내문 시작 -->
-                	<c:if test="${not empty search }">
-	                    <div class="well well-sm">
-	                        <b class="blue">'${search}'</b>(으)로 검색 결과 총 <b class="blue">${list.size() }</b>개의 게시글이 있습니다.
-	                    </div>
-                    </c:if>
-                    <!-- 검색 안내문 끝 -->
-                </th>
-                <th class="col-md-6">
-                	<!-- 검색 form 태그 시작 -->
-                	<form method="GET" action="/sybang/board/freelist.do" id="searchForm">
-	                    <input type="text" name="search" id="search" class="input-group-lg form-control" value="${search }" placeholder="검색어를 입력하세요">
-	                    <button type="button" class="input-group-lg form-control submitBtn" onclick="$('#searchForm').submit();">
-							<i class="fas fa-search"></i>
-					    </button>
-				    </form>
-				    <!-- 검색 form 태그 끝 -->
-                </th>
-            </tr>
-
-        </table>
-        <!-- searchTable 끝 -->
 
         <!-- listTable 시작 -->
         <table class="listTable table table-default table-hover">
@@ -76,13 +48,9 @@
             <tr>
                 <td class="col-md-1">${dto.seq }</td>
                 <td class="col-md-6" style="text-align:left;">
-                	<a href="/sybang/board/freedetail.do?seq=${dto.seq}&search=${search}&page=${nowPage}">
+                	<a href="/sybang/notice/detail.do?seq=${dto.seq}&page=${nowPage}">
 					${dto.subject }&nbsp;
-					<!-- 댓글 수 시작 -->
-					<c:if test="${dto.ccount > 0 }">
-						<span class="badge" style="background-color: #486BB8;">${dto.ccount }</span>
-					</c:if>
-					<!-- 댓글 수 끝 -->
+					
 					<!-- 최신 글 시작 -->
 					<c:if test="${dto.gap < 1 }">
 						<span class="badge" style="background-color: red;">N</span></a>
@@ -90,7 +58,7 @@
 					<!-- 최신 글 끝 -->
 					
 				</td>
-                <td class="col-md-2">${dto.authorname }</td>
+                <td class="col-md-2">${dto.adminname } <b>관리자</b></td>
                 <td class="col-md-2">${dto.regdate }</td>
                 <td class="col-md-1">${dto.readcount }</td>
             </tr>
@@ -107,8 +75,8 @@
 		</nav>
 		<!-- page-bar 끝 -->
 		
-		<c:if test="${not empty email }">
-			<button type="button" class="col-md-4 btn btn-default writeBtn" onclick="location.href='/sybang/board/freepost.do'">
+		<c:if test="${not empty email && access == 3 }">
+			<button type="button" class="col-md-4 btn btn-default writeBtn" onclick="location.href='/sybang/notice/post.do'">
 				<i class="fas fa-pencil-alt"></i> 글쓰기
 			</button>
 		</c:if>

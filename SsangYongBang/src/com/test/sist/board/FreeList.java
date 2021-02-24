@@ -109,7 +109,7 @@ public class FreeList extends HttpServlet {
 			}
 
 			if (dto.getAuthorname().length() > 9) {
-				dto.setAuthorname(dto.getAuthorname().substring(0, 9) + "...");
+				dto.setAuthorname(dto.getAuthorname().substring(0, dto.getAuthorname().length() - 4) + "...");
 			}
 		}
 
