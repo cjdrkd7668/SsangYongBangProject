@@ -12,8 +12,13 @@ public class BrokerDTO {
 	private String businessNum;
 	private String documentURL;
 	private String delFlag;
+	private String regdate;
 	
 	private String id;
+	private String telF;
+	private String telM;
+	private String telL;
+	
 	
 	public String getId() {
 		return id;
@@ -86,6 +91,30 @@ public class BrokerDTO {
 	}
 	public void setDelFlag(String delFlag) {
 		this.delFlag = delFlag;
+	}
+	public String getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
+	}
+	public String getTelF() {
+		return telF;
+	}
+	public String getTelM() {
+		return telM;
+	}
+	public String getTelL() {
+		return telL;
+	}
+	public void setTelF(String telF) {
+		this.telF = telF;
+	}
+	public void setTelM(String telM) {
+		this.telM = telM;
+	}
+	public void setTelL(String telL) {
+		this.telL = telL;
 	}
 	
 	

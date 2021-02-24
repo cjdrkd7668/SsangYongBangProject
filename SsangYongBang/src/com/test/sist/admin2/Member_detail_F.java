@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.test.sist.admin2.dao.AllMemberDAO;
-import com.test.sist.admin2.dto.BrokerDTO;
+import com.test.sist.admin2.dto.FirmDTO;
 
 @WebServlet("/admin2/member_detail_F.do")
 public class Member_detail_F extends HttpServlet {
@@ -19,7 +19,7 @@ public class Member_detail_F extends HttpServlet {
 		
 		String seq = req.getParameter("seq");
 		AllMemberDAO dao = new AllMemberDAO();
-		BrokerDTO dto = dao.getFirmInfo(seq);
+		FirmDTO dto = dao.getFirmInfo(seq);
 		
 		req.setAttribute("dto",dto);
 		

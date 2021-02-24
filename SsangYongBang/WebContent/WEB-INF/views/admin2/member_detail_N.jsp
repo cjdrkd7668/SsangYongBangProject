@@ -25,26 +25,26 @@
 				<tr>
 					<th width="20%" align="center">아이디</th>
 					<td width="30%">
-						<b>${dto.id}</b>
+						<input type="text" name="id" class="box" value="${dto.id}" style="width:140px;" maxlength="12">
 					</td>
 					<th width="20%" align="center">비밀번호</th>
 					<td width="30%">
-						<input type="password" name="passN" class="box" value="" style="width:80px;" maxlength="12">
-						<input type="hidden" name="passO" value="${dto.pw}">
+						<input type="password" name="pw" class="box" value="" style="width:80px;" maxlength="12">
+						<input type="hidden" name="pwd" value="${dto.pw}">
 					</td>
 				</tr>
 				<tr>
 					<th align="center">성명</th>
 					<td colspan="3" style="">
-						<input type="text" name="name" class="box" style="width:141px;" value="${dto.name}" maxlength="15">
+						<input type="text" name="name" class="box" style="width:140px;" value="${dto.name}" maxlength="15">
 					</td>
 				</tr>
 				<tr>
 					<th align="center">주민번호</th>
 					<td colspan="3" style="">
-						<input type="text" name="name" class="box" style="width:142px;" value="${dto.ssnF}" maxlength="15">
+						<input type="text" name="name" class="box" style="width:142px;" value="${dto.ssn.substring(0,6)}" maxlength="15">
 						-
-						<input type="text" name="name" class="box" style="width:142px;" value="${dto.ssnL}" maxlength="15">
+						<input type="text" name="name" class="box" style="width:142px;" value="${dto.ssn.substring(7,14)}" maxlength="15">
 					</td>
 				</tr>
 				<tr>
@@ -52,9 +52,9 @@
 					<td colspan="3">
 						<input type="text" name="birthYear" class="box" size="4" value="${dto.birthY}" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
 						년
-						<input type="text" name="birthMonth" class="box" size="2" value="${dto.birthM}" maxlength="2" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
+						<input type="text" name="birthMonth" class="box" size="2" value="${dto.ssn.substring(2,4)}" maxlength="2" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
 						월
-						<input type="text" name="birthDay" class="box" size="2" value="${dto.birthD}" maxlength="2" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
+						<input type="text" name="birthDay" class="box" size="2" value="${dto.ssn.substring(4,6)}" maxlength="2" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
 						일
 					</td>
 				</tr>
@@ -69,9 +69,9 @@
 					<td colspan="3">
 						<span style="width:90px; display:inline-block;"><select id="mobile1" name="mobile1"><option value="">선택</option><option value="010">010</option><option value="011">011</option><option value="016">016</option><option value="017">017</option><option value="018">018</option><option value="019">019</option></select></span>
 						-
-						<input type="text" name="mobile2" class="box" size="4" value="${dto.phoneM}" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
+						<input type="text" name="mobile2" class="box" size="4" value="${dto.phone.substring(4,8)}" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
 						-
-						<input type="text" name="mobile3" class="box" size="4" value="${dto.phoneL}" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
+						<input type="text" name="mobile3" class="box" size="4" value="${dto.phone.substring(9,13)}" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
 					</td>
 				</tr>
 				<tr>
@@ -272,8 +272,8 @@
 		}
 		
 
-		function list() {
-			location.href = "member_list.do?sregdate=&eregdate=&svisitdate=&evisitdate=&slevel=0&ssex=&sbuyprice=&ebuyprice=&scmoney=&ecmoney=&listsize=10&listsort=regdate_desc&skey=&sword=&isSMS=&isMailing=&smsPageSize=1000&dataFormType=CSV&spartner=&restDaydate=&page=";
+		function list(){
+			location.href = "/sybang/admin2/member_list.do?type=normal";
 		}
 		
 
@@ -347,7 +347,7 @@
 		});
 		
 		$("#mobile1").ready(function(){
-			$("#mobile1").val("${dto.phoneF}").prop("selected",true);
+			$("#mobile1").val("${dto.phone.substring(0,3)}").prop("selected",true);
 		});
 		
 	</script>
