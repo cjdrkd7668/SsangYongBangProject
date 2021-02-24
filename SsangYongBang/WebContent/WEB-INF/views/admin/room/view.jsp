@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,14 +21,14 @@
 		<div class="container-view">
 			
 			<div class="post-info">
-				<span>작성자: 홍길동</span>
-				<span>연락처: 010-2233-4455</span>
-				<span>등록일: 2021-02-11</span>
+				<span>작성자: ${rdto.name}</span>
+				<span>연락처: ${rdto.phone}</span>
+				<span>등록일: ${rdto.regDate}</span>
 			</div>
 			
 			<div class="address">
-				<span><span>&ldquo;</span>깨끗한 오피스텔이고, 사무실로도 사용가능합니다. 역삼/강남역 1분 거리!!<span> &bdquo;</span></span>
-				<span>서울특별시 강남구 역삼동, 한독빌딩 6층<span class="glyphicon glyphicon-home"></span></span>
+				<span><span>&ldquo;</span>${rdto.subject}<span> &bdquo;</span></span>
+				<span>${rdto.address}<span class="glyphicon glyphicon-home"></span></span>
 			</div>
 		
 			<!-- map 시작 -->
@@ -83,7 +84,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<table class="table-type-view-detail">
+			<table class="table-type-view-detail" style="width: 100%">
 				<colgroup>
 					<col style="width: 100px;">
 					<col style="width: auto;">
@@ -109,10 +110,11 @@
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 	
 	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=950df7fcc5aace4db5b109e8c92b5034"></script>
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=950df7fcc5aace4db5b109e8c92b5034&libraries=services"></script>
 	<script>
 		var postLat = 37.499343405328595;
 		var postLng = 127.03321257686713;
+		var roomLocation = "<c:out value='${rdto.address}'/>";
 	
 		var container = document.getElementById('map');
 		var options = {
@@ -122,11 +124,40 @@
 
 		var map = new kakao.maps.Map(container, options);
 		
-		marker1 = new daum.maps.Marker({
+		/*marker1 = new daum.maps.Marker({
 			position: new daum.maps.LatLng(postLat, postLng)
 		});
 		
-		marker1.setMap(map);
+		marker1.setMap(map);*/
+		
+		// 주소-좌표 변환 객체를 생성합니다
+		var geocoder = new kakao.maps.services.Geocoder();
+
+		// 주소로 좌표를 검색합니다
+		geocoder.addressSearch(roomLocation, function(result, status) {
+
+		    // 정상적으로 검색이 완료됐으면 
+		     if (status === kakao.maps.services.Status.OK) {
+
+		        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+		        // 결과값으로 받은 위치를 마커로 표시합니다
+		        var marker = new kakao.maps.Marker({
+		            map: map,
+		            position: coords
+		        });
+
+		        //인포윈도우로 장소에 대한 설명을 표시합니다
+		        var infowindow = new kakao.maps.InfoWindow({
+		       	    content: '<div style="width:150px;text-align:center;padding:6px 0;">${rdto.bType}</div>'
+		        });
+		        infowindow.open(map, marker);
+
+		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+		        map.setCenter(coords);
+		    } 
+		});    
+		
 	</script>
 	
 	<script type="text/javascript">
