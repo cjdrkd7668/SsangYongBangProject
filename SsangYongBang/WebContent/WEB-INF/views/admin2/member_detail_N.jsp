@@ -25,69 +25,59 @@
 				<tr>
 					<th width="20%" align="center">아이디</th>
 					<td width="30%">
-						<b>ssungoon</b>
+						<b>${dto.id}</b>
 					</td>
 					<th width="20%" align="center">비밀번호</th>
 					<td width="30%">
-						<input type="text" name="pass" class="box" style="width:80px;" maxlength="12">
-						<input type="hidden" name="pwd">
+						<input type="password" name="passN" class="box" value="" style="width:80px;" maxlength="12">
+						<input type="hidden" name="passO" value="${dto.pw}">
 					</td>
 				</tr>
 				<tr>
 					<th align="center">성명</th>
 					<td colspan="3" style="">
-						<input type="text" name="name" class="box" style="width:141px;" value="성재원" maxlength="15">
+						<input type="text" name="name" class="box" style="width:141px;" value="${dto.name}" maxlength="15">
 					</td>
 				</tr>
 				<tr>
 					<th align="center">주민번호</th>
 					<td colspan="3" style="">
-						<input type="text" name="name" class="box" style="width:142px;" value="121212" maxlength="15">
+						<input type="text" name="name" class="box" style="width:142px;" value="${dto.ssnF}" maxlength="15">
 						-
-						<input type="text" name="name" class="box" style="width:142px;" value="1212121" maxlength="15">
+						<input type="text" name="name" class="box" style="width:142px;" value="${dto.ssnL}" maxlength="15">
 					</td>
 				</tr>
 				<tr>
 					<th align="center">생년월일</th>
 					<td colspan="3">
-						<input type="text" name="birthYear" class="box" size="4" value="1983" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
+						<input type="text" name="birthYear" class="box" size="4" value="${dto.birthY}" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
 						년
-						<input type="text" name="birthMonth" class="box" size="2" value="03" maxlength="2" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
+						<input type="text" name="birthMonth" class="box" size="2" value="${dto.birthM}" maxlength="2" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
 						월
-						<input type="text" name="birthDay" class="box" size="2" value="09" maxlength="2" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
+						<input type="text" name="birthDay" class="box" size="2" value="${dto.birthD}" maxlength="2" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
 						일
 					</td>
 				</tr>
 				<tr>
 					<th align="center">E-mail</th>
 					<td colspan="3">
-						<input type="text" name="email" value="ssungoon@gmail.com" maxlength="100" class="box" style="width:296px">
-					</td>
-				</tr>
-				<tr>
-					<th align="center">전화번호</th>
-					<td colspan="3">
-						<span style="width:90px; display:inline-block;"><select id="tel1" name="tel1"><option value="">선택</option><option value="02">02</option><option value="031">031</option><option value="032">032</option><option value="033">033</option><option value="041">041</option><option value="042">042</option><option value="043">043</option><option value="051">051</option><option value="052">052</option><option value="053">053</option><option value="054">054</option><option value="055">055</option><option value="061">061</option><option value="062">062</option><option value="063">063</option><option value="064">064</option><option value="070">070</option><option value="080">080</option><option value="0502">0502</option><option value="0505">0505</option><option value="0506">0506</option><option value="0303">0303</option></select></span>
-						-
-						<input type="text" name="tel2" class="box" size="4" value="" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
-						-
-						<input type="text" name="tel3" class="box" size="4" value="" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
+						<input type="text" name="email" value="${dto.email}" maxlength="100" class="box" style="width:296px">
 					</td>
 				</tr>
 				<tr>
 					<th align="center">휴대폰</th>
 					<td colspan="3">
-						<span style="width:90px; display:inline-block;"><select id="mobile1" name="mobile1"><option value="">선택</option><option value="010" selected="">010</option><option value="011">011</option><option value="016">016</option><option value="017">017</option><option value="018">018</option><option value="019">019</option></select></span>
+						<span style="width:90px; display:inline-block;"><select id="mobile1" name="mobile1"><option value="">선택</option><option value="010">010</option><option value="011">011</option><option value="016">016</option><option value="017">017</option><option value="018">018</option><option value="019">019</option></select></span>
 						-
-						<input type="text" name="mobile2" class="box" size="4" value="7178" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
+						<input type="text" name="mobile2" class="box" size="4" value="${dto.phoneM}" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
 						-
-						<input type="text" name="mobile3" class="box" size="4" value="8311" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
+						<input type="text" name="mobile3" class="box" size="4" value="${dto.phoneL}" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
 					</td>
 				</tr>
 				<tr>
 					<th align="center">주소</th>
 					<td colspan="3">
-						<input type="text" name="addr" id="addr" class="box" size="70" value="충남 서천군 판교면 금덕길 9" maxlength="50">
+						<input type="text" name="addr" id="addr" class="box" size="70" value="${dto.address}" maxlength="50">
 					</td>
 				</tr>
 			</table>
@@ -271,7 +261,6 @@
 	<br><br><br><br><br><br><br><br><br><br>
 	
 	</div>
-	
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 
 	<script type="text/javascript">
@@ -356,7 +345,10 @@
 			}
 			$(this).parents("table").find("input[name=cbList]").prop("checked",c);
 		});
-												
+		
+		$("#mobile1").ready(function(){
+			$("#mobile1").val("${dto.phoneF}").prop("selected",true);
+		});
 		
 	</script>
 
