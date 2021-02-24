@@ -24,13 +24,13 @@ public class View extends HttpServlet {
 		
 		//특정 글 정보 가져오기
 		RoomDAO dao = new RoomDAO();
-		RoomDTO dto = dao.get(seq);
+		RoomDTO rdto = dao.get(seq);
 		
 		
 		
 		//글 정보 전달
-		request.setAttribute("seq", dto);
-		request.setAttribute(seq, dto);
+		request.setAttribute("rdto", rdto);
+		request.setAttribute("nowPage", nowPage);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/admin/room/view.jsp");
 		dispatcher.forward(request, response);
