@@ -98,6 +98,49 @@ public class AdminReviewDAO {
 		
 		return 0;
 	}
+
+	public int deleteReviewRequest(String[] seqs) {
+		
+		try {
+			
+			String sql = "update tblReviewDelete set delFlag = 1 where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			
+			int result = 1;
+	
+			for (int i=0; i<seqs.length; i++) {
+				pstat.setString(1, seqs[i]);
+				result *= pstat.executeUpdate();
+				System.out.println(result);
+			}
+		
+			return result;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return 0;
+	}
+
+	public int deleteReview(String seq) {
+	
+		try {
+			
+			String sql = "{ call procDeleteBReviewMGR(?) }";
+			
+			cstat = conn.prepareCall(sql);
+			cstat.setString(1, seq);
+			
+			return cstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return 0;
+	}
 	
 	
 	
