@@ -47,35 +47,39 @@
 				<tbody>
 					<tr>
 						<th>방 유형</th>
-						<td>오피스텔</td>
+						<td>${rdto.bType}</td>
 						<th>거래 유형</th>
-						<td>월세</td>
+						<td>${rdto.dType}</td>
 						<th>가격</th>
-						<td>5000(만원) / 110(만원)</td>
+						<td>${rdto.price}(만원)
+						<c:if test="${rdto.dType == '월세'}">
+						 / ${rdto.rent}(만원)
+						</c:if>
+						</td>
 					</tr>
 					<tr>
 						<th>관리비</th>
-						<td>8(만원)</td>
+						<td>${rdto.monthlyFee}</td>
 						<th>면적(공급/전용)</th>
-						<td>54.23&#13217; / 47.67&#13217;</td>
+						<td>${rdto.supplyArea}&#13217; / ${rdto.exclusiveArea}&#13217;</td>
 						<th>층/총층</th>
-						<td>8 / 18</td>
+						<td>${rdto.selectedFloor} / ${rdto.totalFloor}</td>
 					</tr>
 					<tr>
 						<th>방/욕실 개수</th>
-						<td>1 / 2</td>
+						<td>${rdto.roomNum} / ${rdto.bathroomNum}</td>
 						<th>방향</th>
-						<td>남향</td>
+						<td>${rdto.direction}</td>
 						<th>준공년도</th>
-						<td>2011년</td>
+						<td>${rdto.completionYear}년</td>
 					</tr>
 					<tr>
 						<th>주차여부</th>
-						<td>가능</td>
+						<td>${rdto.parkingFlag}</td>
 						<th>엘레베이터</th>
-						<td>가능</td>
+						<td>${rdto.elevator}</td>
 						<th>반려동물거주</th>
-						<td>불가능</td>
+						<td>${rdto.pet}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -87,7 +91,7 @@
 				<tbody>
 					<tr>
 						<th>상세 설명</th>
-						<td>강남역과 역삼역에 위치한 오피스텔입니다. 주변에 많은 회사의 본사가 위치하고 있고, 교통의 요지입니다. 두말 할 것 없는 강남/역삼권 오피스텔, 중개도 금방 될겁니다. 다만 건물의 관리비 정책이 바뀌어 주변보다 관리비가 높은 편입니다. 이 점에 유의해주세요.강남역과 역삼역에 위치한 오피스텔입니다. 주변에 많은 회사의 본사가 위치하고 있고, 교통의 요지입니다. 두말 할 것 없는 강남/역삼권 오피스텔, 중개도 금방 될겁니다. 다만 건물의 관리비 정책이 바뀌어 주변보다 관리비가 높은 편입니다. 이 점에 유의해주세요.강남역과 역삼역에 위치한 오피스텔입니다. 주변에 많은 회사의 본사가 위치하고 있고, 교통의 요지입니다. 두말 할 것 없는 강남/역삼권 오피스텔, 중개도 금방 될겁니다. 다만 건물의 관리비 정책이 바뀌어 주변보다 관리비가 높은 편입니다. 이 점에 유의해주세요.</td>
+						<td>${rdto.detail}</td>
 					</tr>
 				</tbody>
 			</table>
