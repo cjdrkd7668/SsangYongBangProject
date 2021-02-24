@@ -1,5 +1,6 @@
 package com.test.sist.estimate;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +16,7 @@ public class BoardDAO {
 	private Statement stat;
 	private PreparedStatement pstat;
 	private ResultSet rs;
+	private CallableStatement cstat;
 	
 	public BoardDAO() {
 		conn = DBUtil.open();
@@ -27,7 +29,33 @@ public class BoardDAO {
 			System.out.println(e);
 		}
 	}
+	
+	
+	//estimate. AdoptOk서블릿의 호출 -> 채택하기(글쓰기랑 비슷.. 프로시저 활용할 것임)
+	public int adopt(BoardDTO dto) {
+		
+		try {
+			
+			String sql = "{ call procAdopt(?) }";
+			//프로시저 호출하기 -> 이때 프로시저 매개변수가 dto로 받아서 넘어와야 함. 
+			
+			cstat = conn.prepareCall(sql);
+			
+			
+			cstat.setString(1, dto.getSeq());
+			
+			return cstat.executeUpdate();
+			
+			
+		} catch(Exception e) {
+			
+			System.out.println("adopt: " + e);
+		}
+		
+		return 0;
+	}
 
+	
 	
 	//estimate.  WriteOk서블릿의 호출 -> 견적서 쓰기
 	public int write(BoardDTO dto) {
@@ -68,7 +96,7 @@ public class BoardDAO {
 			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwEstimate1th %s) a) where rnum between %s and %s"
 									, where
 									, map.get("begin")
-									, map.get("end"));
+									, map.get("end")); //이렇게 하면 가장 위에 있는게 올라온다... 한게 더 만들어야 한다.
 			
 			pstat = conn.prepareStatement(sql);
 			rs = pstat.executeQuery();
@@ -79,9 +107,9 @@ public class BoardDAO {
 				
 				BoardDTO dto = new BoardDTO();
 				
-				dto.setSeq(rs.getString("seq"));
+				dto.setSeq(rs.getString("seq")); //고객에게 전송된 견적서의 번호
 				dto.setRegDate(rs.getString("regDate"));
-				dto.setApprovalFSeq(rs.getString("approvalFSeq"));
+				dto.setApprovalFSeq(rs.getString("approvalFSeq")); //업체승인번호
 				dto.setRequestSeq(rs.getString("requestSeq"));
 				dto.setEstimatedCost(rs.getInt("estimatedCost"));
 				dto.seteContent(rs.getString("eContent"));
@@ -115,7 +143,7 @@ public class BoardDAO {
 				where = String.format("");
 			}
 			
-			String sql = String.format("select count(*) as from vwEstimate1th %s", where);
+			String sql = String.format("select count(*) as cnt from vwEstimate1th %s", where);
 			
 			stat = conn.createStatement();
 			rs = stat.executeQuery(sql);
@@ -132,6 +160,8 @@ public class BoardDAO {
 		
 		return 0;
 	}
+
+
 	
 	
 	
