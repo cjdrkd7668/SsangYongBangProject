@@ -40,7 +40,7 @@
 		<h1 class="welcome">후기 삭제 요청<small> 중개사가 삭제를 요청한 후기 목록</small></h1>
 		
 		<div class="buttons">
-			<a class="btn btn-default btn-danger" role="button">요청 삭제</a>
+			<a class="btn btn-default btn-danger" role="button" id="delete-request">요청 삭제</a>
 			<a class="btn btn-default" role="button" id="select-all">전체 선택</a>
 		</div>
 		
@@ -56,7 +56,7 @@
 				<tr>
 					<th scope="col" class="text-center">삭제 사유</th>
 					<th scope="col" class="text-center ">글쓴이</th>
-					<th scope="col" class="text-center ">처리 여부</th>
+					<th scope="col" class="text-center ">후기 작성인</th>
 					<th scope="col" class="text-center">후기 확인</th>
 					<th scope="col" class="text-center">선택</th>
 				</tr>
@@ -67,7 +67,7 @@
 				<tr>
 					<td class="text-left">${ardto.detail}</td>
 					<td class="text-center">${ardto.businessName}</td>
-					<td class="text-center">${ardto.doneFlag}</td>
+					<td class="text-center">${ardto.brvName}</td>
 					<td class="text-center">
 						<button class="btn btn-default modal-button" type="button" data-toggle="modal"
 	                        data-target="#false-detail-${ardto.seq}">
@@ -87,7 +87,7 @@
 								<div><h4>${ardto.brvName}(${ardto.brvId})</h4><p>${ardto.reviewContent}</p></div>
 						      </div>
 						      <div class="modal-footer">
-						      	<button type="button" class="btn btn-danger">후기 삭제</button>
+						      	<button type="button" class="btn btn-danger btn-delete-review" value="${ardto.brvSeq}">후기 삭제</button>
         						<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 						      </div>
 						    </div>
@@ -118,6 +118,31 @@
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 
 	<script type="text/javascript">
+		
+		var url = "/sybang/admin/review/deleteok.do?seq=";
+	
+		$('#select-all').click(function(){
+			$('.checkbuttons').prop('checked', true);
+		});
+			
+		$("#delete-request").click(function() {
+			if ($('.checkbuttons:checked').length > 0) {
+				
+				$('.checkbuttons:checked').each(function(index, item){
+					if (index <= $(this).length) {
+						url += $(item).val() + "_";						
+					} else {
+						url += $(item).val();
+					}
+				})
+				$(location).attr('href', url);	
+			}
+		});
+		
+		$(".btn-delete-review").click(function() {
+			$(location).attr('href', "/sybang/admin/review/deleteok.do?seq=" + $(this).val());
+		})
+	
 	</script>
 
 </body>
