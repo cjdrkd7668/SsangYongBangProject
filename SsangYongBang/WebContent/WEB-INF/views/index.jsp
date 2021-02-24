@@ -150,9 +150,10 @@
         <header class="jumbotron mainheader">
             <h1 class="headertxt">어떤 집에서 살고 싶으신가요?</h1>
             <div>
-                <!-- form 태그 시작 -->
-                <form method="POST" action="">
-                <input type="text" class="well well-sm" placeholder="원하시는 지역명, 지하철역, 단지명(아파트명)을 입력해주세요." size="60" style="font-size: 1.2em;">
+            
+                <!-- 검색 form 태그 시작 -->
+                <form method="GET" action="/sybang/index.do">
+                <input type="text" name="search" id="search" class="well well-sm" placeholder="원하시는 지역명, 지하철역, 단지명(아파트명)을 입력해주세요." size="60" style="font-size: 1.2em;">
                
                     <button type="submit" id="searchbtn" class="form-control"><i class="fas fa-search"></i></button>
                 </form>
@@ -250,29 +251,162 @@
                 <tr>
                     <th>바로가기</th>
                     <th>공지사항
-                        <small><a href="#">더보기<span class="glyphicon glyphicon-chevron-right"></span></a></small>
+                        <small><a href="/sybang/notice/list.do">더보기<span class="glyphicon glyphicon-chevron-right"></span></a></small>
                     </th>
                     <th>뉴스
-                        <small><a href="#">더보기<span class="glyphicon glyphicon-chevron-right"></span></a></small>
+                        <small><a href="/sybang/news/boardList.do">더보기<span class="glyphicon glyphicon-chevron-right"></span></a></small>
                     </th>
                 </tr>
                 <tr>
-                    <td><a href="#"><span class="glyphicon glyphicon-briefcase"></span>&nbsp;서비스 업체</a></td>
+                    <td>
+                        <button type="button" class="btn btn-default">
+                            <a href="/sybang/service/ServicestoreList.do"><span class="glyphicon glyphicon-briefcase"></span>&nbsp;전문 업체 찾기</a>
+                        </button>
+                    </td>
                     <td><a href="#">공지사항입니다.</a></td>
                     <td><a href="#">뉴스입니다.</a></td>
                 </tr>
                 <tr>
-                    <td><a href="#"><span class="glyphicon glyphicon-pencil"></span>&nbsp;1:1 문의하기</a></td>
+                    <td>
+                        <!-- 1:1 문의 modal 시작 -->
+                        <button id="chat" type="button" class="btn btn-default" data-toggle="modal"
+                            data-target="#modalchat">
+                            <span class="glyphicon glyphicon-user"></span> 1:1 문의하기
+                        </button>
+
+                        <div class="modal fade" role="diaglog" data-keyboard="true" id="modalchat">
+                            <div class="modal-dialog">
+
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        
+                                        <h3 class="modal-title" style="text-align: center;">1:1 문의하기</h3>
+                                    </div>
+
+                                    <!-- 문의 내용 -->
+                                    <form method="POST" action="/sybang/member/chat/chatok.do">
+                                    <div class="modal-body">
+                                        <select name="bname" id="bname" class="form-control" >
+                                            <option>승인중개사선택</option>
+                                            <option>중개사이름</option>
+                                            <option>중개사이름</option>
+                                        </select>
+                                        <input name="subject" id="subject" type="text" class="form-control" placeholder="제목을 입력해주세요.">
+                                        <textarea name="content" id="content" class="form-control" cols="50" rows="10" placeholder="문의 내용을 입력해주세요."
+                                            style="resize: none; overflow: visible;"></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-success" data-dismiss="modal">등록</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- 1:1 문의 modal 끝 -->
+
+                    </td>
                     <td><a href="#">공지사항입니다.</a></td>
                     <td><a href="#">뉴스입니다.</a></td>
                 </tr>
                 <tr>
-                    <td><a href="#"><span class="glyphicon glyphicon-book"></span>&nbsp;1:1 문의내역</a></td>
+                    <td>
+                    	  <!-- 1:1 문의 내역 modal 시작 -->
+                        <button id="chatlist" type="button" class="btn btn-default" data-toggle="modal"
+                            data-target="#modalchatlist">
+                            <span class="glyphicon glyphicon-book"></span> 1:1 문의내역
+                        </button>
+
+                        <div class="modal fade" role="diaglog" data-keyboard="true" id="modalchatlist">
+                            <div class="modal-dialog">
+
+                                <div class="modal-content">
+                                    <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <h3 class="modal-title" style="text-align: center;">1:1 문의내역</h3>
+                                    </div>
+
+                                    <!-- 문의 내용 -->
+                                    <form method="">
+                                        <div class="modal-body">
+                                            <select name="bname" id="bname" class="form-control">
+                                                <option>승인중개사선택</option>
+                                                <option>중개사이름</option>
+                                                <option>중개사이름</option>
+                                            </select>
+                                            <input name="subject" id="subject" type="text" class="form-control"
+                                                placeholder="제목을 입력해주세요.">
+                                            <textarea name="content" id="content" class="form-control" cols="50"
+                                                rows="10" placeholder="문의 내용을 입력해주세요."
+                                                style="resize: none; overflow: visible;"></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-success"
+                                                data-dismiss="modal">등록</button>
+                                            <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">닫기</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- 1:1 문의 내역 modal 끝 -->
+                    </td>
                     <td><a href="#">공지사항입니다.</a></td>
                     <td><a href="#">뉴스입니다.</a></td>
                 </tr>
                 <tr>
-                    <td><a href="#"><span class="glyphicon glyphicon-list"></span>&nbsp;자주 묻는 질문</a></td>
+                    <td>
+                    	<!-- 자주 묻는 질문 modal 시작 -->
+                        <button id="qna" type="button" class="btn btn-default" data-toggle="modal"
+                            data-target="#modalqna">
+                            <span class="glyphicon glyphicon-list"></span>&nbsp;자주 묻는 질문</a>
+                        </button>
+
+                        <div class="modal fade" role="diaglog" data-keyboard="true" id="modalqna">
+                            <div class="modal-dialog">
+
+                                <div class="modal-content">
+                                    <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        <h3 class="modal-title" style="text-align: center;">자주 묻는 질문</h3>
+                                    </div>
+
+                                    <!-- 문의 내용 -->
+                                    <form method="">
+                                        <div class="modal-body">
+                                            <select name="bname" id="bname" class="form-control">
+                                                <option>승인중개사선택</option>
+                                                <option>중개사이름</option>
+                                                <option>중개사이름</option>
+                                            </select>
+                                            <input name="subject" id="subject" type="text" class="form-control"
+                                                placeholder="제목을 입력해주세요.">
+                                            <textarea name="content" id="content" class="form-control" cols="50"
+                                                rows="10" placeholder="문의 내용을 입력해주세요."
+                                                style="resize: none; overflow: visible;"></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-success"
+                                                data-dismiss="modal">등록</button>
+                                            <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">닫기</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- 자주 묻는 질문 modal 끝 -->
+                    </td>
                     <td><a href="#">공지사항입니다.</a></td>
                     <td><a href="#">뉴스입니다.</a></td>
                 </tr>
@@ -288,7 +422,9 @@
    	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 
     <script>
-
+	    window.onload = function() {
+			$("#search").focus();
+		};
     </script>
 </body>
 
