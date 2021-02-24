@@ -68,18 +68,17 @@ public class BrokerDAO {
 				
 				BrokerDTO dto = new BrokerDTO();
 				
-				
 				dto.setSeq(rs.getString("seq")); //중개사 번호
 				dto.setEmail(rs.getString("email"));//이메일
 				dto.setPw(rs.getString("pw"));//비밀번호
-				dto.setSeq(rs.getString("name"));//사업자 대표명
-				dto.setSeq(rs.getString("businessName"));//사업자 상호
-				dto.setSeq(rs.getString("brokerNum"));//중개 등록 번호
-				dto.setSeq(rs.getString("address"));//주소지
-				dto.setSeq(rs.getString("tel"));//전화번호
-				dto.setSeq(rs.getString("businessNum"));//사업자 등록번호
-				dto.setSeq(rs.getString("documentURL"));//서류경로
-				dto.setSeq(rs.getString("delFlag"));//탈퇴여부
+				dto.setName(rs.getString("name"));//사업자 대표명
+				dto.setBusinessName(rs.getString("businessName"));//사업자 상호
+				dto.setBrokerNum(rs.getString("brokerNum"));//중개 등록 번호
+				dto.setAddress(rs.getString("address"));//주소지
+				dto.setTel(rs.getString("tel"));//전화번호
+				dto.setBusinessNum(rs.getString("businessNum"));//사업자 등록번호
+				dto.setDocumentURL(rs.getString("documentURL"));//서류경로
+				dto.setDelFlag(rs.getString("delFlag"));//탈퇴여부
 			
 				dto.setApproBrokerSeq(rs.getString("ApproBrokerSeq")); //***승인 중개사 번호
 				
