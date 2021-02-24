@@ -105,9 +105,51 @@ public class RoomDAO {
 		return 0;
 	}
 	
-	//방 게시글 
-	public RoomDTO get(String seq) {
-		// TODO Auto-generated method stub
+	//방 게시글 번호를 매개로 특정 방 게시글 반환
+	public RoomDTO getRoom(String seq) {
+		
+		try {
+			
+			String sql = String.format("select * from vwRoomPost where seq = %s", seq);
+			
+			stat = conn.createStatement();
+			rs = stat.executeQuery(sql);
+			
+			RoomDTO dto = new RoomDTO();
+			
+			if (rs.next()) {
+				dto.setSeq(rs.getString("seq"));
+				dto.setmSeq(rs.getString("mSeq"));
+				dto.setName(rs.getString("name"));
+				dto.setPhone(rs.getString("phone"));
+				dto.setbType(rs.getString("bType"));
+				dto.setdType(rs.getString("dType"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setRent(rs.getInt("rent"));
+				dto.setMonthlyFee(rs.getInt("monthlyFee"));
+				dto.setAddress(rs.getString("address"));
+				dto.setExclusiveArea(rs.getInt("exclusiveArea"));
+				dto.setSupplyArea(rs.getInt("supplyArea"));
+				dto.setSelectedFloor(rs.getString("selectedFloor"));
+				dto.setTotalFloor(rs.getString("totalFloor"));
+				dto.setRoomNum(rs.getInt("roomNum"));
+				dto.setBathroomNum(rs.getInt("bathroomNum"));
+				dto.setDirection(rs.getString("direction"));
+				dto.setCompletionYear(rs.getString("completionYear"));
+				dto.setParkingFlag(rs.getString("parkingFlag"));
+				dto.setElevator(rs.getString("elevator"));
+				dto.setPet(rs.getString("pet"));
+				dto.setSubject(rs.getString("subject"));
+				dto.setDetail(rs.getString("detail"));
+				dto.setRegDate(rs.getString("regDate").substring(0, 10));
+				
+				return dto;
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
 		return null;
 	}
 

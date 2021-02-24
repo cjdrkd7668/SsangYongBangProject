@@ -24,9 +24,7 @@ public class View extends HttpServlet {
 		
 		//특정 글 정보 가져오기
 		RoomDAO dao = new RoomDAO();
-		RoomDTO rdto = dao.get(seq);
-		
-		
+		RoomDTO rdto = dao.getRoom(seq);
 		
 		//글 정보 전달
 		request.setAttribute("rdto", rdto);
