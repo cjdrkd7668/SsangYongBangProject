@@ -45,7 +45,7 @@
         <ul class="nav nav-tabs" style="clear: both;">
             <li class="active"><a data-toggle="tab" href="#writepost">내가 쓴 글</a></li>
             <li><a data-toggle="tab" href="#writecomment">내가 쓴 댓글</a></li>
-            <li><a data-toggle="tab" href="#writereview">내 후기/평점</a></li>
+            <li><a data-toggle="tab" href="#writereview">찜 목록</a></li>
         </ul>
 
         <!-- tab-content 시작 -->

@@ -25,7 +25,7 @@
 					<li class="dropdown">
           			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">커뮤니티<span class="caret"></span></a>
 			          	<ul class="dropdown-menu" role="menu">
-				            <li><a href="/sybang/notice/boardList.do">공지사항</a></li>
+				            <li><a href="/sybang/notice/list.do">공지사항</a></li>
 				            <li><a href="/sybang/news/boardList.do">뉴스</a></li>
 				            <li><a href="/sybang/board/freelist.do">자유게시판</a></li>
 				            <c:if test="${not empty email }">
@@ -50,7 +50,7 @@
         			
 					<li class="dropdown">
           			<a href="/sybang/service/servicemain.do" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">청소/시공<span class="caret"></span></a>
-			          	<c:if test="${not empty email && access == 2 }">
+			          	<c:if test="${not empty email}">
 			          	<ul class="dropdown-menu" role="menu">
 				            <li><a href="/sybang/service/servicemain.do">청소/시공업체 홈</a></li>			          	
 				            <li><a href="/sybang/service/ServicestoreList.do">전문업체 찾기</a></li>

@@ -1,5 +1,6 @@
 package com.test.sist.broker;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +13,7 @@ public class BrokerDAO {
 	private Connection conn;
 	private Statement stat;
 	private PreparedStatement pstat;
+	private CallableStatement cstat;
 	private ResultSet rs;
 	
 	public BrokerDAO() {
@@ -91,6 +93,30 @@ public class BrokerDAO {
 		
 		return null;
 	}
+	
+	//프로시저 이용해서 수정하기
+	public int updateBroker(String brkEmail, String brkpw, String brkBusinessName, String brkAddress, String brkTel) {
+		
+		try {
+			
+			String sql = "{ call procReplaceProfileB(?, ?, ?, ?, ?) }";
+			cstat = conn.prepareCall(sql);
+			cstat.setString(1, brkEmail);
+			cstat.setString(2, brkpw);
+			cstat.setString(3, brkBusinessName);
+			cstat.setString(4, brkAddress);
+			cstat.setString(5, brkTel);
+			
+			System.out.println("z");
+			return cstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return 0;
+	}
+
 
 		
 
