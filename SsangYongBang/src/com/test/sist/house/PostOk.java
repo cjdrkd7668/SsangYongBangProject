@@ -34,6 +34,8 @@ public class PostOk extends HttpServlet {
 		String bType = "";
 		int price = 0;
 		int rent = 0;
+		String selectedFloor = "";
+		String totalFloor = "";
 		int monthlyFee = 0;
 		String address = "";
 		int exclusiveArea = 0;
@@ -45,14 +47,11 @@ public class PostOk extends HttpServlet {
 		String parkingFlag = "";
 		String elevator = "";
 		String pet = "";
-		String[] url = new String[2];
 		String subject = "";
 		String detail = "";
-		String filename1 = "";
-		String orgfilename1 = "";
-		String filename2 = "";
-		String orgfilename2 = "";
-		String mseq = (String)session.getAttribute("seq"); //로그인한 회원 번호 & 글쓴이 번호
+		
+		String mSeq = (String)session.getAttribute("seq"); //로그인한 회원 번호 & 글쓴이 번호
+		String url[] = new String[2];
 
 		try {
 			
@@ -63,51 +62,28 @@ public class PostOk extends HttpServlet {
 										"UTF-8",
 										new DefaultFileRenamePolicy()
 									);
-			System.out.println(req.getRealPath("images"));
-			
-			
-			System.out.println(multi.getParameter("dType"));
-			System.out.println(multi.getParameter("bType"));
-			System.out.println(multi.getParameter("price"));
-			System.out.println(multi.getParameter("rent"));
-			System.out.println(multi.getParameter("monthlyFee"));
-			System.out.println(multi.getParameter("address"));
-			System.out.println(multi.getParameter("exclusiveArea"));
-			System.out.println(multi.getParameter("supplyArea"));
-			System.out.println(multi.getParameter("roomNum"));
-			System.out.println(multi.getParameter("bathroomNum"));
-			System.out.println(multi.getParameter("direction"));
-			System.out.println(multi.getParameter("completionYear"));
-			System.out.println(multi.getParameter("parkingFlag"));
-			System.out.println(multi.getParameter("elevator"));
-			System.out.println(multi.getParameter("pet"));
-			System.out.println(multi.getParameter("subject"));
-			System.out.println(multi.getParameter("detail"));
-			System.out.println(multi.getFilesystemName("url1"));
-			System.out.println(multi.getFilesystemName("url2"));
-			
+
 			dType = multi.getParameter("dType");
 			bType = multi.getParameter("bType");
 			price = Integer.parseInt(multi.getParameter("price"));
 			rent = Integer.parseInt(multi.getParameter("rent"));
+			selectedFloor = multi.getParameter("selectedFloor");
+			totalFloor = multi.getParameter("totalFloor");
 			monthlyFee = Integer.parseInt(multi.getParameter("monthlyFee"));
-			address = multi.getParameter("address");
+			address = multi.getParameter("address") + ", " + multi.getParameter("addressDetail");
 			exclusiveArea = Integer.parseInt(multi.getParameter("exclusiveArea"));
 			supplyArea = Integer.parseInt(multi.getParameter("supplyArea"));
 			roomNum = Integer.parseInt(multi.getParameter("roomNum"));
 			bathroomNum = Integer.parseInt(multi.getParameter("bathroomNum"));
 			direction = multi.getParameter("direction");
 			completionYear = multi.getParameter("completionYear");
-			parkingFlag = multi.getParameter("parkingFlag");
-			elevator = multi.getParameter("elevator");
-			pet = multi.getParameter("pet");
-			url = multi.getParameterValues("url");
+			parkingFlag = (multi.getParameter("parkingFlag") == null) ? "0" : "1";
+			elevator = (multi.getParameter("elevator") == null) ? "0" : "1";
+			pet = (multi.getParameter("pet") == null) ? "0" : "1";
 			subject = multi.getParameter("subject");
 			detail = multi.getParameter("detail");
 			url[0] = multi.getFilesystemName("url1");
 			url[1] = multi.getFilesystemName("url2");
-			
-			System.out.println(url.toString()); // 왜이게 널이지
 			
 		} catch (Exception e) {
 			System.out.println(e);
@@ -118,6 +94,7 @@ public class PostOk extends HttpServlet {
 		RoomDAO dao = new RoomDAO();
 		RoomDTO dto = new RoomDTO();
 		
+		dto.setmSeq(mSeq);
 		dto.setdType(dType);
 		dto.setbType(bType);
 		dto.setPrice(price);
@@ -128,15 +105,18 @@ public class PostOk extends HttpServlet {
 		dto.setSupplyArea(supplyArea);
 		dto.setRoomNum(roomNum);
 		dto.setBathroomNum(bathroomNum);
+		dto.setSelectedFloor(selectedFloor);
+		dto.setTotalFloor(totalFloor);
 		dto.setDirection(direction);
 		dto.setCompletionYear(completionYear);
 		dto.setParkingFlag(parkingFlag);
 		dto.setElevator(elevator);
 		dto.setPet(pet);
+		dto.setSubject(subject);
+		dto.setDetail(detail);
 		dto.setUrl(url);
 		
-		int result = 1;
-		//int result = dao.write(dto); //글쓰기
+		int result = dao.write(dto); //글쓰기
 		
 		if (result == 1) {
 			//글쓰기 성공 -> 게시판 목록으로 이동
@@ -144,11 +124,12 @@ public class PostOk extends HttpServlet {
 			
 		} else {
 			//글쓰기 실패 -> 경고 + 뒤로 가기
+			resp.setCharacterEncoding("UTF-8");
 			PrintWriter writer = resp.getWriter();
 			
-			writer.print("<html><body>");
+			writer.print("<html><head><meta charset='utf-8'></head><body>");
 			writer.print("<script>");
-			writer.print("alert('failed');");
+			writer.print("alert('방 게시글을 작성하는 것에 실패했습니다.');");
 			writer.print("history.back();");
 			writer.print("</script>");
 			writer.print("</body></html>");
