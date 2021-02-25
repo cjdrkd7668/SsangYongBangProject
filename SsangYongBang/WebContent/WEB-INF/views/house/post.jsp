@@ -7,6 +7,20 @@
 <title>방 내놓기</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 <link rel="stylesheet" href="/sybang/css/housepost.css">
+<style>
+
+.list-container input[type="text"] {
+	width: 300px;
+	margin: 5px 0px;
+}
+
+.list-container input {
+	color: #555;
+	border: 1px solid #ccc;
+	outline: none;
+}
+
+</style>
 </head>
 <body>
 
@@ -14,71 +28,79 @@
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 	
 <!-- list-container 시작 -->
-    <div class="list-container" style="height: 950px; margin-top: -50px;">
+    <div class="container list-container" style="margin-top: -50px;">
         <div class="page-header">
             <h1>방 내놓기</h1>
         </div>
 
         <div class="well red"><span class="glyphicon glyphicon-asterisk red"></span>&nbsp;내놓은 방의 정보가 부정확하거나 운영 방침에 위배되는 경우 중개가 종료됩니다.</div>
 		
-		<form method="POST" action="/sybang/house/postok.do">
+		<form method="POST" action="/sybang/house/postok.do" encType="multipart/form-data">
 		
         <table class="table table-bordered">
             <tr>
                 <th>거래 유형<span class="glyphicon glyphicon-asterisk red"></span></th>
                 <td colspan="3">
-                    <label class="radio-inline"><input type="radio" name="optradio">매매</label>
-                    <label class="radio-inline"><input type="radio" name="optradio">전세</label>
-                    <label class="radio-inline"><input type="radio" name="optradio">월세</label>
+                    <label class="radio-inline"><input type="radio" name="dType" value="매매">매매</label>
+                    <label class="radio-inline"><input type="radio" name="dType" value="전세">전세</label>
+                    <label class="radio-inline"><input type="radio" name="dType" value="월세">월세</label>
                 </td>
             </tr>
             <tr>
                 <th>건물 유형<span class="glyphicon glyphicon-asterisk red"></span></th>
                 <td colspan="3">
-                    <label class="radio-inline"><input type="radio" name="optradio">아파트</label>
-                    <label class="radio-inline"><input type="radio" name="optradio">빌라</label>
-                    <label class="radio-inline"><input type="radio" name="optradio">주택</label>
-                    <label class="radio-inline"><input type="radio" name="optradio">원룸</label>
-                    <label class="radio-inline"><input type="radio" name="optradio">투룸</label>
-                    <label class="radio-inline"><input type="radio" name="optradio">오피스텔</label>
+                    <label class="radio-inline"><input type="radio" name="bType" value="아파트">아파트</label>
+                    <label class="radio-inline"><input type="radio" name="bType" value="빌라">빌라</label>
+                    <label class="radio-inline"><input type="radio" name="bType" value="주택">주택</label>
+                    <label class="radio-inline"><input type="radio" name="bType" value="원룸">원룸</label>
+                    <label class="radio-inline"><input type="radio" name="bType" value="투룸">투룸</label>
+                    <label class="radio-inline"><input type="radio" name="bType" value="오피스텔">오피스텔</label>
 
                 </td>
             </tr>
             <tr>
                 <th>가격(보증금)<span class="glyphicon glyphicon-asterisk red"></span></th>
-                <td style="width: 300px;"><input type="number" min="0" max="1000000" step="1">&nbsp;만원</td>
+                <td style="width: 300px;"><input type="number" min="0" max="1000000" step="1" name="price">&nbsp;만원</td>
                 <th>월세<span class="glyphicon glyphicon-asterisk red"></span></th>
-                <td style="width: 300px;"><input type="number" min="0" max="100000" step="1">&nbsp;만원</td>
+                <td style="width: 300px;"><input type="number" min="0" max="100000" step="1" name="rent">&nbsp;만원</td>
             </tr>
-            
+            <tr>
+                <th>해당 층<span class="glyphicon glyphicon-asterisk red"></span></th>
+                <td style="width: 300px;"><input type="number" min="0" max="1000" step="1" name="selectedFloor">&nbsp;</td>
+                <th>건물 총 층<span class="glyphicon glyphicon-asterisk red"></span></th>
+                <td style="width: 300px;"><input type="number" min="0" max="1000" step="1" name="totalFloor">&nbsp;</td>
+            </tr>
             <tr>
                 <th>관리비</th>
-                <td colspan="3"><input type="number" min="0" max="100" step="1">&nbsp;만원</td>
+                <td colspan="3"><input type="number" min="0" max="100" step="1" name="monthlyFee">&nbsp;만원</td>
             </tr>
             <tr>
-                <th>주소<span class="glyphicon glyphicon-asterisk red"></span></th>
-                <td colspan="3"><input type="button" class="btn btn-basic btn-address" value="우편번호 찾기">
-                    <input type="text">
-                    <p><input type="text" placeholder="상세 주소 입력"></p>
+                <th>주소<span class="glyphicon glyphicon-asterisk red"></span>
+                <td colspan="3">
+                	<input type="text" placeholder="우편 번호" class="zip_code" id="zipNo"> 
+                	<button type="button" class="zip_code_btn" onclick="javascript:goPopup();">주소 찾기</button><br/>
+                    <input type="text" placeholder="기본 주소" id="address" readonly name="address"><br/> 
+                    <input type="text" placeholder="상세 주소" id="addressDetail" readonly name="addressDetail"> 
+                </td>
             </tr>
             <tr>
                 <th>전용 면적<span class="glyphicon glyphicon-asterisk red"></span></th>
                 <td style="width: 300px;">
-                    <input type="number" min="10" max="300" step="1">&nbsp;㎡
+                    <input type="number" min="10" max="300" step="1" name="exclusiveArea">&nbsp;㎡
                 </td>
                 <th>공급 면적<span class="glyphicon glyphicon-asterisk red"></span></th>
                 <td style="width: 300px;">
-                    <input type="number" min="10" max="300" step="1">&nbsp;㎡
+                    <input type="number" min="10" max="300" step="1" name="supplyArea">&nbsp;㎡
                 </td>
             </tr>
             <tr>
                 <th>방 개수</th>
                 <td style="width: 300px;">
-                    <input type="number" min="1" max="8" step="1" value="1">&nbsp;개
+                    <input type="number" min="1" max="8" step="1" value="1" name="roomNum">&nbsp;개
                 </td>
                 <th>욕실 개수</th>
                 <td style="width: 300px;">
-                    <input type="number" min="1" max="5" step="1" value="1">&nbsp;개
+                    <input type="number" min="1" max="5" step="1" value="1" name="bathroomNum">&nbsp;개
                 </td>
             </tr>
             <tr class="tr-sel">
@@ -86,7 +108,7 @@
                 <td style="width: 300px;">
                     <div class="form-group">
                         <label for="sel1"></label>
-                        <select class="form-control" id="sel1" style="margin: -24px 2px; width: 150px; height: 30px; padding:0;">
+                        <select class="form-control" id="sel1" style="margin: -24px 2px; width: 150px; height: 30px; padding:0;" name="direction">
                           <option>선택하세요.</option>
                           <option>동향</option>
                           <option>서향</option>
@@ -101,7 +123,7 @@
                 <td style="width: 300px;">
                     <div class="form-group">
                         <label for="sel1"></label>
-                        <select class="form-control" id="sel2" style="margin: -24px 2px; width: 150px; height: 30px; padding:0;">
+                        <select class="form-control" id="sel2" style="margin: -24px 2px; width: 150px; height: 30px; padding:0;" name="completionYear">
                             <option>선택하세요.</option>
                         </select>
                     </div>
@@ -110,32 +132,37 @@
             <tr>
                 <th>기타 옵션</th>
                 <td colspan="3">
-                    <label class="checkbox-inline"><input type="checkbox" value="1">주차 가능</label>
-<label class="checkbox-inline"><input type="checkbox" value="2">엘리베이터</label>
-<label class="checkbox-inline"><input type="checkbox" value="3">반려동물</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="1" name="parkingFlag">주차 가능</label>
+<label class="checkbox-inline"><input type="checkbox" value="2" name="elevator">엘리베이터</label>
+<label class="checkbox-inline"><input type="checkbox" value="3" name="pet">반려동물</label>
                 </td>
             </tr>
             <tr>
                 <th>이미지</th>
                 <td colspan="3">
-                    <input type="file" class="form-control">
-                    <input type="file" class="form-control">
+                    <input type="file" class="form-control" name="url1">
+                    <input type="file" class="form-control" name="url2">
+                </td>
+            </tr>
+            <tr>
+                <th>제목</th>
+                <td colspan="3">
+                    <input type="text" name="subject">
                 </td>
             </tr>
             <tr>
                 <th>설명</th>
                 <td colspan="3">
-                    <textarea class="form-control" rows="3" style="resize: none; font-size: 1em;"></textarea>
+                    <textarea class="form-control" rows="3" style="resize: none; font-size: 1em;" name="detail"></textarea>
                 </td>
             </tr>
         </table>
 
-
         <div class="btns btn-group">
-            <button type="button" class="btn btn-info" style="background-color: #486BB8;">
+            <button type="submit" class="btn btn-info" style="background-color: #486BB8;">
                 <span class="glyphicon glyphicon-ok"></span> 등록하기
             </button>
-            <button type="button" class="btn btn-default">
+            <button type="button" class="btn btn-default" onclick="location.href='/sybang/index.do'">
                 <span class="glyphicon glyphicon-remove"></span> 취소하기
             </button>
             <button type="button" class="btn btn-default" onclick="location.href='/sybang/house/list.do'">
@@ -144,6 +171,7 @@
         </div>
 	
 		</form>
+		
 		
     </div>
     <!-- list-container 끝 -->
@@ -158,6 +186,28 @@
             
             sel2.innerHTML += "<option value='" + i + "'>" + i + "년</option>";
         }
+        
+        /* 도로명 주소 API  시작*/
+        var goPopup = function(){ 
+        	
+        	var pop = window.open("/sybang/house/jusoPopup.do","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+        	
+        } 
+        
+        var jusoCallBack = function(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo){
+        	
+        	document.getElementById("zipNo").value = zipNo; 
+        	document.getElementById("address").value = roadAddrPart1; 
+        	
+        	if(addrDetail.length>30){ 
+        		alert('상세주소가 너무 길어 다시 입력해야 합니다.'); 
+        		return;
+        	} 
+        	
+        	document.getElementById("addressDetail").value = addrDetail; 
+        }
+        /* 도로명 주소 API 끝 */
+        
     </script>
 </body>
 </html>

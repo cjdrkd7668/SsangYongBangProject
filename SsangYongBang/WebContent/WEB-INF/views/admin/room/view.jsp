@@ -113,7 +113,7 @@
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=950df7fcc5aace4db5b109e8c92b5034&libraries=services"></script>
 	<script>
 		var postLat = 37.499343405328595;
-		var postLng = 127.03321257686713;
+		var postLng = 127.03321257686713;		
 		var roomLocation = "<c:out value='${rdto.address}'/>";
 	
 		var container = document.getElementById('map');
