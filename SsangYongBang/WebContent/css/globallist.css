@@ -69,6 +69,7 @@ body {
 
 .listContainer .writeBtn {
 	width: 100px;
+	height: 40px;
 	float: right;
 	margin-top: 20px;
 }

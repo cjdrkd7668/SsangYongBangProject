@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap')
+	;
+
+body {
+	position: relative;
+	left: 0;
+	top: 0;
+	overflow-y: scroll;
+}
+
+.blue {
+	color: #486BB8;
+}
+
+.detailContainer {
+	width: 1000px;
+	height: auto;
+	margin: 30px auto;
+	font-family: 'Noto Sans KR', sans-serif;
+	letter-spacing: -1px;
+	font-size: 1.3em;
+}
+
+.detailContainer #listBtn {
+	float: right;
+	width: 100px;
+	height: 40px;
+	margin-bottom: 20px;
+	font-size: 0.8em;
+}
+
+.detailContainer .detailTable {
+	font-size: 1em;
+}
+
+.detailContainer .detailTable .well {
+	color: gray;
+}
+
+.detailContainer .detailTable .btns {
+	float: right;
+	margin-top: 10px;
+}
+
+.detailContainer .detailTable .btns .btn {
+	width: 100px;
+	height: 40px;
+	font-size: 0.8em;
+}
+
+.detailContainer #detail, .detailContainer .commentTable .commentDetail
+	{
+	font-size: 0.9em;
+}
+
+.detailContainer .commentTable .controlBtn {
+	width: 300px;
+	height: 50px;
+	display: inline-block;
+}
+
+.detailContainer .commentTable .controlBtn div {
+	float: left;
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+.hideBtn {
+	display: none;
+}
+
+.showBtn {
+	display: block;
+}
