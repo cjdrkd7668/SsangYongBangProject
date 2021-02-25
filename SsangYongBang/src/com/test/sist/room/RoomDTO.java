@@ -27,6 +27,8 @@ public class RoomDTO {
 	private String detail;			//방 게시글 상세내용
 	private String regDate;			//방 게시글 작성일자
 	
+	private String[] url;
+	
 	public String getSeq() {
 		return seq;
 	}
@@ -170,6 +172,12 @@ public class RoomDTO {
 	}
 	public void setRegDate(String regDate) {
 		this.regDate = regDate;
+	}
+	public String[] getUrl() {
+		return url;
+	}
+	public void setUrl(String[] url) {
+		this.url = url;
 	}
 	
 	
