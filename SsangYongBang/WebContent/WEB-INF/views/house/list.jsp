@@ -1,128 +1,73 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>내놓은 방</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
-<link rel="stylesheet" href="/sybang/css/hopelist.css">
+<link rel="stylesheet" type="text/css" href="/sybang/css/admin2.css">
+<link rel="stylesheet" type="text/css" href="/sybang/css/admin.css">
+<link rel="stylesheet" href="/sybang/css/board.css">
+<title>Insert title here</title>
+<style type="text/css">
+
+.btn-group {
+	float: right;
+}
+
+</style>
 </head>
 <body>
-
-	<!-- header 가져오기######## -->
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
-
-        <!-- list-container 시작 -->
-    <div class="list-container" style="margin-top: -50px;">
-        <div class="page-header">
-            <h1>내놓은 방</h1>
-            <div class="well well-sm" style="float:left;">총 <b>5</b>개의 방이 등록되어 있습니다.</div>
-        </div>
-
-        <table class="table table-hover">   
-            <tr>
-                <th><input type="checkbox"></th>
-                <th>번호</th>
-                <th>거래 유형</th>
-                <th>건물 유형</th>
-                <th>가격</th>
-                <th>지역</th>
-                <th>면적</th>
-                <th>방 개수</th>
-                <th>상태</th>
-            </tr>
-            <tr onclick="location.href='/sybang/house/detail.do'">
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td>매매</td>
-                <td>아파트</td>
-                <td>2억 5000만</td>
-                <td>강남구</td>
-                <td>27</td>
-                <td>2개</td>
-                <td>게시</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td>매매</td>
-                <td>아파트</td>
-                <td>2억 5000만</td>
-                <td>강남구</td>
-                <td>27</td>
-                <td>2개</td>
-                <td>게시</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td>매매</td>
-                <td>아파트</td>
-                <td>2억 5000만</td>
-                <td>강남구</td>
-                <td>27</td>
-                <td>2개</td>
-                <td>게시</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td>매매</td>
-                <td>아파트</td>
-                <td>2억 5000만</td>
-                <td>강남구</td>
-                <td>27</td>
-                <td>2개</td>
-                <td>게시</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td>매매</td>
-                <td>아파트</td>
-                <td>2억 5000만</td>
-                <td>강남구</td>
-                <td>27</td>
-                <td>2개</td>
-                <td>게시</td>
-            </tr>
-
-        </table>
-    
-
-    <!-- page-bar 시작 -->
-    <nav class="page-bar">
-        <ul class="pagination">
-            <li><a href="#" aria-label="Previous"> <span
-                    aria-hidden="true">&laquo;</span>
-            </a></li>
-            <li class="active"><a href="/sybang/house/list.do">1</a></li>
-            <li><a href="/sybang/house/list.do">2</a></li>
-            <li><a href="/sybang/house/list.do">3</a></li>
-            <li><a href="/sybang/house/list.do">4</a></li>
-            <li><a href="/sybang/house/list.do">5</a></li>
-            <li><a href="#" aria-label="Next"> <span
-                    aria-hidden="true">&raquo;</span>
-            </a></li>
-        </ul>
-    </nav>
-    <!-- page-bar 끝 -->
-
-    <div class="btns btn-group">
-        <button type="button" class="btn btn-default" onclick="location.href='/sybang/house/post.do'">
-
-            <span class="glyphicon glyphicon-pencil"></span> 글쓰기
-        </button>
-        <button type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-trash"></span> 삭제하기
-        </button>
-    </div>
-
-</div>
-<!-- list-container 끝 -->
-    
-	<!-- footer 가져오기######## -->
+	<div class="container">
+	
+		<h1 class="welcome">내놓은 방<small> 중개사가 조회할 방 목록</small></h1>
+		
+		<table class="table table-hover table-type-list">
+			<thead class="board-table-head">
+				<tr>
+					<th scope="col" class="text-center">제목</th>
+					<th scope="col" class="text-center">지역</th>
+					<th scope="col" class="text-center">작성일</th>
+				</tr>
+			</thead>
+			<tbody class="board-table-body">
+				<c:forEach items="${armList}" var="armdto">
+				<tr>
+					<td class="text-left">
+						<a href="/sybang/house/view.do?seq=${armdto.seq}&page=${nowPage}">
+						${armdto.subject}
+						</a>
+					</td>
+					<td class="text-center">${armdto.address}</td>
+					<td class="text-center">${armdto.regDate}</td>
+				</tr>
+				</c:forEach>
+				
+			</tbody>
+		</table>
+		
+		<div class="btns btn-group">
+	        <button type="button" class="btn btn-default" onclick="location.href='/sybang/house/post.do'">
+	            <span class="glyphicon glyphicon-pencil"></span> 글쓰기
+	        </button>
+    	</div>
+    	
+		<!-- pagination -->
+	    <nav class="nav-pagination">
+		  	<ul class="pagination">
+			    ${pageBar}
+		  	</ul>
+		</nav>
+		
+		
+	</div>
+	
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
+
+	<script type="text/javascript">
+		
+	</script>
+
 </body>
 </html>
