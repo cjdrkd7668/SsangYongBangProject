@@ -42,7 +42,7 @@
                 </th>
                 <th class="col-md-6">
                 	<!-- 검색 form 태그 시작 -->
-                	<form method="GET" action="/sybang/board/inquirylist.do" id="searchForm">
+                	<form method="GET" action="/sybang/inquiry/list.do" id="searchForm">
 	                    <input type="text" name="search" id="search" class="input-group-lg form-control" value="${search }" placeholder="검색어를 입력하세요">
 	                    <button type="button" class="input-group-lg form-control submitBtn" onclick="$('#searchForm').submit();">
 							<i class="fas fa-search"></i>
@@ -75,8 +75,11 @@
             <c:forEach items="${list }" var="dto">
             <tr>
                 <td class="col-md-1">${dto.seq }</td>
-                <td class="col-md-6" style="text-align:left;">
-                	<a id="atitle" href="/sybang/board/inquirydetail.do?seq=${dto.seq}&search=${search}&page=${nowPage}" >
+                <td class="col-md-6 title" style="text-align:left;">
+                	
+                	<c:if test="${(dto.authorseq == authorseq && dto.zerobonem == access) || dto.openflag == 1 || access == 3}">
+                	<a href="/sybang/inquiry/detail.do?seq=${dto.seq}&search=${search}&page=${nowPage}">
+                	
 					${dto.subject }&nbsp;
 					<!-- 댓글 수 시작 -->
 					<c:if test="${dto.ccount > 0 }">
@@ -85,9 +88,27 @@
 					<!-- 댓글 수 끝 -->
 					<!-- 최신 글 시작 -->
 					<c:if test="${dto.gap < 1 }">
-						<span class="badge" style="background-color: red;">N</span></a>
+						<span class="badge" style="background-color: red;">N</span>
 					</c:if>
 					<!-- 최신 글 끝 -->
+					</a>
+					</c:if>
+					
+					<c:if test="${!((dto.authorseq == authorseq && dto.zerobonem == access) || dto.openflag == 1 || access == 3)}">
+					<a style="cursor: not-allowed;">
+					${dto.subject }&nbsp;
+					<!-- 댓글 수 시작 -->
+					<c:if test="${dto.ccount > 0 }">
+						<span class="badge" style="background-color: #486BB8;">${dto.ccount }</span>
+					</c:if>
+					<!-- 댓글 수 끝 -->
+					<!-- 최신 글 시작 -->
+					<c:if test="${dto.gap < 1 }">
+						<span class="badge" style="background-color: red;">N</span>
+					</c:if>
+					<!-- 최신 글 끝 -->
+					</a>
+					</c:if>
 					
 				</td>
                 <td class="col-md-2">${dto.authorname }</td>
@@ -113,8 +134,8 @@
 		</nav>
 		<!-- page-bar 끝 -->
 		
-		<c:if test="${not empty email && access != 3 }">
-			<button type="button" class="col-md-4 btn btn-default writeBtn" onclick="location.href='/sybang/board/inquirypost.do'">
+		<c:if test="${not empty email && access != 3 && access != 2 }">
+			<button type="button" class="col-md-4 btn btn-default writeBtn bluebg" onclick="location.href='/sybang/inquiry/post.do'">
 				<i class="fas fa-pencil-alt"></i> 글쓰기
 			</button>
 		</c:if>
@@ -123,29 +144,19 @@
 		
     </div>
     <!-- listContainer 끝 -->
+    
+    <!-- footer 가져오기######## -->
+	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 
     <script>
 
         window.onload = function() {
             $("#search").focus();
         };
-        
-        $("#atitle").click = function () {
-            var authorseq = $("#authorseq").val();
-            var zerobonem = $("#zerobonem").val();
-            var openflag = $("#openflag").val();
-            var seq = $("#seq").val();
-            var access = $("#access").val();
 
-            /* 해당 글의 작성자가 아니거나 공개글이 아닐 경우 */
-            if (!((authorseq == seq) && (zerobonem == access) || (openflag == 1))) {
-                $("#atitle").attr("href", "/sybang/board/inquirylist.do");
-            }
-        };
     </script>
 	
 
-	<!-- footer 가져오기######## -->
-	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
+	
 </body>
 </html>

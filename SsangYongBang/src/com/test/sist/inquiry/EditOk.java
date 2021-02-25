@@ -1,8 +1,9 @@
-package com.test.sist.board;
+package com.test.sist.inquiry;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,38 +11,47 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/board/inquirycommentok.do")
-public class InquiryCommentOk extends HttpServlet {
+import com.test.sist.inquiry.dao.InquiryDAO;
+import com.test.sist.inquiry.dto.InquiryDTO;
+
+/**
+ * 
+ * @author 이찬미
+ *
+ */
+@WebServlet("/inquiry/editok.do")
+public class EditOk extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		HttpSession session = req.getSession();
 		
-		req.setCharacterEncoding("UTF-8"
-				);
+		req.setCharacterEncoding("UTF-8");
 		
-		//게시글 번호
-		String iqrseq = req.getParameter("iqrseq");
+		//글 번호
+		String seq = req.getParameter("seq");
+		String subject = req.getParameter("subject");
 		String detail = req.getParameter("detail");
+		String openflag = req.getParameter("openflag");
 		
-		InquiryCommentDAO dao =  new InquiryCommentDAO();
-		InquiryCommentDTO dto = new InquiryCommentDTO();
+		InquiryDAO dao = new InquiryDAO();
+		InquiryDTO dto = new InquiryDTO();
 		
-		dto.setIqrseq(iqrseq);
+		dto.setSeq(seq);
+		dto.setSubject(subject);
 		dto.setDetail(detail);
-		//관리자 번호
-		dto.setAdmseq((String)session.getAttribute("seq"));
+		dto.setOpenflag(openflag);
 		
-		//댓글 작성
-		int result = dao.post(dto);
+		//글 수정하기
+		int result = dao.edit(dto);
 		
 		if (result == 1) {
-			// 댓글 작성 성공 시 -> 보고 있던 게시글로 이동
-			resp.sendRedirect("/sybang/board/inquirydetail.do?seq=" + iqrseq);
 			
+			//성공 시 수정한 글로 이동
+			resp.sendRedirect("/sybang/inquiry/detail.do?seq=" + seq);
 		} else {
-			// 댓글 작성 실패 시
+			
 			PrintWriter writer = resp.getWriter();
 
 			writer.print("<html><body>");
@@ -52,7 +62,7 @@ public class InquiryCommentOk extends HttpServlet {
 			writer.print("</body></html>");
 
 			writer.close();
+			
 		}
-		
 	}
 }

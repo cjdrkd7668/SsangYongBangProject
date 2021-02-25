@@ -1,4 +1,4 @@
-package com.test.sist.board;
+package com.test.sist.inquiry.dto;
 
 /**
  * 
@@ -15,14 +15,6 @@ public class InquiryCommentDTO {
 	private String regdate; // 작성일
 	
 	private int gap;
-	
-	public int getGap() {
-		return gap;
-	}
-
-	public void setGap(int gap) {
-		this.gap = gap;
-	}
 
 	public String getSeq() {
 		return seq;
@@ -72,4 +64,13 @@ public class InquiryCommentDTO {
 		this.regdate = regdate;
 	}
 
+	public int getGap() {
+		return gap;
+	}
+
+	public void setGap(int gap) {
+		this.gap = gap;
+	}
+	
+	
 }

@@ -57,7 +57,7 @@
 	                    </c:if>
 	                    <!-- 본인이 썼거나 관리자일 경우 -->
 	                    <c:if test="${(not empty approBrokerSeq && dto.authorseq == approBrokerSeq && dto.zerobonem == access) || (not empty seq && dto.authorseq == seq && dto.zerobonem == access) || (access == 3)}">
-	                        <button type="button" class="btn btn-default" onclick="location.href='/sybang/free/delete.do?seq=${dto.seq}';">
+	                        <button type="button" class="btn btn-default redbg" onclick="location.href='/sybang/free/delete.do?seq=${dto.seq}';">
 	                            <i class="fas fa-trash-alt"></i> 삭제하기
 	                        </button>
 	                    

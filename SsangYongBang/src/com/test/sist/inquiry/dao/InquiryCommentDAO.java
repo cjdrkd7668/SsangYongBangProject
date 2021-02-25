@@ -1,4 +1,4 @@
-package com.test.sist.board;
+package com.test.sist.inquiry.dao;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -31,25 +31,4 @@ public class InquiryCommentDAO {
 			System.out.println(e);
 		}
 	}
-	
-	//InquiryCommentOk 서블릿 -> 댓글 작성
-	public int post(InquiryCommentDTO dto) {
-		try {
-
-			String sql = "{ call procAddIComment(?, ?, ?) }";
-			
-			cstat = conn.prepareCall(sql);
-			
-			cstat.setString(1, dto.getIqrseq());
-			cstat.setString(2, dto.getAdmseq());
-			cstat.setString(3, dto.getDetail());
-			
-			return cstat.executeUpdate();
-			
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		return 0;
-	}
-
 }

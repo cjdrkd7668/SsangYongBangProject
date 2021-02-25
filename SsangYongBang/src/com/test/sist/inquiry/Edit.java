@@ -1,4 +1,4 @@
-package com.test.sist.board;
+package com.test.sist.inquiry;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,13 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.test.sist.inquiry.dao.InquiryDAO;
+import com.test.sist.inquiry.dto.InquiryDTO;
+
 /**
  * 
  * @author 이찬미
  *
  */
-@WebServlet("/board/inquiryedit.do")
-public class InquiryEdit extends HttpServlet {
+@WebServlet("/inquiry/edit.do")
+public class Edit extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,9 +31,8 @@ public class InquiryEdit extends HttpServlet {
 		InquiryDTO dto = dao.detail(seq);
 		
 		HttpSession session = req.getSession();
-
-		//작성자가 아닐 경우
-		if (!dto.getAuthorseq().equals((String)session.getAttribute("seq"))) {
+		
+		if (!session.getAttribute("authorseq").toString().equals(dto.getAuthorseq())) {
 			PrintWriter writer = resp.getWriter();
 
 			writer.print("<html><body>");
@@ -46,7 +48,7 @@ public class InquiryEdit extends HttpServlet {
 		
 		req.setAttribute("dto", dto);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/inquiryedit.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/inquiry/edit.jsp");
 		dispatcher.forward(req, resp);
 	}
 }
