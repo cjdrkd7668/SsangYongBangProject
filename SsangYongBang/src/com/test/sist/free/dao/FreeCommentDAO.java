@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import com.test.sist.DBUtil;
+import com.test.sist.free.dto.FreeCommentDTO;
 
 /**
  * 
@@ -35,6 +36,46 @@ public class FreeCommentDAO {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+	}
+
+	//CommentOk 서블릿 -> 댓글 쓰기
+	public int post(FreeCommentDTO dto) {
+		try {
+
+			String sql = "{ call procAddComment(?, ?, ?, ?) }";
+			
+			cstat = conn.prepareCall(sql);
+			
+			cstat.setString(1, dto.getZerobonem());
+			cstat.setString(2, dto.getAuthorseq());
+			cstat.setString(3, dto.getFrseq());
+			cstat.setString(4, dto.getDetail());
+			
+			return cstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return 0;
+	}
+
+	//DeleteCommentOk 서블릿 -> 댓글 삭제
+	public int del(String seq) {
+
+		try {
+
+			String sql = "update tblFreeComment set delFlag = 1 where seq = ?";
+
+			pstat = conn.prepareStatement(sql);
+
+			pstat.setString(1, seq);
+
+			return pstat.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return 0;
 	}
 
 }
