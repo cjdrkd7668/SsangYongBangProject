@@ -113,6 +113,32 @@ public class ChatDAO {
 		
 		return null;
 	}
+
+	
+	//SendOk 서블릿 -> 채팅 입력하기
+	public int send(ChatDTO dto) {
+		
+		
+		try {
+			
+			String sql = "INSERT INTO tblChatAsk (seq, timeSent, estimate1thSeq, chatContent, whoFlag) VALUES (seqChatAsk.nextVal, default, ?, ?, ?)";
+			
+			
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setString(1, dto.getEstimate1thSeq());
+			pstat.setString(2, dto.getChatContent());
+			pstat.setString(3, dto.getWhoFlag());
+			
+			return pstat.executeUpdate();
+			//쪽지와 다르게 한 사람이 한 사람한테 하나 보내는 거라서 결과값은 성공시 1
+			
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		return 0;
+	}
 	
 	
 	

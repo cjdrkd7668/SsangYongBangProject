@@ -33,14 +33,13 @@
 
 #chating {
    display: inline-block;
-   width: 700px;
+   width: 800px;
    border: 1px solid #ddd;
-   min-height: 500px;
+   min-height: 550px;
    padding: 0px 0px 30px 0px;
    text-align: center;
-   margin-left: 45px;
-   margin-top: 40px;
-   margin-right: 40px;
+   margin-left: 110px;
+   margin-bottom: 130px;
    
    
 }
@@ -61,8 +60,12 @@
    height: 400px;
    overflow: scroll;
    margin-bottom: 10px;
-   padding-top: 15px;
+   padding-top: 25px;
+
 }
+
+
+
 
 .servicestore {
    text-align: left;
@@ -79,7 +82,7 @@
    border-radius: 10px;
    margin-bottom: 5px;
    padding: 5px;
-   font-size: 1.2em;
+   font-size: 0.9em;
 
 }
 
@@ -90,7 +93,7 @@
    background-color: #0084FF;
    color: white;
    padding: 5px;
-   font-size: 1.2em;
+   font-size: 0.9em;
 }
 
 
@@ -104,7 +107,7 @@
 	text-align: left;
 	margin-bottom: 25px;
 	margin-left: 10px;
-	width: 600px;
+	width: 750px;
 	margin-right: 80px;
 
 	
@@ -114,7 +117,7 @@
 	text-align: right;
 	margin-bottom: 25px;
 	margin-right: 10px;
-	width: 600px;
+	width: 700px;
 	margin-left: 80px;
 	
 }
@@ -133,31 +136,10 @@
 	text-align: right;
 }
 
-.leftchatlist {
-	display: inline-block;
-	height: 510px;
-	width: 200px;
-	border: 3px solid  #ddd;
-	border-radius: 10px;
-	position: relative;
-	top: 10px;
-	left: -5px;
-	overflow: scroll;
 
-}
 
-ul {
-	list-style: none;
-}
 
-.servicelist {
 
-	border-radius: 5px;
-	margin: 3px;
-	padding: 10px;
-	font-size:1.3em;
-	
-}
 
 </style>
 
@@ -188,6 +170,17 @@ ul {
 		<!--좌측화면 끝 ##########  -->
     
    <!-- 본문 상단 -->
+   
+   	<div class="upperBar">
+   
+		<div class="row">
+		<h4> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 1:1 문의</h4>
+		</div>
+
+	</div>
+   
+   
+   <!-- 본문 상단 끝 -->
 
 
 
@@ -238,14 +231,19 @@ ul {
                   
                   <!-- 메시지 전송 박스 -->
                   <div class="enterbox">
-                     <form action="" method="POST">
+                  	<!-- 별도의 send.do 없이 sendok로 넘어가게 된다. -->
+                     <form action="/sybang/servicechat/sendok.do" method="POST">
                      <div class="inputplace">
-                     <input type="text" class="form-control" placeholder="내용을 입력하세요">
+                     <input type="text" name="chatContent" id="chatContent" class="form-control" placeholder="내용을 입력하세요">
                      </div>
                      <div class="btnplace">
                      <button type="submit" class="btn btn-success">입력</button>
                      </div>
+                     <input type="hidden" name="estimate1thSeq" value="${estimate1thSeq}"> 
+                     <!-- 견적서번호 가져가기. 이 시점에서 dto에 담은 것은  null임. request로 estimate1thSeq를 가져왔으므로 dto에 담은 것과 헷갈리지 않기-->
+                     <input type="hidden" name="whoFlag" value="1"> <!-- 업체 시점 send이므로 1 가져가기 -->
                      </form>
+                     
                   </div>
                   <!-- 메시지 전송박스 끝 -->
                   
@@ -253,28 +251,8 @@ ul {
          </div>         
          <!-- 채팅창 끝 -->
          
-         <!-- 채팅방 목록 -->
 
-	
-	<div class="leftchatlist">
-	<ul class="chatgroup">
-		<li class="servicelist"> 청소의전설&nbsp;&nbsp;<span class="badge">2</span></li>
-		<li class="servicelist">굿청소&nbsp;&nbsp;<span class="badge">1</span> </li>
-		<li class="servicelist"> 청소의전설&nbsp;&nbsp;<span class="badge">2</span></li>
-		<li class="servicelist">굿청소&nbsp;&nbsp;<span class="badge">1</span> </li>
-		<li class="servicelist"> 청소의전설&nbsp;&nbsp;<span class="badge">2</span></li>
-		<li class="servicelist">굿청소&nbsp;&nbsp;<span class="badge">1</span> </li>
-
-
-	</ul>
-	</div>   
-   
-   
-      	<!-- 채팅방목록끝 -->
-   
-
-
-   
+      
    
    
    
