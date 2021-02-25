@@ -149,6 +149,29 @@ public class Config_siteDAO {
 		
 	}
 
+	public int checkDuplicateId(String id) {
+		
+		try {
+
+			String sql = "select count(seq) as cnt from tblAdmin where id=?";
+
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, id);
+
+			rs = pstat.executeQuery();
+
+			if (rs.next()) {
+				return rs.getInt("cnt");
+			}
+
+		} catch (Exception e) {
+			System.out.println("MemberDAO.checkId()");
+			e.printStackTrace();
+		}
+
+		return 0;
+	}
+
 
 }
 

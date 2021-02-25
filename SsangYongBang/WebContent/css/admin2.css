@@ -13,7 +13,7 @@ label{margin-bottom:0}
 
 .wrap{width:1200px;margin:auto;overflow:hidden;}
 
-.conWrap{position:relative;right:0;margin-left:180px;padding-left:15px;}
+.conWrap{position:relative;right:0;margin:0 0 200px 180px;padding-left:15px;}
 .conWrap .btnWrap{padding-top:15px;text-align:center;}
 .conWrap .pagebar{position:relative;text-align:center;}
 .conWrap .pagination{margin:20px 0 0}

@@ -78,8 +78,6 @@
 			
 		</div>
 	
-	<br><br><br><br><br><br><br><br><br><br>
-	
 	</div>
 	
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>

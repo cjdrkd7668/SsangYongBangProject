@@ -254,16 +254,30 @@
 			
 			</form>
 			
-			
-			
 		</div>
-	
-	<br><br><br><br><br><br><br><br><br><br>
 	
 	</div>
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 
 	<script type="text/javascript">
+	
+		function chkNull(obj) {
+			if (obj == "" || typeof(obj) == "undefined") {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		
+		function checkEmail(email) {
+			if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) != -1) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
 	
 		$(".left_menu").find("li").eq(4).addClass("on").find("li").eq(0).addClass("on");
 	
@@ -295,13 +309,13 @@
 			var i, len;
 			var objItem;
 
-			if (checkEmpty(f.name)) {
+			if (f.name == null) {
 				alert("성명을 입력해 주세요.");
 				f.name.focus();
 				return false;
 			}
 
-			if (checkEmpty(f.email)) {
+			if (f.email == null) {
 				alert("E-mail을 입력해 주세요.");
 				f.email.focus();
 				return false;
