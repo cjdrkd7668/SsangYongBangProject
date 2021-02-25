@@ -108,7 +108,7 @@
 		<!-- page-bar 끝 -->
 		
 		<c:if test="${not empty email && access == 0 || access == 1 }">
-			<button type="button" class="col-md-4 btn btn-default writeBtn" onclick="location.href='/sybang/free/post.do'">
+			<button type="button" class="col-md-4 btn btn-default writeBtn bluebg" onclick="location.href='/sybang/free/post.do'">
 				<i class="fas fa-pencil-alt"></i> 글쓰기
 			</button>
 		</c:if>

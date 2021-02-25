@@ -29,7 +29,7 @@
 				            <li><a href="/sybang/news/boardList.do">뉴스</a></li>
 				            <li><a href="/sybang/free/list.do">자유게시판</a></li>
 				            <c:if test="${not empty email }">
-				            <li><a href="/sybang/board/inquirylist.do">문의게시판</a></li>
+				            <li><a href="/sybang/inquiry/list.do">문의게시판</a></li>
 				            </c:if>
 			         	</ul>
         			</li>

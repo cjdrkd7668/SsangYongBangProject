@@ -15,6 +15,11 @@ body {
 	color: #486BB8;
 }
 
+.bluebg {
+	background-color: #486BB8;
+	color: #EEE;
+}
+
 .listContainer {
 	width: 1000px;
 	height: auto;
@@ -72,4 +77,5 @@ body {
 	height: 40px;
 	float: right;
 	margin-top: 20px;
+	font-size: 0.9em;
 }
