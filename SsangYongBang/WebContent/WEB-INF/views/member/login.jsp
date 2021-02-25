@@ -114,6 +114,8 @@
 						<button type="button" class="btn btn-default">
 							아이디 찾기
 							<button type="button" class="btn btn-default">비밀번호 찾기</button>
+							<!-- 간편 로그인 -->
+						<button type="button" class="btn btn-default" onclick="test('star23@naver.com','star23');">1번회원</button>
 					</div>
 				</div>
 			</form>
@@ -132,5 +134,12 @@
 
 	<!-- footer 가져오기######## -->
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
+	<script>
+	   	function test(id, pw) {
+	   		$("#email").val(id);
+	   		$("#pw").val(pw);
+	   		$("#login-form").submit(); 
+	   	}
+   </script>
 </body>
 </html>
