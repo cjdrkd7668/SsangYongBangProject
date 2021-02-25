@@ -48,7 +48,8 @@
       </c:if>
       <li><a href="/sybang/request/requestlist.do">요청서 리스트</a></li>
       <li><a href="/sybang/servicereview/servicereview.do">후기 리스트</a></li>
-      <c:if test="${access == '2' }"> <!-- 업체 로그인시 업체쪽에서 보일 채팅창리스트 -->
+      <c:if test="${access == '2' }"> 
+      <!-- 업체 로그인시 업체쪽에서 보일 채팅창리스트, 추후 회원 로그인시 회원쪽에서 보일 채팅창리스트 똑같이 만들어야 함-->
       <li><a href="/sybang/servicechat/partnerlist.do">1:1 문의</a></li>
       </c:if>
       <li><a href="/sybang/servicescheduler/servicescheduler.do">일정 관리</a></li>

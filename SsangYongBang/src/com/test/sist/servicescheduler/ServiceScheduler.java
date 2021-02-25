@@ -14,7 +14,7 @@ public class ServiceScheduler extends HttpServlet {
    
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	   
-      RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/servicescheduler/servicescheduler.jsp");
+      RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/servicescheduler/servicescheduler2.jsp");
       dispatcher.forward(request, response);
       
    }

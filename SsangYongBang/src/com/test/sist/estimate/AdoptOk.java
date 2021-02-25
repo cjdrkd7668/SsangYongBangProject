@@ -52,7 +52,7 @@ public class AdoptOk extends HttpServlet {
 		
 		if (result == 1) {
 			
-			resp.sendRedirect("/sybang/servicechat/servicechat.do");
+			resp.sendRedirect("/sybang/servicechat/partnerlist.do");
 			//1:1 온라인문의로 보내보기
 		} else {
 			
