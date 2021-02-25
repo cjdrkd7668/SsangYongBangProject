@@ -51,9 +51,12 @@ body {
 	font-size: 0.8em;
 }
 
-.detailContainer #detail, .detailContainer .commentTable .commentDetail
-	{
+.detailContainer #detail, .detailContainer .commentTable .commentDetail {
 	font-size: 0.9em;
+}
+
+.detailContainer .commentTable .commentDetail {
+	resize: none;
 }
 
 .detailContainer .commentTable .controlBtn {

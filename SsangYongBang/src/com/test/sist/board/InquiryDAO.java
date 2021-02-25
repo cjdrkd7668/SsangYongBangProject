@@ -167,6 +167,7 @@ public class InquiryDAO {
 				dto.setDetail(rs.getString("detail"));
 				dto.setRegdate(rs.getString("regDate"));
 				dto.setReadcount(rs.getString("readcount"));
+				dto.setZerobonem(rs.getString("zerobonem"));
 
 				return dto;
 			}

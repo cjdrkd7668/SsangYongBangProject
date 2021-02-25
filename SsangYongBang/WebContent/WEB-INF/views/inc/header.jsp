@@ -27,7 +27,7 @@
 			          	<ul class="dropdown-menu" role="menu">
 				            <li><a href="/sybang/notice/list.do">공지사항</a></li>
 				            <li><a href="/sybang/news/boardList.do">뉴스</a></li>
-				            <li><a href="/sybang/board/freelist.do">자유게시판</a></li>
+				            <li><a href="/sybang/free/list.do">자유게시판</a></li>
 				            <c:if test="${not empty email }">
 				            <li><a href="/sybang/board/inquirylist.do">문의게시판</a></li>
 				            </c:if>
