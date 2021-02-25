@@ -47,9 +47,7 @@ public class Config_site_ok extends HttpServlet {
 		
 		writer.print("<html><body>");
 		writer.print("<script>");
-		if (result == 1) {
-			writer.print("alert('수정 완료');");
-		}else {
+		if (result != 1) {
 			writer.print("alert('수정 실패');");
 		}
 		writer.print("history.back();");
