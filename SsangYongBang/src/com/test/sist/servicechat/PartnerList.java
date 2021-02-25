@@ -30,7 +30,7 @@ public class PartnerList extends HttpServlet {
 		ChatDTO dto = new ChatDTO();
 		
 		
-		ArrayList<ChatDTO> list = dao.list((String) session.getAttribute("approvalFSeq"));
+		ArrayList<ChatDTO> list = dao.list((String)session.getAttribute("approvalFSeq"));
 		
 		//데이터 조작 -> 서블릿 담당
 		//데이터 출력 -> JSP 담당
