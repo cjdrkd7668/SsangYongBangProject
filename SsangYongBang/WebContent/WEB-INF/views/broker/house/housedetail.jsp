@@ -57,7 +57,7 @@
 			<!-- 매물 이미지 끝 -->
 
 			<div class="col-md-8">
-				<h4 style="color: #2F71B8;;">서울시 강남구 역삼동 한독빌딩</h4>
+				<h4 style="color: #2F71B8;;">${hdto.addrss}</h4>
 				<h2 id="head-title">빌라/투룸&nbsp;<b><mark>매매 2억 5000만원&nbsp;</mark></b><small>26㎡ 5층</small></h2>
 				<textarea id="head-content" class="form-control well" cols="50" rows="5"
 					style="resize: none;" disabled>매물 게시물에 대한 설명입니다.매물 게시물에 대한 설명입니다.매물 게시물에 대한 설명입니다.매물 게시물에 대한 설명입니다.매물 게시물에 대한 설명입니다.매물 게시물에 대한 설명입니다.매물 게시물에 대한 설명입니다.
