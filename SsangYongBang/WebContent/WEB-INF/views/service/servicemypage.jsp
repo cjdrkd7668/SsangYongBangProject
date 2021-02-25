@@ -93,7 +93,7 @@
    	<div class="upperBar">
    
 		<div class="row">
-		<h4> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 마이 서비스</h4>
+		<h4> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 마이 페이지</h4>
 		</div>
 
 	</div>

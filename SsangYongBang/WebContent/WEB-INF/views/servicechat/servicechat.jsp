@@ -61,11 +61,17 @@
    height: 400px;
    overflow: scroll;
    margin-bottom: 10px;
+   padding-top: 15px;
 }
 
 .servicestore {
    text-align: left;
-   margin-bottom: 5px;
+   margin-bottom: 10px;
+}
+
+.memberName {
+	text-align: right;
+	margin-bottom: 10px;
 }
 
 .msg {
@@ -74,6 +80,7 @@
    margin-bottom: 5px;
    padding: 5px;
    font-size: 1.2em;
+
 }
 
 .member {
@@ -95,14 +102,21 @@
 
 .serviceway {
 	text-align: left;
-	margin-bottom: 18px;
+	margin-bottom: 25px;
 	margin-left: 10px;
+	width: 600px;
+	margin-right: 80px;
+
+	
 }
 
 .memberway {
 	text-align: right;
-	margin-bottom: 18px;
+	margin-bottom: 25px;
 	margin-right: 10px;
+	width: 600px;
+	margin-left: 80px;
+	
 }
 
 .inputplace {
@@ -191,24 +205,31 @@ ul {
                   <div id="chatinglog">
                   
                   	 <c:forEach items="${chatLogList}" var="dto">
+                  	 
+                     <c:if test="${dto.whoFlag == '1' }"> <!-- whoflag가 1이면 업체 말임 -->
                      <div class="serviceway">
-                       <!--  <span class="servicestore">${dto.firmName}</span>  -->
+                       <div class="servicestore">${dto.firmName}</div>  
                         <span class="msg">
-                        	<c:if test="${dto.whoFlag == '1' }"> <!-- whoflag가 1이면 업체 말임 -->
+
                         	${dto.chatContent}
-                        	</c:if>
+                        	
                         </span>
                      </div>
                      <div style="clear: both"></div>
+                     </c:if>
                      
+                     <c:if test="${dto.whoFlag == '0' }"> <!-- whoFlag가 0이면 회원 말임 -->
                      <div class="memberway">
+                     	<div class="memberName">${dto.memberName} 님</div>  
                         <span class="member">
-                        	<c:if test="${dto.whoFlag == '0' }"> <!-- whoFlag가 0이면 회원 말임 -->
+                        	
                         	${dto.chatContent }
-                        	</c:if>
+                        	
                         </span>
                      </div>
                      <div style="clear: both"></div>
+                     </c:if>
+                     
                      </c:forEach>
                     
                      
