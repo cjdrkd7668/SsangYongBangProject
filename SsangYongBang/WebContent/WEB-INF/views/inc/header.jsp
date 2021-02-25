@@ -59,8 +59,9 @@
 				            <li><a href="/sybang/servicechat/servicechat.do">1:1 문의</a></li>
 				            <li><a href="/sybang/servicereview/servicereview.do">후기</a></li>
 				            <li class="divider"></li>
+				            <c:if test="${access == 2}"> <!-- 업체로 로그인 시 보이는 메뉴 -->
 				            <li><a href="/sybang/service/servicemypage.do">마이 서비스</a></li>
-				           	
+				           	</c:if>
 			         	</ul>
 			         	</c:if>
         			</li>
