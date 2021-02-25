@@ -78,4 +78,24 @@ public class FreeCommentDAO {
 		return 0;
 	}
 
+	//EditCommentOk 서블릿 -> 댓글 수정
+	public int edit(FreeCommentDTO dto) {
+		
+		try {
+			
+			String sql = "update tblFreeComment set detail = ? where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setString(1, dto.getDetail());
+			pstat.setString(2, dto.getSeq());
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return 0;
+	}
+
 }

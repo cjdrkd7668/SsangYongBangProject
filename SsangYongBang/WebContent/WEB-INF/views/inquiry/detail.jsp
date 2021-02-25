@@ -99,10 +99,10 @@
 
         <!-- commentTable 시작 -->
         <table class="commentTable table table-default">
-        	<c:forEach items="${clist }" var="cdto">
+        	<c:forEach items="${clist }" var="cdto" varStatus="status">
             <tr class="well well-sm">
             	<!-- 댓글 번호 -->
-				<input type="hidden" name="seq" value="${cdto.seq }">
+				<%-- <input type="hidden" name="seq" value="${cdto.seq }"> --%>
 				
                 <td class="col-md-3">${cdto.admname }</td>
                 
@@ -113,10 +113,10 @@
                 	</c:if>
                 </td>
                 
-                <td class="col-md-6 controlBtn">
+                <td class="col-md-6 controlBtn" data-index="${status.index}" data-seq="${cdto.seq }">
                 	<!-- 자기가 쓴 댓글이면 버튼이 보인다. -->
                 	<c:if test="${cdto.admseq == adminSeq}">	
-                    <div class="editBtn" onclick="location.href='/sybang/inquiry/editcommentok.do?seq=${cdto.seq}&detail=${cdto.detail }';">[&nbsp;<i class="fas fa-edit"></i>수정]</div>
+                    <div class="editBtn">[&nbsp;<i class="fas fa-edit"></i>수정]</div>
                     <div class="regBtn">[&nbsp;<i class="fas fa-check-circle"></i> 등록]</div>
                     <div class="delBtn" onclick="location.href='/sybang/inquiry/deletecommentok.do?seq=${cdto.seq}&iqrseq=${cdto.iqrseq }';">[&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;삭제]</div>
                     <div class="cancelBtn">[&nbsp;<i class="fas fa-ban"></i>&nbsp;취소]</div>
@@ -158,11 +158,12 @@
 
         // 댓글 수정 버튼 클릭 시
         $(".editBtn").click(function() {
-            index = $(".editBtn").index(this);
-            $(".editBtn").eq(index).toggleClass("hideBtn");
-            $(".delBtn").eq(index).toggleClass("hideBtn");
-            $(".regBtn").eq(index).removeClass("hideBtn");
-            $(".cancelBtn").eq(index).removeClass("hideBtn");
+            index = $(this).parent().data("index");
+            
+            $(this).toggleClass("hideBtn");
+            $(this).next().next().toggleClass("hideBtn");
+            $(this).next().removeClass("hideBtn");
+            $(this).next().next().next().removeClass("hideBtn");
             oldDetail = $(".commentDetail").eq(index).val();
             $(".commentDetail").eq(index).removeAttr("readonly");
             $(".commentDetail").eq(index).focus();
@@ -171,23 +172,42 @@
 
         // 댓글 수정 취소 버튼 클릭 시
         $(".cancelBtn").click(function() {
-            index = $(".cancelBtn").index(this);
-            $(".editBtn").eq(index).toggleClass("hideBtn");
-            $(".delBtn").eq(index).toggleClass("hideBtn");
-            $(".regBtn").eq(index).addClass("hideBtn");
-            $(".cancelBtn").eq(index).addClass("hideBtn");
+            index = $(this).parent().data("index");
+            $(this).prev().prev().prev().toggleClass("hideBtn");
+            $(this).prev().toggleClass("hideBtn");
+            $(this).prev().prev().addClass("hideBtn");
+            $(this).addClass("hideBtn");
             $(".commentDetail").eq(index).val(oldDetail);
             $(".commentDetail").eq(index).attr("readonly", true);
         });
 
         // 댓글 수정 등록 버튼 클릭 시
         $(".regBtn").click(function() {
-            $(".editBtn").eq(index).toggleClass("hideBtn");
-            $(".delBtn").eq(index).toggleClass("hideBtn");
-            $(".regBtn").eq(index).addClass("hideBtn");
-            $(".cancelBtn").eq(index).addClass("hideBtn");
-            $(".commentDetail").eq(index).val();
+        	index = $(this).parent().data("index");
+        	var seq = $(this).parent().data("seq");
+        	
+            $(this).prev().toggleClass("hideBtn");
+            $(this).next().toggleClass("hideBtn");
+            $(this).addClass("hideBtn");
+            $(this).next().next().addClass("hideBtn");
+            var detail = $(".commentDetail").eq(index).val();
+            
             $(".commentDetail").eq(index).attr("readonly", true);
+            
+            $.ajax({
+            	type: "GET",
+            	url: "/sybang/inquiry/editcommentok.do",
+            	data: "seq=" + seq + "&detail=" + detail,
+            	success: function(result) {
+            		/* if (result == 1) {
+            			alert("댓글이 수정되었습니다.");
+            		} */
+            	},
+            	error: function(a, b, c){
+            		console.log(a, b, c);
+            	}
+            })
+            
         });
 
     </script>
