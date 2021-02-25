@@ -190,53 +190,27 @@ ul {
                   <!-- 채팅말풍선이 보이는 사각형 -->
                   <div id="chatinglog">
                   
+                  	 <c:forEach items="${chatLogList}" var="dto">
                      <div class="serviceway">
-                        <span class="servicestore">업체명</span> <span class="msg">안녕하세요</span>
+                       <!--  <span class="servicestore">${dto.firmName}</span>  -->
+                        <span class="msg">
+                        	<c:if test="${dto.whoFlag == '1' }"> <!-- whoflag가 1이면 업체 말임 -->
+                        	${dto.chatContent}
+                        	</c:if>
+                        </span>
                      </div>
                      <div style="clear: both"></div>
                      
                      <div class="memberway">
-                        <span class="member">내용입니다.</span>
+                        <span class="member">
+                        	<c:if test="${dto.whoFlag == '0' }"> <!-- whoFlag가 0이면 회원 말임 -->
+                        	${dto.chatContent }
+                        	</c:if>
+                        </span>
                      </div>
                      <div style="clear: both"></div>
-                     
-                     <div class="serviceway">
-                        <span class="servicestore">업체명</span> <span class="msg">안녕하세요</span>
-                     </div>
-                     <div style="clear: both"></div>
-                     
-                     <div class="serviceway">
-                        <span class="servicestore">업체명</span> <span class="msg">안녕하세요</span>
-                     </div>
-                     <div style="clear: both"></div>
-                     
-                     <div class="memberway">
-                        <span class="member">내용입니다.</span>
-                     </div>
-                     <div style="clear: both"></div>
-                     
-                     <div class="serviceway">
-                        <span class="servicestore">업체명</span> <span class="msg">안녕하세요</span>
-                     </div>
-                     <div style="clear: both"></div>
-                     
-                     <div class="memberway">
-                        <span class="member">내용입니다.</span>
-                     </div>
-                     <div style="clear: both"></div>
-                     
-                     <div class="serviceway">
-                        <span class="servicestore">업체명</span> <span class="msg">안녕하세요</span>
-                     </div>
-                     <div style="clear: both"></div>
-                     <div class="serviceway">
-                        <span class="servicestore">업체명</span> <span class="msg">안녕하세요</span>
-                     </div>
-                     <div style="clear: both"></div>
-                      <div class="serviceway">
-                        <span class="servicestore">업체명</span> <span class="msg">안녕하세요</span>
-                     </div>
-                     <div style="clear: both"></div>
+                     </c:forEach>
+                    
                      
                   </div>
                   <!-- 채팅 말풍선 보이는 사각형 끝 -->

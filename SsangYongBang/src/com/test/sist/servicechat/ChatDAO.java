@@ -68,7 +68,55 @@ public class ChatDAO {
 		
 		return null;
 	}
+
 	
+	
+	//ServiceChat 서블릿의 호출 -> 업체승인번호&견적서번호를 매개변수로 하여 해당하는 채팅log목록을 불러오는 메서드를 호출
+	public ArrayList<ChatDTO> listChatLog(String estimate1thSeq, String approvalFSeq) {
+		
+		try {
+			
+			String sql = "select * from vwChatLog where approvalFSeq = ? and estimate1thSeq = ? order by timesent asc";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, approvalFSeq);
+			pstat.setString(2, estimate1thSeq);
+			
+			rs = pstat.executeQuery();
+			
+			ArrayList<ChatDTO> chatLogList = new ArrayList<ChatDTO>();
+			
+			while (rs.next()) {
+				
+				ChatDTO dto = new ChatDTO();
+				
+				dto.setSeq(rs.getString("seq"));
+				dto.setTimesent(rs.getString("timesent"));
+				dto.setEstimate1thSeq(rs.getString("estimate1thSeq"));
+				dto.setChatContent(rs.getString("chatContent"));
+				dto.setWhoFlag(rs.getString("whoFlag"));
+				dto.setMemberName(rs.getString("memberName"));
+				dto.setMemberSeq(rs.getString("memberSeq"));
+				dto.setFirmName(rs.getString("firmName"));
+				dto.setApprovalFSeq(rs.getString("approvalFSeq"));
+				
+				
+				chatLogList.add(dto);
+				
+			}
+			return chatLogList;
+			
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		
+		return null;
+	}
+	
+	
+	
+
 	
 	
 	

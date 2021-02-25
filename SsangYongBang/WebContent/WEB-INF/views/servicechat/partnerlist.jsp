@@ -219,7 +219,15 @@ ul {
 	<div class="leftchatlist">
 	<ul class="chatgroup">
 		<c:forEach items="${list}" var="dto">
-		<li class="servicelist"> ${dto.memberName}&nbsp;&nbsp;<span class="badge">2</span></li>
+
+
+		<li class="servicelist"> 
+					<!-- 업체승인번호는 세션 안에 담아두었으니 견적서번호만 가지고 가도 조회 가능 -->
+			<a href="/sybang/servicechat/servicechat.do?estimate1thSeq=${dto.estimate1thSeq}">
+			${dto.memberName}&nbsp;&nbsp;<span class="badge">2</span>
+			</a>
+		</li>
+		
 		</c:forEach>
 		<!-- 여기에 추가로 링크 걸어야 함 -->
 	</ul>
