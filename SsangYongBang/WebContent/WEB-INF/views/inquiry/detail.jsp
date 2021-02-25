@@ -116,7 +116,7 @@
                 <td class="col-md-6 controlBtn">
                 	<!-- 자기가 쓴 댓글이면 버튼이 보인다. -->
                 	<c:if test="${cdto.admseq == adminSeq}">	
-                    <div class="editBtn" onclick="location.href='/sybang/list/editok.do?seq=${cdto.seq}&detail=${cdto.detail }';">[&nbsp;<i class="fas fa-edit"></i>수정]</div>
+                    <div class="editBtn" onclick="location.href='/sybang/inquiry/editcommentok.do?seq=${cdto.seq}&detail=${cdto.detail }';">[&nbsp;<i class="fas fa-edit"></i>수정]</div>
                     <div class="regBtn">[&nbsp;<i class="fas fa-check-circle"></i> 등록]</div>
                     <div class="delBtn" onclick="location.href='/sybang/inquiry/deletecommentok.do?seq=${cdto.seq}&iqrseq=${cdto.iqrseq }';">[&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;삭제]</div>
                     <div class="cancelBtn">[&nbsp;<i class="fas fa-ban"></i>&nbsp;취소]</div>
