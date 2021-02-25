@@ -1,8 +1,9 @@
-package com.test.sist.board;
+package com.test.sist.free;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,22 +11,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.test.sist.free.dao.FreeDAO;
+import com.test.sist.free.dto.FreeDTO;
+
 /**
  * 
  * @author 이찬미
  *
  */
-@WebServlet("/board/freeeditok.do")
-public class FreeEditOk extends HttpServlet {
+@WebServlet("/free/editok.do")
+public class EditOk extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
 		HttpSession session = req.getSession();
 		
 		req.setCharacterEncoding("UTF-8");
 		
-		String seq = req.getParameter("seq"); //글 번호
+		//수정할 글 번호
+		String seq = req.getParameter("seq");
 		String subject = req.getParameter("subject");
 		String detail = req.getParameter("detail");
 		
@@ -41,8 +45,8 @@ public class FreeEditOk extends HttpServlet {
 		
 		if (result == 1) {
 			
-			//글 수정 성공 시 해당 글로
-			resp.sendRedirect("/sybang/board/freedetail.do?seq=" + seq);
+			//수정 성공 시
+			resp.sendRedirect("/sybang/free/detail.do?seq=" + seq);
 		
 		} else {
 			

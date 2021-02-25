@@ -1,9 +1,8 @@
-package com.test.sist.board;
+package com.test.sist.free;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,8 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/board/freepostok.do")
-public class FreePostOk extends HttpServlet {
+import com.test.sist.free.dao.FreeDAO;
+import com.test.sist.free.dto.FreeDTO;
+
+/**
+ * 
+ * @author 이찬미
+ *
+ */
+@WebServlet("/free/postok.do")
+public class PostOk extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -21,13 +28,25 @@ public class FreePostOk extends HttpServlet {
 		
 		req.setCharacterEncoding("UTF-8");
 		
+		//데이터 가져오기
 		String subject = req.getParameter("subject");
 		String detail = req.getParameter("detail");
-
+		
 		FreeDAO dao = new FreeDAO();
 		FreeDTO dto = new FreeDTO();
+
+		//중개사일 경우
+		if ((String)session.getAttribute("seq") == null) {
+			dto.setAuthorseq((String)session.getAttribute("approBrokerSeq"));
+			dto.setZerobonem("0");
+			
+		} else {
+			//회원일 경우
+			dto.setAuthorseq((String)session.getAttribute("seq"));
+			dto.setZerobonem("1");
+		}
 		
-		dto.setAuthorseq((String)session.getAttribute("seq")); //로그인 한 회원 번호
+		
 		dto.setSubject(subject);
 		dto.setDetail(detail);
 		
@@ -36,12 +55,11 @@ public class FreePostOk extends HttpServlet {
 		
 		if (result == 1) {
 			
-			//글쓰기 성공 시
-			resp.sendRedirect("/sybang/board/freelist.do");
-			
+			//성공 시
+			resp.sendRedirect("/sybang/free/list.do");
 		} else {
-			
-			//글쓰기 실패 시
+		
+			//실패 시
 			PrintWriter writer = resp.getWriter();
 			
 			writer.print("<html><body>");
@@ -53,5 +71,6 @@ public class FreePostOk extends HttpServlet {
 			
 			writer.close();
 		}
+		
 	}
 }

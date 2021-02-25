@@ -42,7 +42,7 @@
                 </th>
                 <th class="col-md-6">
                 	<!-- 검색 form 태그 시작 -->
-                	<form method="GET" action="/sybang/board/freelist.do" id="searchForm">
+                	<form method="GET" action="/sybang/free/list.do" id="searchForm">
 	                    <input type="text" name="search" id="search" class="input-group-lg form-control" value="${search }" placeholder="검색어를 입력하세요">
 	                    <button type="button" class="input-group-lg form-control submitBtn" onclick="$('#searchForm').submit();">
 							<i class="fas fa-search"></i>
@@ -76,7 +76,7 @@
             <tr>
                 <td class="col-md-1">${dto.seq }</td>
                 <td class="col-md-6" style="text-align:left;">
-                	<a href="/sybang/board/freedetail.do?seq=${dto.seq}&search=${search}&page=${nowPage}">
+                	<a href="/sybang/free/detail.do?seq=${dto.seq}&search=${search}&page=${nowPage}">
 					${dto.subject }&nbsp;
 					<!-- 댓글 수 시작 -->
 					<c:if test="${dto.ccount > 0 }">
@@ -107,8 +107,8 @@
 		</nav>
 		<!-- page-bar 끝 -->
 		
-		<c:if test="${not empty email }">
-			<button type="button" class="col-md-4 btn btn-default writeBtn" onclick="location.href='/sybang/board/freepost.do'">
+		<c:if test="${not empty email && access == 0 || access == 1 }">
+			<button type="button" class="col-md-4 btn btn-default writeBtn" onclick="location.href='/sybang/free/post.do'">
 				<i class="fas fa-pencil-alt"></i> 글쓰기
 			</button>
 		</c:if>
@@ -117,6 +117,9 @@
 		
     </div>
     <!-- listContainer 끝 -->
+    
+    <!-- footer 가져오기######## -->
+	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 
     <script>
 
@@ -126,7 +129,6 @@
     </script>
 	
 
-	<!-- footer 가져오기######## -->
-	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
+	
 </body>
 </html>

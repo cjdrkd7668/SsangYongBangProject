@@ -1,4 +1,4 @@
-package com.test.sist.board;
+package com.test.sist.free;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,43 +11,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.test.sist.free.dao.FreeDAO;
+import com.test.sist.free.dto.FreeDTO;
+
 /**
  * 
  * @author 이찬미
  *
  */
-@WebServlet("/board/freeedit.do")
-public class FreeEdit extends HttpServlet {
+@WebServlet("/free/edit.do")
+public class Edit extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		
+		//글 번호
 		String seq = req.getParameter("seq");
-
+		
 		FreeDAO dao = new FreeDAO();
 		FreeDTO dto = dao.detail(seq);
-
-		HttpSession session = req.getSession();
-		
-		// 작성자가 아닐 경우
-		if (!dto.getAuthorseq().equals((String) session.getAttribute("seq"))) {
-
-			PrintWriter writer = resp.getWriter();
-
-			writer.print("<html><body>");
-			writer.print("<script>");
-			writer.print("alert('failed');");
-			writer.print("history.back();");
-			writer.print("</script>");
-			writer.print("</body></html>");
-
-			writer.close();
-			return; // ***
-		}
 		
 		req.setAttribute("dto", dto);
-
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/freeedit.jsp");
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/free/edit.jsp");
 		dispatcher.forward(req, resp);
 	}
 }

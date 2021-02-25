@@ -29,7 +29,7 @@
 		</div>
 
 		<!-- form 태그 시작 -->
-		<form method="POST" action="/sybang/board/freepostok.do">
+		<form method="POST" action="/sybang/free/postok.do">
 			<table class="table table-default">
 				<tr>
 					<td><input type="text" name="subject" id="subject"
@@ -49,7 +49,7 @@
 					<span class="glyphicon glyphicon-ok"></span> 등록하기
 				</button>
 				<button type="button" class="btn btn-default"
-					onclick="location.href='/sybang/board/freelist.do'">
+					onclick="location.href='/sybang/free/list.do'">
 					<span class="glyphicon glyphicon-remove"></span> 취소하기
 				</button>
 			</div>
