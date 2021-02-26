@@ -1,6 +1,7 @@
 package com.test.sist.house;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,10 +26,12 @@ public class View extends HttpServlet {
 		//특정 글 정보 가져오기
 		RoomDAO dao = new RoomDAO();
 		RoomDTO rdto = dao.getRoom(seq);
+		ArrayList<String> iList= dao.getImg(seq);
 		
 		//글 정보 전달
 		request.setAttribute("rdto", rdto);
 		request.setAttribute("nowPage", nowPage);
+		request.setAttribute("iList", iList);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/house/view.jsp");
 		dispatcher.forward(request, response);
