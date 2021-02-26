@@ -22,6 +22,19 @@ public class ChatList extends HttpServlet {
 	
 		ArrayList<ChatDTO> list = dao.list();
 		
+		for (ChatDTO dto : list) {
+			
+			//날짜에서 시간 잘라내기
+			dto.setRegDate(dto.getRegDate().substring(0, 10));
+			
+			//제목이 너무 길면 자르기
+			if (dto.getSubject().length() > 34) {
+				dto.setSubject(dto.getSubject().substring(0, 34) + "..");
+			}
+		}
+		
+		
+		
 //		//페이지 바
 //		totalCount = dao.getTotalCount(); //총 게시물 수
 //		
