@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,48 +45,15 @@
 				</tr>
 			</thead>
 			<tbody>
+				<c:forEach items="${list}" var="dto">
 				<tr>
-					<td>1</td>
-					<td class="title"><a href="/sybang/broker/chat/view.do	">보증금 올리고 월세 낮출 수 있나요??</a></td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
+					<td>${dto.seq}</td>
+					<td class="title"><a href="/sybang/broker/chat/view.do">${dto.subject}</a></td>
+					<td>${dto.mname}</td>
+					<td>${dto.regDate}</td>
 				</tr>
-				<tr>
-					<td>1</td>
-					<td class="title">보증금 올리고 월세 낮출 수 있나요??</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td class="title">방 올립니다.</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-				</tr>
-				<tr>
-					<td>1</td>
-			 		<td class="title">방 올립니다.</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td class="title">방 올립니다.</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td class="title">방 올립니다.</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td class="title">방 올립니다.</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-				</tr>
+				</c:forEach>
+				
 			</tbody>
 		</table>
 		<!-- pagination -->
@@ -103,7 +71,6 @@
 				</a></li>
 			</ul>
 		</nav>
-
 
 	</div>
 
