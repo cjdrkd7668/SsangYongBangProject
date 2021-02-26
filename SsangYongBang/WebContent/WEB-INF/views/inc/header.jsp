@@ -56,7 +56,16 @@
 				            <li><a href="/sybang/service/ServicestoreList.do">전문업체 찾기</a></li>
 				            <li><a href="/sybang/request/requestlist.do">고객요청서</a></li>
 				            <li class="divider"></li>
-				            <li><a href="/sybang/servicechat/servicechat.do">1:1 문의</a></li>
+					        
+					        <!-- 업체 로그인시 업체쪽에서 보일 채팅창리스트-->
+					        <c:if test="${access == '2' }">
+					        <li><a href="/sybang/servicechat/partnerlist.do">1:1 문의</a></li>
+					        </c:if>
+					        <!-- 회원 로그인시 회원 쪽에서 보일 채팅창리스트-->
+					        <c:if test="${access == '1' }"> 
+					        <li><a href="/sybang/servicechat/memberspartnerlist.do">1:1 문의</a></li>
+					        </c:if>
+					        
 				            <li><a href="/sybang/servicereview/servicereview.do">후기</a></li>
 				            <li class="divider"></li>
 				            <c:if test="${access == 2}"> <!-- 업체로 로그인 시 보이는 메뉴 -->

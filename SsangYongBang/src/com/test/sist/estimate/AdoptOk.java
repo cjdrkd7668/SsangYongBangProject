@@ -52,8 +52,8 @@ public class AdoptOk extends HttpServlet {
 		
 		if (result == 1) {
 			
-			resp.sendRedirect("/sybang/servicechat/partnerlist.do");
-			//1:1 온라인문의로 보내보기
+			resp.sendRedirect("/sybang/servicechat/memberspartnerlist.do");
+			//1:1 온라인문의로 보내보기(회원 기준에서 보일 페이지: 업체목록 출력)
 		} else {
 			
 			//채택 실패 -> 경고 + 뒤로 가기
