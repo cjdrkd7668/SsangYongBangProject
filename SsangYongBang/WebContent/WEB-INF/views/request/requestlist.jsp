@@ -85,10 +85,10 @@
 					<div>
 																<!-- Button trigger modal -->
 							<button type="button" class="btn btn-primary btn-lg"
-								data-toggle="modal" data-target="#myModa${status.index}">견적서 보내기</button>
+								data-toggle="modal" data-target="#myModal${status.index}">견적서 보내기</button>
 				
 							<!-- Modal -->
-							<div class="modal fade" id="myModa${status.index}" tabindex="-1" role="dialog"
+							<div class="modal fade" id="myModal${status.index}" tabindex="-1" role="dialog"
 								aria-labelledby="myModalLabel" aria-hidden="true">
 								<div class="modal-dialog">
 									<div class="modal-content">
