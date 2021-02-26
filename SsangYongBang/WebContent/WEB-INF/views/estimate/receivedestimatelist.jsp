@@ -65,7 +65,9 @@
 
 	
 	<!-- 본문 중간 -->
-	<c:forEach items="${list}" var="dto">
+	
+	<!-- 모달 또한 forEach로 반복출력되기 때문에 모달을 한 번 돌때마다 다른 수로 구분지어야 함. status 인덱스를 사용해 구분지었음-->
+	<c:forEach items="${list}" var="dto" varStatus="status">
 	<hr></hr>
 	
 	<div class="row">
@@ -79,7 +81,7 @@
 				</div>
 
 				<div>
-					<h3>${dto.firmName} 견적서번호: ${dto.seq}</h3> <!-- 이곳에서는 견적서 번호 제대로 뜬다 -->
+					<h3>${dto.firmName}</h3> <!-- 이곳에서는 견적서 번호 제대로 뜬다 -->
 					<p>${dto.estimatedCost}</p>
 					<p>${dto.eContent }</p>
 				</div>
@@ -87,11 +89,12 @@
 
 			<div>
 							<!-- Button trigger modal -->
+							<!-- 모달 또한 forEach로 반복출력되기 때문에 모달을 한 번 돌때마다 다른 수로 구분지어야 함 -->
 			<button type="button" class="btn btn-primary btn-lg"
-				data-toggle="modal" data-target="#myModal">채택 & 1:1 상담</button>
+				data-toggle="modal" data-target="#myModal${status.index}">채택 & 1:1 상담</button>
 
 			<!-- Modal -->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+			<div class="modal fade" id="myModal${status.index}" tabindex="-1" role="dialog"
 				aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -107,7 +110,7 @@
 							<!-- 모달창 상태에서 별도의 쓰기화면 이동없이 바로 정보가 전송된다. 채택ok로 이동시키기 -->
 							<form action="/sybang/estimate/adoptok.do" method="POST">
 								<div class="form-row">
-									<p>정말 채택하시겠습니까?</p>
+									<p>정말 채택하시겠습니까? </p>
 								</div>
 
 								<div class="modal-footer">

@@ -15,17 +15,7 @@
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
 <link href='/sybang/fullcalendar/main.css' rel='stylesheet' />
 <script src='/sybang/fullcalendar/main.js'></script>
-<script>
 
-  document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: 'dayGridMonth'
-    });
-    calendar.render();
-  });
-
-</script>
 
 <style>
 
@@ -144,13 +134,69 @@ td{
       <%@include file="/WEB-INF/views/inc/footer.jsp"%>   
    
 
-   
-
-   <script>
-
-  
-
-    </script>
+	<!-- 풀캘린더 관련 자바스크립트 -->   
+	<script>
+	
+	  document.addEventListener('DOMContentLoaded', function() {
+		  
+	    var calendarEl = document.getElementById('calendar');
+	    
+	    var calendar = new FullCalendar.Calendar(calendarEl, {
+	      
+	    	//event 소스-> 풀캘린더의 옵션 활용에 대한 내용인 것 같음
+	    	initialView: 'dayGridMonth'
+	    	
+	    	
+	    	<!-- 여기서부터 Ajax로 풀캘린더에 같이 합칠 정보를(이벤트데이터) 가져와야 한다.  -->
+	    	
+	    	events:function(fetchInfo, successCallback, failureCallback) {
+	    		alert();
+	    		<!--  이 이벤트는 달력의 이전 달 혹은 다음달 버튼을 누를 때마다 ajax로 받아오는 것임. -->
+	    		$.ajax({
+	    			type: 'POST',
+	    			url: '/sybang/servicescheduler/schedulejsondata.do',
+	    			dataType: 'json',
+	    			success:
+	    				function(result) {
+	    				
+	    				var events = []; <!-- events라는 풀캘린더에서 쓰이는 객체를 만든다. -->
+	    				
+	    				if (result != null) {
+	    					
+	    					<!-- 이 부분에서 each로 돌며 정보를 push한다. -->
+	    					$.each(result, function(index, element) {
+	    						
+	    						
+	    						
+	    					}); <!-- each 끝-->
+	    					
+	    					console.log(events); <!-- each로 돌려서 나오는 값을 콘솔에 찍어보기 -->
+	    					
+	    				} //if문 끝 
+	    				successCallback(events);
+	    				//풀캘린더 DOC 설명
+	    				//The successCallback function must be called when the custom event function has generated its events. 
+	    				//It is the event function’s responsibility 
+	    				//to make sure successCallback is being called with an array of parsable Event Objects.
+	    				
+	    				//calendar.render();
+	    				
+	    			}//success: function 끝
+	    			
+	    		}); //ajax 끝
+	    			    		
+	    	}, //events:function 끝
+	    
+	    	
+	    	
+	    }); //new 풀캘린더 끝
+	    
+	    calendar.render(); //캘린더를 만든다.
+	  
+	  });
+	
+	</script>
+ 
 </body>
 
 </html>
