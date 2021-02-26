@@ -43,8 +43,8 @@
         </div>
 
         <ul class="nav nav-tabs" style="clear: both;">
-            <li class="active"><a data-toggle="tab" href="#writepost">내가 쓴 글</a></li>
-            <li><a data-toggle="tab" href="#writecomment">내가 쓴 댓글</a></li>
+            <li class="active"><a data-toggle="tab" id="myPost" href="#writepost">내가 쓴 글</a></li>
+            <li><a data-toggle="tab" id="myComment" href="#writecomment">내가 쓴 댓글</a></li>
             <li><a data-toggle="tab" href="#writereview">찜 목록</a></li>
         </ul>
 
@@ -368,5 +368,33 @@
 
 	<!-- footer 가져오기######## -->
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
+	
+	<script>
+	
+		//내가 쓴 글 버튼 클릭 시
+		$("#myPost").click(function() {
+			
+			$.ajax({
+				type: "GET",
+				url: "/sybang/member/mypostok.do",
+				data: "authorseq=" + ${seq},
+				success: function(result) {
+					
+				},
+				error: function(a, b, c) {
+					console.log(a, b, c);
+				}
+			})
+		});
+	
+	
+	</script>
+	
+	
+	
+	
+	
+	
+	
 </body>
 </html>
