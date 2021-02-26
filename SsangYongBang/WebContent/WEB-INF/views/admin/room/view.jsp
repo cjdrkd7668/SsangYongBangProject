@@ -11,6 +11,26 @@
 <link rel="stylesheet" href="/sybang/css/board.css">
 <title>Insert title here</title>
 <style type="text/css">
+.carousel-inner > .item > img, 
+.carousel-inner > .item > a > img {
+	max-width: 50%;
+}
+.carousel-inner {
+	margin-top: 20px;
+	border-top: 3px solid #486BB8;
+	border-bottom: 3px solid #486BB8;
+}
+.table-type-view-detail {
+	border-bottom: 1px solid #CCC
+}
+
+.carousel-control.right{
+    background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .25) 100%);
+}
+
+.carousel-control.left {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .25) 100%);
+}
 </style>
 </head>
 <body>
@@ -96,7 +116,46 @@
 					</tr>
 				</tbody>
 			</table>
-			
+
+	
+			<!-- 부트스트랩 캐러셀 시작-->
+			<div id="carousel-room" class="carousel slide"
+				data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#carousel-room" data-slide-to="0"
+						class="active"></li>
+					<li data-target="#carousel-room" data-slide-to="1"></li>
+				</ol>
+
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+						<img src="/sybang/images/${iList[0]}" alt="${iList[0]}"
+							class="img-responsive center-block">
+						<div class="carousel-caption"></div>
+					</div>
+					<div class="item">
+						<img src="/sybang/images/${iList[1]}" alt="${iList[1]}"
+							class="img-responsive center-block">
+						<div class="carousel-caption"></div>
+					</div>
+				</div>
+
+				<!-- Controls -->
+				<a class="left carousel-control" href="#carousel-room"
+					role="button" data-slide="prev"> <span
+					class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a> <a class="right carousel-control" href="#carousel-room"
+					role="button" data-slide="next"> <span
+					class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+			<!-- 부트스트랩 캐러셀 끝-->
+
+
 			<div class="buttons">
 				<a class="btn btn-default" href="/sybang/admin/room/boardlist.do" role="button">목록</a>
 				<a class="btn btn-danger" data-toggle="modal" data-target="#delete-room" role="button">삭제</a>
@@ -119,7 +178,6 @@
 			    </div><!-- /.modal-content -->
 			  </div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
-			
 			
 		</div>
 		

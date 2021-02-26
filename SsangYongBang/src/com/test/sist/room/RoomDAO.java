@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.test.sist.DBUtil;
+import com.test.sist.house.RoomImgDTO;
 
 public class RoomDAO {
 	
@@ -283,6 +284,31 @@ public class RoomDAO {
 		}
 		
 		return 0;
+	}
+
+	public ArrayList<String> getImg(String seq) {
+		
+		try {
+			
+			String sql = "select url from tblRoomImg where roompostseq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+			rs = pstat.executeQuery();
+			
+			ArrayList<String> list = new ArrayList<String>();
+			
+			while (rs.next()) {
+				list.add(rs.getString("url"));
+			}
+			
+			return list;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return null;
 	}
 
 }
