@@ -19,6 +19,8 @@ public class MyInfo extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/member/myinfo.jsp");
 		dispatcher.forward(req, resp);
 	}
