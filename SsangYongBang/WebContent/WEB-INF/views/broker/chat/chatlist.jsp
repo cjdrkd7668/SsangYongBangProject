@@ -48,7 +48,7 @@
 				<c:forEach items="${list}" var="dto">
 				<tr>
 					<td>${dto.seq}</td>
-					<td class="title"><a href="/sybang/broker/chat/view.do">${dto.subject}</a></td>
+					<td class="title"><a href="/sybang/broker/chat/view.do?seq=${dto.seq}">${dto.subject}</a></td>
 					<td>${dto.mname}</td>
 					<td>${dto.regDate}</td>
 				</tr>

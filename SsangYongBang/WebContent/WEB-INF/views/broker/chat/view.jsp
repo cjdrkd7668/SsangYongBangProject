@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,17 +30,16 @@
         <table class="table table-bordered tbl-content">
             
             <tr>
-                <td colspan="3" id="content-title" style="height: 40px; font-weight: bold; font-size: 1.1em;">자유게시판 글 제목입니다.</td>
+                <td colspan="3" id="content-title" style="height: 40px; font-weight: bold; font-size: 1.1em;">${dto.subject}</td>
             </tr>
             <tr>
-                <td id="content-name">작성자&nbsp;:&nbsp;홍길동
-                <td id="content-date">날짜&nbsp;:&nbsp;21.02.20 15:50</td>
+                <td id="content-name">작성자&nbsp;:&nbsp;${dto.mname}
+                <td id="content-date">날짜&nbsp;:&nbsp;${dto.regDate}</td>
             </tr>
             
             <tr>
                 <td colspan="3" id="content-content">
-                	자유게시판 글 내용입니다.자유게시판 글 내용입니다.자유게시판 글 내용입니다.자유게시판 글 내용입니다.자유게시판 글
-                    내용입니다.자유게시판 글 내용입니다.자유게시판 글 내용입니다.자유게시판 글 내용입니다.자유게시판 글 내용입니다.자유게시판 글 내용입니다.자유게시판 글 내용입니다.
+                	${dto.content}
                </td>
             </tr>
         </table>
