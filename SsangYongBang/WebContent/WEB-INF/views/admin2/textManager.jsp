@@ -1,6 +1,8 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +15,7 @@
 </head>
 <body>
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
-	<div class="wrap">	
+	<div class="wrap">
 		<%@include file="/WEB-INF/views/inc/admin_left.jsp"%>
 		<div class="conWrap">
 			<h1 class="page_title">회사 운영정책</h1>
@@ -28,18 +30,20 @@
 			</tr>
 
 <%
-			int i = 0;
+			ArrayList list = (ArrayList)request.getAttribute("list");
+
+			int i = list.size();
 %>
 			<c:forEach items="${list}" var="dto">
-<%
-			i++;
-%>
 			<tr>
 				<td><%=i%></td>
 				<td>${dto.subject}</td>
 				<td>${dto.content}</td>
 				<td align="center"><span class="btn btn-default btn-xs" onclick="edit(${dto.seq})">수정</span></td>
 			</tr>
+<%
+			i--;
+%>
 			</c:forEach>
 
 	
@@ -58,11 +62,11 @@
 	
 	<script type="text/javascript">
 		function edit(uid){
-			location.href="/sybang/admin2/textManager_reg.do?seq=" + uid;
+			location.href="/sybang/admin2/textManager_reg.do?type=edit&seq=" + uid;
 		}
 		
 		function add(){
-			location.href="/sybang/admin2/textManager_reg.do";
+			location.href="/sybang/admin2/textManager_reg.do?type=add";
 		}
 		
 		

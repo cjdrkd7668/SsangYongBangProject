@@ -4,6 +4,7 @@ public class TextManagerDTO {
 	private String seq;
 	private String subject;
 	private String content;
+	private String imgURL;
 	
 	public String getSeq() {
 		return seq;
@@ -22,6 +23,12 @@ public class TextManagerDTO {
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public String getImgURL() {
+		return imgURL;
+	}
+	public void setImgURL(String imgURL) {
+		this.imgURL = imgURL;
 	}
 	
 	

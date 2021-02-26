@@ -23,14 +23,15 @@ public class TextManager_reg extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		String type = req.getParameter("type");
 		String seq = req.getParameter("seq");
 		
 		TextManagerDAO dao = new TextManagerDAO();
 		TextManagerDTO dto = dao.get(seq);
 		
 		req.setAttribute("dto",dto);
+		req.setAttribute("type",type);
 		req.setAttribute("seq",seq);
-		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin2/textManager_reg.jsp");
 		dispatcher.forward(req, resp);
