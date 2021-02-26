@@ -52,11 +52,17 @@ public class SendOk extends HttpServlet {
 		
 		//3.
 		
-		if (result == 1) {
-			//주소 보낼 때 이 사람이 대화하던 상대와의 대화방으로 가야한다. 
+		if (result == 1 && whoFlag.equals("1")) {
+			//주소 보낼 때 이 사람이 대화하던 상대와의 대화방으로 가야한다. whoFlag가 1이라면 업체 
 			resp.sendRedirect("/sybang/servicechat/servicechat.do?estimate1thSeq=" + estimate1thSeq);
 			
-		} else {
+		} else if (result == 1 && whoFlag.equals("0")) {
+			//주소 보낼 때 이 사람이 대화하던 상대와의 대화방으로 가야한다. whoFlag가 0이라면 회원 
+			resp.sendRedirect("/sybang/servicechat/memberchat.do?estimate1thSeq=" + estimate1thSeq);
+			
+		} 
+		else {
+		
 			PrintWriter writer = resp.getWriter();
 			
 			writer.print("<html><body>");
