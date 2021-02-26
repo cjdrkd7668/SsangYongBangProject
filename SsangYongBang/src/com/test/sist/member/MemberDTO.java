@@ -1,5 +1,10 @@
 package com.test.sist.member;
 
+/**
+ * 
+ * @author 이찬미
+ *
+ */
 public class MemberDTO {
 
 	private String seq;

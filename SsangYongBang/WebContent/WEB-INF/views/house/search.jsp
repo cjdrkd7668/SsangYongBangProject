@@ -34,7 +34,7 @@
         <div class="search-box">
 
 			<!-- form 태그 시작 -->
-            <form method="POST" action="/project/search/search.do">
+            <form method="POST" action="/sybang/house/searchok.do">
             <div class="row">
                 <!-- dealtype 시작 -->
                 <div class="col-md-6 dealtype">

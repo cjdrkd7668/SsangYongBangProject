@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 
+ * @author 이찬미
+ *
+ */
 @WebServlet("/member/myinfo.do")
 public class MyInfo extends HttpServlet {
 
