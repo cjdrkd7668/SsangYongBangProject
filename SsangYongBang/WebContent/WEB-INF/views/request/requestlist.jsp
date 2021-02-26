@@ -65,7 +65,8 @@
 
 	
 	<!-- 본문 중간 -->
-	<c:forEach items="${list}" var="dto">
+	<!-- 모달 또한 forEach로 반복출력되기 때문에 모달을 한 번 돌때마다 다른 수로 구분지어야 함. status 인덱스를 사용해 구분지었음-->
+	<c:forEach items="${list}" var="dto" varStatus="status">
 	<hr></hr>
 	
 	<div class="row">
@@ -84,10 +85,10 @@
 					<div>
 																<!-- Button trigger modal -->
 							<button type="button" class="btn btn-primary btn-lg"
-								data-toggle="modal" data-target="#myModal">견적서 보내기</button>
+								data-toggle="modal" data-target="#myModa${status.index}">견적서 보내기</button>
 				
 							<!-- Modal -->
-							<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+							<div class="modal fade" id="myModa${status.index}" tabindex="-1" role="dialog"
 								aria-labelledby="myModalLabel" aria-hidden="true">
 								<div class="modal-dialog">
 									<div class="modal-content">
