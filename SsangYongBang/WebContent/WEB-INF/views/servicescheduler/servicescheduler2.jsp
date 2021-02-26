@@ -149,7 +149,7 @@ td{
 	    	
 	    	<!-- 여기서부터 Ajax로 풀캘린더에 같이 합칠 정보를(이벤트데이터) 가져와야 한다.  -->
 	    	
-	    	events:function(fetchInfo, successCallback, failureCallback) {
+	    	events:function(info, successCallback, failureCallback) {
 	    		alert();
 	    		<!--  이 이벤트는 달력의 이전 달 혹은 다음달 버튼을 누를 때마다 ajax로 받아오는 것임. -->
 	    		$.ajax({
