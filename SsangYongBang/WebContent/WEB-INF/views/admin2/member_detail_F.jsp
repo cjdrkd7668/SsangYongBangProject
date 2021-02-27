@@ -19,7 +19,11 @@
 			
 			<div class="sub_title">업체 정보</div>
 			
-			<form method="post" name="Frm">
+			<form method="post" name="Frm" enctype="multipart/form-data">
+			
+			<input type="hidden" name="mode">
+			<input type="hidden" name="type" value="F">
+			<input type="hidden" name="seq" value="${dto.seq}">
 			
 			<table class="admin_style_01">
 				<tr>
@@ -29,8 +33,8 @@
 					</td>
 					<th width="20%" align="center">비밀번호</th>
 					<td width="30%">
-						<input type="text" name="npw" class="box" style="width:80px;" maxlength="12">
-						<input type="hidden" name="pw" value="${dto.pw}">
+						<input type="password" name="pw" class="box" value="" style="width:80px;" maxlength="12">
+						<input type="hidden" name="pwd" value="${dto.pw}">
 					</td>
 				</tr>
 				<tr>
@@ -65,7 +69,8 @@
 					<th align="center">업체 포트폴리오</th>
 					<td colspan="3">
 						${dto.portfolio}
-						<input type="file" name="portfolio" class="box" size="50" value="" maxlength="100" readonly>
+						<input type="file" name="portfolio" class="box" size="50" value="${dto.portfolio}" maxlength="100" readonly>
+						<input type="hidden" name="portfolioOri" value="${dto.portfolio}">
 					</td>
 				</tr>
 				<tr>
@@ -91,7 +96,7 @@
 			<div class="btnWrap">
 				<span class="btn btn-default" onclick="list()">목록으로</span>
 				<span class="btn btn-primary" onclick="submitChk()">수정</span>
-				<span class="btn btn-primary" onclick="del()">삭제</span>
+				<!-- <span class="btn btn-primary" onclick="del()">삭제</span> -->
 			</div>
 			
 			<div class="sub_title">매출 통계</div>
@@ -106,20 +111,172 @@
 
 	<script type="text/javascript">
 	
-		function userInfo(uid){
-			location.href="/sybang/admin2/member_detail.do?seq=" + uid;
+	function checkNum(value, isDec) {
+		var RegExp;
+
+		if (!isDec) isDec = false;
+		RegExp = (isDec) ? /^-?[\d\.]*$/ : /^-?[\d]*$/;
+
+		return RegExp.test(value)? true : false;
+	}
+	
+	function stripCharFromNum(value, isDec) {
+		var i;
+		var minus = "-";
+		var nums = "1234567890"+((isDec) ? "." : "");
+		var result = "";
+
+		for(i=0; i<value.length; i++) {
+			numChk = value.charAt(i);
+			if (i == 0 && numChk == minus) {
+				result += minus;
+			}
+			else {
+				for(j=0; j<nums.length; j++) {
+					if(numChk == nums.charAt(j)) {
+						result += nums.charAt(j);
+						break;
+					}
+				}
+			}
+		}
+		return result;
+	}
+	
+	function blockNotNumber(e) {
+		var e = window.event || e;
+		if (window.event) {
+			if (e.keyCode < 48 || e.keyCode > 57) e.returnValue = false;
+		}
+		else {
+			if (e.which != 8 && (e.which < 48 || e.which > 57)) e.preventDefault(); // 8 : Back Space
+		}
+	}
+	
+	function stripComma(str) {
+	    var re = /,/g;
+	    return str.replace(re, "");
+	}
+
+	function numberOnly(obj, isDec) {
+		if (!isDec) isDec = false;
+		if (obj.disabled) return false;
+
+		var num = obj.value.stripspace();
+		if (num == "") return false;
+
+		if (!checkNum(num, isDec)) {
+			num = stripCharFromNum(num, isDec);
+			obj.blur(); obj.focus();
+		}
+		num = stripCharFromNum(stripComma(num), isDec);
+
+		var arrNum = num.split(".");
+		if (arrNum.length > 1) {
+			obj.value = arrNum[0]+"."+arrNum[1];
+		}
+		else {
+			obj.value = arrNum[0];
+		}
+	}
+	
+	String.prototype.stripspace = function() {
+		return this.replace(/ /g, '');
+	}
+
+	function checkEmpty(obj) {
+		if (obj == "" || typeof(obj) == "undefined") {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	function checkSsn(ssn1,ssn2) {
+		if (ssn1.length == 6 && ssn2.length == 7) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	function del() {
+
+		var f = document.Frm;
+
+		if (confirm("선택하신 회원을 삭제하시겠습니까?")) {
+			f.mode.value = "DEL";
+			f.action = "/sybang/admin2/member_reg_ok.do";
+			f.submit();
+		}
+
+	}
+	
+	function submitChk() {
+		var f = document.Frm;
+		var i;
+		var objItem;
+
+		if (checkEmpty(f.email)) {
+			alert("E-mail을 입력해 주세요.");
+			f.email.focus();
+			return false;
+		}
+
+		for (i=1; i<=3; i++) {
+			objItem = eval("f.tel"+i);
+			if (checkEmpty(objItem)) {
+				alert("연락처를 입력해 주세요.");
+				objItem.focus();
+				return false;
+			}
+		}
+
+		if (checkEmpty(f.address)) {
+			alert("주소를 입력해 주세요.");
+			f.post.focus();
+			return false;
 		}
 		
-		function list(){
-			location.href = "/sybang/admin2/member_list.do?type=firm";
+		if (checkEmpty(f.introduction)) {
+			alert("업체 소개글을 입력해 주세요.");
+			f.post.focus();
+			return false;
 		}
+
+		if (confirm("등록하시겠습니까?")) {
+			f.mode.value = "EDIT";
+			f.action = "/sybang/admin2/member_reg_ok.do";
+			f.submit();
+		}
+	}
+
+	$("input[name=cbListAll]").on("change",function(){
+		var c;
+		if ($(this).is(":checked")) {
+			c = true;
+		}else{
+			c = false;
+		}
+		$(this).parents("table").find("input[name=cbList]").prop("checked",c);
+	});
+
+	function userInfo(uid){
+		location.href="/sybang/admin2/member_detail.do?seq=" + uid;
+	}
 	
-		$(".left_menu").find("li").eq(4).addClass("on").find("li").eq(2).addClass("on");
+	function list(){
+		location.href = "/sybang/admin2/member_list.do?type=firm";
+	}
+
+	$(".left_menu").find("li").eq(4).addClass("on").find("li").eq(2).addClass("on");
+
 	
-		
-		$("#tel1").ready(function(){
-			$("#tel1").val("${dto.tel.substring(0,2)}").prop("selected",true);
-		});
+	$("#tel1").ready(function(){
+		$("#tel1").val("${dto.tel.substring(0,2)}").prop("selected",true);
+	});
 		
 	</script>
 

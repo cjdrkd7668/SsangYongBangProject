@@ -13,15 +13,8 @@ public class MemberDTO {
 	private String id;
 	private String gender;
 	private String age;
-	private String cnt;
 	private String birthY;
 	
-	public String getCnt() {
-		return cnt;
-	}
-	public void setCnt(String cnt) {
-		this.cnt = cnt;
-	}
 	public String getGender() {
 		return gender;
 	}

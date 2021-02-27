@@ -28,12 +28,12 @@ public class TextManager_reg_ok extends HttpServlet {
 			
 			MultipartRequest multi = new MultipartRequest(
 				req,
-				req.getRealPath("/files/admin2"),
+				req.getRealPath("/files"),
 				1024 * 1024 * 100,
 				"UTF-8",
 				new DefaultFileRenamePolicy()
 			);
-			System.out.println("path : " + req.getRealPath("/files/admin2"));
+			System.out.println("path : " + req.getRealPath("/files"));
 			
 			map.put("filename",multi.getFilesystemName("imgURL"));
 			map.put("orgfilename",multi.getOriginalFileName("attach"));

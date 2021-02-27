@@ -48,6 +48,7 @@ public class AllMemberDAO {
 			rs = pstat.executeQuery();
 
 			while (rs.next()) {
+				System.out.println("ssn : " + rs.getString("ssn"));
 				MemberDTO dto = new MemberDTO();
 				Calendar now = Calendar.getInstance();
 				String yearTwo;
@@ -201,7 +202,6 @@ public class AllMemberDAO {
 				dto.setAvailablePoint(rs.getString("availablePoint"));
 				dto.setApproval(rs.getString("approval"));
 				dto.setDelFlag(rs.getString("delFlag"));
-				dto.setCategorySeq(rs.getString("categorySeq"));
 				
 				list.add(dto);
 				
@@ -261,7 +261,7 @@ public class AllMemberDAO {
 					yearTwo = "20";
 				}
 				
-				dto.setSeq(rs.getString("seq"));
+				dto.setSeq(seq);
 				dto.setEmail(rs.getString("email"));
 				dto.setPw(rs.getString("pw"));
 				dto.setName(rs.getString("name"));
@@ -290,7 +290,7 @@ public class AllMemberDAO {
 		
 		try {
 			
-			String sql = "select b.seq as bseq,email,pw,name,businessname,brokernum,address,tel,businessnum,documenturl,delflag,a.seq as aseq,regdate,brokerseq from tblBroker b left outer join tblApproBroker a on b.seq = a.brokerSeq where delFlag != 1 and b.seq=?";
+			String sql = "select * from tblBroker b left outer join tblApproBroker a on b.seq = a.brokerSeq where delFlag != 1 and b.seq=?";
 			
 			
 			pstat = conn.prepareStatement(sql);
@@ -302,7 +302,7 @@ public class AllMemberDAO {
 				
 				BrokerDTO dto = new BrokerDTO();
 				
-				dto.setSeq(rs.getString("bseq"));
+				dto.setSeq(seq);
 				dto.setEmail(rs.getString("email"));
 				dto.setPw(rs.getString("pw"));
 				dto.setName(rs.getString("name"));
@@ -343,7 +343,7 @@ public class AllMemberDAO {
 				
 				FirmDTO dto = new FirmDTO();
 				
-				dto.setSeq(rs.getString("seq"));
+				dto.setSeq(seq);
 				dto.setId(rs.getString("id"));
 				dto.setPw(rs.getString("pw"));
 				dto.setEmail(rs.getString("email"));
@@ -354,7 +354,6 @@ public class AllMemberDAO {
 				dto.setAvailablePoint(rs.getString("availablePoint"));
 				dto.setApproval(rs.getString("approval"));
 				dto.setDelFlag(rs.getString("delFlag"));
-				dto.setCategorySeq(rs.getString("categorySeq"));
 				
 				return dto;
 			}
@@ -366,6 +365,91 @@ public class AllMemberDAO {
 
 		return null;
 	}
+
+	public int editMember(MemberDTO dto) {
+		try {
+
+			String sql = "update tblMember set email = ?, pw = ?, name = ?, ssn = ?, phone = ?, address = ? where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setString(1, dto.getEmail());
+			pstat.setString(2, dto.getPw());
+			pstat.setString(3, dto.getName());
+			pstat.setString(4, dto.getSsn());
+			pstat.setString(5, dto.getPhone());
+			pstat.setString(6, dto.getAddress());
+			pstat.setString(7, dto.getSeq());
+
+			return pstat.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("AllMemberDAO.editMember()");
+			e.printStackTrace();
+		}
+
+		return 0;
+	}
+
+	public int editBroker(BrokerDTO dto) {
+		
+		try {
+
+			String sql = "update tblBroker set email = ?, pw = ?, name = ?, businessname = ?, brokernum = ?, address = ?, tel = ?, businessnum = ?, documenturl = ? where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setString(1, dto.getEmail());
+			pstat.setString(2, dto.getPw());
+			pstat.setString(3, dto.getName());
+			pstat.setString(4, dto.getBusinessName());
+			pstat.setString(5, dto.getBrokerNum());
+			pstat.setString(6, dto.getAddress());
+			pstat.setString(7, dto.getTel());
+			pstat.setString(8, dto.getBusinessNum());
+			pstat.setString(9, dto.getDocumentURL());
+			pstat.setString(10, dto.getSeq());
+
+			return pstat.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("AllMemberDAO.editMember()");
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+
+	public int editFirm(FirmDTO dto) {
+		
+		try {
+
+			String sql = "update tblFirm set pw = ?, email = ?, address = ?, tel = ?, introduction = ?, portfolio = ?, availablepoint = ? where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setString(1, dto.getPw());
+			pstat.setString(2, dto.getEmail());
+			pstat.setString(3, dto.getAddress());
+			pstat.setString(4, dto.getTel());
+			pstat.setString(5, dto.getIntroduction());
+			pstat.setString(6, dto.getPortfolio());
+			pstat.setString(7, dto.getAvailablePoint());
+			pstat.setString(8, dto.getSeq());
+
+			return pstat.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("AllMemberDAO.editMember()");
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+
+	
+
+	
 
 	
 

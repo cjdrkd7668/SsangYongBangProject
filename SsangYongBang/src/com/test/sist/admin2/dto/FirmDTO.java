@@ -12,7 +12,6 @@ public class FirmDTO {
 	private String availablePoint;
 	private String approval;
 	private String delFlag;
-	private String categorySeq;
 	
 	public String getSeq() {
 		return seq;
@@ -47,9 +46,6 @@ public class FirmDTO {
 	public String getDelFlag() {
 		return delFlag;
 	}
-	public String getCategorySeq() {
-		return categorySeq;
-	}
 	public void setSeq(String seq) {
 		this.seq = seq;
 	}
@@ -82,9 +78,6 @@ public class FirmDTO {
 	}
 	public void setDelFlag(String delFlag) {
 		this.delFlag = delFlag;
-	}
-	public void setCategorySeq(String categorySeq) {
-		this.categorySeq = categorySeq;
 	}
 	
 	
