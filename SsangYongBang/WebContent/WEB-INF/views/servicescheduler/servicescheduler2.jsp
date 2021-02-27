@@ -16,6 +16,11 @@
 <link href='/sybang/fullcalendar/main.css' rel='stylesheet' />
 <script src='/sybang/fullcalendar/main.js'></script>
 
+<!-- 풀캘린더의 날짜 data 포맷팅을 위해 필요한 파일 cdn: moment 사용시 필요 -->
+<script src='https://cdn.jsdelivr.net/npm/moment@2.27.0/min/moment.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/moment@5.5.0/main.global.min.js'></script>
+
+
 
 <style>
 
@@ -137,63 +142,78 @@ td{
 	<!-- 풀캘린더 관련 자바스크립트 -->   
 	<script>
 	
-	  document.addEventListener('DOMContentLoaded', function() {
-		  
-	    var calendarEl = document.getElementById('calendar');
-	    
-	    var calendar = new FullCalendar.Calendar(calendarEl, {
-	      
-	    	//event 소스-> 풀캘린더의 옵션 활용에 대한 내용인 것 같음
-	    	initialView: 'dayGridMonth'
-	    	
-	    	
-	    	<!-- 여기서부터 Ajax로 풀캘린더에 같이 합칠 정보를(이벤트데이터) 가져와야 한다.  -->
-	    	
-	    	events:function(fetchInfo, successCallback, failureCallback) {
-	    		alert();
-	    		<!--  이 이벤트는 달력의 이전 달 혹은 다음달 버튼을 누를 때마다 ajax로 받아오는 것임. -->
-	    		$.ajax({
-	    			type: 'POST',
-	    			url: '/sybang/servicescheduler/schedulejsondata.do',
-	    			dataType: 'json',
-	    			success:
-	    				function(result) {
-	    				
-	    				var events = []; <!-- events라는 풀캘린더에서 쓰이는 객체를 만든다. -->
-	    				
-	    				if (result != null) {
-	    					
-	    					<!-- 이 부분에서 each로 돌며 정보를 push한다. -->
-	    					$.each(result, function(index, element) {
-	    						
-	    						
-	    						
-	    					}); <!-- each 끝-->
-	    					
-	    					console.log(events); <!-- each로 돌려서 나오는 값을 콘솔에 찍어보기 -->
-	    					
-	    				} //if문 끝 
-	    				successCallback(events);
-	    				//풀캘린더 DOC 설명
-	    				//The successCallback function must be called when the custom event function has generated its events. 
-	    				//It is the event function’s responsibility 
-	    				//to make sure successCallback is being called with an array of parsable Event Objects.
-	    				
-	    				//calendar.render();
-	    				
-	    			}//success: function 끝
-	    			
-	    		}); //ajax 끝
-	    			    		
-	    	}, //events:function 끝
-	    
-	    	
-	    	
-	    }); //new 풀캘린더 끝
-	    
-	    calendar.render(); //캘린더를 만든다.
-	  
-	  });
+    document.addEventListener('DOMContentLoaded', function() {
+    	
+        var calendarEl = document.getElementById('calendar');
+        
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          
+        	initialView: 'dayGridMonth',
+        	//timeZone: 'local', // the default (unnecessary to specify)
+        	events: function(fetchInfo, successCallback, failureCallback) {
+       			//alert(); //이 function이 제대로 되는지 알림창 띄워보기 -> 제대로 실행 확인
+        		//얼럿 창은 최초 페이지 로딩 시, 월단위를 바뀔때마다 뜬다. -> 이 함수가 실행되는 때
+       			
+       			$.ajax({
+        			type: 'POST',
+        			url: '/sybang/servicescheduler/schedulejsondata.do',
+        			dataType: 'json',
+        			success:
+        				function(result) {
+        				
+        				var events = []; //캘린더의 이벤트 객체(이 것으로 풀캘린더는 달력 내용을 출력)
+						        				
+						if(result != null) {
+	        				
+							$(result).each(function(index, item) {
+	        					
+								//var startdate = moment(item.startdate).format('YYYY-MM-DD');				
+								
+								events.push({
+									title: item.title,
+									//timeZone: local,
+									start: moment(item.startdate).format('YYYY-MM-DD'),
+									
+									//end: enddate,
+									//timeZone: local,
+									url: item.url
+								}); // push하기
+	        					
+	        					
+	        				}); //each 문 끝
+	        				console.log(events);
+	        				//json데이터가 제대로 왔는지 콘솔 확인
+	        				//브라우저 콘솔 
+	        				/*
+	        				0: {title: "신세경님 완료", start: undefined, end: undefined, url: "estimateConstruction0001.jpg"}
+	        				->날짜가 안 뜬다. 포맷팅이 필요하다.. 나머지(고객명 & url은 형식에 맞게끔 제대로 들어갔기 때문에 콘솔 출력되었다)
+	        				*/
+	        				
+	        				//여기 자바 콘솔에서는
+	        				//{"title": "신세경님 완료",
+	        				//"start": "2021-01-11 00:00:00",
+	        				//"end": "2021-01-11 00:00:00",
+	        				//"url": "estimateConstruction0001.jpg"}
+							
+	        				//왜 문자열이 만들어졌는데 -> 브라우저에서는 언디파인드로 뜬는지?...
+	        				//해결중 ->시간의 경우, 자바스크립트의 date 타입? json에서 문자로 넘어간 시간은
+	        			 	//풀캘린더 events가 인식하지 못해 undefined라고 출력된다.
+	        			 	//moment를 이용해서 인식할수 있게 했으나,,,, 자바 콘솔창에 
+	        			 	//db내용이 제대로 출력되나(json)으로 정보 만들었을 땐 이상X
+	        			 	//브라우저 콘솔창에서 현재 날짜로 출력된다 ..
+						} //if문 끝
+						
+						successCallback(events);
+        				//calendar.render();
+        			} //success : function(result)끝
+        		
+        		}); //ajax 끝
+      
+        	} //event: function 끝
+        	
+        });
+        calendar.render();
+      });
 	
 	</script>
  
