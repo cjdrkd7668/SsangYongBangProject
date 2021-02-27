@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CodeStudy::Auth</title>
+<title>CodeStudy::Hello</title>
 
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
-<link rel="stylesheet" href="/codestudy/css/auth.css">
 
 <style>
 
@@ -18,7 +19,7 @@
 
 <body>
 
-	<!-- ########## 상단 헤더 시작 -->
+	<!-- ########## 상단 헤더 시작 -->	
 	<%
 		out.flush();
 	    RequestDispatcher dheader = request.getRequestDispatcher("/inc/header.do");
@@ -63,34 +64,38 @@
 		<!-- ########## 내용 시작 -->
 		<div class="content col-sm-12 col-md-9">
 			<div>
-				<h1>인증 <small>Auth</small></h1>
-                
-                <div class="loginbox panel panel-default">
-                    <div class="panel-heading">Auth</div>
-                    <div class="panel-body">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <input type="text" id="id" placeholder="ID" class="form-control">
-                            </li>
-                            <li class="list-group-item">
-                                <input type="password" id="pw" placeholder="Password" class="form-control">
-                            </li>
-                            <li class="list-group-item">
-                                <button type="submit" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-lock"></span>
-                                   	로그인
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+				<h1>
+					Ajax
+				</h1>
+				<div style="min-height: 747px">
+
+					<form method="POST" action="/codestudy/ajax/ex01data.do">
+					<div class="well" style="width: 300px;">
+						<strong>아이디 : </strong>
+						<input type="text" name="id" id="id" class="form-control">
+						<input type="submit" value="확인" class="btn btn-default">
+					</div>
+					</form>					
+					<hr>					
+					<div class="alert alert-success" style="width: 300px;">
+						<strong>결과 : </strong>
+						<div id="result">${name}</div>
+					</div>
+					
+					<hr>
+					
+					<div class="well" style="width: 300px;">
+						<strong>하고 싶은 말 : </strong>
+						<textarea class="form-control"></textarea>
+					</div>
+
+				</div>
 			</div>
 		</div>
 		<!-- ########## 내용 끝 -->
 
 	</div>
 	<!-- ########## 본문 끝 -->
-
 
 	<!-- ########## 하단 시작 -->
 	<%@include file="/WEB-INF/views/inc/footer.jsp" %>
@@ -102,3 +107,16 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+

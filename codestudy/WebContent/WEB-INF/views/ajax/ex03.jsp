@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CodeStudy::Auth</title>
+<title>CodeStudy::Hello</title>
 
 <%@include file="/WEB-INF/views/inc/asset.jsp" %>
-<link rel="stylesheet" href="/codestudy/css/auth.css">
 
 <style>
 
@@ -18,7 +19,7 @@
 
 <body>
 
-	<!-- ########## 상단 헤더 시작 -->
+	<!-- ########## 상단 헤더 시작 -->	
 	<%
 		out.flush();
 	    RequestDispatcher dheader = request.getRequestDispatcher("/inc/header.do");
@@ -63,27 +64,32 @@
 		<!-- ########## 내용 시작 -->
 		<div class="content col-sm-12 col-md-9">
 			<div>
-				<h1>인증 <small>Auth</small></h1>
-                
-                <div class="loginbox panel panel-default">
-                    <div class="panel-heading">Auth</div>
-                    <div class="panel-body">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <input type="text" id="id" placeholder="ID" class="form-control">
-                            </li>
-                            <li class="list-group-item">
-                                <input type="password" id="pw" placeholder="Password" class="form-control">
-                            </li>
-                            <li class="list-group-item">
-                                <button type="submit" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-lock"></span>
-                                   	로그인
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+				<h1>
+					Ajax
+				</h1>
+				<div style="min-height: 747px">
+
+					<table class="table table-bordered">
+						<tr>
+							<th>아이디: </th>
+							<td>
+								<input type="text" id="id" class="form-control">
+								<input type="button" value="중복검사" id="btn1" class="btn btn-default">
+								<span id="result" style="color: red;"></span>
+							</td>
+						</tr>
+						<tr>
+							<th>이름: </th>
+							<td><input type="text" id="name" class="form-control"></td>
+						</tr>
+						<tr>
+							<th>주소: </th>
+							<td><input type="text" id="address" class="form-control"></td>
+						</tr>
+					</table>
+					
+
+				</div>
 			</div>
 		</div>
 		<!-- ########## 내용 끝 -->
@@ -91,14 +97,50 @@
 	</div>
 	<!-- ########## 본문 끝 -->
 
-
 	<!-- ########## 하단 시작 -->
 	<%@include file="/WEB-INF/views/inc/footer.jsp" %>
 	<!-- ########## 하단 끝 -->
 	
 	<script>
+	
+		$("#btn1").click(function() {
+			
+			$.ajax({
+				type: "GET",
+				url: "/codestudy/ajax/ex03data.do",
+				//data: "key=value&key=value&key=value"
+				data: "id=" + $("#id").val(),
+				success: function(result) {
+					//콜백 함수
+					if (result == 1) {
+						$("#result").css("color", "red");
+						$("#result").text("이미 사용중인 아이디입니다.");
+					} else {
+						$("#result").css("color", "blue");
+						$("#result").text("사용 가능한 아이디입니다.");
+					}
+				},
+				error: function(a,b,c) {
+					console.log(a,b,c);
+				}
+			});
+			
+		});
     
     </script>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
