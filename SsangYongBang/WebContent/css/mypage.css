@@ -96,7 +96,7 @@ height: 600px;
 }
 
 #tbl-post,
-#tbl-comment,
+#tblcomment,
 #tbl-review {
     width: 900px;
     margin: 10px auto;
@@ -124,7 +124,7 @@ height: 600px;
     cursor: pointer;
 }
 
-#tbl-comment tr td:first-child,
+#tblcomment tr td:first-child,
 #tbl-review tr td:first-child {
     width: 60px;
     cursor: pointer;
@@ -139,7 +139,7 @@ height: 600px;
     cursor: pointer;
 }
 
-#tbl-comment tr td:last-child {
+#tblcomment tr td:last-child {
     width: 840px;
     cursor: pointer;
 }

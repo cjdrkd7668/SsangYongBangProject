@@ -33,8 +33,8 @@
                     </tr>
                     <tr>
                         <td>
-                            총 게시물&nbsp;&nbsp;<strong style="color: #3777BA;">5</strong>개
-                            / 총 댓글&nbsp;&nbsp;<strong style="color: #3777BA;">10</strong>개
+                            총 게시물&nbsp;&nbsp;<strong style="color: #3777BA;">${totalPost}</strong>개
+                            / 총 댓글&nbsp;&nbsp;<strong style="color: #3777BA;">${totalComment}</strong>개
                         </td>
                     </tr>
                 </table>
@@ -45,7 +45,7 @@
         <ul class="nav nav-tabs" style="clear: both;">
             <li class="active"><a data-toggle="tab" id="myPost" href="#writepost">내가 쓴 글</a></li>
             <li><a data-toggle="tab" id="myComment" href="#writecomment">내가 쓴 댓글</a></li>
-            <li><a data-toggle="tab" href="#writereview">찜 목록</a></li>
+            <li><a data-toggle="tab" href="#writereview">댓글 알림</a></li>
         </ul>
 
         <!-- tab-content 시작 -->
@@ -53,8 +53,7 @@
 
             <!-- 내가 쓴 글 시작 -->
             <div class="tab-pane fade in active" id="writepost">
-                <table class="table table-condensed" id="tbl-post">
-                    <div id="btn-post">
+            	<div id="btn-post">
                         <button type="button" class="btn btn-default">
                             <span class="glyphicon glyphicon-ok"></span> 전체 선택
                         </button>
@@ -63,6 +62,8 @@
                         </button>
                     </div>
                     <div style="clear: both;"></div>
+                <table class="table table-condensed" id="tbl-post">
+                    
                     <tr>
                         <th><input type="checkbox"></th>
                         <th>번호</th>
@@ -70,108 +71,54 @@
                         <th>작성일</th>
                         <th>조회수</th>
                     </tr>
+                    
+                    <!-- 받아온 내가 쓴 글 목록을 forEach로  -->
+                    <c:forEach items="${plist }" var="pdto">
                     <tr>
                         <td><input type="checkbox"></td>
-                        <td>1</td>
-                        <td>
-                            <div class="post-title">제목입니다.&nbsp;<span class="badge"
-                                    style="background-color: red;">N</span></div>
-                            <div class="post-content">글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글
-                                내용입니다.글 내용입니다.글 내용입니다.</div>
-                            <div class="post-type">게시판 : 자유게시판</div>
+                        <td>${pdto.seq }</td>
+						<!-- 해당 글이 자유게시판 글일 경우 -->
+                        <c:if test="${pdto.which eq '자유게시판' }">
+                        	<td onclick="location.href='/sybang/free/detail.do?seq=${pdto.seq}';">
+                        	${pdto.subject }&nbsp;( ${pdto.ccount} )
+                        </c:if>
+                        <!-- 해당 글이 문의게시판 글일 경우 -->
+                        <c:if test="${pdto.which eq '문의게시판' }">
+	                        <td onclick="location.href='/sybang/inquiry/detail.do?seq=${pdto.seq}';">
+	                        ${pdto.subject }&nbsp;( ${pdto.ccount} )
+                        </c:if>
+							
+							<!-- 최신 글 시작 -->
+							<c:if test="${pdto.gap < 1 }">
+								<span class="badge" style="background-color: red;">N</span>
+							</c:if>
+							<!-- 최신 글 끝 -->
+                           
+                            <div class="post-content">${pdto.detail }</div>
+                            <div class="post-type">게시판 : ${pdto.which }</div>
                         </td>
                         <td>
-                            <div class="post-date">2021-02-18</div>
+                            <div class="post-date">${pdto.regdate }</div>
                         </td>
                         <td>
-                            <div class="post-readcount">0</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>1</td>
-                        <td>
-                            <div class="post-title">제목입니다.&nbsp;<span class="badge"
-                                    style="background-color: red;">N</span></div>
-                            <div class="post-content">글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.</div>
-                            <div class="post-type">게시판 : 자유게시판</div>
-                        </td>
-                        <td>
-                            <div class="post-date">2021-02-18</div>
-                        </td>
-                        <td>
-                            <div class="post-readcount">0</div>
+                            <div class="post-readcount">${pdto.readcount }</div>
                         </td>
                     </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>1</td>
-                        <td>
-                            <div class="post-title">제목입니다.&nbsp;</div>
-                            <div class="post-content">글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.</div>
-                            <div class="post-type">게시판 : 자유게시판</div>
-                        </td>
-                        <td>
-                            <div class="post-date">2021-02-18</div>
-                        </td>
-                        <td>
-                            <div class="post-readcount">0</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>1</td>
-                        <td>
-                            <div class="post-title">제목입니다.&nbsp;</div>
-                            <div class="post-content">글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.</div>
-                            <div class="post-type">게시판 : 자유게시판</div>
-                        </td>
-                        <td>
-                            <div class="post-date">2021-02-18</div>
-                        </td>
-                        <td>
-                            <div class="post-readcount">0</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>1</td>
-                        <td>
-                            <div class="post-title">제목입니다.&nbsp;</div>
-                            <div class="post-content">글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.</div>
-                            <div class="post-type">게시판 : 자유게시판</div>
-                        </td>
-                        <td>
-                            <div class="post-date">2021-02-18</div>
-                        </td>
-                        <td>
-                            <div class="post-readcount">0</div>
-                        </td>
-                    </tr>
+                    </c:forEach>
                 </table>
 
                 <!-- page-bar 시작 -->
-                <nav class="page-bar">
-                    <ul class="pagination">
-                        <li><a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-                            </a></li>
-                        <li class="active"><a href="#!">1</a></li>
-                        <li><a href="#!">2</a></li>
-                        <li><a href="#!">3</a></li>
-                        <li><a href="#!">4</a></li>
-                        <li><a href="#!">5</a></li>
-                        <li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-                            </a></li>
-                    </ul>
-                </nav>
-                <!-- page-bar 끝 -->
+				<nav class="col-md-8 page-bar">
+					<ul class="pagination">${ppagebar }
+					</ul>
+				</nav>
+				<!-- page-bar 끝 -->
             </div>
             <!-- 내가 쓴 글 끝 -->
 
             <!-- 내가 쓴 댓글 시작 -->
             <div class="tab-pane fade" id="writecomment">
-                <table class="table table-condensed" id="tbl-comment">
-                    <div id="btn-comment">
+            <div id="btn-comment">
                         <button type="button" class="btn btn-default">
                             <span class="glyphicon glyphicon-ok"></span> 전체 선택
                         </button>
@@ -180,65 +127,23 @@
                         </button>
                     </div>
                     <div style="clear: both;"></div>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>
-                            <div class="cmt-date">2021-02-18&nbsp;<span class="badge"
-                                    style="background-color: red;">N</span></div>
-                            <div class="cmt-content">댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글
-                                내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.</div>
-                            <div class="cmt-title">원문 제목 : 제목입니다.</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>
-                            <div class="cmt-date">2021-02-18&nbsp;<span class="badge"
-                                    style="background-color: red;">N</span></div>
-                            <div class="cmt-content">댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.
-                            </div>
-                            <div class="cmt-title">원문 제목 : 제목입니다.</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>
-                            <div class="cmt-date">2021-02-18&nbsp;</div>
-                            <div class="cmt-content">댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.
-                            </div>
-                            <div class="cmt-title">원문 제목 : 제목입니다.</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>
-                            <div class="cmt-date">2021-02-18&nbsp;</div>
-                            <div class="cmt-content">댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.
-                            </div>
-                            <div class="cmt-title">원문 제목 : 제목입니다.</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>
-                            <div class="cmt-date">2021-02-18&nbsp;</div>
-                            <div class="cmt-content">댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.
-                            </div>
-                            <div class="cmt-title">원문 제목 : 제목입니다.</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>
-                            <div class="cmt-date">2021-02-18&nbsp;</div>
-                            <div class="cmt-content">댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.댓글 내용입니다.
-                            </div>
-                            <div class="cmt-title">원문 제목 : 제목입니다.</div>
-                        </td>
-                    </tr>
+                <table class="table table-condensed" id="tblcomment">
+                	<thead>
+                	</thead>
+                    <tbody>
+	                    <tr>
+	                        <td><input type="checkbox"></td>
+	                        <td>
+	                            <div class="cmt-date">2021-02-18&nbsp;<span class="badge"
+	                                    style="background-color: red;">N</span></div>
+	                            <div class="cmt-content">zzzzz</div>
+	                            <div class="cmt-title">원문 제목 : 제목입니다.</div>
+	                        </td>
+	                    </tr>
+                    </tbody>
                 </table>
                 <!-- page-bar 시작 -->
-                <nav class="page-bar">
+                <!-- <nav class="page-bar">
                     <ul class="pagination">
                         <li><a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
                             </a></li>
@@ -250,7 +155,7 @@
                         <li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
                             </a></li>
                     </ul>
-                </nav>
+                </nav> -->
                 <!-- page-bar 끝 -->
             </div>
             <!-- 내가 쓴 댓글 끝 -->
@@ -286,58 +191,11 @@
                             <div class="review-date">2021-02-18</div>
                         </td>
                     </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>1</td>
-                        <td>
-                            <div class="review-title">제목입니다.&nbsp;</div>
-                            <div class="review-content">글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글
-                                내용입니다.글 내용입니다.글 내용입니다.</div>
-                        </td>
-                        <td>
-                            <div class="review-date">2021-02-18</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>1</td>
-                        <td>
-                            <div class="review-title">제목입니다.&nbsp;</div>
-                            <div class="review-content">글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글
-                                내용입니다.글 내용입니다.글 내용입니다.</div>
-                        </td>
-                        <td>
-                            <div class="review-date">2021-02-18</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>1</td>
-                        <td>
-                            <div class="review-title">제목입니다.&nbsp;</div>
-                            <div class="review-content">글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글
-                                내용입니다.글 내용입니다.글 내용입니다.</div>
-                        </td>
-                        <td>
-                            <div class="review-date">2021-02-18</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>1</td>
-                        <td>
-                            <div class="review-title">제목입니다.&nbsp;</div>
-                            <div class="review-content">글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글
-                                내용입니다.글 내용입니다.글 내용입니다.</div>
-                        </td>
-                        <td>
-                            <div class="review-date">2021-02-18</div>
-                        </td>
-                    </tr>
+                    
                 </table>
 
                 <!-- page-bar 시작 -->
-                <nav class="page-bar">
+                <!-- <nav class="page-bar">
                     <ul class="pagination">
                         <li><a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
                             </a></li>
@@ -349,7 +207,7 @@
                         <li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
                             </a></li>
                     </ul>
-                </nav>
+                </nav> -->
                 <!-- page-bar 끝 -->
             </div>
             <!-- 내 후기 끝 -->
@@ -371,20 +229,38 @@
 	
 	<script>
 	
-		//내가 쓴 글 버튼 클릭 시
-		$("#myPost").click(function() {
+		
+	
+		//내가 쓴 댓글 클릭 시
+		$("#myComment").click(function() {
 			
 			$.ajax({
 				type: "GET",
-				url: "/sybang/member/mypostok.do",
-				data: "authorseq=" + ${seq},
+				url: "/sybang/member/mycommentdata.do",
+				data: "authorseq=1",
+				dataType: "json",
 				success: function(result) {
+					$("#tblcomment tbody").html("");
 					
+					$(result).each(function(index, item) {
+						let temp = "";
+						temp += "<tr>";
+						temp += "<td><input type=\"checkbox\"></td>";
+						temp += "<td><div>" + item.regdate;
+						//temp += "<c\:if test=\"" + item.gap "< 1\"><span class=\"badge\" style=\"background-color: red\;\">N</span></c\:if>;
+						temp += "<div>" + item.detail + "</div>";
+						temp += "<div>원문 제목 : " + item.subject +"</div>";
+						temp += "</td>";
+						temp += "</tr>";
+						
+						$("#tblcomment tbody").append(temp);
+					});
 				},
 				error: function(a, b, c) {
+					alert("가져올 댓글이 없습니다.");
 					console.log(a, b, c);
 				}
-			})
+			});
 		});
 	
 	
