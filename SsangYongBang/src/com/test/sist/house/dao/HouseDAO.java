@@ -73,7 +73,7 @@ public class HouseDAO {
 		}
   		return null;
 	}
-}
+
 
 	//RegisterOk 서블릿 -> 매물 게시글 작성
 	public int post(HouseDTO dto) {
@@ -117,7 +117,7 @@ public class HouseDAO {
 
 	//MyRegList 서블릿 -> 게시글 목록 반환
 	public ArrayList<HouseDTO> list(HashMap<String, String> map) {
-try {
+		try {
 			String sql = "select * from (select rownum as rnum, h.* from vwHousePost h where h.bseq = ?) where rnum between ? and ?";
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, map.get("bseq"));

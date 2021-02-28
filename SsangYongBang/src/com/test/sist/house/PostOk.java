@@ -32,8 +32,8 @@ public class PostOk extends HttpServlet {
 		
 		String dType = "";
 		String bType = "";
-		int price = 0;
-		int rent = 0;
+		String price = "";
+		String rent = "";
 		String selectedFloor = "";
 		String totalFloor = "";
 		int monthlyFee = 0;
@@ -65,8 +65,8 @@ public class PostOk extends HttpServlet {
 
 			dType = multi.getParameter("dType");
 			bType = multi.getParameter("bType");
-			price = Integer.parseInt(multi.getParameter("price"));
-			rent = Integer.parseInt(multi.getParameter("rent"));
+			price = multi.getParameter("price");
+			rent = multi.getParameter("rent");
 			selectedFloor = multi.getParameter("selectedFloor");
 			totalFloor = multi.getParameter("totalFloor");
 			monthlyFee = Integer.parseInt(multi.getParameter("monthlyFee"));
