@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.test.sist.DBUtil;
 import com.test.sist.house.dto.HouseDTO;
@@ -75,5 +77,139 @@ public class HouseDAO {
 			System.out.println(e);
 		}
 		return 0;
+	}
+
+	//MyRegList 서블릿 -> 게시글 목록 반환
+	public ArrayList<HouseDTO> list(HashMap<String, String> map) {
+try {
+			String sql = "select * from (select rownum as rnum, h.* from vwHousePost h where h.bseq = ?) where rnum between ? and ?";
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, map.get("bseq"));
+			pstat.setString(2, map.get("begin"));
+			pstat.setString(3, map.get("end"));
+			
+			rs = pstat.executeQuery();
+			
+			ArrayList<HouseDTO> list = new ArrayList<HouseDTO>();
+			
+			while (rs.next()) {
+				HouseDTO dto = new HouseDTO();
+				
+				dto.setSeq(rs.getString("seq")); //글 번호
+				dto.setBseq(rs.getString("bseq")); //승인 중개사 번호
+				dto.setSubject(rs.getString("subject"));
+				dto.setAddress(rs.getString("address"));
+				dto.setRegdate(rs.getString("regdate").substring(0, 10));
+				
+				list.add(dto);
+			}
+			
+			return list;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return null;
+	}
+
+	//MyRegList 서블릿 -> 총 게시글 수 반환
+	public int totalCount(String bseq) {
+		try {
+
+			String sql = "select count(*) as cnt from vwHousePost where bseq = ?";
+
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setString(1, bseq);
+			
+			rs = pstat.executeQuery();
+
+			if (rs.next()) {
+				return rs.getInt("cnt");
+			}
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return 0;
+	}
+	
+	//View 서블릿 -> 선택한 게시글 정보 반환
+	public HouseDTO view(String seq) {
+		try {
+			
+			String sql = "select * from vwhousepost where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setString(1, seq);
+			
+			rs = pstat.executeQuery();
+			
+			if (rs.next()) {
+				
+				HouseDTO dto = new HouseDTO();
+				
+				dto.setSeq(rs.getString("seq"));
+				dto.setBseq(rs.getString("bseq"));
+				dto.setBname(rs.getString("bname"));
+				dto.setTel(rs.getString("tel"));
+				dto.setState(rs.getString("state"));
+				dto.setBtype(rs.getString("btype"));
+				dto.setDtype(rs.getString("dtype"));
+				dto.setPrice(rs.getString("price"));
+				dto.setRent(rs.getString("rent"));
+				dto.setMonthlyFee(rs.getInt("monthlyFee"));
+				dto.setAddress(rs.getString("address"));
+				dto.setExclusiveArea(rs.getInt("exclusiveArea"));
+				dto.setSupplyArea(rs.getInt("supplyArea"));
+				dto.setSelectedFloor(rs.getString("selectedFloor"));
+				dto.setTotalFloor(rs.getString("totalFloor"));
+				dto.setRoomNum(rs.getInt("roomNum"));
+				dto.setBathroomNum(rs.getInt("bathroomNum"));
+				dto.setDirection(rs.getString("direction"));
+				dto.setCompletionYear(rs.getString("completionYear"));
+				dto.setParkingFlag(rs.getString("parkingFlag"));
+				dto.setElevator(rs.getString("elevator"));
+				dto.setPet(rs.getString("pet"));
+				dto.setSubject(rs.getString("subject"));
+				dto.setContent(rs.getString("content"));
+				dto.setRegdate(rs.getString("regdate"));
+				
+				return dto;
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	}
+	
+	//View 서블릿 -> 게시글 이미지 반환
+	public ArrayList<String> getImg(String seq) {
+
+		try {
+
+			String sql = "select url from tblHouseImg where housePostSeq = ?";
+
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+			rs = pstat.executeQuery();
+
+			ArrayList<String> list = new ArrayList<String>();
+
+			while (rs.next()) {
+				list.add(rs.getString("url"));
+			}
+
+			return list;
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return null;
 	}
 }

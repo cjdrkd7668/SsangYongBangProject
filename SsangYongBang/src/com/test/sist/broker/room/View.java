@@ -26,7 +26,7 @@ public class View extends HttpServlet {
 		
 		// 글 번호, 돌아갈 페이지 가져오기
 		String seq = req.getParameter("seq");
-		String nowPage = req.getParameter("nowPage");
+		String nowPage = req.getParameter("page");
 
 		// 특정 글 정보 가져오기
 		RoomDAO dao = new RoomDAO();

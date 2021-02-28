@@ -28,22 +28,22 @@ public class RegisterOk extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		HttpSession session = req.getSession();
-
 		req.setCharacterEncoding("UTF-8");
 		
 		//방 게시글 번호
 		String rseq = req.getParameter("rseq");
+		System.out.println(rseq);
 		String subject = req.getParameter("subject");
 		String price = req.getParameter("price");
 		String rent = req.getParameter("rent");
 		String detail = req.getParameter("detail");
 		//승인 중개사 번호
-		String bseq = (String) session.getAttribute("approBrokerSeq");
+		String bseq = req.getParameter("bseq");
 		
 		//방 게시글에 대한 정보 가져오기
 		RoomDAO rdao = new RoomDAO();
 		RoomDTO rdto = rdao.getRoom(rseq);
+		
 		
 		HouseDTO dto = new HouseDTO();
 		dto.setBseq(bseq);
@@ -99,7 +99,7 @@ public class RegisterOk extends HttpServlet {
 
 			writer.print("<html><body>");
 			writer.print("<script>");
-			writer.print("alert('매물 등록을 완료하였습니다.'); location.href='/sybang/broker/room/list.do';");
+			writer.print("alert('매물 등록을 완료하였습니다.'); location.href='/sybang/broker/house/myreglist.do';");
 			writer.print("</script>");
 			writer.print("</body></html>");
 			
