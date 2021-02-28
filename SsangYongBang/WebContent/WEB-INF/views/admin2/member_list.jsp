@@ -18,7 +18,7 @@
 		<div class="conWrap">
 			<h1 class="page_title">${member_tName} 목록</h1>
 			
-			<div class="sub_title t2">총 <span>${cnt}</span>명의 회원이 조회되었으며 오늘 가입한 회원은 <span>0</span>명입니다</div>
+			<div class="sub_title t2">총 <span>${cnt}</span>명의 회원이 조회되었습니다. <!--으며 오늘 가입한 회원은 <span>0</span>명입니다 --></div>
 			
 			<table class="admin_style_02">
 				<tr align="center">

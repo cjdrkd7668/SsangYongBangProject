@@ -1,280 +1,272 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>중개사 공간</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
-<link rel="stylesheet" type="text/css" href="/sybang/css/broker.css">
-<link rel="stylesheet" type="text/css" href="/sybang/css/brokerregister.css">
+<link rel="stylesheet" type="text/css" href="/sybang/css/admin2.css">
+<link rel="stylesheet" type="text/css" href="/sybang/css/admin.css">
+<link rel="stylesheet" href="/sybang/css/board.css">
+<title>등록된 방 정보</title>
+<style type="text/css">
+.carousel-inner > .item > img, 
+.carousel-inner > .item > a > img {
+	max-width: 50%;
+}
+.carousel-inner {
+	margin-top: 20px;
+	border-top: 3px solid #486BB8;
+	border-bottom: 3px solid #486BB8;
+}
+.table-type-view-detail {
+	border-bottom: 1px solid #CCC
+}
 
-<style>
-    
+.carousel-control.right{
+    background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .25) 100%);
+}
+
+.carousel-control.left {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .25) 100%);
+}
+
+.container-view .form-control {
+	font-size: 1.3em;
+	color: #486BB8;
+}
+
+.container-view .table-type-view .form-control {
+	padding: 5px;
+	font-size: 0.9em;
+	float: left;
+}
+
+.container-view .table-type-view-detail #detail {
+	resize: none;
+	width: 780px;
+}
 </style>
-
-
 </head>
 <body>
-
-	<!-- header 가져오기######## -->
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 	<%@include file="/WEB-INF/views/inc/broker_left.jsp"%>
-
-
-    <div class="container">
-        <h1>매물 등록하기</h1>
-        <hr>
-
-        <form method="POST" action="">
-
-            <table class="table table-bordered" id="sort">
-                <tr>
-                    <th colspan="2" class="thhead" style="line-height: 43px;">매물종류</th>
-
-                </tr>
-                <tr>
-                    <td class="leftsort"><span style="position: relative; top: 15px">건물 유형</span></td>
-                    <td>    
-                        <div style="position: relative; top: 15px">
-                        <label class="radio-inline"><input type="radio" name="apt">아파트</label> 
-                        <label class="radio-inline"><input type="radio" name="house">빌라</label> 
-                        <label class="radio-inline"><input type="radio" name="villa">주택</label> 
-                        <label class="radio-inline"><input type="radio" name="tworoom">투룸</label> 
-                        <label class="radio-inline"><input type="radio" name="officetel">오피스텔</label>
-                         </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="leftsort"><span style="position: relative; top: 15px">매물 거래 유형</span></td>
-                    <td>
-                        <div style="position: relative; top: 15px">
-                        <label class="radio-inline"><input type="radio" name="buy">매매</label> 
-                        <label class="radio-inline"><input type="radio" name="jeonse">전세</label> 
-                        <label class="radio-inline"><input type="radio" name="rent">월세</label>
-                     </div>    
-                    </td>
-
-                </tr>
-            </table>
-
-            <table class="table table-bordered" id="location">
-                <tr>
-                    <th colspan="3" class="thhead" style="line-height: 43px;">위치정보</th>
-
-                </tr>
-                <tr>
-
-                    <td class="leftaddress"><span  style="position: relative; top: 120px">주소</span></td>
-                    <td>
-                        <div style="margin-left: 10px; margin-top: 10px">
-                            <button type="button" class="btn btn-default btn-search">주소검색</button>
-                            <input type="text" id="searchaddress" style="width: 425px;">
-                            <p>
-                                <input type="text" placeholder="상세주소"
-                                    style="width: 513px; margin-top: 20px; margin-bottom: 10px;">
-                            </p>
-                            <p>
-                            <div class="detail"></div>
-                            </p>
-                        </div>
-                    </td>
-                    <td>
-                        <div id="map"
-                            style="width: 270px; height: 270px; border: 1px solid black; margin-left: 20px;">
-                        </div>
-                    </td>
-                </tr>
-            </table>
-
-            <table class="table table-bordered" id="info">
-                <tr>
-                    <th colspan="4" class="thhead" style="line-height: 43px;">기본 정보</th>
-                </tr>
-                <tr>
-                    <td class="leftsort" rowspan="2"><span style="position: relative; top: 25px">건물 크기</span></td>
-                    <td>공급 면적&nbsp;&nbsp;&nbsp;&nbsp;<input type="text">&nbsp;㎡
-                    </td>
-                    <td class="leftsort" rowspan="2"><span style="position: relative; top: 25px">건물 층수</span></td>
-                    <td>건물 층수&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" style="width: 50px; text-align: center;"
-                            id="building_floor">&nbsp;층
-                    </td>
-                </tr>
-                <tr>
-                    <td>전용 면적&nbsp;&nbsp;&nbsp;&nbsp;<input type="text">&nbsp;㎡
-                    </td>
-                    <td>해당 층수&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" style="width: 50px; text-align: center;"
-                            id="floor">&nbsp;층
-                    </td>
-                </tr>
-                <tr>
-                    <td class="leftsort"><span style="position: relative; top: 15px">방 개수</span></td>
-                    <td>
-                        <div style="position: relative; top: 6px">
-                        <select class="form-control" id="roomcount">
-                            <option value="">선택하세요.</option>
-                            <option value="1">1개</option>
-                            <option value="2">2개</option>
-                            <option value="3">3개</option>
-                            <option value="4">4개</option>
-                            <option value="5">5개</option>
-                            <option value="6">6개</option>
-                            <option value="7">7개</option>
-                            <option value="8">8개</option>
-                            <option value="9">9개</option>
-                            <option value="10">10개</option>
-                        </select>
-                        </div>
-                    </td>
-                    <td class="leftsort"><span style="position: relative; top: 15px">욕실 개수</span></td>
-                    <td> 
-                        <div style="position: relative; top: 6px">
-                        <select class="form-control" id="washroom">
-                            <option value="">선택하세요.</option>
-                            <option value="1">1개</option>
-                            <option value="2">2개</option>
-                            <option value="3">3개</option>
-                            <option value="4">4개</option>
-                            <option value="5">5개</option>
-                            <option value="6">6개</option>
-                            <option value="7">7개</option>
-                            <option value="8">8개</option>
-                            <option value="9">9개</option>
-                            <option value="10">10개</option>
-                        </select>
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="leftsort"><span style="position: relative; top: 15px">방향</span></td>
-                    <td>
-                        <div style="position: relative; top: 6px">
-                        <select class="form-control" id="direction">
-                            <option>선택하세요.</option>
-                            <option>동향</option>
-                            <option>서향</option>
-                            <option>남향</option>
-                            <option>남동향</option>
-                            <option>남서향</option>
-                            <option>북향</option>
-                        </select>
-                        </div>
-                    </td>
-                    <td class="leftsort"><span style="position: relative; top: 15px">준공년도</span></td>
-                    <td>
-                        <div class="form-group" style="position: relative; top: 6px">
-                            <select class="form-control" id="year">
-                                <option>선택하세요.</option>
-                            </select>
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="info2"><span style="position: relative; top: 7px">주차 가능 여부</span></td>
-                    <td>
-                        <span style="position: relative; top: 5px">
-                        <label class="radio-inline"><input type="radio" name="ok">가능</label> 
-                        <label class="radio-inline"><input type="radio" name="no">없음</label>
-                        </span>
-                    </td>
-                    <td class="info2">
-                        <span style="position: relative; top: 7px">엘리베이터</span>
-                    </td>
-                    <td>
-                        <span style="position: relative; top: 5px">
-                        <label class="radio-inline"><input type="radio" name="ok">있음</label> 
-                        <label class="radio-inline"><input type="radio" name="no">없음</label>
-                     </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="info2"><span style="position: relative; top: 7px">반려동물</span></td>
-                    <td colspan="3">
-                        <span style="position: relative; top: 5px">
-                        <label class="radio-inline"><input type="radio" name="ok">가능</label>
-                         <label class="radio-inline"><input type="radio" name="no">불가능</label>
-                        </span>
-                    </td>
-                </tr>
-            </table>
-
-
-            <table class="table table-bordered" id="price">
-                <tr>
-                    <th colspan="2" class="thhead" style="line-height: 43px;">가격 정보</th>
-
-                </tr>
-                <tr>
-                    <td class="priceinfo"><span style="position: relative; top: 3px">가격</span></td>
-                    <td><input type="text" class="price">&nbsp;만원</td>
-                </tr>
-                <tr>
-                    <td class="priceinfo"><span style="position: relative; top: 3px">월세</span></td>
-                    <td><input type="text" class="price">&nbsp;만원</td>
-                </tr>
-                <tr>
-                    <td class="priceinfo"><span style="position: relative; top: 3px">월 관리비</span></td>
-                    <td><input type="text" class="price">&nbsp;만원</td>
-                </tr>
-            </table>
-
-
-            <table class="table table-bordered" id="desc">
-                <tr>
-                    <th colspan="2" class="thhead" style="line-height: 43px;">상세 설명</th>
-
-                </tr>
-                <tr>
-                    <td class="descinfo"><span style="position: relative; top: 12px">제목</span></td>
-                    <td><input type="text" name="title" placeholder="예)신논현역 도보 5분거리, 혼자 살기 좋은 방 입니다." class="title">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="detailinfo"><span style="position: relative; top: 105px">상세설명</span></td>
-                    <td class=""><textarea name="memo" class="memo" placeholder="상세설명 작성 주의사항     
-- 방 정보와 관련없는 홍보성 정보는 입력하실 수 없습니다. (홈페이지 주소, 블로그, SNS, 메신저ID, 전화번호, 이메일 등)
-- 중개수수료를 언급한 내용은 입력할 수 없습니다. (중개수수료 무료, 꽁짜, 반값 등)
-
-* 주의사항 위반시 허위매물로 간주되어 매물 삭제 및 이용의 제한이 있을 수 있습니다."></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="regpic"><span style="position: relative; top: 100px">사진 등록</span></td>
-                    <td>
-                        <input type="file" class="form-control" style="margin-bottom: 10px;">
-                        <input type="file" class="form-control" style="margin-bottom: 10px;">
-                        <input type="file" class="form-control" style="margin-bottom: 10px;">
-                        <input type="file" class="form-control" style="margin-bottom: 10px;">
-                        <input type="file" class="form-control" style="margin-bottom: 10px;">
-                    </td>
-                </tr>
-            </table>
-			
-			<div class ="btn-group">
-				<button type="button" class="btn btn-default btn-cancle">
-					<span class="glyphicon glyphicon-remove"></span> 취소하기
-				</button>	
-				<button type="button" class="btn btn-default">
-					<span class="glyphicon glyphicon-ok"></span> 등록하기
-				</button> 
-				
+	<div class="container mg-view">
+	
+		<form method="POST" action="/sybang/broker/house/registerok.do">
+		<div class="container-view">
+			<div class="panel panel-danger">
+				<div class="panel-heading" style="font-size: 1.1em;">매물 등록하기</div>
+				<div class="panel-body"  style="font-size: 1.1em;">해당 글을 작성한 회원과 협의 후 수정한 뒤에 등록하기 버튼을 눌러주세요.</div>
 			</div>
+			
+			
+			<div class="post-info">
+				<span>작성자: ${rdto.name}</span>
+				<span>연락처: ${rdto.phone}</span>
+				<span>등록일: ${rdto.regDate}</span>
+			</div>
+			
+			<div class="address">
+				<div class="input-group">
+					<span class="input-group-addon">제목</span> <input id="subject"
+						type="text" class="form-control" name="subject" value="${rdto.subject}">
+				</div>
+				<span>${rdto.address}<span class="glyphicon glyphicon-home"></span></span>
+			</div>
+		
+			<!-- map 시작 -->
+        	<div id="map" style="width:100%;height:400px;"></div>
+        	<!-- map 끝 -->
+        	
+			
+			<table class="table-type-view">
+				<colgroup>
+					<col style="width: 100px;">
+					<col style="width: 180px;">
+					<col style="width: 100px;">
+					<col style="width: 180px;">
+					<col style="width: 100px;">
+					<col style="width: 180px;">
+				</colgroup>
+				<tbody>
+					<tr>
+						<th>방 유형</th>
+						<td>${rdto.bType}</td>
+						<th>거래 유형</th>
+						<td>${rdto.dType}</td>
+						<th colspan="2">
+						
+							<div class="input-group">
+								<span class="input-group-addon" style="width: 150px;">가격(보증금)(만원)</span> <input id="price"
+									type="text" class="form-control" name="price"
+									value="${rdto.price}">
+							</div>
+							<c:if test="${rdto.dType == '월세'}">
+							<div class="input-group">
+								<span class="input-group-addon" style="width: 150px;">월세(만원)</span> <input id="rent"
+									type="text" class="form-control" name="rent"
+									value="${rdto.rent}">
+							</div>
+							</c:if> 
+						</th>
+					</tr>
+					<tr>
+						<th>관리비(만원)</th>
+						<td>${rdto.monthlyFee}</td>
+						<th>면적(공급/전용)</th>
+						<td>${rdto.supplyArea}&#13217; / ${rdto.exclusiveArea}&#13217;</td>
+						<th>층/총층</th>
+						<td>${rdto.selectedFloor} / ${rdto.totalFloor}</td>
+					</tr>
+					<tr>
+						<th>방/욕실 개수</th>
+						<td>${rdto.roomNum} / ${rdto.bathroomNum}</td>
+						<th>방향</th>
+						<td>${rdto.direction}</td>
+						<th>준공년도</th>
+						<td>${rdto.completionYear}년</td>
+					</tr>
+					<tr>
+						<th>주차여부</th>
+						<td>${rdto.parkingFlag}</td>
+						<th>엘레베이터</th>
+						<td>${rdto.elevator}</td>
+						<th>반려동물거주</th>
+						<td>${rdto.pet}</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="table-type-view-detail" style="width: 100%">
+				<colgroup>
+					<col style="width: 100px;">
+					<col style="width: auto;">
+				</colgroup>
+				<tbody>
+					<tr>
+						<th colspan="2">
+							<div class="input-group">
+								<span class="input-group-addon" style="width: 100px;">상세설명</span>
+								<textarea id="detail" class="form-control" name="detail">${rdto.detail}</textarea>
+							</div>
+						</th>
+					</tr>
+				</tbody>
+			</table>
 
+	
+			<!-- 부트스트랩 캐러셀 시작-->
+			<div id="carousel-room" class="carousel slide"
+				data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#carousel-room" data-slide-to="0"
+						class="active"></li>
+					<li data-target="#carousel-room" data-slide-to="1"></li>
+				</ol>
 
-        </form>
-    </div>
-	<script>
-        var year = document.getElementById("year");
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+						<img src="/sybang/images/${iList[0]}" alt="${iList[0]}"
+							class="img-responsive center-block">
+						<div class="carousel-caption"></div>
+					</div>
+					<div class="item">
+						<img src="/sybang/images/${iList[1]}" alt="${iList[1]}"
+							class="img-responsive center-block">
+						<div class="carousel-caption"></div>
+					</div>
+				</div>
 
-        for (var i = 1990; i <= 2021; i++) {
-
-            year.innerHTML += "<option value='" + i + "'>" + i + "년</option>";
-        }
-    </script>
-
-	<!-- footer 가져오기######## -->
+				<!-- Controls -->
+				<a class="left carousel-control" href="#carousel-room"
+					role="button" data-slide="prev"> <span
+					class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a> <a class="right carousel-control" href="#carousel-room"
+					role="button" data-slide="next"> <span
+					class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+			<!-- 부트스트랩 캐러셀 끝-->
+			
+			<!-- 등록된 방 게시글 번호 -->
+			<input type="hidden" id="bseq" name="bseq" value="${approBrokerSeq }">
+			<input type="hidden" id="rseq" name="rseq" value="${rdto.seq }">
+			
+			<div class="buttons">
+				<button type="submit" class="btn btn-info">등록하기</button>
+				<a class="btn btn-default" href="/sybang/broker/room/view.do?seq=${rdto.seq}&page=${nowPage}" role="button">뒤로가기</a>
+			</div>
+			
+		</div>
+		</form>
+		
+	</div>
+	
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
+	
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=950df7fcc5aace4db5b109e8c92b5034&libraries=services"></script>
+	<script>
+		var postLat = 37.499343405328595;
+		var postLng = 127.03321257686713;		
+		var roomLocation = "<c:out value='${rdto.address}'/>";
+	
+		var container = document.getElementById('map');
+		var options = {
+			center : new kakao.maps.LatLng(postLat, postLng),
+			level : 4
+		};
+
+		var map = new kakao.maps.Map(container, options);
+		
+		/*marker1 = new daum.maps.Marker({
+			position: new daum.maps.LatLng(postLat, postLng)
+		});
+		
+		marker1.setMap(map);*/
+		
+		// 주소-좌표 변환 객체를 생성합니다
+		var geocoder = new kakao.maps.services.Geocoder();
+
+		// 주소로 좌표를 검색합니다
+		geocoder.addressSearch(roomLocation, function(result, status) {
+
+		    // 정상적으로 검색이 완료됐으면 
+		     if (status === kakao.maps.services.Status.OK) {
+
+		        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+		        // 결과값으로 받은 위치를 마커로 표시합니다
+		        var marker = new kakao.maps.Marker({
+		            map: map,
+		            position: coords
+		        });
+
+		        //인포윈도우로 장소에 대한 설명을 표시합니다
+		        var infowindow = new kakao.maps.InfoWindow({
+		       	    content: '<div style="width:150px;text-align:center;padding:6px 0;">${rdto.bType}</div>'
+		        });
+		        infowindow.open(map, marker);
+
+		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+		        map.setCenter(coords);
+		    } 
+		});    
+		
+		window.onload = function() {
+			$("#subject").focus();
+		};
+		
+	</script>
+	
+	<script type="text/javascript">
+		
+	</script>
+
 </body>
 </html>
