@@ -48,7 +48,6 @@ public class AllMemberDAO {
 			rs = pstat.executeQuery();
 
 			while (rs.next()) {
-				System.out.println("ssn : " + rs.getString("ssn"));
 				MemberDTO dto = new MemberDTO();
 				Calendar now = Calendar.getInstance();
 				String yearTwo;
