@@ -9,6 +9,12 @@
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
 <link rel="stylesheet" href="/sybang/css/housedetail.css">
 <style>
+
+	.buttons #btn-back, .buttons #btn-del {
+		float: right;
+		margin-top: 50px;
+		margin-left: 10px;
+	}
 </style>
 </head>
 
@@ -157,9 +163,32 @@
 			</tr>
 		</table>
 
-		<button type="button" class="btn btn-default" id="btn-back">
+	<!-- 	<button type="button" class="btn btn-default" id="btn-back">
 			<span class="glyphicon glyphicon-triangle-left"></span>&nbsp;뒤로 가기
-		</button>
+		</button> -->
+		
+		<div class="buttons">
+				<a class="btn btn-default" id="btn-back" role="button">목록</a>
+				<a class="btn btn-danger" id="btn-del" data-toggle="modal" data-target="#delete-room" role="button">삭제</a>
+			</div>
+			
+			<div class="modal fade" id="delete-room" tabindex="-1" role="dialog" aria-hidden="true">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title">매물 게시글 삭제</h4>
+			      </div>
+			      <div class="modal-body">
+			        <p>정말 삭제하시겠습니까? <br>한 번 삭제된 매물 게시글은 되돌릴 수 없습니다.</p>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-danger" onclick="location.href='/sybang/admin/house/deleteok.do?seq=${dto.seq}&page=${nowPage}'">예, 삭제하겠습니다.</button>
+			        <button type="button" class="btn btn-default" data-dismiss="modal">다시 생각해볼게요.</button>
+			      </div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
 
 
 

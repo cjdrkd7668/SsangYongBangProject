@@ -306,6 +306,24 @@ public class HouseDAO {
 		return 0;
 	}
 
+	//DeleteOk 서블릿 -> 해당 게시글 삭제
+	public int del(String seq) {
+		try {
+
+			String sql = "update tblHousePost set delFlag = 1 where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+
+			return pstat.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return 0;
+	}
+
 }
 
 
