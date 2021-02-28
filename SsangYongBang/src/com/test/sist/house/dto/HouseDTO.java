@@ -16,14 +16,14 @@ public class HouseDTO {
 	private String dtype; //거래 유형
 	private String price; //매물 가격
 	private String rent; //월세
-	private String monthlyFee; //관리비
+	private int monthlyFee; //관리비
 	private String address; //주소
-	private String exclusiveArea; //전용면적
-	private String supplyArea; //공급면적
+	private int exclusiveArea; //전용면적
+	private int supplyArea; //공급면적
 	private String selectedFloor; //해당 층
 	private String totalFloor; //총 층
-	private String roomNum; //방 개수
-	private String bathroomNum; //욕실 개수
+	private int roomNum; //방 개수
+	private int bathroomNum; //욕실 개수
 	private String direction; //방향
 	private String completionYear; //준공년도
 	private String parkingFlag; //주차 여부
@@ -32,10 +32,9 @@ public class HouseDTO {
 	private String subject;
 	private String content;
 	private String regdate;
-
-	//private String readCount;
-	//조회수가 만약에 필요하면 alter로 넣을 예정
 	
+	private String url1;
+	private String url2;
 	public String getSeq() {
 		return seq;
 	}
@@ -90,10 +89,10 @@ public class HouseDTO {
 	public void setRent(String rent) {
 		this.rent = rent;
 	}
-	public String getMonthlyFee() {
+	public int getMonthlyFee() {
 		return monthlyFee;
 	}
-	public void setMonthlyFee(String monthlyFee) {
+	public void setMonthlyFee(int monthlyFee) {
 		this.monthlyFee = monthlyFee;
 	}
 	public String getAddress() {
@@ -102,16 +101,16 @@ public class HouseDTO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getExclusiveArea() {
+	public int getExclusiveArea() {
 		return exclusiveArea;
 	}
-	public void setExclusiveArea(String exclusiveArea) {
+	public void setExclusiveArea(int exclusiveArea) {
 		this.exclusiveArea = exclusiveArea;
 	}
-	public String getSupplyArea() {
+	public int getSupplyArea() {
 		return supplyArea;
 	}
-	public void setSupplyArea(String supplyArea) {
+	public void setSupplyArea(int supplyArea) {
 		this.supplyArea = supplyArea;
 	}
 	public String getSelectedFloor() {
@@ -126,16 +125,16 @@ public class HouseDTO {
 	public void setTotalFloor(String totalFloor) {
 		this.totalFloor = totalFloor;
 	}
-	public String getRoomNum() {
+	public int getRoomNum() {
 		return roomNum;
 	}
-	public void setRoomNum(String roomNum) {
+	public void setRoomNum(int roomNum) {
 		this.roomNum = roomNum;
 	}
-	public String getBathroomNum() {
+	public int getBathroomNum() {
 		return bathroomNum;
 	}
-	public void setBathroomNum(String bathroomNum) {
+	public void setBathroomNum(int bathroomNum) {
 		this.bathroomNum = bathroomNum;
 	}
 	public String getDirection() {
@@ -186,6 +185,19 @@ public class HouseDTO {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
+	public String getUrl1() {
+		return url1;
+	}
+	public void setUrl1(String url1) {
+		this.url1 = url1;
+	}
+	public String getUrl2() {
+		return url2;
+	}
+	public void setUrl2(String url2) {
+		this.url2 = url2;
+	}
+	
 	
 	
 }

@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import com.test.sist.DBUtil;
+import com.test.sist.house.dto.HouseDTO;
 
 /**
  * 
@@ -34,5 +35,45 @@ public class HouseDAO {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+	}
+
+	//RegisterOk 서블릿 -> 매물 게시글 작성
+	public int post(HouseDTO dto) {
+
+		try {
+
+			String sql = "{ call procAddHousePost(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) }";
+
+			cstat = conn.prepareCall(sql);
+
+			cstat.setString(1, dto.getBseq());
+			cstat.setString(2, dto.getSubject());
+			cstat.setString(3, dto.getContent());
+			cstat.setString(4, dto.getBtype());
+			cstat.setString(5, dto.getDtype());
+			cstat.setString(6, dto.getAddress());
+			cstat.setInt(7, dto.getExclusiveArea());
+			cstat.setInt(8, dto.getSupplyArea());
+			cstat.setString(9, dto.getSelectedFloor());
+			cstat.setString(10, dto.getTotalFloor());
+			cstat.setInt(11, dto.getRoomNum());
+			cstat.setInt(12, dto.getBathroomNum());
+			cstat.setString(13, dto.getDirection());
+			cstat.setString(14, dto.getCompletionYear());
+			cstat.setString(15, dto.getParkingFlag());
+			cstat.setString(16, dto.getElevator());
+			cstat.setString(17, dto.getPet());
+			cstat.setString(18, dto.getPrice());
+			cstat.setString(19, dto.getRent());
+			cstat.setInt(20, dto.getMonthlyFee());
+			cstat.setString(21, dto.getUrl1());
+			cstat.setString(22, dto.getUrl2());
+			
+			return cstat.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return 0;
 	}
 }
