@@ -49,7 +49,15 @@ public class EditOk extends HttpServlet {
 		if (result == 1) {
 			
 			//성공 시 수정한 글로 이동
-			resp.sendRedirect("/sybang/inquiry/detail.do?seq=" + seq);
+			resp.setContentType("text/html; charset=UTF-8");
+			PrintWriter writer = resp.getWriter();
+
+			writer.print("<html><body>");
+			writer.print("<script>");
+			writer.print("alert('수정되었습니다.'); location.href='/sybang/inquiry/detail.do?seq=" + seq +"';");
+			writer.print("</script>");
+			writer.print("</body></html>");
+			
 		} else {
 			
 			PrintWriter writer = resp.getWriter();

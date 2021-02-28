@@ -45,7 +45,7 @@
         <ul class="nav nav-tabs" style="clear: both;">
             <li class="active"><a data-toggle="tab" id="myPost" href="#writepost">내가 쓴 글</a></li>
             <li><a data-toggle="tab" id="myComment" href="#writecomment">내가 쓴 댓글</a></li>
-            <li><a data-toggle="tab" href="#writereview">댓글 알림</a></li>
+            <li><a data-toggle="tab" href="#writereview">내 후기/평점</a></li>
         </ul>
 
         <!-- tab-content 시작 -->
@@ -237,7 +237,7 @@
 			$.ajax({
 				type: "GET",
 				url: "/sybang/member/mycommentdata.do",
-				data: "authorseq=1",
+				data: "authorseq=" + ${seq},
 				dataType: "json",
 				success: function(result) {
 					$("#tblcomment tbody").html("");
