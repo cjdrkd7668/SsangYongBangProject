@@ -73,10 +73,15 @@
 	height: 100px;
 	font-size: 1.3em;
 	background-color: #3B79BC;
+	opacity: .8;
 }
 
 .list-container .btn-info:hover {
-	opacity: .8;
+	width: 150px;
+	height: 100px;
+	font-size: 1.3em;
+	background-color: #3B79BC;
+	opacity: 1;
 }
 </style>
 </head>
@@ -90,7 +95,6 @@
 	<div class="list-container" style="margin-top: -50px;">
 		<div class="page-header">
 			<h1>로그인</h1>
-			<!-- <div class="well well-sm" style="float:left;">총 <b>5</b>개의 자유게시판 글이 등록되어 있습니다.</div> -->
 		</div>
 
 		<div class="jumbotron">
@@ -134,12 +138,5 @@
 
 	<!-- footer 가져오기######## -->
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
-	<script>
-	   	function test(id, pw) {
-	   		$("#email").val(id);
-	   		$("#pw").val(pw);
-	   		$("#login-form").submit(); 
-	   	}
-   </script>
 </body>
 </html>

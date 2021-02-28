@@ -12,6 +12,15 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 <style>
+.newBadge {
+	position: relative;
+	top: -5px;
+}
+.listContainer .page-header small {
+	position: relative;
+	top: 5px;
+	font-size: 0.6em;
+}
 </style>
 </head>
 <body>
@@ -88,7 +97,7 @@
 					<!-- 댓글 수 끝 -->
 					<!-- 최신 글 시작 -->
 					<c:if test="${dto.gap < 1 }">
-						<span class="badge" style="background-color: red;">N</span>
+						<span class="badge newBadge" style="background-color: red;">N</span>
 					</c:if>
 					<!-- 최신 글 끝 -->
 					</a>

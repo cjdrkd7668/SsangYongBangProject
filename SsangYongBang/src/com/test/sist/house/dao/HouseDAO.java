@@ -118,7 +118,8 @@ public class HouseDAO {
 	//MyRegList 서블릿 -> 게시글 목록 반환
 	public ArrayList<HouseDTO> list(HashMap<String, String> map) {
 		try {
-			String sql = "select * from (select rownum as rnum, h.* from vwHousePost h where h.bseq = ?) where rnum between ? and ?";
+			String sql = "select seq, bseq, subject, address, to_char(regdate, 'yy/mm/dd') as regdate, state "
+					+ " from (select rownum as rnum, h.* from vwHousePost h where h.bseq = ?) where rnum between ? and ?";
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, map.get("bseq"));
 			pstat.setString(2, map.get("begin"));
@@ -135,7 +136,8 @@ public class HouseDAO {
 				dto.setBseq(rs.getString("bseq")); //승인 중개사 번호
 				dto.setSubject(rs.getString("subject"));
 				dto.setAddress(rs.getString("address"));
-				dto.setRegdate(rs.getString("regdate").substring(0, 10));
+				dto.setRegdate(rs.getString("regdate"));
+				dto.setState(rs.getString("state"));
 				
 				list.add(dto);
 			}

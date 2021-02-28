@@ -56,11 +56,11 @@ public class LoginOk extends HttpServlet {
 			
 		} else {
 			//로그인 실패 시
+			resp.setContentType("text/html; charset=UTF-8");
 			PrintWriter writer = resp.getWriter();
-			
 			writer.print("<html><body>");
 			writer.print("<script>");
-			writer.print("alert('failed');");
+			writer.print("alert('아이디나 비밀번호를 확인하여주세요.');");
 			writer.print("history.back();");
 			writer.print("</script>");
 			writer.print("</body></html>");

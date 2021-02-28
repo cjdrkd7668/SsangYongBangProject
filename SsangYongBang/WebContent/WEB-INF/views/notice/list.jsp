@@ -46,6 +46,11 @@
 	font-size: 1em;
 	color: #444;
 }
+.listContainer .page-header small {
+	position: relative;
+	top: 5px;
+	font-size: 0.6em;
+}
 </style>
 </head>
 <body>

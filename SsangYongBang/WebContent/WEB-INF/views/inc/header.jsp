@@ -26,7 +26,6 @@
           			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">커뮤니티<span class="caret"></span></a>
 			          	<ul class="dropdown-menu" role="menu">
 				            <li><a href="/sybang/notice/list.do">공지사항</a></li>
-				            <li><a href="/sybang/news/boardList.do">뉴스</a></li>
 				            <li><a href="/sybang/free/list.do">자유게시판</a></li>
 				            <c:if test="${not empty email }">
 				            <li><a href="/sybang/inquiry/list.do">문의게시판</a></li>
