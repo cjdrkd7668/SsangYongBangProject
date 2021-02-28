@@ -49,6 +49,35 @@
 
 <style>
 
+.thumbnailWrapper {
+	margin-left: 300px;
+	float: left;
+}
+
+.store {
+	
+	width: 300px;
+}
+
+.storeInfo {
+	display: inline-block;
+	float: left;
+	margin-top: 15px;
+	margin-left: 190px;
+	margint-bottom: 15px;
+	border-left: 4px solid #ddd;
+	border-right: 4px solid #ddd;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 20px;
+	border-radius: 10px;
+	
+}
+
+.intro {
+	width: 500px;
+}
+
 </style>
 </head>
 
@@ -84,6 +113,7 @@
 	<h4> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 전문업체 찾기</h4>
 	</div>
 	
+	<!-- 
 	<div class="row">
 	<form method="get" action="./index.jsp" class="form-inline mt-3">
 		<select name="" class="form-control mx-1 mt-2">
@@ -96,7 +126,7 @@
 
 	</form>
 	</div>
-
+	-->
 
 	<!-- 본문 중간 -->
 	<hr></hr>
@@ -105,21 +135,21 @@
 	    <div class="col-sm-10 text-center"><!-- 전체 컨테이너(12-2)의 8 크기로 띄우게 됨 -->
 			
 	
-				<div class="col-sm-6 col-md-4">
-					<div class="thumbnail">
-						<img src="../images/interior0001.jpg" alt="...">
+				<div class="thumbnailWrapper">
+					<div class="thumbnail store">
+						<img src="../images/${dto.portfolio}" alt="...">
 					</div>
 				</div>
+				<div style="clear: both"></div>
+			<div class="storeInfo">
+				<h3>${dto.id}</h3>
+				<p>${dto.address}</p>
+				<p>후기 등록 개수</p>
+				<p class="intro">${dto.introduction}</p> <!--  회사소개글 -->
+			
 
-				<div>
-					<h3>업체명</h3>
-					<p>주소</p>
-					<p>후기 등록 개수</p>
-					<p>이 업체의 소개글입니다.</p>
-				</div>
 
-
-			<div>
+			<div> <!-- 모달을 감싼 div -->
 							<!-- Button trigger modal -->
 			<button type="button" class="btn btn-primary btn-lg"
 				data-toggle="modal" data-target="#myModal">무료 견적 받아보기</button>
@@ -231,7 +261,7 @@
 			
 			</div>
 		
-		
+			</div> <!-- storeInfo끝 -->
 		
 		
 	</div>
@@ -248,35 +278,21 @@
 	
 	</div>
 	
+	<c:forEach items="${rlist}" var="rdto"> <!-- 넘긴 리뷰 목록을 돌기 -->
 	<hr></hr>
 	<div class="row">
 		<div class="col-sm-9">
-			<h4>김익명<span>2021.02.15</span></h4>
+			<h4>${rdto.memberName}<span>${rdto.regDate}</span></h4>
 			<div class="col-xs-6 col-md-3">
-				<a href="#" class="thumbnail"> <img src="../images/interior0001.jpg" alt="...">
+				<a href="#" class="thumbnail"> <img src="../images/${rdto.contentURL}" alt="...">
 				</a>
 			</div>
-			<p>너무나 만족합니다.</p>
+			<p>${rdto.reviewContent}</p>
 
 		</div>
 	
 	</div>	
-
-	<hr></hr>
-	<div class="row">
-		<div class="col-sm-9">
-			<h4>김익명<span>2021.02.15</span></h4>
-			<div class="col-xs-6 col-md-3">
-				<a href="#" class="thumbnail"> <img src="../images/interior0001.jpg" alt="...">
-				</a>
-			</div>
-			<p>너무나 만족합니다.</p>
-
-		</div>
-	
-	</div>	
-	
-
+	</c:forEach>
 	
 	</div>
 	

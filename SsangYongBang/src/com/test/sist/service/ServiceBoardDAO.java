@@ -105,5 +105,82 @@ public class ServiceBoardDAO {
 	
 	
 	
+	//servicestoreview 서블릿에서
+	//업체승인번호를 매개변수로 하여 해당 업체 정보(1줄) 을 가져오는 메서드 호출
+	public ServiceDTO get(String approvalFSeq) {
+
+		try {
+		
+			String sql = "select * from vwFirmInfo where approvalFSeq = ?";
+			//뷰에는 후기 + 한줄 같이 화면에 출력되므로, 후기 목록과 한줄에 대한 select문이 겹치지 않아야 null값으로 화면 안 뜨는 것을 방지 가능.
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, approvalFSeq);
+			
+			rs = pstat.executeQuery();
+			
+			if (rs.next()) {
+				
+				ServiceDTO dto = new ServiceDTO();
+				
+				dto.setApprovalFSeq(rs.getString("approvalFSeq"));
+				dto.setIntroduction(rs.getString("introduction"));
+				dto.setId(rs.getString("id"));
+				dto.setEmail(rs.getString("email"));
+				dto.setAddress(rs.getString("address"));
+				dto.setTel(rs.getString("tel"));
+				dto.setPortfolio(rs.getString("portfolio"));//여기까지 회사 정보
+
+				
+				return dto;
+			}
+			
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		return null;
+	}
+
+	
+	//servicestoreview 서블릿 -> 해당 승인업체 번호의 후기글 목록 가져오는 메서드 호출
+	public ArrayList<ServiceDTO> listReview(String approvalFSeq) {
+		
+		try {
+			String sql = "select * from vwSumInfoReview where approvalFSeq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, approvalFSeq);
+			
+			rs = pstat.executeQuery();
+			
+			ArrayList<ServiceDTO> rlist = new ArrayList<ServiceDTO>();
+			
+			while (rs.next()) {
+				
+				ServiceDTO dto = new ServiceDTO();
+				
+				
+				//회사의 후기정보
+				dto.setRegDate(rs.getString("regDate"));
+				dto.setReviewContent(rs.getString("reviewContent"));
+				dto.setContentURL(rs.getString("contentURL"));
+				dto.setMemberName(rs.getString("memberName"));
+				dto.setServiceArea(rs.getString("serviceArea"));
+				
+				rlist.add(dto);
+			}
+			
+			return rlist;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return null;
+	}
+	
+	
+	
 	
 }

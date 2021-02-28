@@ -79,11 +79,7 @@ public class ServicestoreList extends HttpServlet {
 		   System.out.println(dto.getCategorySeq() + dto.getApprovalFSeq() + dto.getId() + dto.getAddress() + dto.getPortfolio());
 	   }
 	   /*
-		dto.setApprovalFSeq(rs.getString("approvalFSeq"));
-		dto.setId(rs.getString("id"));
-		dto.setAddress(rs.getString("address"));
-		dto.setPortfolio(rs.getString("portfolio"));
-		dto.setIntroduction(rs.getString("introduction"));
+		콘솔에 해당 정보들이 찍히는 것 확인되었음.
 	   */
 	   
 	   //총 페이지 수 계산
