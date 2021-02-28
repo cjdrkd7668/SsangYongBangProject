@@ -63,9 +63,6 @@ public class List extends HttpServlet {
 		
 		map.put("access", access);
 		
-		//TODO 확인용이므로 완성 후에 지우기
-		System.out.println("access : " + access + "authorseq : " + authorseq);
-		
 		InquiryDAO dao = new InquiryDAO();
 		
 		//조회수 계산 플래그
