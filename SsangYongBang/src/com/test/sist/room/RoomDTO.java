@@ -1,5 +1,10 @@
 package com.test.sist.room;
 
+/**
+ * 
+ * @author 이청강
+ *
+ */
 public class RoomDTO {
 	
 	private String seq; 			//방 게시글 번호

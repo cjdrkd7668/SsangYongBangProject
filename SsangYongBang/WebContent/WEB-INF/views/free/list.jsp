@@ -22,7 +22,7 @@
     <div class="listContainer">
 
         <div class="page-header">
-            <h1><strong>자유게시판 <i class="fas fa-chalkboard-teacher blue"></i>&nbsp;&nbsp;&nbsp;</strong><small></small></h1>
+            <h1><strong>자유게시판 <i class="fas fa-chalkboard-teacher blue"></i>&nbsp;&nbsp;&nbsp;</strong><small> 다른 회원을 비방하거나 게시판 성격에 맞지 않은 글은 무통보 삭제될 수 있습니다.</small></h1>
             <div class="divider"></div>
         </div>
         
@@ -99,7 +99,8 @@
         <!-- listTable 끝 -->
 
 		<!-- page-bar 시작 -->
-        <nav class="col-md-8 page-bar">
+        <!-- <nav class="col-md-8 page-bar"> -->
+        <nav class="page-bar">
 			<ul class="pagination">
 				${pagebar }
 			</ul>
@@ -107,7 +108,8 @@
 		<!-- page-bar 끝 -->
 		
 		<c:if test="${not empty email && access == 0 || access == 1 }">
-			<button type="button" class="col-md-4 btn btn-default writeBtn bluebg" onclick="location.href='/sybang/free/post.do'">
+			<!-- <button type="button" class="col-md-4 btn btn-default writeBtn bluebg" onclick="location.href='/sybang/free/post.do'"> -->
+			<button type="button" class="btn btn-default writeBtn bluebg" onclick="location.href='/sybang/free/post.do'">
 				<i class="fas fa-pencil-alt"></i> 글쓰기
 			</button>
 		</c:if>

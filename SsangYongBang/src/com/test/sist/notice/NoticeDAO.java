@@ -72,7 +72,6 @@ public class NoticeDAO {
 			
 			cstat.executeQuery();
 			
-			//TODO 결과셋 받는 거!
 			rs = (ResultSet)cstat.getObject(2);
 			
 			ArrayList<NoticeDTO> list = new ArrayList<NoticeDTO>();
@@ -142,6 +141,7 @@ public class NoticeDAO {
 				dto.setAdminname(rs.getString("adminname"));
 				dto.setReadcount(rs.getString("readcount"));
 				dto.setGap(rs.getInt("gap"));
+				dto.setImageurl(rs.getString("imageurl"));
 				return dto;
 				
 			}
