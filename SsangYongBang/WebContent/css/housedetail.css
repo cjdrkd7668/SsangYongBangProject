@@ -137,10 +137,7 @@ body {
 }
 
 /* 뒤로 가기 버튼 */
-#btn-back {
-	float: right;
-	margin-top: 10px;
-}
+
 
 /* #modal-false {
 			border: 3px solid rebeccapurple;
