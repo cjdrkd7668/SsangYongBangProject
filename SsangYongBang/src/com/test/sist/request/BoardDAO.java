@@ -195,6 +195,36 @@ public class BoardDAO {
 		
 		return null;
 	}
+
+
+	
+	//request.writeok 서블릿의 호출 -> 요청서 쓰기(업체 지정)
+	public int choiceWrite(BoardDTO dto) {
+		
+		try {
+			
+			String sql = "INSERT INTO tblRequest (seq, regDate, address, shape, desiredDay, detail, area, serviceSeq, memberSeq, approvalFSeq) VALUES (seqRequest.nextVal, default, ?, ?, to_date(?,'yyyy-mm-dd'), ?, ?, ?, ?, ?)";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getAddress());
+			pstat.setString(2, dto.getShape());
+			pstat.setString(3, dto.getDesiredDay());
+			pstat.setString(4, dto.getDetail());
+			pstat.setString(5, dto.getArea());
+			pstat.setString(6, dto.getServiceSeq());
+			pstat.setString(7, dto.getMseq());
+			pstat.setString(8, dto.getApprovalFSeq());
+			
+			return pstat.executeUpdate();
+			
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		
+		
+		return 0;
+	}
 	
 	
 	

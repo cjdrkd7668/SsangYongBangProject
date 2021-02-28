@@ -190,7 +190,7 @@
 										data-dismiss="modal">취소</button>
 									<button type="submit" class="btn btn-primary">등록</button>
 								</div>
-								<!-- 로그인한 회원이 작성하게 되니, 세션 안의 회원번호를 쓰면 된다 히든태그 사용x -->>
+								<!-- 로그인한 회원이 작성하게 되니, 세션 안의 회원번호를 쓰면 된다 히든태그 사용x -->
 							</form>
 
 

@@ -53,6 +53,7 @@ public class ServicestoreView extends HttpServlet {
 	   //3.
 	   request.setAttribute("dto", dto);
 	   request.setAttribute("rlist", rlist);
+	   request.setAttribute("approvalFseq", approvalFseq);
 	   //request.setAttribute("search", o);
 	   //우선 검색어, 페이징은 넘기지 말고 시연
 	   
