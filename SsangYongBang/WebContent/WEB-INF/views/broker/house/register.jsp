@@ -194,10 +194,11 @@
 			<!-- 부트스트랩 캐러셀 끝-->
 			
 			<!-- 등록된 방 게시글 번호 -->
+			<input type="hidden" id="bseq" name="bseq" value="${approBrokerSeq }">
 			<input type="hidden" id="rseq" name="rseq" value="${rdto.seq }">
 			
 			<div class="buttons">
-				<button type="submit" class="btn btn-info">수정하기</button>
+				<button type="submit" class="btn btn-info">등록하기</button>
 				<a class="btn btn-default" href="/sybang/broker/room/view.do?seq=${rdto.seq}&page=${nowPage}" role="button">뒤로가기</a>
 			</div>
 			

@@ -26,7 +26,7 @@ public class Register extends HttpServlet {
 	   
 		// 글 번호, 돌아갈 페이지 가져오기
 		String seq = request.getParameter("seq");
-		String nowPage = request.getParameter("nowPage");
+		String nowPage = request.getParameter("page");
 
 		// 특정 글 정보 가져오기
 		RoomDAO dao = new RoomDAO();
