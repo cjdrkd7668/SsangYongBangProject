@@ -59,18 +59,3 @@
 	padding-top: 15px;
 }
 
-.list-container .btn-info {
-	width: 200px;
-	height: 100px;
-	font-size: 1.3em;
-	background-color: #3B79BC;
-	opacity: .8;
-}
-
-.list-container .btn-info:hover {
-	width: 150px;
-	height: 100px;
-	font-size: 1.3em;
-	background-color: #3B79BC;
-	opacity: 1;
-}
