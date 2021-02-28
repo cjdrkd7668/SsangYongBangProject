@@ -33,8 +33,8 @@ public class ServiceBoardDAO {
 		try {
 			
 			String where = "";
-			
-			if (map.get("search") != null || map.get("categoryNum") != null) {
+			//map.get("search") != null || 
+			if (map.get("categoryNum") != null) {
 				where = String.format("where categorynum = '%%%s%%' and address like '%%%s%%'", map.get("categoryNum"), map.get("search"));
 				
 			} 			
@@ -80,8 +80,8 @@ public class ServiceBoardDAO {
 		try {
 			
 			String where = "";
-			
-			if (map.get("search") != null && map.get("categoryNum") != null) {
+			//map.get("search") != null && 
+			if (map.get("categoryNum") != null) {
 				where = String.format("where categorynum = '%%%s%%' and address like '%%%s%%'", map.get("categoryNum"), map.get("search"));
 				
 			} 	

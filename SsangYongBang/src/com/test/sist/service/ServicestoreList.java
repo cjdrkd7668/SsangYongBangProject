@@ -76,10 +76,15 @@ public class ServicestoreList extends HttpServlet {
 	   //생략
 	   for (ServiceDTO dto : list) {
 		   
-		   System.out.println();
-		   
+		   System.out.println(dto.getCategorySeq() + dto.getApprovalFSeq() + dto.getId() + dto.getAddress() + dto.getPortfolio());
 	   }
-	   
+	   /*
+		dto.setApprovalFSeq(rs.getString("approvalFSeq"));
+		dto.setId(rs.getString("id"));
+		dto.setAddress(rs.getString("address"));
+		dto.setPortfolio(rs.getString("portfolio"));
+		dto.setIntroduction(rs.getString("introduction"));
+	   */
 	   
 	   //총 페이지 수 계산
 	   totalCount = dao.getToatalCount(map); //총 게시물 개수
@@ -102,7 +107,7 @@ public class ServicestoreList extends HttpServlet {
 					+ "        </li>");
 		} else {				
 			pagebar += String.format("<li>"
-					+ "            <a href=\"/codestudy/board/list.do?page=%d\" aria-label=\"Previous\">"
+					+ "            <a href=\"/sybang/service/servicestorelist.do?page=%d\" aria-label=\"Previous\">"
 					+ "                <span aria-hidden=\"true\">&laquo;</span>"
 					+ "            </a>"
 					+ "        </li>", n - 1);
@@ -118,7 +123,7 @@ public class ServicestoreList extends HttpServlet {
 				pagebar += "<li>";
 			}
 			
-			pagebar += String.format("<a href=\"/codestudy/board/list.do?page=%d\">%d</a></li>", n, n);
+			pagebar += String.format("<a href=\"/sybang/service/servicestorelist.do?page=%d\">%d</a></li>", n, n);
 			
 			loop++;
 			n++;
@@ -134,7 +139,7 @@ public class ServicestoreList extends HttpServlet {
 					+ "        </li>");
 		} else {
 			pagebar += String.format("<li>"
-					+ "            <a href=\"/codestudy/board/list.do?page=%d\" aria-label=\"Next\">"
+					+ "            <a href=\"/sybang/service/servicestorelist.do?page=%d\" aria-label=\"Next\">"
 					+ "                <span aria-hidden=\"true\">&raquo;</span>"
 					+ "            </a>"
 					+ "        </li>", n);
@@ -143,10 +148,15 @@ public class ServicestoreList extends HttpServlet {
 
 
 		//2.
+		
+
+		
 		request.setAttribute("categoryNum", categoryNum);
 		request.setAttribute("search", search);
 		request.setAttribute("pagebar", pagebar);
 		request.setAttribute("nowPage", nowPage);
+		request.setAttribute("list", list);
+		
 	   
 		
       RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/service/servicestorelist.jsp");

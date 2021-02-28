@@ -27,21 +27,45 @@
 }
 
 .wrapper {
-	margin-left: 80px;
-	margin-bottom: 40px;
+	margin-left: 70px;
+	margin-bottom: 70px;
 }
 
-.wrapper {
-	width: 800px;
+.subwrapper {
+	width: 900px;
 	margin-bottom: 40px;
 }
 
 .storeInfo {
 	width: 230px;
+	height: 400px;
+	display: inline-block;
+	margin-right: 40px;
+	margin-bottom: 30px;
+	padding-top: 15px;
+	padding-bottom: 15px;
 	float: left;
-	margin-right: 20px;
-	margint-bottom: 15px;
+	
 }
+
+.thumbnail {
+	height: 370px;
+	
+}
+
+.introduction {
+	height: 80px;
+	overflow: scroll;
+}
+
+.main {
+	margin-bottom: 100px;
+}
+
+.pagebar {
+	margin-left: 600px;
+}
+
 
 </style>
 </head>
@@ -101,14 +125,17 @@
 			<c:forEach items="${list}" var="dto">
 			  <div class="storeInfo">
 			    <div class="thumbnail">
-			      <img src="${dto.portfolio}" alt="...">
+			      <img src="../images/${dto.portfolio}" alt="...">
+			      <!-- 더미 정보의 이미지 경로 수정 필요. ../images/ 글을 붙이거나 서비스 이용 이미지폴더 따로만들어 해당 경로 붙이기 -->
 			      <div class="caption">
 			        <h3>${dto.id}</h3>
 			        <p>${dto.address}</p>
-			        <p>${dto.introduction}</p>
+			        <p class="introduction">${dto.introduction}</p>
 			      </div>
 			    </div>
 			  </div>
+			 
+			  
 			</c:forEach>
 
 	    </div>
@@ -119,6 +146,15 @@
 	<!-- 한 줄에 3개의 업체가 뜨게끔 하기 -->
 	
 		
+	
+	</div>
+	
+	 				
+	    <nav class="pagebar">
+	        <ul class="pagination">
+	            ${pagebar}
+	        </ul>
+	    </nav>
 	
 	</div>
 	<!-- ########## 본문 끝 -->
