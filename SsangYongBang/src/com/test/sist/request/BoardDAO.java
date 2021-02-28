@@ -140,6 +140,61 @@ public class BoardDAO {
 		
 		return 0;
 	}
+
+
+	
+	//reveivedrequest.서블릿의 호출 -> 로그인한 업체승인번호 매개로 글목록 반환 요청
+	public ArrayList<BoardDTO> receivedlist(HashMap<String, String> map) {
+		
+		
+		try {
+			
+			String where = String.format("where approvalFSeq = %s", (map.get("approvalFSeq")));
+			
+			if (map.get("search") != null) {
+				where = String.format("where approvalFSeq = %s", (map.get("approvalFSeq")));
+			}
+			
+			
+			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwRequest %s) a) where rnum between %s and %s"
+										,where
+										,map.get("begin")
+										,map.get("end")) ;
+			
+			pstat = conn.prepareStatement(sql);
+			rs = pstat.executeQuery();
+			
+			
+			ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
+			
+			while (rs.next()) {
+				
+				BoardDTO dto = new BoardDTO();
+				
+				dto.setMseq(rs.getString("mseq"));
+				dto.setEmail(rs.getString("email"));
+				dto.setRseq(rs.getString("rseq"));
+				dto.setStype(rs.getString("stype"));
+				dto.setAddress(rs.getString("address"));
+				dto.setShape(rs.getString("shape"));
+				dto.setDesiredDay(rs.getString("desiredDay"));
+				dto.setDetail(rs.getString("detail"));
+				dto.setArea(rs.getString("area"));
+				dto.setRegDate(rs.getString("regDate"));
+				
+				list.add(dto);
+			}
+			
+			return list;
+			
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		
+		
+		return null;
+	}
 	
 	
 	
