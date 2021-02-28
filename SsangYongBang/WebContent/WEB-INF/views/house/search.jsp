@@ -20,21 +20,7 @@
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> 
 <style>
 .modal-open{overflow:auto;padding-right:0 !important;}
-
-.wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
-.wrap * {padding: 0;margin: 0;}
-.wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
-.wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
-.info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
-.info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
-.info .close:hover {cursor: pointer;}
-.info .body {position: relative;overflow: hidden;}
-.info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
-.desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
-.desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
-.info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
-.info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
-.info .link {color: #5085BB;}
+.infowindow a {color:#486BB8;}
 </style>
 </head>
 <body>
@@ -69,70 +55,70 @@
                 <!-- address 시작 -->
                 <div class="col-md-6 address">
                     <h2 class="title">지역</h2>
-                    <select class="form-control" style="width: 130px; padding: 5px; font-size: 1.2em;">
+                    <select class="form-control" style="width: 130px; padding: 5px; font-size: 1.2em;" id="sido">
                         <option value="">시/도</option>
                         <option value="서울">서울특별시</option>
-                        <option value="부산">부산광역시</option>
-                        <option value="대구">대구광역시</option>
-                        <option value="인천">인천광역시</option>
-                        <option value="광주">광주광역시</option>
-                        <option value="경기">경기도</option>
-                        <option value="강원">강원도</option>
-                        <option value="충청">충청북도</option>
-                        <option value="충청">충청남도</option>
-                        <option value="전라">전라북도</option>
-                        <option value="전라">전라남도</option>
-                        <option value="경상">경상북도</option>
-                        <option value="경상">경상남도</option>
+                        <option value="부산광역시">부산광역시</option>
+                        <option value="대구광역시">대구광역시</option>
+                        <option value="인천광역시">인천광역시</option>
+                        <option value="광주광역시">광주광역시</option>
+                        <option value="경기도">경기도</option>
+                        <option value="강원도">강원도</option>
+                        <option value="충청북도">충청북도</option>
+                        <option value="충청남도">충청남도</option>
+                        <option value="전라북도">전라북도</option>
+                        <option value="전라남도">전라남도</option>
+                        <option value="경상북도">경상북도</option>
+                        <option value="경상남도">경상남도</option>
                         <option value="제주">제주특별자치도</option>
 
 
                     </select>
-                    <select class="form-control" style="width: 120px; padding: 5px; font-size: 1.2em;">
+                    <select class="form-control" style="width: 120px; padding: 5px; font-size: 1.2em;" id="gungoo">
                         <option value="">시/군/구</option>
-                        <option value="강남">강남구</option>
-                        <option value="강동">강동구</option>
-                        <option value="강북">강북구</option>
-                        <option value="강서">강서구</option>
-                        <option value="관악">관악구</option>
-                        <option value="광진">광진구</option>
-                        <option value="구로">구로구</option>
-                        <option value="금천">금천구</option>
-                        <option value="노원">노원구</option>
-                        <option value="10">도봉구</option>
-                        <option value="11">동대문구</option>
-                        <option value="12">동작구</option>
-                        <option value="13">마포구</option>
-                        <option value="14">서대문구</option>
-                        <option value="15">서초구</option>
-                        <option value="16">성동구</option>
-                        <option value="17">성북구</option>
-                        <option value="18">송파구</option>
-                        <option value="19">양천구</option>
-                        <option value="20">영등포구</option>
-                        <option value="21">용산구</option>
-                        <option value="22">은평구</option>
-                        <option value="23">종로구</option>
-                        <option value="24">중구</option>
-                        <option value="25">중랑구</option>
+                        <option value="강남구">강남구</option>
+                        <option value="강동구">강동구</option>
+                        <option value="강북구">강북구</option>
+                        <option value="강서구">강서구</option>
+                        <option value="관악구">관악구</option>
+                        <option value="광진구">광진구</option>
+                        <option value="구로구">구로구</option>
+                        <option value="금천구">금천구</option>
+                        <option value="노원구">노원구</option>
+                        <option value="도봉구">도봉구</option>
+                        <option value="동대문구">동대문구</option>
+                        <option value="동작구">동작구</option>
+                        <option value="마포구">마포구</option>
+                        <option value="서대문구">서대문구</option>
+                        <option value="서초구">서초구</option>
+                        <option value="성동구">성동구</option>
+                        <option value="성북구">성북구</option>
+                        <option value="송파구">송파구</option>
+                        <option value="양천구">양천구</option>
+                        <option value="영등포구">영등포구</option>
+                        <option value="용산구">용산구</option>
+                        <option value="은평구">은평구</option>
+                        <option value="종로구">종로구</option>
+                        <option value="중구">중구</option>
+                        <option value="중랑구">중랑구</option>
 
                     </select>
-                    <select class="form-control" style="width: 120px; padding: 5px; font-size: 1.2em;">
+                    <select class="form-control" style="width: 120px; padding: 5px; font-size: 1.2em;" id="dong">
                         <option value="">읍/면/동</option>
-                        <option value="1">개포동</option>
-                        <option value="2">논현동</option>
-                        <option value="3">대치동</option>
-                        <option value="4">도곡동</option>
-                        <option value="5">삼성동</option>
-                        <option value="6">세곡동</option>
-                        <option value="7">수서동</option>
-                        <option value="8">신사동</option>
-                        <option value="9">압구정동</option>
-                        <option value="10">역삼동</option>
-                        <option value="11">율현동</option>
-                        <option value="12">일원동</option>
-                        <option value="13">자곡동</option>
-                        <option value="14">청담동</option>
+                        <option value="개포동">개포동</option>
+                        <option value="논현동">논현동</option>
+                        <option value="대치동">대치동</option>
+                        <option value="도곡동">도곡동</option>
+                        <option value="삼성동">삼성동</option>
+                        <option value="세곡동">세곡동</option>
+                        <option value="수서동">수서동</option>
+                        <option value="신사동">신사동</option>
+                        <option value="압구정동">압구정동</option>
+                        <option value="역삼동">역삼동</option>
+                        <option value="율현동">율현동</option>
+                        <option value="일원동">일원동</option>
+                        <option value="자곡동">자곡동</option>
+                        <option value="청담동">청담동</option>
 
                     </select>
                 </div>
@@ -145,10 +131,10 @@
                 <div class="col-md-6 buildingtype">
                     <h2 class="title">건물 종류</h2>
                     <div class="btn-group" data-toggle="buttons" id="bType" name="bType">
-                        <label class="btn btn-default" style="width: 95px; font-size: 1.2em;"><input type="checkbox" value="1">아파트</label>
-                        <label class="btn btn-default" style="width: 100px; font-size: 1.2em;"><input type="checkbox" value="2">빌라/주택</label>
-                        <label class="btn btn-default" style="width: 100px; font-size: 1.2em;"><input type="checkbox" value="3">원룸/투룸</label>
-                        <label class="btn btn-default" style="width: 95px; font-size: 1.2em;"><input type="checkbox" value="4">오피스텔</label>
+                        <label class="btn btn-default" style="width: 95px; font-size: 1.2em;"><input type="checkbox" value="아파트">아파트</label>
+                        <label class="btn btn-default" style="width: 100px; font-size: 1.2em;"><input type="checkbox" value="빌라', '주택">빌라/주택</label>
+                        <label class="btn btn-default" style="width: 100px; font-size: 1.2em;"><input type="checkbox" value="원룸', '투룸">원룸/투룸</label>
+                        <label class="btn btn-default" style="width: 95px; font-size: 1.2em;"><input type="checkbox" value="오피스텔">오피스텔</label>
                     </div>
                 </div>
                 <!-- buildingtype 끝 -->
@@ -185,8 +171,8 @@
                                     <div id="slider0" class="sliders" style="width: 300px;"></div>
                                 </div>
                                 <!-- 방 크기/전용 면적 끝 -->
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-success" data-dismiss="modal">적용</button>
+                                <div class="modal-footer" style="margin-top: 40px;">
+                                    <button type="button" class="btn btn-success" id="area" data-dismiss="modal">적용</button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
                                 </div>
                             </div>
@@ -206,11 +192,11 @@
                 <!-- roomnum 시작 -->
                 <div class="col-md-6 roomnum">
                     <h2 class="title">방 개수</h2>
-                    <div class="btn-group" data-toggle="buttons">
+                    <div class="btn-group" data-toggle="buttons" id="roomNum" name="roomNum">
 
                         <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="1">1개</label>
-                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="2">2~4개</label>
-                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="3">5개 이상</label>
+                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="2', '3', '4">2~4개</label>
+                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="5', '6', '7', '8">5개 이상</label>
                     </div>
                 </div>
                 <!-- roomnum 끝 -->
@@ -237,14 +223,14 @@
 
                                 <!-- 보증금/전세가 -->
                                 <div class="modal-header">
-                                    <h3 class="modal-title">보증금/전세가</h3>
+                                    <h3 class="modal-title">보증금/전세가/매매가</h3>
                                 </div>
 
 
                                 <div class="modal-body">
                                     <small style="width: 180px;">
-                                        <div id="slider1value1" class="value"></div> 억원&nbsp;~
-                                        <div id="slider1value2" class="value"></div>&nbsp;&nbsp; 억원
+                                        <div id="slider1value1" class="value"></div> 만원&nbsp;~
+                                        <div id="slider1value2" class="value"></div>&nbsp;&nbsp; 만원
                                     </small>
                                     <div id="slider1" class="sliders" style="width: 300px;"></div>
                                 </div>
@@ -263,8 +249,8 @@
                                     <div id="slider2" class="sliders" style="width: 300px;"></div>
                                 </div>
                                 <!-- 월세 끝 -->
-
                                 <!-- 매매가 -->
+								<!--
                                 <div class="modal-header">
                                     <h3 class="modal-title">매매가</h3>
                                 </div>
@@ -276,12 +262,12 @@
                                     </small>
                                     <div id="slider3" class="sliders" style="width: 300px;"></div>
                                 </div>
+								-->
                                 <!-- 매매가 끝 -->
 
 
-
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-success" data-dismiss="modal">적용</button>
+                                <div class="modal-footer" style="margin-top: 40px;">
+                                    <button type="button" class="btn btn-success" id="price" data-dismiss="modal">적용</button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
                                 </div>
                             </div>
@@ -295,7 +281,7 @@
 
 
             <!-- detail-search 시작 -->
-            <div class="panel-group" id="accordion" style="clear: both;">
+            <div class="panel-group" id="accordion" style="clear: both; border-bottom: 5px solid #486BB8;">
                 <div class="panel">
                     <!-- panel-heading 시작 -->
                     <div class="panel-heading btn-detail">
@@ -309,17 +295,17 @@
                         <!-- panel-body 시작 -->
                         <div class="panel-body">
                             <!-- 상세 검색 스위치 시작 -->
-                            <div class="row detail well well-sm">
+                            <div class="row detail well well-sm" style="box-shadow: none;">
                                 <div class="col-md-4 well-detail">
-                                    <label for="parking">주차가능</label><input type="checkbox" class="js-switch"
-                                        id="parking" />
+                                    <label for="parking">주차가능</label><input type="checkbox" class="js-switch js-check-change"
+                                        id="parkingFlag" />
                                 </div>
                                 <div class="col-md-4 well-detail">
-                                    <label for="elevator">엘리베이터</label><input type="checkbox" class="js-switch"
+                                    <label for="elevator">엘리베이터</label><input type="checkbox" class="js-switch js-check-change"
                                         id="elevator" />
                                 </div>
                                 <div class="col-md-4 well-detail">
-                                    <label for="pet">반려동물</label><input type="checkbox" class="js-switch" id="pet" />
+                                    <label for="pet">반려동물</label><input type="checkbox" class="js-switch js-check-change" id="pet" />
                                 </div>
                             </div>
                             <!-- 상세 검색 스위치 끝 -->
@@ -331,12 +317,14 @@
 
             </div>
             <!-- detail-search 끝 -->
-
             <div class="search-text">
+            <hr>
+            	<!--
             	<input type="text" name="search" id="search" class="form-control" value="" placeholder="리스트 내 검색 ex) 동 이름, 학교 이름, 역 이름"  style="font-size: 1.2em;">
             	<button type="submit" class="form-control" style="display: inline-block; text-align: center; padding: 3px; width: 35px; height: 35px; font-size: 1em;background-color: #486BB8; color: #EEE; outline: none; border-radius: 50%;">
             	<i class="fas fa-search"></i>
             	</button>
+            	  -->
             </div>
             </form>
             <!-- form 태그 끝 -->
@@ -366,6 +354,8 @@
 	<script src="/sybang/js/address.js"></script>
 	<script>
 		
+		//############ 카카오맵 API 변수 선언 및 초기화 시작 ############
+		
 		var container = document.getElementById('map');
 		var options = {
 			center : new kakao.maps.LatLng(37.499426242183034, 127.03425370768977),
@@ -375,31 +365,49 @@
 		var map = new kakao.maps.Map(container, options);
 		var geocoder = new kakao.maps.services.Geocoder();
 		var markers = [];
-	
-		$("#hide-markers").click(function hideMarkers() {
-		    setMarkers(null);    
-		})
-		
-		/* $('input[name=dType]').hasClass('active' == true) {
-			alert("멍멍");
-			
-		} */
-	
-		var where = "";
-		
-		var wheredType = ""; //"and dType in ('temp', '월세', '전세', '매매')"
-		var wherebType = "";
-		
+
 		function setMarkers(map) {
 		    for (var i = 0; i < markers.length; i++) {
 		        markers[i].setMap(map);
 		    }            
 		}
 		
+		$("#hide-markers").click(function hideMarkers() {
+		    setMarkers(null); 
+		})
+		
+		//############ 카카오맵 API 변수 선언 및 초기화 끝 ############
+		
+		//############ 조건 검색 변수 선언 및 초기화 시작 #############
+		
+		var where = "";
+		var wheredType = ""; //"and dType in ('temp', '월세', '전세', '매매')"
+		var wherebType = "";
+		var whereRoomNum = "";
+		var whereParkingFlag = "";
+		var whereElevator = "";
+		var wherePet = "";
+		var whereAddress = "";
+		var whereArea = "";
+		var wherePrice = "";
+		var whereRent = "";
 		
 		$("#send").click(function() {
 			where = "where seq > 0" + " " + wheredType 
-									+ " " + wherebType; 
+									+ " " + wherebType
+									+ " " + whereParkingFlag
+									+ " " + whereElevator
+									+ " " + wherePet
+									+ " " + whereRoomNum
+									+ " " + whereAddress
+									+ " " + whereArea
+									+ " " + wherePrice
+									+ " " + whereRent;
+			
+			if (where.trim() == "where seq > 0") {
+				where = "where seq < 0";
+			}
+		
 		});
 		
 		$("input[type=checkbox]").parent().mouseover(function() {
@@ -410,80 +418,58 @@
 			$(this).children().eq(0).removeClass("chosen");
 		});
 		
+		//입력 받은 조건으로 맵에 마커를 띄웁니다.
 		$("#mapping").click(function() {
 			$.ajax({
 				type: "GET",
 				url: "/sybang/house/searchjsondata.do",
-				data: "whereSearch=" + where,
+				data: "whereSearch=" + encodeURIComponent(where),
 				dataType: "json",
 				success: function(result) {
 					
-					console.log("무야호")
 					//result -> {"name":"홍길동", "age":"20", "address":"서울"}
 										
 					$(result).each(function(index, item) {
-						console.log(item.seq);
-						console.log(item.address);
-						console.log(item.priceTag);
-						console.log(" ");
 						
-						var roomLocation = item.address;
+						if (item.seq != 0) {
 						
-						// 주소로 좌표를 검색합니다
-						geocoder.addressSearch(roomLocation, function(result, status) {
-
-						    // 정상적으로 검색이 완료됐으면 
-						     if (status === kakao.maps.services.Status.OK) {
-
-						        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-						        // 결과값으로 받은 위치를 마커로 표시합니다
-						        var marker = new kakao.maps.Marker({
-						            map: map,
-						            position: coords
-						        });
-						        
-						        //마커를 배열에 추가합니다.
-						        markers.push(marker);
-
-						        var content = '<div class="wrap">' + 
-					            '    <div class="info">' + 
-					            '        <div class="title">' + 
-					            '            카카오 스페이스닷원' + 
-					            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
-					            '        </div>' + 
-					            '        <div class="body">' +
-					            '            <div class="desc">' + 
-					            '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>' + 
-					            '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>' + 
-					            '                <div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
-					            '            </div>' + 
-					            '        </div>' + 
-					            '    </div>' +    
-					            '</div>';
-
-					// 마커 위에 커스텀오버레이를 표시합니다
-					// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
-					var overlay = new kakao.maps.CustomOverlay({
-					    content: content,
-					    map: map,
-					    position: marker.getPosition()       
+							var roomLocation = item.address;
+							// 주소로 좌표를 검색합니다
+							geocoder.addressSearch(roomLocation, function(result, status) {
+	
+							    // 정상적으로 검색이 완료됐으면 
+							     if (status === kakao.maps.services.Status.OK) {
+	
+							        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+	
+							        // 결과값으로 받은 위치를 마커로 표시합니다
+							        var marker = new kakao.maps.Marker({
+							            map: map,
+							            position: coords
+							        });
+							        
+							        //마커를 배열에 추가합니다.
+							        markers.push(marker);
+									
+								    // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+								    var iwContent = '<div style="padding:5px;" class="infowindow">' + item.priceTag + '<br>' + item.bType + '<br>' + '<a href="/sybang/house/houseview.do?seq=' + item.seq + '" target="_blank">자세히 보기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+								        iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+	
+								    // 인포윈도우를 생성합니다
+								    var infowindow = new kakao.maps.InfoWindow({
+								        content : iwContent,
+								        removable : iwRemoveable
+								    });
+	
+								    // 마커에 클릭이벤트를 등록합니다
+								    kakao.maps.event.addListener(marker, 'click', function() {
+								          // 마커 위에 인포윈도우를 표시합니다
+								          infowindow.open(map, marker);  
+								    });
+							     }
+							});
+						}
 					});
-
-					// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-					kakao.maps.event.addListener(marker, 'click', function() {
-					    overlay.setMap(map);
-					});
-
-					// 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
-					function closeOverlay() {
-					    overlay.setMap(null);     
-					}
-						    } 
-						});
-						
-					});
-					
 				},
 				error: function(a,b,c) {
 					console.log(a,b,c);
@@ -491,7 +477,12 @@
 			});
 		});
 		
-		//거래 형태 조건 선택
+		//############ 조건 검색 변수 선언 및 초기화 끝 #############
+		
+		
+		//################## 조건별 검색 누적 시작 ##################
+		
+		//##### 거래 형태 조건 선택 시작 #####
 		$("#dType").children().change(function() {
 			
 			//1. 조건 문자열 초기화 및 누적변수 생성
@@ -516,14 +507,14 @@
 				wheredType += temp + ")";
 			
 				//3. 조건 검색 실행
+				$("#hide-markers").click();
 				$("#send").click(); //현재까지 선택된 조건을 var where에 취합
 				$("#mapping").click();
-				
-				console.log(where);
 				
 			} else {
 				
 				roomLocation = "";
+				let selCount = 0;
 				
 				for (let i=0; i<$("#dType").children().length; i++) {
 					
@@ -533,52 +524,289 @@
 						
 						temp += ", '" + $("#dType").children().eq(i).children().eq(0).val() + "'";
 						
+					selCount++;
+					
+					}
+					
+					
+				}
+
+				if (selCount == 0) {
+					wheredType = "";
+				} else {
+					wheredType += temp + ")";	
+				}
+				
+				selCount = 0;
+				
+				$("#hide-markers").click();
+				$("#send").click(); //현재까지 선택된 조건을 var where에 취합
+				$("#mapping").click();
+			}
+			
+		});
+		//##### 거래 형태 조건 선택 끝 #####
+		
+		//##### 건물 형태 조건 선택 시작 #####
+		$("#bType").children().change(function() {
+			
+			//1. 조건 문자열 초기화 및 누적변수 생성
+			wherebType = "and bType in ('temp'";
+			let temp = "";
+			
+			//2. 선택한 조건 누적
+			if (!$(this).hasClass("active")) {
+				
+				temp += ", '" + $(this).children().eq(0).val() + "'";
+				
+				for (let i=0; i<$("#bType").children().length; i++) {
+					
+					if ($("#bType").children().eq(i).hasClass("active")) {
+						
+						temp += ", '" + $("#bType").children().eq(i).children().eq(0).val() + "'";
+					
 					}
 					
 				}
 				
-				wheredType += temp + ")";	
+				wherebType += temp + ")";
+			
+				//3. 조건 검색 실행
+				$("#hide-markers").click();
+				$("#send").click(); //현재까지 선택된 조건을 var where에 취합
+				$("#mapping").click();
+				
+			} else {
+				
+				roomLocation = "";
+				let selCount = 0;
+				
+				for (let i=0; i<$("#bType").children().length; i++) {
+					
+					if ($("#bType").children().eq(i).hasClass("active") && 
+							
+						$("#bType").children().eq(i).index() != $(this).index()) {
+						
+						temp += ", '" + $("#bType").children().eq(i).children().eq(0).val() + "'";
+						
+					selCount++;
+					
+					}
+					
+				}
+
+				if (selCount == 0) {
+					wherebType = "";
+				} else {
+					wherebType += temp + ")";	
+				}
+				
+				selCount = 0;
 				
 				$("#hide-markers").click();
+				$("#send").click(); //현재까지 선택된 조건을 var where에 취합
+				$("#mapping").click();
 			}
 			
-			console.log(wheredType);
+		});
+		//##### 건물 형태 조건 선택 끝 #####
+		
+		//##### 방 개수 조건 선택 시작 #####
+		$("#roomNum").children().change(function() {
 			
+			//1. 조건 문자열 초기화 및 누적변수 생성
+			whereRoomNum = "and roomNum in ('0'";
+			let temp = "";
 			
-			/*
-			alert($(this).children().eq(0).val());
-			
-			let whereTemp = "";
-			let wheredType = ""; //", '" + $(this).children().eq(i).children().eq(0).val() + "'"
-			
-			//let whereTemp += " " + "and dType in ('temp'" + wheredType + ")";
-			
-			
-			for (let i=0; i<$(this).children().length; i++) {
+			//2. 선택한 조건 누적
+			if (!$(this).hasClass("active")) {
 				
-				if(!$(this).children().eq(i).hasClass("active")) {
+				temp += ", '" + $(this).children().eq(0).val() + "'";
+				
+				for (let i=0; i<$("#roomNum").children().length; i++) {
 					
-					wheredType += ", '" + $(this).children().eq(i).children().eq(0).val() + "'";
+					if ($("#roomNum").children().eq(i).hasClass("active")) {
+						
+						temp += ", '" + $("#roomNum").children().eq(i).children().eq(0).val() + "'";
 					
-					//alert($(this).children().eq(i).children().eq(0).val()); // 각각 전세 월세 매매 잘나온다.
-					
-				} else {
-					
+					}
 					
 				}
 				
+				whereRoomNum += temp + ")";
+				
+				//3. 조건 검색 실행
+				$("#hide-markers").click();
+				$("#send").click(); //현재까지 선택된 조건을 var where에 취합
+				$("#mapping").click();
+				
+			} else {
+				
+				roomLocation = "";
+				let selCount = 0;
+				
+				for (let i=0; i<$("#roomNum").children().length; i++) {
+					
+					if ($("#roomNum").children().eq(i).hasClass("active") && 
+							
+						$("#roomNum").children().eq(i).index() != $(this).index()) {
+						
+						temp += ", '" + $("#roomNum").children().eq(i).children().eq(0).val() + "'";
+						
+					selCount++;
+					
+					}
+					
+				}
+
+				if (selCount == 0) {
+					whereRoomNum = "";
+				} else {
+					whereRoomNum += temp + ")";	
+				}
+				
+				selCount = 0;
+				
+				$("#hide-markers").click();
+				$("#send").click(); //현재까지 선택된 조건을 var where에 취합
+				$("#mapping").click();
 			}
 			
-			console.log(wheredType);
-			*/
 		});
+		//##### 방 개수 조건 선택 끝 #####	
+		
+		//##### 상세 검색 조건 선택 시작 ######
+		var changeCheckbox = document.querySelectorAll('.js-check-change')
+
+		changeCheckbox[0].onchange = function() {
+  			
+  			if(changeCheckbox[0].checked) {
+  				whereParkingFlag = "and parkingFlag = '가능'"
+  			} else {
+  				whereParkingFlag = "";
+  			}
+  			
+  			$("#hide-markers").click();
+			$("#send").click(); //현재까지 선택된 조건을 var where에 취합
+			$("#mapping").click();
+  			
+		};
+		
+		changeCheckbox[1].onchange = function() {
+
+			if(changeCheckbox[1].checked) {
+  				whereElevator = "and elevator = '있음'"
+  			} else {
+  				whereElevator = "";
+  			}
+  			
+  			$("#hide-markers").click();
+			$("#send").click(); //현재까지 선택된 조건을 var where에 취합
+			$("#mapping").click();
+			
+		};
+		
+		changeCheckbox[2].onchange = function() {
+
+			if(changeCheckbox[2].checked) {
+  				wherePet = "and pet = '가능'"
+  			} else {
+  				wherePet = "";
+  			}
+  			
+  			$("#hide-markers").click();
+			$("#send").click(); //현재까지 선택된 조건을 var where에 취합
+			$("#mapping").click();
+			
+		};
+		//##### 상세 검색 조건 선택 끝 ######
+		
+		//##### 지역 조건 선택 시작 ######
+		$('#sido').change(function() {
+    		whereAddress = "and address like '%%" + $(this).val() + "%%' "
+    		+ "and address like '%%" + $(this).siblings().eq(1).val() + "%%' " 
+    		+ "and address like '%%" + $(this).siblings().eq(2).val() + "%%' "
+    		
+    		if ($(this).val() + $(this).siblings().eq(1).val() + $(this).siblings().eq(2).val() == "") {
+    			whereAddress = "";
+    		}
+    		
+    		$("#hide-markers").click();
+			$("#send").click(); //현재까지 선택된 조건을 var where에 취합
+			$("#mapping").click();
+		});
+		$('#gungoo').change(function() {
+			whereAddress = "and address like '%%" + $(this).val() + "%%' "
+			+ "and address like '%%" + $(this).siblings().eq(1).val() + "%%' " 
+			+ "and address like '%%" + $(this).siblings().eq(2).val() + "%%' "
+			
+			if ($(this).val() + $(this).siblings().eq(1).val() + $(this).siblings().eq(2).val() == "") {
+    			whereAddress = "";
+    		}
+
+			$("#hide-markers").click();
+			$("#send").click(); //현재까지 선택된 조건을 var where에 취합
+			$("#mapping").click();
+		});
+		$('#dong').change(function() {
+			whereAddress = "and address like '%%" + $(this).val() + "%%' "
+			+ "and address like '%%" + $(this).siblings().eq(1).val() + "%%' " 
+			+ "and address like '%%" + $(this).siblings().eq(2).val() + "%%' "
+			
+			if ($(this).val() + $(this).siblings().eq(1).val() + $(this).siblings().eq(2).val() == "") {
+    			whereAddress = "";
+    		}
+
+			$("#hide-markers").click();
+			$("#send").click(); //현재까지 선택된 조건을 var where에 취합
+			$("#mapping").click();
+		});
+		//##### 지역 조건 선택 끝 ######
+		
+		//##### 면적 조건 선택 시작 ######
+		$("#area").click(function(){
+			
+			whereArea = "and exclusiveArea between " + $(this).parent().prev().find("#slider0value1").text() + " and " + $(this).parent().prev().find("#slider0value2").text();
+			
+			if ($(this).parent().prev().find("#slider0value1").text() == "" || $(this).parent().prev().find("#slider0value2").text() == "") {
+    			whereArea = "";
+    		}
+			
+			$("#hide-markers").click();
+			$("#send").click(); //현재까지 선택된 조건을 var where에 취합
+			$("#mapping").click();
+			
+		});
+		//##### 면적 조건 선택 끝 ######
+		
+		//##### 가격 조건 선택 시작 ######
+		$("#price").click(function(){
+			
+			wherePrice = "and price between " + $("#slider1value1").text() + " and " + $("#slider1value2").text();
+			whereRent = "and rent between " + $("#slider2value1").text() + " and " + $("#slider2value2").text();
+			
+			if ($("#slider1value1").text() == "" || $("#slider1value2").text() == "") {
+    			wherePrice = "";
+    		}
+			
+			if ($("#slider2value1").text() == "" || $("#slider2value2").text() == "") {
+    			whereRent = "";
+    		}
+			
+			$("#hide-markers").click();
+			$("#send").click(); //현재까지 선택된 조건을 var where에 취합
+			$("#mapping").click();
+			
+		});
+		//##### 가격 조건 선택 끝 ######
+		
+		
+		//################## 조건별 검색 누적 끝 ##################
 		
 		window.onload = function() {
 			$("#search").focus();
 		};
 		
-		
-	
 		var elems = Array.prototype.slice.call(document
 				.querySelectorAll('.js-switch'));
 
@@ -602,9 +830,9 @@
         $("#slider1").slider({
 
             range: true,
-            min: 1,
-            max: 100,
-            values: [1, 100],
+            min: 0,
+            max: 500000,
+            values: [0, 10000],
             step: 1,
             slide: function (event, ui) {
                 $("#slider1value1").text(ui.values[0]);
@@ -615,7 +843,7 @@
         $("#slider2").slider({
 
             range: true,
-            min: 50,
+            min: 1,
             max: 1000,
             values: [50, 1000],
             step: 1,
@@ -624,19 +852,21 @@
                 $("#slider2value2").text(ui.values[1]);
             }
         });
-
+        
+		/*
         $("#slider3").slider({
 
             range: true,
-            min: 3,
-            max: 100,
-            values: [3, 100],
+            min: 0,
+            max: 1000,
+            values: [0, 10],
             step: 1,
             slide: function (event, ui) {
                 $("#slider3value1").text(ui.values[0]);
                 $("#slider3value2").text(ui.values[1]);
             }
         });
+		*/
 		
 	</script>
 </body>
