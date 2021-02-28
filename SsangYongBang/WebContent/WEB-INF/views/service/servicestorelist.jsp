@@ -16,6 +16,33 @@
 
 <style>
 
+.row {
+	margin-left: 50px;
+	margin-bottom: 30px;
+}
+
+.wrapperUp {
+	margin-left: 60px;
+	margin-bottom: 60px;
+}
+
+.wrapper {
+	margin-left: 80px;
+	margin-bottom: 40px;
+}
+
+.wrapper {
+	width: 800px;
+	margin-bottom: 40px;
+}
+
+.storeInfo {
+	width: 230px;
+	float: left;
+	margin-right: 20px;
+	margint-bottom: 15px;
+}
+
 </style>
 </head>
 
@@ -49,16 +76,16 @@
 	<h4> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 전문업체 찾기</h4>
 	</div>
 	
-	<div class="row">
-	<form method="get" action="./index.jsp" class="form-inline mt-3">
-		<select name="" class="form-control mx-1 mt-2">
+	<div class="wrapperUp">
+	<form id="searchForm" method="get" action="/sybang/service/ServicestoreList.do" class="form-inline mt-3">
+		<select name="categoryNum" id="categoryNum" class="form-control mx-1 mt-2">
 			<option value="청소">청소</option>
 			<option value="시공">시공</option>
 
-		</select> <input type="text" name="search" class="form-control mx-1 mt-2"
+		</select> <input type="text" name="search" id="search" class="form-control mx-1 mt-2"
 			placeholder="찾으시는 지역을 입력하세요">
 		<button type="submit" class="btn btn-primary mx-1 mt-2">검색</button>
-
+		
 	</form>
 	</div>
 
@@ -66,41 +93,23 @@
 	<!-- 본문 중간 -->
 
 	
-	<div class="row">
-	    <div class="col-sm-10 text-center"><!-- 전체 컨테이너(12-2)의 8 크기로 띄우게 됨 -->
+	<div class="wrapper">
+	    <div class="subWrapper"><!-- 전체 컨테이너(12-2)의 8 크기로 띄우게 됨 -->
 			
 		<div>
-		
-			  <div class="col-sm-6 col-md-4">
+			
+			<c:forEach items="${list}" var="dto">
+			  <div class="storeInfo">
 			    <div class="thumbnail">
-			      <img src="../images/interior0001.jpg" alt="...">
+			      <img src="${dto.portfolio}" alt="...">
 			      <div class="caption">
-			        <h3>업체명</h3>
-			        <p>주소</p>
-			        <p>소개글</p>
+			        <h3>${dto.id}</h3>
+			        <p>${dto.address}</p>
+			        <p>${dto.introduction}</p>
 			      </div>
 			    </div>
 			  </div>
-			  <div class="col-sm-6 col-md-4">
-			    <div class="thumbnail">
-			      <img src="../images/interior0001.jpg" alt="...">
-			      <div class="caption">
-			        <h3>업체명</h3>
-			        <p>주소</p>
-			        <p>소개글</p>
-			      </div>
-			    </div>
-			  </div>
-			  <div class="col-sm-6 col-md-4">
-			    <div class="thumbnail">
-			      <img src="../images/interior0001.jpg" alt="...">
-			      <div class="caption">
-			        <h3>업체명</h3>
-			        <p>주소</p>
-			        <p>소개글</p>
-			      </div>
-			    </div>
-			  </div>
+			</c:forEach>
 
 	    </div>
 	    
@@ -109,54 +118,7 @@
 	</div>
 	<!-- 한 줄에 3개의 업체가 뜨게끔 하기 -->
 	
-	
-	<div class="row">
-	    <div class="col-sm-10 text-center"><!-- 전체 컨테이너(12-2)의 8 크기로 띄우게 됨 -->
-			
-		<div>
 		
-			  <div class="col-sm-6 col-md-4">
-			    <div class="thumbnail">
-			      <img src="../images/interior0001.jpg" alt="...">
-			      <div class="caption">
-			        <h3>업체명</h3>
-			        <p>주소</p>
-			        <p>소개글</p>
-			      </div>
-			    </div>
-			  </div>
-			  <div class="col-sm-6 col-md-4">
-			    <div class="thumbnail">
-			      <img src="../images/interior0001.jpg" alt="...">
-			      <div class="caption">
-			        <h3>업체명</h3>
-			        <p>주소</p>
-			        <p>소개글</p>
-			      </div>
-			    </div>
-			  </div>
-			  <div class="col-sm-6 col-md-4">
-			    <div class="thumbnail">
-			      <img src="../images/interior0001.jpg" alt="...">
-			      <div class="caption">
-			        <h3>업체명</h3>
-			        <p>주소</p>
-			        <p>소개글</p>
-			      </div>
-			    </div>
-			  </div>
-
-	    </div>
-	    
-	</div>
-	
-	</div>	
-	<!-- 한 줄에 3개의 업체가 뜨게끔 하기 -->
-	
-	
-	
-	
-	
 	
 	</div>
 	<!-- ########## 본문 끝 -->
