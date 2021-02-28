@@ -36,6 +36,8 @@ public class WriteOk extends HttpServlet {
 		String memberSeq = (String) session.getAttribute("seq");
 		//로그인한 회원번호(세션에 담아둔 것 가져오기->별도 승인테이블없이 회원테이블 번호)
 		
+		String approvalFseq = req.getParameter("approvalFseq"); //만약 지정해서 쓸 경우, 업체승인번호
+		System.out.println("업체 지정시 승인번호가 잘 넘어왔는지 확인" + approvalFseq);
 		//여기까지 가져와야 할 데이터들
 		
 		//2.
@@ -50,28 +52,67 @@ public class WriteOk extends HttpServlet {
 		dto.setServiceSeq(serviceSeq);
 		
 		dto.setMseq(memberSeq);
+		dto.setApprovalFSeq(approvalFseq);
 		
-		int result = dao.write(dto);
 		
-		if (result == 1) {
-			resp.sendRedirect("/sybang/request/requestlist.do");
-			//교객 요청서를 썼으니 직접 전체리스트에서 확인 가능하돌록 보내기
-		} else {
+		//업체를 지정했을 때와 지정하지 않았을 때의 메서드 호출을 if문으로 분기
+		
+		if (approvalFseq.equals("")) {
+		
+			int result = dao.write(dto);
 			
-			//글쓰기 실패 -> 경고 + 뒤로 가기
-			PrintWriter writer = resp.getWriter();
+			if (result == 1) {
+				resp.sendRedirect("/sybang/request/requestlist.do");
+				//교객 요청서를 썼으니 직접 전체리스트에서 확인 가능하돌록 보내기
+			} else {
+				
+				//글쓰기 실패 -> 경고 + 뒤로 가기
+				PrintWriter writer = resp.getWriter();
+				
+				writer.print("<html><body>");
+				writer.print("<script>");
+				writer.print("alert('failed');");
+				writer.print("history.back();");
+				writer.print("</script>");
+				writer.print("</body></html>");
+				
+				writer.close();				
+				
+			}
+
 			
-			writer.print("<html><body>");
-			writer.print("<script>");
-			writer.print("alert('failed');");
-			writer.print("history.back();");
-			writer.print("</script>");
-			writer.print("</body></html>");
+		} else if (! (approvalFseq.equals(""))) {
+
 			
-			writer.close();				
+			int result = dao.choiceWrite(dto);
+			
+			if (result == 1) {
+				resp.sendRedirect("/sybang/request/requestlist.do");
+				//교객 요청서를 썼으니 직접 전체리스트에서 확인 가능하돌록 보내기
+			} else {
+				
+				//글쓰기 실패 -> 경고 + 뒤로 가기
+				PrintWriter writer = resp.getWriter();
+				
+				writer.print("<html><body>");
+				writer.print("<script>");
+				writer.print("alert('failed');");
+				writer.print("history.back();");
+				writer.print("</script>");
+				writer.print("</body></html>");
+				
+				writer.close();				
+				
+			}
+			
 			
 		}
 		
+		
+		
+		
+		
+
 		
 		
 		

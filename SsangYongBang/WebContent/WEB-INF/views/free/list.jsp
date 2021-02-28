@@ -11,6 +11,16 @@
 <link rel="stylesheet" href="/sybang/css/globallist.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 <style>
+.newBadge {
+	position: relative;
+	top: -5px;
+}
+
+.listContainer .page-header small {
+	position: relative;
+	top: 5px;
+	font-size: 0.6em;
+}
 </style>
 </head>
 <body>
@@ -22,7 +32,7 @@
     <div class="listContainer">
 
         <div class="page-header">
-            <h1><strong>자유게시판 <i class="fas fa-chalkboard-teacher blue"></i>&nbsp;&nbsp;&nbsp;</strong><small></small></h1>
+            <h1><strong>자유게시판 <i class="fas fa-chalkboard-teacher blue"></i>&nbsp;&nbsp;&nbsp;</strong><small> 다른 회원을 비방하거나 게시판 성격에 맞지 않은 글은 무통보 삭제될 수 있습니다.</small></h1>
             <div class="divider"></div>
         </div>
         
@@ -84,7 +94,7 @@
 					<!-- 댓글 수 끝 -->
 					<!-- 최신 글 시작 -->
 					<c:if test="${dto.gap < 1 }">
-						<span class="badge" style="background-color: red;">N</span></a>
+						<span class="badge newBadge" style="background-color: red;">N</span></a>
 					</c:if>
 					<!-- 최신 글 끝 -->
 					
@@ -99,7 +109,8 @@
         <!-- listTable 끝 -->
 
 		<!-- page-bar 시작 -->
-        <nav class="col-md-8 page-bar">
+        <!-- <nav class="col-md-8 page-bar"> -->
+        <nav class="page-bar">
 			<ul class="pagination">
 				${pagebar }
 			</ul>
@@ -107,7 +118,8 @@
 		<!-- page-bar 끝 -->
 		
 		<c:if test="${not empty email && access == 0 || access == 1 }">
-			<button type="button" class="col-md-4 btn btn-default writeBtn bluebg" onclick="location.href='/sybang/free/post.do'">
+			<!-- <button type="button" class="col-md-4 btn btn-default writeBtn bluebg" onclick="location.href='/sybang/free/post.do'"> -->
+			<button type="button" class="btn btn-default writeBtn bluebg" onclick="location.href='/sybang/free/post.do'">
 				<i class="fas fa-pencil-alt"></i> 글쓰기
 			</button>
 		</c:if>

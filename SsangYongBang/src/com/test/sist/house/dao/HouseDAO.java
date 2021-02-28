@@ -117,7 +117,8 @@ public class HouseDAO {
 	//MyRegList 서블릿 -> 게시글 목록 반환
 	public ArrayList<HouseDTO> list(HashMap<String, String> map) {
 		try {
-			String sql = "select * from (select rownum as rnum, h.* from vwHousePost h where h.bseq = ?) where rnum between ? and ?";
+			String sql = "select seq, bseq, subject, address, to_char(regdate, 'yy/mm/dd') as regdate, state "
+					+ " from (select rownum as rnum, h.* from vwHousePost h where h.bseq = ?) where rnum between ? and ?";
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, map.get("bseq"));
 			pstat.setString(2, map.get("begin"));
@@ -134,7 +135,8 @@ public class HouseDAO {
 				dto.setBseq(rs.getString("bseq")); //승인 중개사 번호
 				dto.setSubject(rs.getString("subject"));
 				dto.setAddress(rs.getString("address"));
-				dto.setRegdate(rs.getString("regdate").substring(0, 10));
+				dto.setRegdate(rs.getString("regdate"));
+				dto.setState(rs.getString("state"));
 				
 				list.add(dto);
 			}
@@ -245,6 +247,84 @@ public class HouseDAO {
 		}
 		return null;
 	}
+	
+	//BoardList 서블릿 -> 매물 게시글 전체 목록 반환
+	public ArrayList<HouseDTO> allList(HashMap<String, String> map) {
+		
+		try {
+			
+			String sql = "select rnum, seq, bseq, bname, tel, state, address, subject, to_char(regdate, 'yy/mm/dd') as regdate"
+						+ " from (select rownum as rnum, h.* from vwHousePost h) where rnum between ? and ?";
+			
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setString(1, map.get("begin"));
+			pstat.setString(2, map.get("end"));
+			
+			rs = pstat.executeQuery();
+			
+			ArrayList<HouseDTO> list = new ArrayList<HouseDTO>();
+			
+			while (rs.next()) {
+				
+				HouseDTO dto = new HouseDTO();
+				
+				dto.setSeq(rs.getString("seq"));
+				dto.setBseq(rs.getString("bseq"));
+				dto.setBname(rs.getString("bname"));
+				dto.setState(rs.getString("state"));
+				dto.setSubject(rs.getString("subject"));
+				dto.setRegdate(rs.getString("regdate"));
+				
+				list.add(dto);
+			}
+			
+			return list;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	}
+
+	//BoardList 서블릿 -> 총 게시글 개수
+	public int allTotalCount() {
+		
+		try {
+
+			String sql = "select count(*) as cnt from vwHousePost";
+
+			stat = conn.createStatement();
+			rs = stat.executeQuery(sql);
+			
+			if (rs.next()) {
+				return rs.getInt("cnt");
+			}
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return 0;
+	}
+
+	//DeleteOk 서블릿 -> 해당 게시글 삭제
+	public int del(String seq) {
+		try {
+
+			String sql = "update tblHousePost set delFlag = 1 where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, seq);
+
+			return pstat.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return 0;
+	}
+
 }
 
 

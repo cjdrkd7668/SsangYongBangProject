@@ -22,9 +22,10 @@
 		<table class="table table-hover table-type-list">
 			<thead class="board-table-head">
 				<tr>
-					<th scope="col" class="text-center">제목</th>
-					<th scope="col" class="text-center ">주소</th>
-					<th scope="col" class="text-center">작성일</th>
+					<th scope="col" class="text-center col-md-6">제목</th>
+					<th scope="col" class="text-center col-md-3">주소</th>
+					<th scope="col" class="text-center col-md-1">거래 상태</th>
+					<th scope="col" class="text-center col-md-2">작성일</th>
 				</tr>
 			</thead>
 			<tbody class="board-table-body">
@@ -36,6 +37,7 @@
 						</a>
 					</td>
 					<td class="text-center">${hdto.address}</td>
+					<td class="text-center">${hdto.state}</td>
 					<td class="text-center">${hdto.regdate}</td>
 				</tr>
 				</c:forEach>

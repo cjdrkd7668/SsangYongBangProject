@@ -12,6 +12,15 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 <style>
+.newBadge {
+	position: relative;
+	top: -5px;
+}
+.listContainer .page-header small {
+	position: relative;
+	top: 5px;
+	font-size: 0.6em;
+}
 </style>
 </head>
 <body>
@@ -23,7 +32,7 @@
     <div class="listContainer">
 
         <div class="page-header">
-            <h1><strong>문의게시판 <i class="far fa-question-circle blue"></i>&nbsp;&nbsp;&nbsp;</strong><small></small></h1>
+            <h1><strong>문의게시판 <i class="far fa-question-circle blue"></i>&nbsp;&nbsp;&nbsp;</strong><small> 관련 담당자가 빠른 시일 안에 답해드리겠습니다.</small></h1>
             <div class="divider"></div>
         </div>
         
@@ -88,7 +97,7 @@
 					<!-- 댓글 수 끝 -->
 					<!-- 최신 글 시작 -->
 					<c:if test="${dto.gap < 1 }">
-						<span class="badge" style="background-color: red;">N</span>
+						<span class="badge newBadge" style="background-color: red;">N</span>
 					</c:if>
 					<!-- 최신 글 끝 -->
 					</a>
@@ -127,7 +136,8 @@
         <!-- listTable 끝 -->
 
 		<!-- page-bar 시작 -->
-        <nav class="col-md-8 page-bar">
+        <!-- <nav class="col-md-8 page-bar"> -->
+        <nav class="page-bar">
 			<ul class="pagination">
 				${pagebar }
 			</ul>
@@ -135,7 +145,8 @@
 		<!-- page-bar 끝 -->
 		
 		<c:if test="${not empty email && access != 3 && access != 2 }">
-			<button type="button" class="col-md-4 btn btn-default writeBtn bluebg" onclick="location.href='/sybang/inquiry/post.do'">
+			<!-- <button type="button" class="col-md-4 btn btn-default writeBtn bluebg" onclick="location.href='/sybang/inquiry/post.do'"> -->
+			<button type="button" class="btn btn-default writeBtn bluebg" onclick="location.href='/sybang/inquiry/post.do'">
 				<i class="fas fa-pencil-alt"></i> 글쓰기
 			</button>
 		</c:if>

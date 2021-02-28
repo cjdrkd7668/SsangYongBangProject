@@ -45,7 +45,7 @@
         <ul class="nav nav-tabs" style="clear: both;">
             <li class="active"><a data-toggle="tab" id="myPost" href="#writepost">내가 쓴 글</a></li>
             <li><a data-toggle="tab" id="myComment" href="#writecomment">내가 쓴 댓글</a></li>
-            <li><a data-toggle="tab" href="#writereview">댓글 알림</a></li>
+            <li><a data-toggle="tab" href="#writereview">내 후기/평점</a></li>
         </ul>
 
         <!-- tab-content 시작 -->
@@ -54,7 +54,7 @@
             <!-- 내가 쓴 글 시작 -->
             <div class="tab-pane fade in active" id="writepost">
             	<div id="btn-post">
-                        <button type="button" class="btn btn-default">
+                        <button type="button" class="btn btn-default" id="ckAll">
                             <span class="glyphicon glyphicon-ok"></span> 전체 선택
                         </button>
                         <button type="button" class="btn btn-default">
@@ -65,7 +65,7 @@
                 <table class="table table-condensed" id="tbl-post">
                     
                     <tr>
-                        <th><input type="checkbox"></th>
+                        <th></th>
                         <th>번호</th>
                         <th>제목</th>
                         <th>작성일</th>
@@ -75,7 +75,7 @@
                     <!-- 받아온 내가 쓴 글 목록을 forEach로  -->
                     <c:forEach items="${plist }" var="pdto">
                     <tr>
-                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox" class="ckItem"></td>
                         <td>${pdto.seq }</td>
 						<!-- 해당 글이 자유게시판 글일 경우 -->
                         <c:if test="${pdto.which eq '자유게시판' }">
@@ -229,6 +229,16 @@
 	
 	<script>
 	
+		$("#ckAll").click(function(){
+			
+			
+			if ($(".ckItem").prop("checked")) {
+				$(".ckItem").prop("checked", false);	
+			} else {
+				$(".ckItem").prop("checked", true);
+			}
+		});
+	
 		
 	
 		//내가 쓴 댓글 클릭 시
@@ -237,7 +247,7 @@
 			$.ajax({
 				type: "GET",
 				url: "/sybang/member/mycommentdata.do",
-				data: "authorseq=1",
+				data: "authorseq=" + ${seq},
 				dataType: "json",
 				success: function(result) {
 					$("#tblcomment tbody").html("");

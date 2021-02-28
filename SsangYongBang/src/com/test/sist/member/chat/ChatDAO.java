@@ -39,10 +39,10 @@ public class ChatDAO {
 		try {
 			
 			String sql = "select "
-					+ "    ab.seq as abseq,"
-					+ "    b.businessName as bname"
-					+ "from tblApproBroker ab inner join tblBroker b on ab.brokerSeq = b.seq"
-					+ "where b.delFlag = 0;";
+					+ "    ab.seq as abseq, "
+					+ "    b.businessName as bname "
+					+ " from tblApproBroker ab inner join tblBroker b on ab.brokerSeq = b.seq"
+					+ " where b.delFlag = 0";
 			
 			stat = conn.createStatement();
 			rs = stat.executeQuery(sql);

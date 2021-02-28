@@ -49,6 +49,35 @@
 
 <style>
 
+.thumbnailWrapper {
+	margin-left: 300px;
+	float: left;
+}
+
+.store {
+	
+	width: 300px;
+}
+
+.storeInfo {
+	display: inline-block;
+	float: left;
+	margin-top: 15px;
+	margin-left: 190px;
+	margint-bottom: 15px;
+	border-left: 4px solid #ddd;
+	border-right: 4px solid #ddd;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 20px;
+	border-radius: 10px;
+	
+}
+
+.intro {
+	width: 500px;
+}
+
 </style>
 </head>
 
@@ -84,6 +113,7 @@
 	<h4> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 전문업체 찾기</h4>
 	</div>
 	
+	<!-- 
 	<div class="row">
 	<form method="get" action="./index.jsp" class="form-inline mt-3">
 		<select name="" class="form-control mx-1 mt-2">
@@ -96,7 +126,7 @@
 
 	</form>
 	</div>
-
+	-->
 
 	<!-- 본문 중간 -->
 	<hr></hr>
@@ -105,24 +135,25 @@
 	    <div class="col-sm-10 text-center"><!-- 전체 컨테이너(12-2)의 8 크기로 띄우게 됨 -->
 			
 	
-				<div class="col-sm-6 col-md-4">
-					<div class="thumbnail">
-						<img src="../images/interior0001.jpg" alt="...">
+				<div class="thumbnailWrapper">
+					<div class="thumbnail store">
+						<img src="../images/${dto.portfolio}" alt="...">
 					</div>
 				</div>
+				<div style="clear: both"></div>
+			<div class="storeInfo">
+				<h3>${dto.id}</h3>
+				<p>${dto.address}</p>
+				<p>후기 등록 개수</p>
+				<p class="intro">${dto.introduction}</p> <!--  회사소개글 -->
+			
 
-				<div>
-					<h3>업체명</h3>
-					<p>주소</p>
-					<p>후기 등록 개수</p>
-					<p>이 업체의 소개글입니다.</p>
-				</div>
 
-
-			<div>
+			<div> <!-- 모달을 감싼 div -->
 							<!-- Button trigger modal -->
 			<button type="button" class="btn btn-primary btn-lg"
 				data-toggle="modal" data-target="#myModal">무료 견적 받아보기</button>
+
 
 			<!-- Modal -->
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -137,15 +168,16 @@
 							<h4 class="modal-title" id="myModalLabel">내 요청서</h4>
 						</div>
 						<div class="modal-body">
-							<form action="./requestRegister.jsp" method="POST">
+						<!-- write페이지를 생략해도 될지.. 질문 필요함 -->
+							<form action="/sybang/request/writeok.do" method="POST">
 								<div class="form-row">
 									<div class="form-group col-sm-6">
-										<label>주소</label> <input type="text" name=""
+										<label>주소</label> <input type="text" name="address"
 											class="form-control" maxlength="20">
 									</div>
 									<div class="form-group col-sm-6">
 										<label>서비스 종류</label>
-										<select name="serviceCategory"
+										<select name="serviceSeq"
 											class="form-control">
 											<option value="1">청소</option>
 											<option value="2">시공</option>
@@ -155,17 +187,17 @@
 
 								<div class="form-row">
 									<div class="form-group col-sm-6">
-										<label>가옥구조</label> <select name=""
+										<label>가옥구조</label> <select name="shape"
 											class="form-control">
-											<option value="1">아파트</option>
-											<option value="2">빌라주택</option>
-											<option value="3">전원주택</option>
-											<option value="4">오피스텔</option>
-											<option value="5">기타</option>
+											<option value="아파트">아파트</option>
+											<option value="빌라주택">빌라주택</option>
+											<option value="전원주택">전원주택</option>
+											<option value="오피스텔">오피스텔</option>
+											<option value="기타">기타</option>
 										</select>
 									</div>
 									<div class="form-group col-sm-6">
-										<label>면적</label> <select name=""
+										<label>면적</label> <select name="area"
 											class="form-control">
 											<option value="15">15평</option>
 											<option value="16">16평</option>
@@ -199,16 +231,17 @@
 									
 								</div>
 								<div class="form-group">
-									<label>희망 날짜</label>
+									<label>희망 날짜</label> 
+									
 											<!-- 데이트피커 -->	
 									<div class="input-group date">
-							            <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+							            <input type="text" name="desiredDay" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 							        </div>
 									
 								</div>
 								<div class="form-group">
 									<label>상세내용</label>
-									<textarea name="evaluationContent" class="form-control"
+									<textarea name="detail" class="form-control"
 										maxlength="2000" style="height: 180px;"></textarea>
 								</div>
 
@@ -218,7 +251,8 @@
 										data-dismiss="modal">취소</button>
 									<button type="submit" class="btn btn-primary">등록</button>
 								</div>
-
+								<!-- 로그인한 회원이 작성하게 되니, 세션 안의 회원번호를 쓰면 된다 히든태그 사용x -->
+								<input type="hidden" name="approvalFseq" value="${approvalFseq}">
 							</form>
 
 
@@ -227,11 +261,11 @@
 					</div>
 				</div>
 			</div>
-			<!-- 모달 끝 -->
+
 			
 			</div>
 		
-		
+			</div> <!-- storeInfo끝 -->
 		
 		
 	</div>
@@ -248,35 +282,21 @@
 	
 	</div>
 	
+	<c:forEach items="${rlist}" var="rdto"> <!-- 넘긴 리뷰 목록을 돌기 -->
 	<hr></hr>
 	<div class="row">
 		<div class="col-sm-9">
-			<h4>김익명<span>2021.02.15</span></h4>
+			<h4>${rdto.memberName}<span>${rdto.regDate}</span></h4>
 			<div class="col-xs-6 col-md-3">
-				<a href="#" class="thumbnail"> <img src="../images/interior0001.jpg" alt="...">
+				<a href="#" class="thumbnail"> <img src="../images/${rdto.contentURL}" alt="...">
 				</a>
 			</div>
-			<p>너무나 만족합니다.</p>
+			<p>${rdto.reviewContent}</p>
 
 		</div>
 	
 	</div>	
-
-	<hr></hr>
-	<div class="row">
-		<div class="col-sm-9">
-			<h4>김익명<span>2021.02.15</span></h4>
-			<div class="col-xs-6 col-md-3">
-				<a href="#" class="thumbnail"> <img src="../images/interior0001.jpg" alt="...">
-				</a>
-			</div>
-			<p>너무나 만족합니다.</p>
-
-		</div>
-	
-	</div>	
-	
-
+	</c:forEach>
 	
 	</div>
 	

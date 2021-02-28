@@ -15,6 +15,11 @@ import com.test.sist.inc.Pagination;
 import com.test.sist.room.RoomDAO;
 import com.test.sist.room.RoomDTO;
 
+/**
+ * 
+ * @author 이청강
+ *
+ */
 @WebServlet("/admin/room/boardlist.do")
 public class BoardList extends HttpServlet {
 

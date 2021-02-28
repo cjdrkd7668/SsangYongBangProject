@@ -20,6 +20,14 @@ body {
 	color: #EEE;
 }
 
+.red {
+	color: red;
+}
+
+.red {
+	background-color: red;
+}
+
 .listContainer {
 	width: 1000px;
 	height: auto;
@@ -39,6 +47,7 @@ body {
 .listContainer .page-header small {
 	position: relative;
 	top: 5px;
+	font-size: 0.7em;
 }
 
 .listContainer .searchTable #search {
@@ -69,13 +78,13 @@ body {
 }
 
 .listContainer .page-bar {
-	text-align: right;
+	text-align: center;
 }
 
 .listContainer .writeBtn {
 	width: 100px;
 	height: 40px;
 	float: right;
-	margin-top: 20px;
+	margin-top: 10px;
 	font-size: 0.9em;
 }
