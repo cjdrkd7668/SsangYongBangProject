@@ -23,10 +23,7 @@ public class SearchJsonData extends HttpServlet {
 		response.setContentType("application/json");
 
 		PrintWriter writer = response.getWriter();
-		
 		String where = request.getParameter("whereSearch");
-		
-		System.out.println(where);
 		
 		HouseDAO dao = new HouseDAO();
 		ArrayList<HouseDTO> list = dao.searchHouse(where);
@@ -34,18 +31,15 @@ public class SearchJsonData extends HttpServlet {
 		String temp = "";
 		String priceTag = "";
 		
-		for(HouseDTO dto : list) {
-			priceTag = dto.getDtype() + " " + dto.getPrice() + (dto.getDtype().equals("월세") ? "/" + dto.getRent() : "") + "(만원)";
-		}
-		
-		System.out.println(priceTag);
-		
 		temp += "[";
 			for(HouseDTO dto : list) {	
+				priceTag = dto.getDtype() + " " + dto.getPrice() + (dto.getDtype().equals("월세") ? "/" + dto.getRent() : "") + "(만원)";
+				
 				temp += "{";
 				temp += String.format("\"seq\":\"%s\",", dto.getSeq());
 				temp += String.format("\"address\":\"%s\",", dto.getAddress());
-				temp += String.format("\"priceTag\":\"%s\"", priceTag);
+				temp += String.format("\"priceTag\":\"%s\",", priceTag);
+				temp += String.format("\"bType\":\"%s\"", dto.getBtype());
 				temp += "}";
 				temp += ",";
 			}
@@ -53,7 +47,10 @@ public class SearchJsonData extends HttpServlet {
 		temp = temp.substring(0, temp.length()-1);
 		temp += "]";
 		
-		System.out.println(temp);
+		//조건이 없을 경우, [{"seq" : "0"}] 을 반환한다.
+		if (temp.equals("]")) {
+			temp = "[{\"seq\":\"0\"}]";
+		}
 		
 		writer.print(temp);
 		

@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="/sybang/css/admin2.css">
 <link rel="stylesheet" type="text/css" href="/sybang/css/admin.css">
 <link rel="stylesheet" href="/sybang/css/board.css">
-<title>Insert title here</title>
+<title>거래중인 매물</title>
 <style type="text/css">
 </style>
 </head>
