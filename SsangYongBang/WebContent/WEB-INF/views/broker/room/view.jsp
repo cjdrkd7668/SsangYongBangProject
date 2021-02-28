@@ -31,22 +31,6 @@
 .carousel-control.left {
     background-image: linear-gradient(to left, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .25) 100%);
 }
-
-.container-view .form-control {
-	font-size: 1.3em;
-	color: #486BB8;
-}
-
-.container-view .table-type-view .form-control {
-	padding: 5px;
-	font-size: 0.9em;
-	float: left;
-}
-
-.container-view .table-type-view-detail #detail {
-	resize: none;
-	width: 780px;
-}
 </style>
 </head>
 <body>
@@ -54,13 +38,7 @@
 	<%@include file="/WEB-INF/views/inc/broker_left.jsp"%>
 	<div class="container mg-view">
 	
-		<form method="POST" action="/sybang/broker/house/registerok.do">
 		<div class="container-view">
-			<div class="panel panel-danger">
-				<div class="panel-heading" style="font-size: 1.1em;">매물 등록하기</div>
-				<div class="panel-body"  style="font-size: 1.1em;">해당 글을 작성한 회원과 협의 후 수정한 뒤에 등록하기 버튼을 눌러주세요.</div>
-			</div>
-			
 			
 			<div class="post-info">
 				<span>작성자: ${rdto.name}</span>
@@ -69,10 +47,7 @@
 			</div>
 			
 			<div class="address">
-				<div class="input-group">
-					<span class="input-group-addon">제목</span> <input id="subject"
-						type="text" class="form-control" name="subject" value="${rdto.subject}">
-				</div>
+				<span><span>&ldquo;</span>${rdto.subject}<span> &bdquo;</span></span>
 				<span>${rdto.address}<span class="glyphicon glyphicon-home"></span></span>
 			</div>
 		
@@ -96,24 +71,15 @@
 						<td>${rdto.bType}</td>
 						<th>거래 유형</th>
 						<td>${rdto.dType}</td>
-						<th colspan="2">
-						
-							<div class="input-group">
-								<span class="input-group-addon" style="width: 150px;">가격(보증금)(만원)</span> <input id="price"
-									type="text" class="form-control" name="price"
-									value="${rdto.price}">
-							</div>
-							<c:if test="${rdto.dType == '월세'}">
-							<div class="input-group">
-								<span class="input-group-addon" style="width: 150px;">월세(만원)</span> <input id="rent"
-									type="text" class="form-control" name="rent"
-									value="${rdto.rent}">
-							</div>
-							</c:if> 
-						</th>
+						<th>가격</th>
+						<td>${rdto.price}(만원)
+						<c:if test="${rdto.dType == '월세'}">
+						 / ${rdto.rent}(만원)
+						</c:if>
+						</td>
 					</tr>
 					<tr>
-						<th>관리비(만원)</th>
+						<th>관리비</th>
 						<td>${rdto.monthlyFee}</td>
 						<th>면적(공급/전용)</th>
 						<td>${rdto.supplyArea}&#13217; / ${rdto.exclusiveArea}&#13217;</td>
@@ -145,12 +111,8 @@
 				</colgroup>
 				<tbody>
 					<tr>
-						<th colspan="2">
-							<div class="input-group">
-								<span class="input-group-addon" style="width: 100px;">상세설명</span>
-								<textarea id="detail" class="form-control" name="detail">${rdto.detail}</textarea>
-							</div>
-						</th>
+						<th>상세 설명</th>
+						<td>${rdto.detail}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -192,17 +154,14 @@
 				</a>
 			</div>
 			<!-- 부트스트랩 캐러셀 끝-->
-			
-			<!-- 등록된 방 게시글 번호 -->
-			<input type="hidden" id="rseq" name="rseq" value="${rdto.seq }">
-			
+
+
 			<div class="buttons">
-				<button type="submit" class="btn btn-info">수정하기</button>
-				<a class="btn btn-default" href="/sybang/broker/room/view.do?seq=${rdto.seq}&page=${nowPage}" role="button">뒤로가기</a>
+				<a class="btn btn-default" href="/sybang/broker/room/list.do" role="button">목록보기</a>
+				<a class="btn btn-danger" href="/sybang/broker/house/register.do?seq=${rdto.seq}&page=${nowPage}" role="button">등록하기</a>
 			</div>
 			
 		</div>
-		</form>
 		
 	</div>
 	
@@ -256,10 +215,6 @@
 		        map.setCenter(coords);
 		    } 
 		});    
-		
-		window.onload = function() {
-			$("#subject").focus();
-		};
 		
 	</script>
 	

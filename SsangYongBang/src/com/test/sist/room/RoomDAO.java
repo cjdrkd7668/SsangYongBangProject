@@ -56,8 +56,8 @@ public class RoomDAO {
 				dto.setPhone(rs.getString("phone"));
 				dto.setbType(rs.getString("bType"));
 				dto.setdType(rs.getString("dType"));
-				dto.setPrice(rs.getInt("price"));
-				dto.setRent(rs.getInt("rent"));
+				dto.setPrice(rs.getString("price"));
+				dto.setRent(rs.getString("rent"));
 				dto.setMonthlyFee(rs.getInt("monthlyFee"));
 				dto.setAddress(rs.getString("address"));
 				dto.setExclusiveArea(rs.getInt("exclusiveArea"));
@@ -127,8 +127,8 @@ public class RoomDAO {
 				dto.setPhone(rs.getString("phone"));
 				dto.setbType(rs.getString("bType"));
 				dto.setdType(rs.getString("dType"));
-				dto.setPrice(rs.getInt("price"));
-				dto.setRent(rs.getInt("rent"));
+				dto.setPrice(rs.getString("price"));
+				dto.setRent(rs.getString("rent"));
 				dto.setMonthlyFee(rs.getInt("monthlyFee"));
 				dto.setAddress(rs.getString("address"));
 				dto.setExclusiveArea(rs.getInt("exclusiveArea"));
@@ -144,7 +144,7 @@ public class RoomDAO {
 				dto.setPet(rs.getString("pet"));
 				dto.setSubject(rs.getString("subject"));
 				dto.setDetail(rs.getString("detail"));
-				dto.setRegDate(rs.getString("regDate").substring(0, 10));
+				dto.setRegDate(rs.getString("regDate"));
 				
 				return dto;
 			}
@@ -181,8 +181,8 @@ public class RoomDAO {
 			cstat.setInt(15, Integer.parseInt(dto.getParkingFlag()));
 			cstat.setInt(16, Integer.parseInt(dto.getElevator()));
 			cstat.setInt(17, Integer.parseInt(dto.getPet()));
-			cstat.setInt(18, dto.getPrice());
-			cstat.setInt(19, dto.getRent());
+			cstat.setString(18, dto.getPrice());
+			cstat.setString(19, dto.getRent());
 			cstat.setInt(20, dto.getMonthlyFee());
 			cstat.setString(21, dto.getUrl()[0]);
 			cstat.setString(22, dto.getUrl()[1]);
@@ -217,8 +217,8 @@ public class RoomDAO {
 				dto.setPhone(rs.getString("phone"));
 				dto.setbType(rs.getString("bType"));
 				dto.setdType(rs.getString("dType"));
-				dto.setPrice(rs.getInt("price"));
-				dto.setRent(rs.getInt("rent"));
+				dto.setPrice(rs.getString("price"));
+				dto.setRent(rs.getString("rent"));
 				dto.setMonthlyFee(rs.getInt("monthlyFee"));
 				dto.setAddress(rs.getString("address"));
 				dto.setExclusiveArea(rs.getInt("exclusiveArea"));
