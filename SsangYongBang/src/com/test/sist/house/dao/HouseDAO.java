@@ -8,12 +8,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 import com.test.sist.DBUtil;
 import com.test.sist.house.dto.HouseDTO;
 
 /**
  * 
- * @author 이찬미
+ * @author 이찬미, 이청강
  *
  */
 public class HouseDAO {
@@ -38,6 +39,41 @@ public class HouseDAO {
 			System.out.println(e);
 		}
 	}
+
+	//방 검색 메서드입니다. DB 검색 시 필요한 where 조건절으로 쓰일 문자열을 매개변수로 받습니다.
+	public ArrayList<HouseDTO> searchHouse(String where) {
+		
+		try {
+			
+			String sql = "select seq, address, dType, price, rent from vwHousePost" + " " + where;
+			
+			System.out.println(sql);
+			
+			pstat = conn.prepareStatement(sql);
+      rs = pstat.executeQuery();
+			
+			ArrayList<HouseDTO> list = new ArrayList<HouseDTO>();
+			
+			while (rs.next()) {
+				HouseDTO dto = new HouseDTO();
+			
+				dto.setSeq(rs.getString("seq"));
+				dto.setAddress(rs.getString("address"));
+				dto.setDtype(rs.getString("dtype"));
+				dto.setPrice(rs.getString("price"));
+				dto.setRent(rs.getString("rent"));
+        				
+				list.add(dto);
+			}
+			
+			return list;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+  		return null;
+	}
+}
 
 	//RegisterOk 서블릿 -> 매물 게시글 작성
 	public int post(HouseDTO dto) {
@@ -109,7 +145,6 @@ try {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		
 		return null;
 	}
 
@@ -209,7 +244,36 @@ try {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-
 		return null;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

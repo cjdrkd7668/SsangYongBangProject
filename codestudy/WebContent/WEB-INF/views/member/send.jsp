@@ -94,10 +94,10 @@
                 			</c:if>
                 		</c:forEach>
                 		
-                		<c:forEach var="i" begin="1" end="${(4-(mlist.size() % 4))}">
+                		<%-- <c:forEach var="i" begin="1" end="${(4-(mlist.size() % 4))}">
                 			<td></td>
                 			<td></td>
-                		</c:forEach>
+                		</c:forEach> --%>
                 	</tr>
                 </table>
                 

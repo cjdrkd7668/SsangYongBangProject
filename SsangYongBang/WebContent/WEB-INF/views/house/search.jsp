@@ -20,6 +20,21 @@
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script> 
 <style>
 .modal-open{overflow:auto;padding-right:0 !important;}
+
+.wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+.wrap * {padding: 0;margin: 0;}
+.wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+.wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+.info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+.info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+.info .close:hover {cursor: pointer;}
+.info .body {position: relative;overflow: hidden;}
+.info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+.desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+.info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+.info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+.info .link {color: #5085BB;}
 </style>
 </head>
 <body>
@@ -39,11 +54,14 @@
                 <!-- dealtype 시작 -->
                 <div class="col-md-6 dealtype">
                     <h2 class="title">거래 유형</h2>
-                    <div class="btn-group" data-toggle="buttons" id="dtype" name="dtype">
+                    <div class="btn-group" data-toggle="buttons" id="dType" name="dType">
 
-                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="매매">매매</label>
-                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="전세">전세</label>
-                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;"><input type="checkbox" value="월세">월세</label>
+                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;">
+                        	<input type="checkbox" value="매매" name="dType">매매</label>
+                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;">
+                        <input type="checkbox" value="전세" name="dType">전세</label>
+                        <label class="btn btn-default" style="width: 130px; font-size: 1.2em;">
+                        <input type="checkbox" value="월세" name="dType">월세</label>
                     </div>
                 </div>
                 <!-- dealtype 끝 -->
@@ -126,7 +144,7 @@
                 <!-- buildingtype 시작 -->
                 <div class="col-md-6 buildingtype">
                     <h2 class="title">건물 종류</h2>
-                    <div class="btn-group" data-toggle="buttons">
+                    <div class="btn-group" data-toggle="buttons" id="bType" name="bType">
                         <label class="btn btn-default" style="width: 95px; font-size: 1.2em;"><input type="checkbox" value="1">아파트</label>
                         <label class="btn btn-default" style="width: 100px; font-size: 1.2em;"><input type="checkbox" value="2">빌라/주택</label>
                         <label class="btn btn-default" style="width: 100px; font-size: 1.2em;"><input type="checkbox" value="3">원룸/투룸</label>
@@ -330,6 +348,10 @@
             <!-- map 시작 -->
 			<div id="map" style="width:100%;height:600px;"></div>
             <!-- map 끝 -->
+            
+           	<input type="hidden" id="send" name="send">
+           	<input type="hidden" id="mapping" name="mapping">
+           	<input type="hidden" id="hide-markers" name="hide-markers">
 
         </div>
         <!-- list-container 끝 -->
@@ -344,10 +366,6 @@
 	<script src="/sybang/js/address.js"></script>
 	<script>
 		
-		window.onload = function() {
-			$("#search").focus();
-		};
-		
 		var container = document.getElementById('map');
 		var options = {
 			center : new kakao.maps.LatLng(37.499426242183034, 127.03425370768977),
@@ -355,20 +373,211 @@
 		};
 	
 		var map = new kakao.maps.Map(container, options);
+		var geocoder = new kakao.maps.services.Geocoder();
+		var markers = [];
+	
+		$("#hide-markers").click(function hideMarkers() {
+		    setMarkers(null);    
+		})
 		
-		list.forEach(function(item, index) {
+		/* $('input[name=dType]').hasClass('active' == true) {
+			alert("멍멍");
 			
-			var marker2 = new daum.maps.Marker({
-				position: new daum.maps.LatLng(item.position.lat, item.position.lng)	
-			});
-			
-			var infowindow2 = new kakao.maps.InfoWindow({
-				content: item.name.substring(8),
-				removable: true });
-			
-			infowindow2.open(map, marker2);
-			marker2.setMap(map);
+		} */
+	
+		var where = "";
+		
+		var wheredType = ""; //"and dType in ('temp', '월세', '전세', '매매')"
+		var wherebType = "";
+		
+		function setMarkers(map) {
+		    for (var i = 0; i < markers.length; i++) {
+		        markers[i].setMap(map);
+		    }            
+		}
+		
+		
+		$("#send").click(function() {
+			where = "where seq > 0" + " " + wheredType 
+									+ " " + wherebType; 
 		});
+		
+		$("input[type=checkbox]").parent().mouseover(function() {
+			$(this).children().eq(0).addClass("chosen");
+		});
+		
+		$("input[type=checkbox]").parent().mouseleave(function() {	
+			$(this).children().eq(0).removeClass("chosen");
+		});
+		
+		$("#mapping").click(function() {
+			$.ajax({
+				type: "GET",
+				url: "/sybang/house/searchjsondata.do",
+				data: "whereSearch=" + where,
+				dataType: "json",
+				success: function(result) {
+					
+					console.log("무야호")
+					//result -> {"name":"홍길동", "age":"20", "address":"서울"}
+										
+					$(result).each(function(index, item) {
+						console.log(item.seq);
+						console.log(item.address);
+						console.log(item.priceTag);
+						console.log(" ");
+						
+						var roomLocation = item.address;
+						
+						// 주소로 좌표를 검색합니다
+						geocoder.addressSearch(roomLocation, function(result, status) {
+
+						    // 정상적으로 검색이 완료됐으면 
+						     if (status === kakao.maps.services.Status.OK) {
+
+						        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+						        // 결과값으로 받은 위치를 마커로 표시합니다
+						        var marker = new kakao.maps.Marker({
+						            map: map,
+						            position: coords
+						        });
+						        
+						        //마커를 배열에 추가합니다.
+						        markers.push(marker);
+
+						        var content = '<div class="wrap">' + 
+					            '    <div class="info">' + 
+					            '        <div class="title">' + 
+					            '            카카오 스페이스닷원' + 
+					            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+					            '        </div>' + 
+					            '        <div class="body">' +
+					            '            <div class="desc">' + 
+					            '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>' + 
+					            '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>' + 
+					            '                <div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+					            '            </div>' + 
+					            '        </div>' + 
+					            '    </div>' +    
+					            '</div>';
+
+					// 마커 위에 커스텀오버레이를 표시합니다
+					// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
+					var overlay = new kakao.maps.CustomOverlay({
+					    content: content,
+					    map: map,
+					    position: marker.getPosition()       
+					});
+
+					// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+					kakao.maps.event.addListener(marker, 'click', function() {
+					    overlay.setMap(map);
+					});
+
+					// 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
+					function closeOverlay() {
+					    overlay.setMap(null);     
+					}
+						    } 
+						});
+						
+					});
+					
+				},
+				error: function(a,b,c) {
+					console.log(a,b,c);
+				}
+			});
+		});
+		
+		//거래 형태 조건 선택
+		$("#dType").children().change(function() {
+			
+			//1. 조건 문자열 초기화 및 누적변수 생성
+			wheredType = "and dType in ('temp'";
+			let temp = "";
+			
+			//2. 선택한 조건 누적
+			if (!$(this).hasClass("active")) {
+				
+				temp += ", '" + $(this).children().eq(0).val() + "'";
+				
+				for (let i=0; i<$("#dType").children().length; i++) {
+					
+					if ($("#dType").children().eq(i).hasClass("active")) {
+						
+						temp += ", '" + $("#dType").children().eq(i).children().eq(0).val() + "'";
+					
+					}
+					
+				}
+				
+				wheredType += temp + ")";
+			
+				//3. 조건 검색 실행
+				$("#send").click(); //현재까지 선택된 조건을 var where에 취합
+				$("#mapping").click();
+				
+				console.log(where);
+				
+			} else {
+				
+				roomLocation = "";
+				
+				for (let i=0; i<$("#dType").children().length; i++) {
+					
+					if ($("#dType").children().eq(i).hasClass("active") && 
+							
+						$("#dType").children().eq(i).index() != $(this).index()) {
+						
+						temp += ", '" + $("#dType").children().eq(i).children().eq(0).val() + "'";
+						
+					}
+					
+				}
+				
+				wheredType += temp + ")";	
+				
+				$("#hide-markers").click();
+			}
+			
+			console.log(wheredType);
+			
+			
+			/*
+			alert($(this).children().eq(0).val());
+			
+			let whereTemp = "";
+			let wheredType = ""; //", '" + $(this).children().eq(i).children().eq(0).val() + "'"
+			
+			//let whereTemp += " " + "and dType in ('temp'" + wheredType + ")";
+			
+			
+			for (let i=0; i<$(this).children().length; i++) {
+				
+				if(!$(this).children().eq(i).hasClass("active")) {
+					
+					wheredType += ", '" + $(this).children().eq(i).children().eq(0).val() + "'";
+					
+					//alert($(this).children().eq(i).children().eq(0).val()); // 각각 전세 월세 매매 잘나온다.
+					
+				} else {
+					
+					
+				}
+				
+			}
+			
+			console.log(wheredType);
+			*/
+		});
+		
+		window.onload = function() {
+			$("#search").focus();
+		};
+		
+		
 	
 		var elems = Array.prototype.slice.call(document
 				.querySelectorAll('.js-switch'));

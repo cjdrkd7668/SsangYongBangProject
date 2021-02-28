@@ -37,7 +37,7 @@ public class DeleteOk extends HttpServlet {
 		
 		if (result == 1) {
 			//글삭제 성공 -> 게시판 목록으로 이동
-			resp.sendRedirect("/codestudy/board/review/list.do");
+			resp.sendRedirect("/codestudy/board/list.do");
 						
 			
 		} else {
