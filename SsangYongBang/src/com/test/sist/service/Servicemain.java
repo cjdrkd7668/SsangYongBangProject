@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/service/servicemain.do")
 public class Servicemain extends HttpServlet {
+	
+	
    
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	   

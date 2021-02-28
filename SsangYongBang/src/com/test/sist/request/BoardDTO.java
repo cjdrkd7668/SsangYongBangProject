@@ -15,8 +15,15 @@ public class BoardDTO {
 	
 	private String serviceSeq; // 고객요청서 테이블 열(서비스품목번호)과 이름 동일하게 맞춘것.
 	
+	private String approvalFSeq; //고객이 업체를 지정할 시 필요 데이터
 	
 	
+	public String getApprovalFSeq() {
+		return approvalFSeq;
+	}
+	public void setApprovalFSeq(String approvalFSeq) {
+		this.approvalFSeq = approvalFSeq;
+	}
 	public String getServiceSeq() {
 		return serviceSeq;
 	}
