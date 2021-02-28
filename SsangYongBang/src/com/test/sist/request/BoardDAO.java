@@ -140,6 +140,91 @@ public class BoardDAO {
 		
 		return 0;
 	}
+
+
+	
+	//reveivedrequest.서블릿의 호출 -> 로그인한 업체승인번호 매개로 글목록 반환 요청
+	public ArrayList<BoardDTO> receivedlist(HashMap<String, String> map) {
+		
+		
+		try {
+			
+			String where = String.format("where approvalFSeq = %s", (map.get("approvalFSeq")));
+			
+			if (map.get("search") != null) {
+				where = String.format("where approvalFSeq = %s", (map.get("approvalFSeq")));
+			}
+			
+			
+			String sql = String.format("select * from (select a.*, rownum as rnum from (select * from vwRequest %s) a) where rnum between %s and %s"
+										,where
+										,map.get("begin")
+										,map.get("end")) ;
+			
+			pstat = conn.prepareStatement(sql);
+			rs = pstat.executeQuery();
+			
+			
+			ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
+			
+			while (rs.next()) {
+				
+				BoardDTO dto = new BoardDTO();
+				
+				dto.setMseq(rs.getString("mseq"));
+				dto.setEmail(rs.getString("email"));
+				dto.setRseq(rs.getString("rseq"));
+				dto.setStype(rs.getString("stype"));
+				dto.setAddress(rs.getString("address"));
+				dto.setShape(rs.getString("shape"));
+				dto.setDesiredDay(rs.getString("desiredDay"));
+				dto.setDetail(rs.getString("detail"));
+				dto.setArea(rs.getString("area"));
+				dto.setRegDate(rs.getString("regDate"));
+				
+				list.add(dto);
+			}
+			
+			return list;
+			
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		
+		
+		return null;
+	}
+
+
+	
+	//request.writeok 서블릿의 호출 -> 요청서 쓰기(업체 지정)
+	public int choiceWrite(BoardDTO dto) {
+		
+		try {
+			
+			String sql = "INSERT INTO tblRequest (seq, regDate, address, shape, desiredDay, detail, area, serviceSeq, memberSeq, approvalFSeq) VALUES (seqRequest.nextVal, default, ?, ?, to_date(?,'yyyy-mm-dd'), ?, ?, ?, ?, ?)";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getAddress());
+			pstat.setString(2, dto.getShape());
+			pstat.setString(3, dto.getDesiredDay());
+			pstat.setString(4, dto.getDetail());
+			pstat.setString(5, dto.getArea());
+			pstat.setString(6, dto.getServiceSeq());
+			pstat.setString(7, dto.getMseq());
+			pstat.setString(8, dto.getApprovalFSeq());
+			
+			return pstat.executeUpdate();
+			
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		
+		
+		return 0;
+	}
 	
 	
 	
