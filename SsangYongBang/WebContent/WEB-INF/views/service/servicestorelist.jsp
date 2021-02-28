@@ -125,6 +125,8 @@
 			<c:forEach items="${list}" var="dto">
 			  <div class="storeInfo">
 			    <div class="thumbnail">
+			    <!-- 업체 승인번호를 매개변수로 하여 view 서블릿에 전달하기 -->
+			      <a href="/sybang/service/ServicestoreView.do?approvalFseq=${dto.approvalFSeq}">
 			      <img src="../images/${dto.portfolio}" alt="...">
 			      <!-- 더미 정보의 이미지 경로 수정 필요. ../images/ 글을 붙이거나 서비스 이용 이미지폴더 따로만들어 해당 경로 붙이기 -->
 			      <div class="caption">
@@ -132,6 +134,8 @@
 			        <p>${dto.address}</p>
 			        <p class="introduction">${dto.introduction}</p>
 			      </div>
+			      </a>
+			      
 			    </div>
 			  </div>
 			 
