@@ -113,7 +113,7 @@ td{
 		<form>
 		<div class="btns">
 			<button type="button" class="btn btn-default serviceinfobtn">견적상담 일정 등록</button>
-			<button type="button" class="btn btn-default serviceinfobtn"><a href="/sybang/servicescheduler/editschedule.do">서비스 일정 등록</a></button>
+			<button type="button" class="btn btn-default serviceinfobtn"><a href="/sybang/servicescheduler/list.do">서비스 일정 등록</a></button>
 			<button type="button" class="btn btn-default serviceinfobtn"><a href="/sybang/servicescheduler/editschedule.do">서비스 완료 등록</a></button>
 		</div>   
    		</form>
