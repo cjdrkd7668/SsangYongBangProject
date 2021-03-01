@@ -159,7 +159,7 @@
 #maincontainer .mainnotice td {
 	margin-left: 10px;
 	font-size: 1.1em;
-	text-align: center;
+	text-align: left;
 }
 
 #maincontainer .mainnotice a {
@@ -330,52 +330,24 @@
                 <tr>
                     <th class="well">인기글</th>
                 </tr>
+                <c:forEach items="${plist }" var="pdto">
                 <tr>
-                    <td><a href="/sybang/service/ServicestoreList.do"> 제목입니다자유겟판</a>
+                    <td><a href="/sybang/free/detail.do?seq=${pdto.seq }"> ${pdto.subject }</a>
                     </td>
                 </tr>
-                <tr>
-                    <td><a href="/sybang/service/ServicestoreList.do"> 제목입니다자유겟판</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><a href="/sybang/service/ServicestoreList.do"> 제목입니다자유겟판</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><a href="/sybang/service/ServicestoreList.do"> 제목입니다자유겟판</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><a href="/sybang/service/ServicestoreList.do"> 제목입니다자유겟판</a>
-                    </td>
-                </tr>
+                </c:forEach>
             </table>
 
             <table class="table table-default noticeTable">
                 <tr>
                     <th class="well">최신글</th>
                 </tr>
+                <c:forEach items="${llist }" var="ldto">
                 <tr>
-                    <td><a href="/sybang/service/ServicestoreList.do"> 제목입니다자유겟판</a>
+                    <td><a href="/sybang/free/detail.do?seq=${ldto.seq }"> ${ldto.subject }</a>
                     </td>
                 </tr>
-                <tr>
-                    <td><a href="/sybang/service/ServicestoreList.do"> 제목입니다자유겟판</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><a href="/sybang/service/ServicestoreList.do"> 제목입니다자유겟판</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><a href="/sybang/service/ServicestoreList.do"> 제목입니다자유겟판</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><a href="/sybang/service/ServicestoreList.do"> 제목입니다자유겟판</a>
-                    </td>
-                </tr>
+                </c:forEach>
             </table>
 
             

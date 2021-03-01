@@ -44,11 +44,13 @@ public class HouseDAO {
 	public ArrayList<HouseDTO> searchHouse(String where) {
 		
 		try {
-
-			String sql = "select seq, address, dType, price, rent, bType from vwHousePost" + " " + where;
-
+			
+			String sql = "select seq, address, dType, price, rent from vwHousePost" + " " + where;
+			
+			System.out.println(sql);
+			
 			pstat = conn.prepareStatement(sql);
-			rs = pstat.executeQuery();
+      rs = pstat.executeQuery();
 			
 			ArrayList<HouseDTO> list = new ArrayList<HouseDTO>();
 			
@@ -60,7 +62,6 @@ public class HouseDAO {
 				dto.setDtype(rs.getString("dtype"));
 				dto.setPrice(rs.getString("price"));
 				dto.setRent(rs.getString("rent"));
-				dto.setBtype(rs.getString("bType"));
         				
 				list.add(dto);
 			}
