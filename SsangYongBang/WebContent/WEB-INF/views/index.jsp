@@ -214,17 +214,17 @@
                     <!-- 최근 본 매물 사진 시작 -->
                     <td>
                         <a href="#">
-                            <img src="/sybang/images/room01.jpg" class="thumbnail">
+                            <img src="/sybang/images/room0001.jpg" class="thumbnail">
                         </a>
                     </td>
                     <td>
                         <a href="#">
-                            <img src="/sybang/images/room03.jpg" class="thumbnail">
+                            <img src="/sybang/images/room0003.jpg" class="thumbnail">
                         </a>
                     </td>
                     <td>
                         <a href="#">
-                            <img src="/sybang/images/room01.jpg" class="thumbnail">
+                            <img src="/sybang/images/room0001.jpg" class="thumbnail">
                         </a>
                     </td>
 
@@ -394,6 +394,7 @@
     <script>
 	    window.onload = function() {
 			$("#search").focus();
+			
 		};
     </script>
 </body>

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.test.sist.house.dao.HouseDAO;
 import com.test.sist.member.chat.ChatDAO;
 import com.test.sist.member.chat.ChatDTO;
 
@@ -33,12 +34,13 @@ public class Index extends HttpServlet {
 	  
 	  HttpSession session = request.getSession();
 	  
-	  ChatDAO dao = new ChatDAO();
+	  HouseDAO dao = new HouseDAO();
 	  
-	  //중개사 목록을 가져온다
-	  ArrayList<ChatDTO> blist = dao.blist();
+	  map.put("begin", "1");
+	  map.put("end", "3");	  
 	  
-	  //공지사항 목록을 가져온다.
+	  //최근 올라온 매물을 가져온다.
+	  
 	  
 	  
       RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/index.jsp");

@@ -79,7 +79,7 @@ public class HouseDAO {
 
 		try {
 
-			String sql = "{ call procAddHousePost(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) }";
+			String sql = "{ call procAddHousePost(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) }";
 
 			cstat = conn.prepareCall(sql);
 
@@ -105,6 +105,7 @@ public class HouseDAO {
 			cstat.setInt(20, dto.getMonthlyFee());
 			cstat.setString(21, dto.getUrl1());
 			cstat.setString(22, dto.getUrl2());
+			cstat.setString(23, dto.getRseq());
 			
 			return cstat.executeUpdate();
 
