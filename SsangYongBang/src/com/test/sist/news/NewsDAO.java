@@ -37,4 +37,36 @@ public class NewsDAO {
 			System.out.println(e);
 		}
 	}
+
+	//Index 서블릿 -> 뉴스 목록
+	public ArrayList<NewsDTO> list() {
+		
+		try {
+			
+			String sql = "select * from vwnewslist";
+			
+			stat = conn.createStatement();
+			
+			rs = stat.executeQuery(sql);
+			
+			ArrayList<NewsDTO> list = new ArrayList<NewsDTO>();
+			
+			while (rs.next()) {
+				
+				NewsDTO dto = new NewsDTO();
+				
+				dto.setSeq(rs.getString("nwsseq"));
+				dto.setSubject(rs.getString("nwssubject"));
+				dto.setImageurl(rs.getString("nwsimageurl"));
+				
+				list.add(dto);
+			}
+			
+			return list;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	}
 }

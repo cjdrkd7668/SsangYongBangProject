@@ -16,6 +16,8 @@ import com.test.sist.free.dao.FreeDAO;
 import com.test.sist.free.dto.FreeDTO;
 import com.test.sist.house.dao.HouseDAO;
 import com.test.sist.house.dto.HouseDTO;
+import com.test.sist.news.NewsDAO;
+import com.test.sist.news.NewsDTO;
 
 
 @WebServlet("/index.do")
@@ -79,10 +81,16 @@ public class Index extends HttpServlet {
 				dto.setUrl2(img);
 			}
 		}	
+		
+		//뉴스 가져오기
+		NewsDAO ndao = new NewsDAO();
+		ArrayList<NewsDTO> nlist = ndao.list();
+		
 
 		request.setAttribute("plist", plist);
 		request.setAttribute("llist", llist);
 		request.setAttribute("hlist", hlist);
+		request.setAttribute("nlist", nlist);
 
 		request.setAttribute("search", search);
 
