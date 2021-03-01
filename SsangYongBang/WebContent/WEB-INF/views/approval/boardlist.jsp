@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="/sybang/css/admin2.css">
 <link rel="stylesheet" type="text/css" href="/sybang/css/admin.css">
 <link rel="stylesheet" href="/sybang/css/board.css">
-<title>Insert title here</title>
+<title>업체 승인</title>
 <style type="text/css">
 </style>
 </head>
@@ -20,10 +21,12 @@
 	
 		<h1 class="welcome">업체 승인<small> 부동산 중개사와 서비스업체 승인 관리</small></h1>
 		
+		<form method="POST" action="/sybang/approval/approve.do">
+		
 		<div class="buttons">
 			<a class="btn btn-default btn-primary" href="#" role="button">승인</a>
-			<a class="btn btn-default btn-danger" href="#" role="button">삭제</a>
-			<a class="btn btn-default" href="#" role="button">전체 선택</a>
+			<a class="btn btn-default btn-danger" id="delete-request" role="button">삭제</a>
+			<a class="btn btn-default" id="select-all" role="button">전체 선택</a>
 		</div>
 		
 		<table class="table table-approval">
@@ -42,189 +45,35 @@
 				</tr>	
 			</thead>		
 			<tbody>
+				<c:forEach items="${apList}" var="apdto">
 				<tr>
-					<td class="text-center">부동산 중개사</td>
+					<td class="text-center">${apdto.category}</td>
 					<td>
-						<div>좋은집나쁜집넓은집쌍용공인중개사</div>
-						<div>이메일: <span>qjedcs3@naver.com</span></div>
-						<div>연락처: <span>010-2222-3333</span></div>
+						<div>${apdto.name}</div>
+						<div>이메일: <span>${apdto.email}</span></div>
+						<div>연락처: <span>${apdto.tel}</span></div>
 					</td>
-					<td class="text-center">서울특별시 강남구 논현동 234-12334</td>
+					<td class="text-center">${apdto.address}</td>
 					<td class="text-center">
 						<div class="checkbox">
 							<label>
-						    	<input type="checkbox">
+						    	<input type="checkbox" class="checkbuttons" value="${apdto.category}_${apdto.seq}" name="appro-check">
 							</label>
 						</div>
                     </td>				
 				</tr>
-				<tr>
-					<td class="text-center">시공 업체</td>
-					<td>
-						<div>시공월드</div>
-						<div>이메일: <span>firm0020@gmail.com</span></div>
-						<div>연락처: <span>02-765-6620</span></div>
-					</td>
-					<td class="text-center">서울특별시 영등포구 문래동6가 35</td>
-					<td class="text-center">
-						<div class="checkbox">
-							<label>
-						    	<input type="checkbox" value="">
-							</label>
-						</div>
-                    </td>				
-				</tr>
-				<tr>
-					<td class="text-center">청소 업체</td>
-					<td>
-						<div>고클린</div>
-						<div>이메일: <span>qjedcs3@naver.com</span></div>
-						<div>연락처: <span>010-2222-3333</span></div>
-					</td>
-					<td class="text-center">서울특별시 성동구 도선동 289</td>
-					<td class="text-center">
-						<div class="checkbox">
-							<label>
-						    	<input type="checkbox" value="">
-							</label>
-						</div>
-                    </td>				
-				</tr>
-				<tr>
-					<td class="text-center">부동산 중개사</td>
-					<td>
-						<div>좋은집나쁜집넓은집쌍용공인중개사</div>
-						<div>이메일: <span>qjedcs3@naver.com</span></div>
-						<div>연락처: <span>010-2222-3333</span></div>
-					</td>
-					<td class="text-center">서울특별시 강남구 논현동 234-12334</td>
-					<td class="text-center">
-						<div class="checkbox">
-							<label>
-						    	<input type="checkbox" value="">
-							</label>
-						</div>
-                    </td>				
-				</tr>
-				<tr>
-					<td class="text-center">시공 업체</td>
-					<td>
-						<div>시공월드</div>
-						<div>이메일: <span>firm0020@gmail.com</span></div>
-						<div>연락처: <span>02-765-6620</span></div>
-					</td>
-					<td class="text-center">서울특별시 영등포구 문래동6가 35</td>
-					<td class="text-center">
-						<div class="checkbox">
-							<label>
-						    	<input type="checkbox" value="">
-							</label>
-						</div>
-                    </td>				
-				</tr>
-				<tr>
-					<td class="text-center">청소 업체</td>
-					<td>
-						<div>고클린</div>
-						<div>이메일: <span>qjedcs3@naver.com</span></div>
-						<div>연락처: <span>010-2222-3333</span></div>
-					</td>
-					<td class="text-center">서울특별시 성동구 도선동 289</td>
-					<td class="text-center">
-						<div class="checkbox">
-							<label>
-						    	<input type="checkbox" value="">
-							</label>
-						</div>
-                    </td>				
-				</tr>
-				<tr>
-					<td class="text-center">부동산 중개사</td>
-					<td>
-						<div>좋은집나쁜집넓은집쌍용공인중개사</div>
-						<div>이메일: <span>qjedcs3@naver.com</span></div>
-						<div>연락처: <span>010-2222-3333</span></div>
-					</td>
-					<td class="text-center">서울특별시 강남구 논현동 234-12334</td>
-					<td class="text-center">
-						<div class="checkbox">
-							<label>
-						    	<input type="checkbox" value="">
-							</label>
-						</div>
-                    </td>				
-				</tr>
-				<tr>
-					<td class="text-center">시공 업체</td>
-					<td>
-						<div>시공월드</div>
-						<div>이메일: <span>firm0020@gmail.com</span></div>
-						<div>연락처: <span>02-765-6620</span></div>
-					</td>
-					<td class="text-center">서울특별시 영등포구 문래동6가 35</td>
-					<td class="text-center">
-						<div class="checkbox">
-							<label>
-						    	<input type="checkbox" value="">
-							</label>
-						</div>
-                    </td>				
-				</tr>
-				<tr>
-					<td class="text-center">청소 업체</td>
-					<td>
-						<div>고클린</div>
-						<div>이메일: <span>qjedcs3@naver.com</span></div>
-						<div>연락처: <span>010-2222-3333</span></div>
-					</td>
-					<td class="text-center">서울특별시 성동구 도선동 289</td>
-					<td class="text-center">
-						<div class="checkbox">
-							<label>
-						    	<input type="checkbox" value="">
-							</label>
-						</div>
-                    </td>				
-				</tr>	
-				<tr>
-					<td class="text-center">부동산 중개사</td>
-					<td>
-						<div>좋은집나쁜집넓은집쌍용공인중개사</div>
-						<div>이메일: <span>qjedcs3@naver.com</span></div>
-						<div>연락처: <span>010-2222-3333</span></div>
-					</td>
-					<td class="text-center">서울특별시 강남구 논현동 234-12334</td>
-					<td class="text-center">
-						<div class="checkbox">
-							<label>
-						    	<input type="checkbox" value="">
-							</label>
-						</div>
-                    </td>				
-				</tr>
+				</c:forEach>
 			</tbody>
 		</table>
+		
+		</form>
 		
 		
 		
 		<!-- pagination -->
 	    <nav class="nav-pagination">
 		  	<ul class="pagination">
-			    <li>
-			    	<a href="#" aria-label="Previous">
-				   		<span aria-hidden="true">&laquo;</span>
-					</a>
-				</li>
-			    <li><a href="#">1</a></li>
-			    <li><a href="#">2</a></li>
-			    <li><a href="#">3</a></li>
-			    <li><a href="#">4</a></li>
-			    <li><a href="#">5</a></li>
-			    <li>
-					<a href="#" aria-label="Next">
-				    	<span aria-hidden="true">&raquo;</span>
-			      	</a>
-			    </li>
+			    ${pageBar}
 		  	</ul>
 		</nav>
        
@@ -232,7 +81,28 @@
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 
 	<script type="text/javascript">
+	
+	var url = "/sybang/approval/deleteok.do?seq=";
+	
+	$('#select-all').click(function(){
+		$('.checkbuttons').prop('checked', true);
+	});
 		
+	$("#delete-request").click(function() {
+		if ($('.checkbuttons:checked').length > 0) {
+			
+			$('.checkbuttons:checked').each(function(index, item){
+				console.log($(item).val());
+				$(location).attr('href', url + $(item).val());
+				
+			})
+		}
+	});
+	
+	$(".btn-delete-review").click(function() {
+		$(location).attr('href', "/sybang/approval/deleteok.do?seq=" + $(this).val());
+	})
+	
 	</script>
 
 </body>
