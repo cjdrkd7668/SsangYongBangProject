@@ -10,6 +10,7 @@ import java.util.HashMap;
 
 
 import com.test.sist.DBUtil;
+import com.test.sist.free.dto.FreeDTO;
 import com.test.sist.house.dto.HouseDTO;
 
 /**
@@ -325,6 +326,43 @@ public class HouseDAO {
 		}
 
 		return 0;
+	}
+
+	//Index 서블릿 -> 방금 올라온 매물 리스트 반환
+	public ArrayList<HouseDTO> latest() {
+		try {
+
+			String sql = "select rownum, h.* from vwHousePost h where rownum between 1 and 3";
+
+			stat = conn.createStatement();
+
+			rs = stat.executeQuery(sql);
+
+			ArrayList<HouseDTO> list = new ArrayList<HouseDTO>();
+
+			while (rs.next()) {
+
+				HouseDTO dto = new HouseDTO();
+
+				dto.setSeq(rs.getString("seq"));
+				dto.setSubject(rs.getString("subject"));
+				dto.setBtype(rs.getString("btype"));
+				dto.setDtype(rs.getString("dtype"));
+				dto.setPrice(rs.getString("price"));
+				dto.setRent(rs.getString("rent"));
+				dto.setAddress(rs.getString("address"));
+				dto.setSubject(rs.getString("subject"));
+				dto.setExclusiveArea(rs.getInt("exclusiveArea"));
+				dto.setSelectedFloor(rs.getString("selectedFloor"));
+
+				list.add(dto);
+			}
+
+			return list;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
 	}
 
 }

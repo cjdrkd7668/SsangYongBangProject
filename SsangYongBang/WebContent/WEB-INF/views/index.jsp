@@ -212,41 +212,33 @@
 
                 <tr>
                     <!-- 최근 본 매물 사진 시작 -->
+                    <c:forEach items="${hlist }" var="hdto1">
                     <td>
-                        <a href="#">
-                            <img src="/sybang/images/room0001.jpg" class="thumbnail">
+                        <a href="/sybang/house/houseview.do?seq=${hdto1.seq }">
+                            <img src="/sybang/images/${hdto1.url1 }" class="thumbnail">
                         </a>
                     </td>
-                    <td>
-                        <a href="#">
-                            <img src="/sybang/images/room0003.jpg" class="thumbnail">
-                        </a>
-                    </td>
-                    <td>
-                        <a href="#">
-                            <img src="/sybang/images/room0001.jpg" class="thumbnail">
-                        </a>
-                    </td>
-
+                    </c:forEach>
                 <tr>
-                    <td><a href="#">빌라/투룸<small>26㎡ 5층</small></a></td>
-                    <td><a href="#">빌라/투룸<small>26㎡ 5층</small></a></td>
-                    <td><a href="#">빌라/투룸<small>26㎡ 5층</small></a></td>
+                	<c:forEach items="${hlist }" var="hdto2">
+                    <td><a href="/sybang/house/houseview.do?seq=${hdto2.seq }">${hdto2.btype }<small>${hdto2.exclusiveArea }㎡ ${hdto2.selectedFloor }층</small></a></td>
+                    </c:forEach>
                 </tr>
                 <tr>
-                    <td><a href="#"><b>매매 2억 6,000</b></a></td>
-                    <td><a href="#"><b>매매 2억 6,000</b></a></td>
-                    <td><a href="#"><b>매매 2억 6,000</b></a></td>
+                	<c:forEach items="${hlist }" var="hdto3">
+                    <td><a href="/sybang/house/houseview.do?seq=${hdto3.seq }">
+                    	<b>${hdto3.dtype } ${hdto3.price }만원<c:if test="${hdto3.dtype == '월세'}">/${hdto3.rent }만원</c:if></b></a></td>
+                    </c:forEach>
                 </tr>
                 <tr>
-                    <td><a href="#">강남구 논현동</a></td>
-                    <td><a href="#">강남구 논현동</a></td>
-                    <td><a href="#">강남구 논현동</a></td>
+                	<c:forEach items="${hlist }" var="hdto4">
+                    <td><a href="/sybang/house/houseview.do?seq=${hdto4.seq }">${hdto4.address}</a></td>
+                    </c:forEach>
                 </tr>
                 <tr>
-                    <td><a href="#">★테라스 있는 신축</a></td>
-                    <td><a href="#">★테라스 있는 신축</a></td>
-                    <td><a href="#">★테라스 있는 신축</a></td>
+                	<c:forEach items="${hlist }" var="hdto5">
+                    <td><a href="/sybang/house/houseview.do?seq=${hdto5.seq }">${hdto5.subject }</a></td>
+                    </c:forEach>
                 </tr>
             </table>
             <table class="table table-default newsTable">
