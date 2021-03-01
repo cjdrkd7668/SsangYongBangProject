@@ -54,7 +54,7 @@ height: 600px;
     padding: 20px;
     width: 1000px;
     margin: 30px auto;
-    height: 1200px;
+    height: 1000px;
 }
 
 .list-container .page-header {
@@ -97,44 +97,39 @@ height: 600px;
 
 #tbl-post,
 #tblcomment,
-#tbl-review {
+#tblreview {
     width: 900px;
     margin: 10px auto;
 }
 
 #tbl-post th,
-#tbl-review th {
+#tblreview th {
     font-size: 1.1em;
     text-align: center;
     height: 30px;
 }
 
 #tbl-post td,
-#tbl-review td {
+#tblreview td {
     text-align: center;
     padding-top: 10px;
     height: 60px;
 }
 
 #tbl-post tr th:first-child,
-#tbl-post tr td:first-child,
-#tbl-review tr th:first-child,
-#tbl-review tr td:first-child {
+#tbl-post tr td:first-child {
     width: 60px;
     cursor: pointer;
 }
 
-#tblcomment tr td:first-child,
-#tbl-review tr td:first-child {
+#tblcomment tr td:first-child {
     width: 60px;
     cursor: pointer;
     text-align: center;
 }
 
 #tbl-post tr th:nth-child(2),
-#tbl-post tr td:nth-child(2),
-#tbl-review tr th:nth-child(2),
-#tbl-review tr td:nth-child(2) {
+#tbl-post tr td:nth-child(2) {
     width: 60px;
     cursor: pointer;
 }
@@ -156,21 +151,8 @@ height: 600px;
     cursor: pointer;
 }
 
-#tbl-review tr th:nth-child(3) {
-    width: 780px;
-}
-
-#tbl-review tr td:nth-child(3) {
-    width: 780px;
-    text-align: left;
-    padding-left: 20px;
-    cursor: pointer;
-}
-
 #tbl-post tr th:nth-child(4),
-#tbl-post tr td:nth-child(4),
-#tbl-review tr th:nth-child(4),
-#tbl-review tr td:nth-child(4) {
+#tbl-post tr td:nth-child(4) {
     width: 100px;
 }
 
@@ -204,8 +186,6 @@ height: 600px;
 #tbl-post .tbody-hope tr td:nth-child(5) {
 	width:40px;
 }
-
-
 
 /* 희망입주조건 css 끝*/
 

@@ -19,6 +19,25 @@ public class MyInfoDTO {
 	private String ccount; //댓글 수
 	
 	private String frseq; //글 번호(댓글일 경우)
+	
+	private String bname; //중개사 이름
+	private String star; //평점
+	
+	public String getBname() {
+		return bname;
+	}
+
+	public void setBname(String bname) {
+		this.bname = bname;
+	}
+
+	public String getStar() {
+		return star;
+	}
+
+	public void setStar(String star) {
+		this.star = star;
+	}
 
 	public String getSeq() {
 		return seq;

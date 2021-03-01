@@ -68,7 +68,7 @@ public class MyInfo extends HttpServlet {
 		// 페이지 버튼 수
 		int pcnt = 1;
 
-		while (!(pcnt > 10 || p > ptotalPage)) {
+		while (!(pcnt > 5 || p > ptotalPage)) {
 
 			if (pnowPage == p) {
 				ppagebar += "<li class= 'active'>";
