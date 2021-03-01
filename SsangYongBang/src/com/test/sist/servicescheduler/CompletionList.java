@@ -17,6 +17,7 @@ public class CompletionList extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		
 		HttpSession session = req.getSession();
 		String approvalFSeq = (String) session.getAttribute("approvalFSeq");
 		//로그인한 업체의 승인번호
