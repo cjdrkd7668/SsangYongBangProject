@@ -1,4 +1,4 @@
-package com.test.sist.broker.chat;
+package com.test.sist.broker.review;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -9,16 +9,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.test.sist.DBUtil;
+import com.test.sist.broker.chat.ChatDTO;
 
-public class ChatDAO {
-	
+public class ReviewDAO {
+
 	private Connection conn;
 	private Statement stat;
 	private PreparedStatement pstat;
 	private CallableStatement cstat;
 	private ResultSet rs;
 	
-	public ChatDAO() {
+	public ReviewDAO() {
 		try {
 			conn = DBUtil.open();
 		} catch (Exception e) {
@@ -34,31 +35,31 @@ public class ChatDAO {
 		}
 	}
 
-	public ArrayList<ChatDTO> list(HashMap<String, String> map) {
+	public ArrayList<ReviewDTO> list(HashMap<String, String> map) {
 		
-
 		try {
 
-			//String sql = "select seq, subject, mName, regDate from vwChatBroker order by seq desc";
-
-			//select * from(select a.*, rownum as rnum from (select * from vwChatBroker order by seq desc) a) where rnum between 1 and 20;
-			String sql =  String.format("select * from(select a.*, rownum as rnum from (select * from vwChatBroker order by seq desc) a) where rnum between %s and %s", map.get("begin"), map.get("end"));
+			String sql =  String.format("select * from(select a.*, rownum as rnum from (select * from vwBrokerReview order by seq desc) a) where rnum between %s and %s", map.get("begin"), map.get("end"));
 			
 			pstat = conn.prepareStatement(sql);
 			rs = pstat.executeQuery();
 			
-			ArrayList<ChatDTO> list = new ArrayList<ChatDTO>();
+			ArrayList<ReviewDTO> list = new ArrayList<ReviewDTO>();
 			
 			while (rs.next()) {
 				
-				ChatDTO dto = new ChatDTO();
+				ReviewDTO dto = new ReviewDTO();
 				
 				dto.setSeq(rs.getString("seq"));
-				dto.setSubject(rs.getString("subject"));
+				dto.setAbseq(rs.getString("abseq"));
+				dto.setMseq(rs.getString("mseq"));
 				dto.setMname(rs.getString("mname"));
+				dto.setBname(rs.getString("bname"));
+				dto.setStar(rs.getString("star"));
+				dto.setContent(rs.getString("content"));
+				dto.setImgURL(rs.getString("imgURL"));
 				dto.setRegDate(rs.getString("regDate"));
-
-				
+							
 				list.add(dto);
 			}
 			
@@ -71,53 +72,10 @@ public class ChatDAO {
 		return null;
 	}
 
-	
-	//View 서블릿 -> 글 1개 반환
-	public ChatDTO get(String seq) {
-		
-		try {
-			
-			String sql = "select * from vwChatBroker where seq = ?";
-			
-			pstat = conn.prepareStatement(sql);
-			pstat .setString(1, seq);
-			
-			rs = pstat.executeQuery();
-			
-			
-			
-			while (rs.next()) {
-				
-				ChatDTO dto = new ChatDTO();
-				
-				dto.setSeq(rs.getString("seq"));
-				dto.setAbseq(rs.getString("abseq"));
-				dto.setMseq(rs.getString("mseq"));
-				dto.setBname(rs.getString("bname"));
-				dto.setSubject(rs.getString("subject"));
-				dto.setContent(rs.getString("content"));
-				dto.setRegDate(rs.getString("regDate"));
-				dto.setRegTime(rs.getString("regTime"));
-				dto.setMname(rs.getString("mname"));
-				dto.setMphone(rs.getString("mphone"));
-				
-				return dto;
-			}
-			
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		
-		return null;
-	}
-
-
-	//방 게시글 총 개수 반환
 	public int getTotalCount() {
-		
 		try {
 			
-			String sql = "select count(*) as cnt from vwChatBroker";
+			String sql = "select count(*) as cnt from vwBrokerReview";
 			
 			stat = conn.createStatement();
 			rs = stat.executeQuery(sql);
@@ -132,4 +90,43 @@ public class ChatDAO {
 		
 		return 0;
 	}
+
+	public ReviewDTO get(String seq) {
+		
+		try {
+			
+			String sql = "select * from vwBrokerReview where seq = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat .setString(1, seq);
+			
+			rs = pstat.executeQuery();
+			
+			
+			
+			while (rs.next()) {
+				
+				ReviewDTO dto = new ReviewDTO();
+				
+				dto.setSeq(rs.getString("seq"));
+				dto.setAbseq(rs.getString("abseq"));
+				dto.setMseq(rs.getString("mseq"));
+				dto.setMname(rs.getString("mname"));
+				dto.setBname(rs.getString("bname"));
+				dto.setStar(rs.getString("star"));
+				dto.setContent(rs.getString("content"));
+				dto.setImgURL(rs.getString("imgURL"));
+				dto.setRegDate(rs.getString("regDate"));
+				
+				return dto;
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return null;
+	}
+
+
 }

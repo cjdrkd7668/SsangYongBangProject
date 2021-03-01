@@ -37,81 +37,31 @@
 			<thead>
 				<tr>
 					<th scope="col" class="text-center">번호</th>
-					<th scope="col" class="text-center" style="width: 250px;">제목</th>
+					<th scope="col" class="text-center" style="width: 250px;">내용</th>
 					<th scope="col" class="text-center">평점</th>
 					<th scope="col" class="text-center">작성자</th>
 					<th scope="col" class="text-center">날짜</th>
 				</tr>
 			</thead>
 			<tbody>
+				<c:forEach items="${list}" var="dto">
 				<tr>
-					<td>1</td>
-					<td class="title"><a href="/sybang/broker/review/reviewview.do">친절하고 너무 좋았습니다~~~</a></td>
-					<td>★★★★★</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
+					<td>${dto.seq}</td>
+					<td class="title"><a href="/sybang/broker/review/reviewview.do?seq=${dto.seq}">${dto.content}</a></td>
+					<td>${dto.star}</td>
+					<td>${dto.mname}</td>
+					<td>${dto.regDate}</td>
 				</tr>
-				<tr>
-					<td>1</td>
-					<td class="title">후기 입니다.</td>
-					<td>★★★★☆</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td class="title">후기 입니다.</td>
-					<td>★★★★☆</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td class="title">후기 입니다.</td>
-					<td>★★★★☆</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td class="title">후기 입니다.</td>
-					<td>★★★★☆</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td class="title">후기 입니다.</td>
-					<td>★★★★☆</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td class="title">후기 입니다.</td>
-					<td>★★★★☆</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-				</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 		<!-- pagination -->
-		<nav class="nav-pagination">
-			<ul class="pagination">
-				<li><a href="#" aria-label="Previous"> <span
-						aria-hidden="true">&laquo;</span>
-				</a></li>
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-				</a></li>
-			</ul>
+	    <nav class="nav-pagination">
+		  	<ul class="pagination">
+			    ${pageBar}
+		  	</ul>
 		</nav>
-
-
+		
 	</div>
 
 

@@ -9,11 +9,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.test.sist.broker.chat.ChatDAO;
+import com.test.sist.broker.chat.ChatDTO;
+
 @WebServlet("/broker/review/reviewview.do")
 public class ReviewView extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// 1.
+		String seq = request.getParameter("seq");
+
+		// 2.
+		ReviewDAO dao = new ReviewDAO();
+
+		ReviewDTO dto = dao.get(seq);
+
+		// 날짜 뒤 시간 자르기
+		dto.setRegDate(dto.getRegDate().substring(0, 10));
+
+		// 개행 문자 출력하기
+		dto.setContent(dto.getContent().replace("\r\n", "<br>"));
+
+		// 3.
+		request.setAttribute("dto", dto);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/broker/review/reviewview.jsp");
 		dispatcher.forward(request, response);

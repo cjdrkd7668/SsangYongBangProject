@@ -32,23 +32,19 @@
 		
         <table class="table table-bordered tbl-content">
             
-            <tr>
+            <!-- <tr>
                 <td colspan="3" id="content-title" style="height: 40px; font-weight: bold; font-size: 1.1em;">자유게시판 글 제목입니다.</td>
+            </tr> -->
+            <tr>
+                <td id="content-name">작성자&nbsp;:&nbsp;${dto.mname}
+                <td id="content-date">날짜&nbsp;:&nbsp;${dto.regDate}</td>
             </tr>
             <tr>
-                <td id="content-name">작성자&nbsp;:&nbsp;홍길동
-                <td id="content-date">날짜&nbsp;:&nbsp;21.02.20 15:50</td>
-            </tr>
-            <tr>
-            	<td colspan="3" id="score">평점&nbsp;:&nbsp;★★★★★</td>            	
+            	<td colspan="3" id="score">평점&nbsp;:&nbsp;${dto.star}</td>            	
             </tr>
             
             <tr>
-                <td colspan="3" id="content-content">
-                	너무 친절하고 좋은 방을 구하게 되었습니다!!너무 친절하고 좋은 방을 구하게 되었습니다!!너무 친절하고 좋은 방을 구하게 되었습니다!!
-                	너무 친절하고 좋은 방을 구하게 되었습니다!!너무 친절하고 좋은 방을 구하게 되었습니다!!너무 친절하고 좋은 방을 구하게 되었습니다!!
-                	너무 친절하고 좋은 방을 구하게 되었습니다!!너무 친절하고 좋은 방을 구하게 되었습니다!!너무 친절하고 좋은 방을 구하게 되었습니다!!
-               </td>
+                <td colspan="3" id="content-content">${dto.content}</td>
             </tr>
         </table>
         <!-- 자유게시판 글 끝 -->   
