@@ -68,6 +68,69 @@ public class SchedulerDAO {
 		
 		return null;
 	}
+
+	
+	
+	//List 서블릿의 호출 -> 등록가능한 일정 목록을 불러오는 메서드를 호출
+	public ArrayList<SchedulerDTO> possibleList(String approvalFSeq) {
+		
+		try {
+			
+			String sql = "select * from vwPossibleList where approvalFSeq = ? MINUS select * from vwRegistredList where approvalFSeq = ?";
+			// 현재 채택된 데이터(이중에는 plan에 들어간 것, 안들어간 것 모두 포함) - 이미 plan 테이블에 들어간 데이터 
+			// 여집합(아직 plan 리스트에 들어가지 않은 정보)를 가져오는 select문
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, approvalFSeq);
+			pstat.setString(2, approvalFSeq);
+			
+			rs = pstat.executeQuery();
+			
+			ArrayList<SchedulerDTO> list = new ArrayList<SchedulerDTO>();
+			
+			while (rs.next()) {
+				
+				SchedulerDTO dto = new SchedulerDTO();
+				
+				dto.setEstimate1thSeq(rs.getString("seq"));
+				dto.setMemberName(rs.getString("memberName"));
+				dto.setFirmname(rs.getString("firmname"));
+				
+				list.add(dto);
+				
+			}
+			
+			return list;
+			
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		return null;
+	}
+
+	
+	//writescheduleof 서블릿의 호출 -> 일정등록 메서드 호출
+	public int writeSchedule(SchedulerDTO dto) {
+		
+		try {
+			
+			String sql = "INSERT INTO tblPlan (seq, serviceDate, estimateURL, progressSeq, estimate1thSeq) VALUES (seqPlan.nextVal, to_date(?, 'yyyy-mm-dd'), ?, ?, ?)";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getServiceDate());
+			pstat.setString(2, dto.getEstimateURL());
+			pstat.setString(3, dto.getProgress());
+			pstat.setString(4, dto.getEstimate1thSeq());
+			
+			return pstat.executeUpdate();
+			
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		return 0;
+	}
 	
 	
 	
