@@ -57,7 +57,9 @@ public class WriteOk extends HttpServlet {
 		
 		//업체를 지정했을 때와 지정하지 않았을 때의 메서드 호출을 if문으로 분기
 		
-		if (approvalFseq.equals("")) {
+		String ptr = ""; //null값으로 인한 널포인익셉션 오류를 피하기 위해 선언 후 if문 null값 분기에 이용할 것임. 
+		
+		if (ptr.equals(approvalFseq)) {
 		
 			int result = dao.write(dto);
 			
@@ -81,7 +83,7 @@ public class WriteOk extends HttpServlet {
 			}
 
 			
-		} else if (! (approvalFseq.equals(""))) {
+		} else if (! (ptr.equals(approvalFseq))) {
 
 			
 			int result = dao.choiceWrite(dto);
