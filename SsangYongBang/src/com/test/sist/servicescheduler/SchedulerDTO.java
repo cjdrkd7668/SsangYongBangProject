@@ -22,6 +22,23 @@ public class SchedulerDTO {
 	private String estimateURL; //견적서 URL
 	private String estimate1thSeq; //견적서번호
 	
+	
+	//서비스완료 컬럼 추가
+	private String charge; //비용 
+	private String receiptURL; //영수증 
+	
+	public String getCharge() {
+		return charge;
+	}
+	public void setCharge(String charge) {
+		this.charge = charge;
+	}
+	public String getReceiptURL() {
+		return receiptURL;
+	}
+	public void setReceiptURL(String receiptURL) {
+		this.receiptURL = receiptURL;
+	}
 	public String getFirmname() {
 		return firmname;
 	}

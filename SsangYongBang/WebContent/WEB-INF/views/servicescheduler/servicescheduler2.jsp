@@ -114,7 +114,7 @@ td{
 		<div class="btns">
 			<button type="button" class="btn btn-default serviceinfobtn">견적상담 일정 등록</button>
 			<button type="button" class="btn btn-default serviceinfobtn"><a href="/sybang/servicescheduler/list.do">서비스 일정 등록</a></button>
-			<button type="button" class="btn btn-default serviceinfobtn"><a href="/sybang/servicescheduler/editschedule.do">서비스 완료 등록</a></button>
+			<button type="button" class="btn btn-default serviceinfobtn"><a href="/sybang/servicescheduler/completionlist.do">서비스 완료 등록</a></button>
 		</div>   
    		</form>
 
@@ -172,7 +172,7 @@ td{
 								events.push({
 									title: item.title,
 									//timeZone: local,
-									start: moment(item.startdate).format('YYYY-MM-DD'),
+									start: moment(item.startdate).format('YYYY-MM-DD'), //여기서 뭔가 포맷팅이 현재 시간으로 되는 듯함...  왜 오라클 내용이 변질되어 전달되는지..
 									
 									//end: enddate,
 									//timeZone: local,
