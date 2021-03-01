@@ -32,7 +32,6 @@ public class RegisterOk extends HttpServlet {
 		
 		//방 게시글 번호
 		String rseq = req.getParameter("rseq");
-		System.out.println(rseq);
 		String subject = req.getParameter("subject");
 		String price = req.getParameter("price");
 		String rent = req.getParameter("rent");
@@ -46,6 +45,7 @@ public class RegisterOk extends HttpServlet {
 		
 		
 		HouseDTO dto = new HouseDTO();
+		dto.setRseq(rseq);
 		dto.setBseq(bseq);
 		dto.setSubject(subject);
 		dto.setPrice(price);

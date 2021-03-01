@@ -32,9 +32,18 @@ public class HouseDTO {
 	private String subject;
 	private String content;
 	private String regdate;
-	
+	private String rseq; //방 게시글 번호
 	private String url1;
 	private String url2;
+	
+	
+	public String getRseq() {
+		return rseq;
+	}
+	public void setRseq(String rseq) {
+		this.rseq = rseq;
+	}
+	
 	public String getSeq() {
 		return seq;
 	}
