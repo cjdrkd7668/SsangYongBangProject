@@ -130,7 +130,7 @@
 	margin-left: 20px;
 	margin-right: 15px;
 	width: 350px;
-	height: 350px;
+	height: 250px;
 }
 
 #maincontainer .mainnotice .noticeTable .box {
@@ -144,7 +144,8 @@
 }
 
 #maincontainer .mainnotice .noticeTable .thumbnail {
-	width: 340px;
+	/* width: 340px; */
+	height: 200px;
 	margin: 0px auto;
 }
 
@@ -175,6 +176,21 @@
 	background-color: #486BB8;
 	color: #EEE;
 }
+
+.carousel-inner > .item > img {
+display: block;
+max-width: 100%;
+height: auto;
+}
+
+.item .carousel-caption {
+    color: #EEE !important;
+    text-shadow: 1px 1px 5px #000;
+    right: 0 !important;
+    top: 45% !important;
+    width: 200px;
+}
+
 </style>
 </head>
 
@@ -251,17 +267,17 @@
                     <!-- 최근 본 매물 사진 시작 -->
                     <td>
                         <a href="#">
-                            <img src="/sybang/images/room03.jpg" class="thumbnail">
+                            <img src="/sybang/images/house0001.jpg" class="thumbnail">
                         </a>
                     </td>
                     <td>
                         <a href="#">
-                            <img src="/sybang/images/room01.jpg" class="thumbnail">
+                            <img src="/sybang/images/house0002.jpg" class="thumbnail">
                         </a>
                     </td>
                     <td>
                         <a href="#">
-                            <img src="/sybang/images/room03.jpg" class="thumbnail">
+                            <img src="/sybang/images/house0003.jpg" class="thumbnail">
                         </a>
                     </td>
 
@@ -298,22 +314,28 @@
 
             <table class="table table-default noticeTable">
                 <tr>
-                    <th><div>뉴스</div></th>
+                    <th class="well"><div>뉴스</div></th>
                 </tr>
                 <tr>
                     <td rowspan="5">
-                        <div class="box">
-                            <div id="innerbox">
-                                <marquee behavior="scroll" direction="up" scrollamount="10">
-                                <img src="/sybang/images/notice001.png" class="thumbnail">
-                                <img src="/sybang/images/notice002.png" class="thumbnail">
-                                <img src="/sybang/images/notice003.png" class="thumbnail">
-                                <img src="/sybang/images/notice001.png" class="thumbnail">
-                                <img src="/sybang/images/notice002.png" class="thumbnail">
-                                <img src="/sybang/images/notice003.png" class="thumbnail">
-                                </marquee>
-                            </div>
-                        </div>
+                        <div id="carouselNews" class="carousel slide box" data-ride="carousel">
+							<div class="carousel-inner" role="listbox" id="innerbox">
+								<c:forEach items="${nlist }" var="ndto" varStatus="status">
+									<c:if test="${status.index == 1 }">
+										<div class="item active">
+											<img src="/sybang/images/${ndto.imageurl }" class="thumbnail">
+										<div class="carousel-caption">${ndto.subject }</div>
+										</div>
+									</c:if>
+									<c:if test="${status.index != 1 }">
+										<div class="item">
+											<img src="/sybang/images/${ndto.imageurl }" class="thumbnail">
+										<div class="carousel-caption">${ndto.subject }</div>
+										</div>
+									</c:if>
+								</c:forEach>
+							</div>
+						</div>
                     </td>
                 </tr>
             </table>
@@ -360,6 +382,12 @@
 			$("#search").focus();
 			
 		};
+		
+		$('.carousel').carousel({
+			interval: 2000
+		});
+
+
     </script>
 </body>
 
