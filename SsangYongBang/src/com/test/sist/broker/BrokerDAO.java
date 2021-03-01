@@ -117,7 +117,22 @@ public class BrokerDAO {
 		return 0;
 	}
 
-
+	public int deleteBroker(String brkEmail) {
 		
+		try {
+			
+			String sql = "update tblBroker set delFlag = 1 where email = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, brkEmail);
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return 0;
+	}
 
 }
