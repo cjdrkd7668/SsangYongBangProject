@@ -9,10 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-@WebServlet("/member/mycommentdata.do")
-public class MyCommentData extends HttpServlet {
+@WebServlet("/member/myreviewdata.do")
+public class MyReviewData extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -21,35 +20,35 @@ public class MyCommentData extends HttpServlet {
 		resp.setContentType("application/json");
 		
 		PrintWriter writer = resp.getWriter();
-	
-		//작성자 번호를 받는다
-		String authorseq = req.getParameter("authorseq");
+		
+		//회원 번호
+		String mseq = req.getParameter("mseq");
 		
 		MyInfoDAO dao = new MyInfoDAO();
-		//댓글 목록을 가져온다
-		ArrayList<MyInfoDTO> clist = dao.commentList(authorseq);
+		
+		ArrayList<MyInfoDTO> rlist = dao.reviewList(mseq);
 		
 		String temp = "";
 		
 		temp += "[";
-		
-		for (MyInfoDTO dto : clist) {
-			
+
+		for (MyInfoDTO dto : rlist) {
+
 			temp += "{";
-			temp += String.format("\"frseq\":\"%s\",", dto.getFrseq()); //글 번호
-			temp += String.format("\"regdate\":\"%s\",", dto.getRegdate()); //날짜
-			temp += String.format("\"detail\":\"%s\",", dto.getDetail()); //내용
-			temp += String.format("\"subject\":\"%s\",", dto.getSubject()); //원문 제목
-			temp += String.format("\"gap\":\"%d\"", dto.getGap()); //시간 차
+			temp += String.format("\"seq\":\"%s\",", dto.getSeq()); // 후기 번호
+			temp += String.format("\"regdate\":\"%s\",", dto.getRegdate()); // 날짜
+			temp += String.format("\"detail\":\"%s\",", dto.getDetail()); // 내용
+			temp += String.format("\"star\":\"%s\",", dto.getStar()); // 평점
+			temp += String.format("\"bname\":\"%s\"", dto.getBname()); // 중개사
 			temp += "}";
 			temp += ",";
 		}
-		
+
 		temp = temp.substring(0, temp.length() - 1);
 		temp += "]";
-		
+
 		writer.print(temp);
-		
+
 		writer.close();
 	}
 }

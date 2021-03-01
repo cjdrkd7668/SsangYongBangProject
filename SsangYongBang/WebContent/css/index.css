@@ -21,7 +21,7 @@
 	text-align: center;
 	margin-top: 30px;
 	height: 50vh;
-	background: url(/images/bg.jpg) center;
+	background: url(/sybang/images/bg.jpg) center;
 	background-size: cover;
 	width: 100%;
 	opacity: 1;
@@ -33,6 +33,8 @@
 	margin: 100px;
 	padding-top: 30px;
 	font-size: 3em;
+	color: #EEE;
+	text-shadow: 1px 1px 5px #000;
 }
 
 /* 검색 버튼 */
@@ -57,14 +59,14 @@
 /* mainhistory(방금 올라온 매물, 찜한 매물) 시작 */
 #maincontainer .mainhistory {
 	width: 100%;
-	height: 48vh;
-	margin: 10px auto;
+	height: 40vh;
+	margin: 0px auto;
 	text-align: center;
 }
 
-#maincontainer .mainhistory .newBadge {
+.newBadge {
 	position: relative;
-	top: -10px;
+	top: -7px;
 }
 
 #maincontainer .mainhistory .newsTable {
@@ -118,7 +120,7 @@
 	margin-left: 20px;
 	margin-right: 15px;
 	width: 350px;
-	height: 350px;
+	height: 250px;
 }
 
 #maincontainer .mainnotice .noticeTable .box {
@@ -132,7 +134,8 @@
 }
 
 #maincontainer .mainnotice .noticeTable .thumbnail {
-	height: 100%;
+	/* width: 340px; */
+	height: 200px;
 	margin: 0px auto;
 }
 
@@ -147,7 +150,7 @@
 #maincontainer .mainnotice td {
 	margin-left: 10px;
 	font-size: 1.1em;
-	text-align: center;
+	text-align: left;
 }
 
 #maincontainer .mainnotice a {
@@ -162,4 +165,31 @@
 .bluebg {
 	background-color: #486BB8;
 	color: #EEE;
+}
+
+.carousel-inner>.item>img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.item .carousel-caption {
+	color: #EEE !important;
+	text-shadow: 1px 1px 5px #000;
+	right: 0 !important;
+	top: 45% !important;
+	width: 200px;
+}
+
+.blue {
+	color: #486BB8;
+}
+
+.bluebg {
+	background-color: #486BB8;
+	color: #EEE;
+}
+
+.red {
+	color: red;
 }

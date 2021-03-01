@@ -81,6 +81,28 @@ public class Index extends HttpServlet {
 				dto.setUrl2(img);
 			}
 		}	
+		request.setAttribute("hlist", hlist);
+		
+		// 광고 중인 매물 가져오기
+		ArrayList<HouseDTO> adlist = hdao.ad();
+
+		for (HouseDTO dto : adlist) {
+
+			dto.setAddress(dto.getAddress().substring(dto.getAddress().lastIndexOf("구") + 1));
+
+			if (dto.getSubject().length() > 10) {
+				dto.setSubject(dto.getSubject().substring(0, 10) + "...");
+			}
+
+			// 이미지 가져오기
+			ArrayList<String> ilist = hdao.getImg(dto.getSeq());
+
+			for (String img : ilist) {
+				dto.setUrl1(img);
+				dto.setUrl2(img);
+			}
+		}
+		request.setAttribute("adlist", adlist);
 		
 		//뉴스 가져오기
 		NewsDAO ndao = new NewsDAO();
@@ -89,7 +111,7 @@ public class Index extends HttpServlet {
 
 		request.setAttribute("plist", plist);
 		request.setAttribute("llist", llist);
-		request.setAttribute("hlist", hlist);
+		
 		request.setAttribute("nlist", nlist);
 
 		request.setAttribute("search", search);

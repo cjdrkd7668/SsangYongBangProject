@@ -69,18 +69,19 @@
 /* mainhistory(방금 올라온 매물, 찜한 매물) 시작 */
 #maincontainer .mainhistory {
 	width: 100%;
-	height: 48vh;
-	margin: 10px auto;
+	height: 40vh;
+	margin: 0px auto;
 	text-align: center;
 }
 
-#maincontainer .mainhistory .newBadge {
+.newBadge {
 	position: relative;
-	top: -10px;
+	top: -7px;
 }
 
 #maincontainer .mainhistory .newsTable {
-	display: inline;
+	display: inline-block;
+	width: 470px;
 	margin-left: 30px;
 	margin-right: 30px;
 }
@@ -191,6 +192,19 @@ height: auto;
     width: 200px;
 }
 
+.blue {
+	color: #486BB8;
+}
+
+.bluebg {
+	background-color: #486BB8;
+	color: #EEE;
+}
+
+.red {
+	color: red;
+}
+
 </style>
 </head>
 
@@ -227,7 +241,7 @@ height: auto;
                 </tr>
 
                 <tr>
-                    <!-- 최근 본 매물 사진 시작 -->
+                    <!-- 방금 올라온 매물 사진 시작 -->
                     <c:forEach items="${hlist }" var="hdto1">
                     <td>
                         <a href="/sybang/house/houseview.do?seq=${hdto1.seq }">
@@ -260,46 +274,38 @@ height: auto;
             <table class="table table-default newsTable">
 
                 <tr>
-                    <th colspan="3">최근 본 매물</th>
+                    <th colspan="3">광고 <span class="badge newBadge" style="background-color: yellow; color: #444;">Ad</span></th>
                 </tr>
 
                 <tr>
-                    <!-- 최근 본 매물 사진 시작 -->
+                    <!-- 광고 매물 사진 시작 -->
+                    <c:forEach items="${adlist }" var="addto1">
                     <td>
-                        <a href="#">
-                            <img src="/sybang/images/house0001.jpg" class="thumbnail">
+                        <a href="/sybang/house/houseview.do?seq=${addto1.seq }">
+                            <img src="/sybang/images/${addto1.url2 }" class="thumbnail">
                         </a>
                     </td>
-                    <td>
-                        <a href="#">
-                            <img src="/sybang/images/house0002.jpg" class="thumbnail">
-                        </a>
-                    </td>
-                    <td>
-                        <a href="#">
-                            <img src="/sybang/images/house0003.jpg" class="thumbnail">
-                        </a>
-                    </td>
-
+                    </c:forEach>
                 <tr>
-                    <td><a href="#">빌라/투룸<small>26㎡ 5층</small></a></td>
-                    <td><a href="#">빌라/투룸<small>26㎡ 5층</small></a></td>
-                    <td><a href="#">빌라/투룸<small>26㎡ 5층</small></a></td>
+                    <c:forEach items="${adlist }" var="addto2">
+                    <td><a href="/sybang/house/houseview.do?seq=${addto2.seq }">${addto2.btype }<small>${addto2.exclusiveArea }㎡ ${addto2.selectedFloor }층</small></a></td>
+                    </c:forEach>
                 </tr>
                 <tr>
-                    <td><a href="#"><b>매매 2억 6,000</b></a></td>
-                    <td><a href="#"><b>매매 2억 6,000</b></a></td>
-                    <td><a href="#"><b>매매 2억 6,000</b></a></td>
+                    <c:forEach items="${adlist }" var="addto3">
+                    <td><a href="/sybang/house/houseview.do?seq=${addto3.seq }">
+                    	<b>${addto3.dtype } ${addto3.price }만원<c:if test="${addto3.dtype == '월세'}">/${addto3.rent }만원</c:if></b></a></td>
+                    </c:forEach>
                 </tr>
                 <tr>
-                    <td><a href="#">강남구 논현동</a></td>
-                    <td><a href="#">강남구 논현동</a></td>
-                    <td><a href="#">강남구 논현동</a></td>
+                    <c:forEach items="${adlist }" var="addto4">
+                    <td><a href="/sybang/house/houseview.do?seq=${addto4.seq }">${addto4.address}</a></td>
+                    </c:forEach>
                 </tr>
                 <tr>
-                    <td><a href="#">★테라스 있는 신축</a></td>
-                    <td><a href="#">★테라스 있는 신축</a></td>
-                    <td><a href="#">★테라스 있는 신축</a></td>
+                    <c:forEach items="${adlist }" var="addto5">
+                    <td><a href="/sybang/house/houseview.do?seq=${addto5.seq }">${addto5.subject }</a></td>
+                    </c:forEach>
                 </tr>
             </table>
 
@@ -314,7 +320,7 @@ height: auto;
 
             <table class="table table-default noticeTable">
                 <tr>
-                    <th class="well"><div>뉴스</div></th>
+                    <th class="well bluebg"><div>뉴스</div></th>
                 </tr>
                 <tr>
                     <td rowspan="5">
@@ -346,7 +352,7 @@ height: auto;
                 </tr>
                 <c:forEach items="${plist }" var="pdto">
                 <tr>
-                    <td><a href="/sybang/free/detail.do?seq=${pdto.seq }"> ${pdto.subject }</a>
+                    <td><a href="/sybang/free/detail.do?seq=${pdto.seq }"> ${pdto.subject } (<b class="blue">${pdto.ccount }</b>)</a>
                     </td>
                 </tr>
                 </c:forEach>
@@ -354,11 +360,16 @@ height: auto;
 
             <table class="table table-default noticeTable">
                 <tr>
-                    <th class="well">최신글</th>
+                    <th class="well">최신글 <span class="badge newBadge" style="background-color: red;">N</span></th>
                 </tr>
                 <c:forEach items="${llist }" var="ldto">
                 <tr>
-                    <td><a href="/sybang/free/detail.do?seq=${ldto.seq }"> ${ldto.subject }</a>
+                    <td><a href="/sybang/free/detail.do?seq=${ldto.seq }"> ${ldto.subject } (<b class="blue">${ldto.ccount }</b>)
+                    <!-- 최신 글 시작 -->
+					<%-- <c:if test="${ldto.gap < 1 }">
+						<span class="badge newBadge" style="background-color: red;">N</span></a>
+					</c:if> --%>
+                    </a>
                     </td>
                 </tr>
                 </c:forEach>

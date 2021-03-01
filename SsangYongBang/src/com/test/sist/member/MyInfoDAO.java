@@ -204,5 +204,37 @@ public class MyInfoDAO {
 	}
 	
 	
-	
+	//MyReviewData 서블릿 -> 내 후기 목록
+	public ArrayList<MyInfoDTO> reviewList(String mseq) {
+		try {
+
+			String sql = "select seq, bname, star, content, to_char(regdate, 'yy/mm/dd') as regdate from vwBrokerReview where mseq = ?";
+
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, mseq);
+			rs = pstat.executeQuery();
+
+			ArrayList<MyInfoDTO> list = new ArrayList<MyInfoDTO>();
+
+			while (rs.next()) {
+
+				MyInfoDTO dto = new MyInfoDTO();
+
+				dto.setSeq(rs.getString("seq"));
+				dto.setBname(rs.getString("bname"));
+				dto.setStar(rs.getString("star"));
+				dto.setDetail(rs.getString("content"));
+				dto.setRegdate(rs.getString("regdate"));
+
+				list.add(dto);
+			}
+
+			return list;
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	}
+
 }

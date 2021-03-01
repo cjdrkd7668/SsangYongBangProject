@@ -275,6 +275,7 @@ public class FreeDAO {
 				
 				dto.setSeq(rs.getString("seq"));
 				dto.setSubject(rs.getString("subject"));
+				dto.setCcount(rs.getString("ccount"));
 				
 				list.add(dto);
 			}
@@ -304,6 +305,8 @@ public class FreeDAO {
 
 				dto.setSeq(rs.getString("seq"));
 				dto.setSubject(rs.getString("subject"));
+				dto.setCcount(rs.getString("ccount"));
+				dto.setGap(rs.getInt("gap"));
 
 				list.add(dto);
 			}

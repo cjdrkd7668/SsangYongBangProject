@@ -365,6 +365,45 @@ public class HouseDAO {
 		return null;
 	}
 
+	//Index 서블릿 -> 광고 중인 매물 리스트 반환
+	public ArrayList<HouseDTO> ad() {
+		try {
+
+			String sql = "select rownum, ad.* from (select * from vwHousePost p inner join tblPostAd a on p.seq = a.housePostSeq order by regdate desc) ad"
+					+ " where rownum between 1 and 3";
+
+			stat = conn.createStatement();
+
+			rs = stat.executeQuery(sql);
+
+			ArrayList<HouseDTO> list = new ArrayList<HouseDTO>();
+
+			while (rs.next()) {
+
+				HouseDTO dto = new HouseDTO();
+
+				dto.setSeq(rs.getString("seq"));
+				dto.setSubject(rs.getString("subject"));
+				dto.setBtype(rs.getString("btype"));
+				dto.setDtype(rs.getString("dtype"));
+				dto.setPrice(rs.getString("price"));
+				dto.setRent(rs.getString("rent"));
+				dto.setAddress(rs.getString("address"));
+				dto.setSubject(rs.getString("subject"));
+				dto.setExclusiveArea(rs.getInt("exclusiveArea"));
+				dto.setSelectedFloor(rs.getString("selectedFloor"));
+
+				list.add(dto);
+			}
+
+			return list;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	}
+
 }
 
 
