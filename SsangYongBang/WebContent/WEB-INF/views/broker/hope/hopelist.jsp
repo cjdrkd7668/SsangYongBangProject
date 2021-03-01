@@ -27,91 +27,42 @@
 	<div class="container">
 		<h1>희망 매물 조회하기</h1>
 		<hr>
-		<div class="list-container">
+<!-- 		<div class="list-container">
 			<div class="well well-sm" style="float: left;">
 				총 <b>5</b>개의 방이 등록되어 있습니다.
 			</div>
-		</div>
+		</div> -->
 
 		<table class="table table-hover">
 			<thead>
 				<tr>
 					<th scope="col" class="text-center">번호</th>
-					<th scope="col" class="text-center" style="width: 250px;">제목</th>
+					<th scope="col" class="text-center" style="width: 200px;">내용</th>
+					<th scope="col" class="text-center"  style="width: 80px;">지역</th>
+					<th scope="col" class="text-center">거래 유형</th>
 					<th scope="col" class="text-center">작성자</th>
-					<th scope="col" class="text-center">날짜</th>
-					<th scope="col" class="text-center">조회수</th>
 				</tr>
 			</thead>
 			<tbody>
+				<c:forEach items="${list}" var="dto">
 				<tr>
-					<td>1</td>
-					<td class="title"><a href="/sybang/hope/view.do" target="_blank">깨끗한 오피스텔이고, 사무실로도 사용가능합니다. 역삼/강남역 1분 거리!!</a></td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-					<td>3</td>
+					<td>${dto.seq}</td>
+					<td class="title"><a href="/sybang/broker/hope/view.do?seq=${dto.seq}" target="_blank">${dto.content}</a></td>
+					<td>${dto.haddress}</td>
+					<td>${dto.hdtype}</td>
+					<td>${dto.mname}</td>		
 				</tr>
-				<tr>
-					<td>1</td>
-					<td class="title">방 올립니다.</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-					<td>3</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td class="title">방 올립니다.</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-					<td>3</td>
-				</tr>
-				<tr>
-					<td>1</td>
-			 		<td class="title">방 올립니다.</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-					<td>3</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td class="title">방 올립니다.</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-					<td>3</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td class="title">방 올립니다.</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-					<td>3</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td class="title">방 올립니다.</td>
-					<td>홍길동</td>
-					<td>2020.02.18</td>
-					<td>3</td>
-				</tr>
+				</c:forEach>
+			
 			</tbody>
 		</table>
 		<!-- pagination -->
-		<nav class="nav-pagination">
-			<ul class="pagination">
-				<li><a href="#" aria-label="Previous"> <span
-						aria-hidden="true">&laquo;</span>
-				</a></li>
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-				</a></li>
-			</ul>
+	    <nav class="nav-pagination">
+		  	<ul class="pagination">
+			    ${pageBar}
+		  	</ul>
 		</nav>
-
-
+		
 	</div>
 
 
