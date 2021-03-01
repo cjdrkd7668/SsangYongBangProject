@@ -254,4 +254,64 @@ public class FreeDAO {
 		}
 		return 0;
 	}
+
+	//Index 서블릿 -> 인기글 리스트 반환
+	public ArrayList<FreeDTO> popular() {
+		
+		try {
+			
+			String sql = "select rownum, f.* from (select * from vwFree order by readcount desc) f "
+					+ " where rownum between 1 and 5";
+			
+			stat = conn.createStatement();
+			
+			rs = stat.executeQuery(sql);
+			
+			ArrayList<FreeDTO> list = new ArrayList<FreeDTO>();
+			
+			while (rs.next()) {
+				
+				FreeDTO dto = new FreeDTO();
+				
+				dto.setSeq(rs.getString("seq"));
+				dto.setSubject(rs.getString("subject"));
+				
+				list.add(dto);
+			}
+			
+			return list;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	}
+
+	//Index 서블릿 -> 최신글 리스트 반환
+	public ArrayList<FreeDTO> latest() {
+		try {
+
+			String sql = "select rownum, f.* from vwFree f where rownum between 1 and 5";
+
+			stat = conn.createStatement();
+
+			rs = stat.executeQuery(sql);
+
+			ArrayList<FreeDTO> list = new ArrayList<FreeDTO>();
+
+			while (rs.next()) {
+
+				FreeDTO dto = new FreeDTO();
+
+				dto.setSeq(rs.getString("seq"));
+				dto.setSubject(rs.getString("subject"));
+
+				list.add(dto);
+			}
+
+			return list;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	}
 }
