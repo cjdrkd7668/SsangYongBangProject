@@ -12,6 +12,35 @@ public class BoardDTO {
 	
 	//업체승인번호 필드 추가
 	private String approvalFSeq; //업체승인번호
+	private String memberName;
+	private String firmName;
+	private String address;
+	
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getFirmName() {
+		return firmName;
+	}
+	public void setFirmName(String firmName) {
+		this.firmName = firmName;
+	}
+	public String getApprovalFSeq() {
+		return approvalFSeq;
+	}
+	public void setApprovalFSeq(String approvalFSeq) {
+		this.approvalFSeq = approvalFSeq;
+	}
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
+
 	
 	
 	public String getSeq() {

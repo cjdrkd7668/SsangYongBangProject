@@ -78,9 +78,10 @@ public class ServiceReview extends HttpServlet {
 		//1.5 데이터 조작
 		for (BoardDTO dto : list) {
 			
-			//시간 제외
-			dto.setRegDate(dto.getRegDate().substring(0, 10));	
+			//주소 두 글자만 보여주기
+			dto.setAddress(dto.getAddress().substring(0, 2));	
 		}
+		
 		
 		
 		//페이지 맞추기
@@ -129,8 +130,10 @@ public class ServiceReview extends HttpServlet {
 		
 		
 		//2.
-		
-		
+		request.setAttribute("list", list);
+		request.setAttribute("search", search);
+		request.setAttribute("pagebar", pagebar);
+		request.setAttribute("nowPage", nowPage);
 	   
 	   
 	   
