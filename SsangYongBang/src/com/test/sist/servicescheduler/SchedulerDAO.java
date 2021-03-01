@@ -131,6 +131,69 @@ public class SchedulerDAO {
 		
 		return 0;
 	}
+
+	
+	
+	//서비스 등록할 내용
+	public ArrayList<SchedulerDTO> completionList(String approvalFSeq) {
+		
+		try {
+			//sql 수정
+			String sql = "select * from vwCompletableList where approvalFSeq = ? MINUS select * from vwCompletionList where approvalFSeq = ?";
+			// 현재 채택된 데이터(이중에는 completion에 들어간 것, 안들어간 것 모두 포함) - 이미 completion 테이블에 들어간 데이터 
+			// 여집합(아직 completion 리스트에 들어가지 않은 정보)를 가져오는 select문
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, approvalFSeq);
+			pstat.setString(2, approvalFSeq);
+			
+			rs = pstat.executeQuery();
+			
+			ArrayList<SchedulerDTO> list = new ArrayList<SchedulerDTO>();
+			
+			while (rs.next()) {
+				
+				SchedulerDTO dto = new SchedulerDTO();
+				
+				dto.setEstimate1thSeq(rs.getString("approvalFseq"));
+				dto.setMemberName(rs.getString("memberName"));
+				dto.setFirmname(rs.getString("firmname"));
+				
+				list.add(dto);
+				
+			}
+			
+			return list;
+			
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		return null;
+	}
+
+	
+	//writercompletionOk 서블릿 -> 서비스 완료 정보 등록 메서드 호출
+	public int writeCompletion(SchedulerDTO dto) {
+		
+		try {
+			
+			String sql = "INSERT INTO tblCompletion (seq, estimate1thSeq, charge, receiptURL) VALUES (seqCompletion.nextVal, ?, ?, ?)";
+			
+			pstat = conn.prepareStatement(sql);
+		
+			pstat.setString(1, dto.getEstimate1thSeq());
+			pstat.setString(2, dto.getCharge());
+			pstat.setString(3, dto.getReceiptURL());
+			
+			return pstat.executeUpdate();
+			
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		return 0;
+	}
 	
 	
 	
