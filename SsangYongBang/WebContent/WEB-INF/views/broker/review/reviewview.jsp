@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,11 +72,11 @@
 							<h4 class="modal-title" id="myModalLabel">후기 삭제 요청하기</h4>
 						</div>
 						<div class="modal-body">
-							<form action="./requestRegister.jsp" method="POST">
+							<form action="/sybang/broker/review/deleteOk.do" method="POST">
 								<div class="form-row">
 									<div class="form-group">
 										<label>후기 삭제 요청 사유</label>
-										<textarea name="evaluationContent" class="form-control" maxlength="2000" style="height: 180px; resize: none;"></textarea>
+										<textarea name="requestContent" class="form-control" maxlength="2000" style="height: 180px; resize: none;"></textarea>
 									</div>
 								</div>
 	
@@ -83,13 +84,15 @@
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
 									<button type="submit" class="btn btn-primary">삭제 요청하기</button>
 								</div>
+								
+								<input type="hidden" name="reviewSeq" value="${dto.seq}">
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
     </div>
-
+</div>
 	<!-- footer 가져오기######## -->
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 </body>

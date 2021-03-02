@@ -11,7 +11,10 @@ public class ReviewDTO {
 	private String content;
 	private String imgURL;
 	private String regDate;
+
+
 	
+
 	public String getSeq() {
 		return seq;
 	}

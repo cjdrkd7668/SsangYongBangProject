@@ -46,15 +46,15 @@ public class Login extends HttpServlet{
 			};
 			
 			
-//			session.setAttribute("seq", bdto.getSeq());
-//			session.setAttribute("pw", bdto.getPw());
-//			session.setAttribute("name", bdto.getName());
-//			session.setAttribute("businessName", bdto.getBusinessName());
-//			session.setAttribute("brokerNum", bdto.getBrokerNum());
-//			session.setAttribute("address", bdto.getAddress());
-//			session.setAttribute("tel", bdto.getTel());
-//			session.setAttribute("businessNum", bdto.getBusinessNum());
-//			session.setAttribute("documentURL", bdto.getDocumentURL());
+			session.setAttribute("seq", bdto.getSeq());
+			session.setAttribute("pw", bdto.getPw());
+			session.setAttribute("name", bdto.getName());
+			session.setAttribute("businessName", bdto.getBusinessName());
+			session.setAttribute("brokerNum", bdto.getBrokerNum());
+			session.setAttribute("address", bdto.getAddress());
+			session.setAttribute("tel", bdto.getTel());
+			session.setAttribute("businessNum", bdto.getBusinessNum());
+			session.setAttribute("documentURL", bdto.getDocumentURL());
 
 			
 			
