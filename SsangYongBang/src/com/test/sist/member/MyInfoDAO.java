@@ -64,6 +64,30 @@ public class MyInfoDAO {
 		}
 		return 0;
 	}
+	
+	
+	//MyInfo 서블릿 -> 내가 쓴 댓글 총 페이지 수
+	public int ctotalPage(String authorseq) {
+		try {
+			String sql = "select ceil(count(*) / 5) as total from vwFreeComment where authorseq = ? and zerobonem = 1";
+			
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setString(1, authorseq);
+			
+			rs = pstat.executeQuery();
+			
+			if (rs.next()) {
+				return rs.getInt("total");
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return 0;
+	}
+	
+	
 
 	//MyInfo 서블릿 -> 내가 쓴 글 목록 반환
 	public ArrayList<MyInfoDTO> postList(HashMap<String, String> pmap) {
@@ -236,5 +260,6 @@ public class MyInfoDAO {
 		}
 		return null;
 	}
+
 
 }

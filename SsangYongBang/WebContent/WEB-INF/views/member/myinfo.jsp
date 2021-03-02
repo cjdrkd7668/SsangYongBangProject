@@ -21,6 +21,31 @@
     height: 1050px;
 }
 
+.off {
+	display: none;
+}
+
+#writecomment #nav,
+#writereview #nav {
+  width: 500px;
+  text-align: center;
+}
+
+#writecomment #nav a,
+#writereview #nav a {
+  display: inline-block;
+  color: #3B79BC;
+  width: 35px;
+  height: 35px;
+  padding: 6px;
+  border: 1px solid #EEE;
+}
+
+#writecomment #nav a.active,
+#writereview #nav a.active {
+  background: #3B79BC;
+  color: #EEE;
+}
 </style>
 </head>
 
@@ -146,21 +171,8 @@
 	                    
                     </tbody>
                 </table>
-                <!-- page-bar 시작 -->
-                <!-- <nav class="page-bar">
-                    <ul class="pagination">
-                        <li><a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-                            </a></li>
-                        <li class="active"><a href="#!">1</a></li>
-                        <li><a href="#!">2</a></li>
-                        <li><a href="#!">3</a></li>
-                        <li><a href="#!">4</a></li>
-                        <li><a href="#!">5</a></li>
-                        <li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-                            </a></li>
-                    </ul>
-                </nav> -->
-                <!-- page-bar 끝 -->
+                
+				
             </div>
             <!-- 내가 쓴 댓글 끝 -->
 
@@ -180,21 +192,7 @@
                     </tbody>
                 </table>
 
-                <!-- page-bar 시작 -->
-                <!-- <nav class="page-bar">
-                    <ul class="pagination">
-                        <li><a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-                            </a></li>
-                        <li class="active"><a href="#!">1</a></li>
-                        <li><a href="#!">2</a></li>
-                        <li><a href="#!">3</a></li>
-                        <li><a href="#!">4</a></li>
-                        <li><a href="#!">5</a></li>
-                        <li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-                            </a></li>
-                    </ul>
-                </nav> -->
-                <!-- page-bar 끝 -->
+                
             </div>
             <!-- 내 후기 끝 -->
 
@@ -217,15 +215,12 @@
 	
 		$("#ckAll").click(function(){
 			
-			
 			if ($(".ckItem").prop("checked")) {
 				$(".ckItem").prop("checked", false);	
 			} else {
 				$(".ckItem").prop("checked", true);
 			}
 		});
-	
-		
 	
 		//내가 쓴 댓글 클릭 시
 		$("#myComment").click(function() {
@@ -235,6 +230,7 @@
 				url: "/sybang/member/mycommentdata.do",
 				data: "authorseq=" + ${seq},
 				dataType: "json",
+				async: false,
 				success: function(result) {
 					$("#tblcomment tbody").html("");
 					
@@ -259,7 +255,50 @@
 			});
 		});
 	
-	
+		//내가 쓴 댓글 페이징
+		$("#myComment").click(function() {
+			
+			$("#nav").remove();
+			
+			$("#tblcomment").after("<div class=\"col-md-12 page-bar\" id=\"nav\">");
+			
+			//총 개수
+			var rowtotal = $("#tblcomment").find("tr").length;
+			
+			//총 페이지 수
+			var total = Math.ceil(rowtotal/5);
+			
+			var i = 0;
+			
+			for (; i < total; i++){
+				$("<a class=\"pagination\" href=\"#\"></a>").attr("rel", i).html(i+1).appendTo("#nav");
+			}
+			
+			$("#tblcomment").find("tr").addClass("off").slice(0, 5).removeClass("off");
+			
+			var link = $("#nav a");
+			
+			link.on("click", function(evt) {
+				evt.preventDefault();
+				
+				if ($(this).hasClass("active")) {
+					return;
+				}
+				link.removeClass("active");
+				$(this).addClass("active");
+				
+				var nowPage = $(this).attr("rel");
+				var begin = nowPage * 5;
+				var end = begin + 5;
+				
+				$("#tblcomment").find("tr").css("opacity", "0").addClass("off").slice(begin, end).removeClass("off").animate({opacity: 1}, 300);
+			});
+			
+			link.filter(":first").addClass("active");
+			
+		});
+		
+		
 		//내 후기 클릭 시
 		$("#myReview").click(function() {
 			
@@ -268,6 +307,7 @@
 				url: "/sybang/member/myreviewdata.do",
 				data: "mseq=" + ${seq},
 				dataType: "json",
+				async: false,
 				success: function(result) {
 					$("#tblreview tbody").html("");
 					
@@ -288,7 +328,58 @@
 					console.log(a, b, c);
 				}
 			});
+			
+			//내 후기 페이징
+			$("#myReview").click(function() {
+				
+				$("#nav").remove();
+				
+				$("#tblreview").after("<div class=\"col-md-12 page-bar\" id=\"nav\">");
+				
+				//총 개수
+				var rowtotal = $("#tblreview tbody").find("tr").length;
+				
+				//총 페이지 수
+				var total = Math.ceil(rowtotal/5);
+				
+				var i = 0;
+				
+				for (; i < total; i++){
+					$("<a class=\"pagination\" href=\"#\"></a>").attr("rel", i).html(i+1).appendTo("#nav");
+				}
+				
+				$("#tblreview").find("tr").addClass("off").slice(0, 5).removeClass("off");
+				
+				var link = $("#nav a");
+				
+				link.on("click", function(evt) {
+					evt.preventDefault();
+					
+					if ($(this).hasClass("active")) {
+						return;
+					}
+					link.removeClass("active");
+					$(this).addClass("active");
+					
+					var nowPage = $(this).attr("rel");
+					var begin = nowPage * 5;
+					var end = begin + 5;
+					
+					$("#tblreview").find("tr").css("opacity", "0").addClass("off").slice(begin, end).removeClass("off").animate({opacity: 1}, 300);
+				});
+				
+				link.filter(":first").addClass("active");
+				
+			});
+			
+			
+			
 		});
+		
+		
+		
+		
+		
 	</script>
 	
 </body>
