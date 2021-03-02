@@ -80,8 +80,7 @@
                 <span class="glyphicon glyphicon-remove"></span> 취소하기
             </button>
         </div>
-        <div style="clear: both;"></div>
-        <button type="button" class="btn btn-danger" style="float:right; margin-top: 10px;" data-toggle="modal" data-target="#withdrawModal" >
+        <button type="button" class="btn btn-danger" style="float:left; margin-top: 0px;" data-toggle="modal" data-target="#withdrawModal" >
                 <i class="fas fa-times-circle"></i> 탈퇴하기
         </button>
         
