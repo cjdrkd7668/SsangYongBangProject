@@ -32,7 +32,7 @@
 
 
 .reviews {
-	margin-left: 245px;
+	margin-left: 275px;
 	width: 750px;
 	height: 1050px;
 
@@ -98,6 +98,10 @@
 	height: 100px;
 }
 
+.reviewbtn {
+	margin-left: 670px;
+}
+
 </style>
 
 
@@ -132,7 +136,7 @@
 	<div class="row">
 	<h4> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 후기 게시판</h4>
 	</div>
-	
+	<button type="button" class="btn btn-default reviewbtn"><a href="/sybang/servicereview/ablelist.do">후기 쓰러 가기</a></button>
 	<div class="row">
 	<form method="get" action="./index.jsp" class="form-inline mt-3">
 		<select name="" class="form-control mx-1 mt-2">
@@ -143,7 +147,7 @@
 			placeholder="찾으시는 지역을 입력하세요">
 		<button type="submit" class="btn btn-primary mx-1 mt-2">검색</button>
 
-	</form>
+	</form>			
 	</div>   
 	
 	</div>
