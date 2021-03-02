@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.test.sist.DBUtil;
-import com.test.sist.broker.chat.ChatDTO;
 
 public class ReviewDAO {
 
@@ -127,6 +126,28 @@ public class ReviewDAO {
 		
 		return null;
 	}
+
+
+	public int deleteReview(String seq, String requestContent, String reviewSeq) {
+		try {
+			
+			String sql = "insert into tblReviewDelete (seq, detail, regDate, reviewSeq, approBrokerSeq, delFlag) values (seqReviewDelete.nextVal, ?, default, ?, ?, 0)";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, requestContent);
+			pstat.setString(2, reviewSeq);
+			pstat.setString(3, seq);
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return 0;
+	}
+
+
 
 
 }
