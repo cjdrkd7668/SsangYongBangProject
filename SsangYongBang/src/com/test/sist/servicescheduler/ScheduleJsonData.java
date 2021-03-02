@@ -13,12 +13,13 @@ import javax.servlet.http.HttpSession;
 
 import sun.java2d.opengl.WGLSurfaceData.WGLVSyncOffScreenSurfaceData;
 
+
 @WebServlet("/servicescheduler/schedulejsondata.do")
 public class ScheduleJsonData extends HttpServlet {
 
 	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		HttpSession session = req.getSession();
 
@@ -42,6 +43,8 @@ public class ScheduleJsonData extends HttpServlet {
 		SchedulerDAO dao = new SchedulerDAO();
 		ArrayList<SchedulerDTO> list = dao.listPlan(approvalFSeq);
 		
+		System.out.println(list.size());
+		
 		System.out.println("json형식으로 만드는 내용물확인해보기");
 		System.out.println("풀캘린더 공식문서에서 보여주는 events 속성이랑 일치하는지, 오타 없는지 점검필요");
 
@@ -49,15 +52,17 @@ public class ScheduleJsonData extends HttpServlet {
 		String temp = "";
 		
 		//가져온 정보를 향상된for문을 통해 json 형식 문자열로 만들기
-		//temp += "["; -> event객체 안의 내용을 넢는 거라서 [] 는 붙이지 않아야 함!!!!!!!!
+	
+		temp += "[";
+		
 			for(SchedulerDTO dto : list) {
 				
-				String servicedate = dto.getServiceDate();
+				//String servicedate = dto.getServiceDate();
 				//일자는 시간을 잘라서 yyyy-mm-dd형태일 때만 event객체가 인식한다.
 				
 				temp += "{";
 				temp += String.format("\"title\": \"%s님 %s\",", dto.getMemberName(), dto.getProgress()); //title: 김00님 완료
-				temp += String.format("\"start\": \"%s\",", servicedate.substring(0, servicedate.length()-9) ); //start: 오라클 내 저장된 시간
+				temp += String.format("\"start\": \"%s\",", dto.getServiceDate()); //start: 오라클 내 저장된 시간
 				temp += String.format("\"url\": \"/sybang/files/%s\"", dto.getEstimateURL());
 				temp += "}";
 				temp += ",";
@@ -65,7 +70,7 @@ public class ScheduleJsonData extends HttpServlet {
 		
 			
 		temp = temp.substring(0, temp.length() - 1); //마지막에는 더 따라올 {내용물} 가 없기 때문에 ,출력을 자른다.
-		//temp += "]";
+		temp += "]";
 		System.out.println(temp);
 		writer.print(temp);
 		

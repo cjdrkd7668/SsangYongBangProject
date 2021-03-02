@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -131,6 +132,8 @@ td{
    
    <!-- 본문하단 끝 -->>
    
+   aaaaa:${approvalFSeq}
+   <!-- 여기에 번호 찍히는 것 확인하기 -> 업체스인번호 -->
    
    </div>
    <!-- ########## 본문 끝 -->
@@ -164,15 +167,15 @@ td{
         				var events = []; //캘린더의 이벤트 객체(이 것으로 풀캘린더는 달력 내용을 출력)
 						        				
 						if(result != null) {
-	        				
+	        				//$(result).each(function(index, item) {
 							$(result).each(function(index, item) {
 	        					
-								//var startdate = moment(item.startdate).format('YYYY-MM-DD');				
+								//현재 null로 받아지기 때문에 현재 날짜가 출력된 상황임
 								
 								events.push({
 									title: item.title,
 									//timeZone: local,
-									start: moment(item.startdate).format('YYYY-MM-DD'), //여기서 뭔가 포맷팅이 현재 시간으로 되는 듯함...  왜 오라클 내용이 변질되어 전달되는지..
+									start: moment(item.start).format('YYYY-MM-DD'), 
 									
 									//end: enddate,
 									//timeZone: local,
@@ -183,24 +186,7 @@ td{
 	        				}); //each 문 끝
 	        				console.log(events);
 	        				//json데이터가 제대로 왔는지 콘솔 확인
-	        				//브라우저 콘솔 
-	        				/*
-	        				0: {title: "신세경님 완료", start: undefined, end: undefined, url: "estimateConstruction0001.jpg"}
-	        				->날짜가 안 뜬다. 포맷팅이 필요하다.. 나머지(고객명 & url은 형식에 맞게끔 제대로 들어갔기 때문에 콘솔 출력되었다)
-	        				*/
-	        				
-	        				//여기 자바 콘솔에서는
-	        				//{"title": "신세경님 완료",
-	        				//"start": "2021-01-11 00:00:00",
-	        				//"end": "2021-01-11 00:00:00",
-	        				//"url": "estimateConstruction0001.jpg"}
-							
-	        				//왜 문자열이 만들어졌는데 -> 브라우저에서는 언디파인드로 뜬는지?...
-	        				//해결중 ->시간의 경우, 자바스크립트의 date 타입? json에서 문자로 넘어간 시간은
-	        			 	//풀캘린더 events가 인식하지 못해 undefined라고 출력된다.
-	        			 	//moment를 이용해서 인식할수 있게 했으나,,,, 자바 콘솔창에 
-	        			 	//db내용이 제대로 출력되나(json)으로 정보 만들었을 땐 이상X
-	        			 	//브라우저 콘솔창에서 현재 날짜로 출력된다 ..
+	        			 	//만약 날짜가 전달되지 않는다면, 브라우저 콘솔창에서 현재 날짜로 출력된다 ..
 						} //if문 끝
 						
 						successCallback(events);
