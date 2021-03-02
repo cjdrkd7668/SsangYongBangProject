@@ -52,8 +52,6 @@ public class ApprovalDAO {
 						, map.get("end")
 						);
 			
-			System.out.println(sql);
-			
 			pstat = conn.prepareStatement(sql);
 			rs = pstat.executeQuery();
 			
@@ -104,7 +102,7 @@ public class ApprovalDAO {
 	
 	//승인 요청 삭제 => 각각의 미승인 계정 탈퇴 시키기
 	public int deleteBroker(String seq) {
-		
+
 		try {
 			
 			String sql = "update tblBroker set delFlag = 1 where seq = " + seq;
@@ -119,8 +117,9 @@ public class ApprovalDAO {
 		
 		return 0;
 	}
+	
 	public int deleteFirm(String seq) {
-		
+
 		try {
 			
 			String sql = "update tblFirm set delFlag = 1 where seq = " + seq;
@@ -128,6 +127,42 @@ public class ApprovalDAO {
 			pstat = conn.prepareStatement(sql);
 			
 			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return 0;
+	}
+
+	public int approveBroker(String seq) {
+		
+		try {
+			
+			String sql = "{ call procApproveBroker(?) }";
+			
+			cstat = conn.prepareCall(sql);
+			cstat.setString(1, seq);
+			
+			return cstat.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return 0;
+	}
+
+	public int approveFirm(String seq) {
+		
+		try {
+			
+			String sql = "{ call procApproveFirm(?) }";
+			
+			cstat = conn.prepareCall(sql);
+			cstat.setString(1, seq);
+			
+			return cstat.executeUpdate();
 			
 		} catch (Exception e) {
 			System.out.println(e);

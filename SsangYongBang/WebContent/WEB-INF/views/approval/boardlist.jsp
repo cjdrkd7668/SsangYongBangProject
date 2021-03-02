@@ -24,7 +24,7 @@
 		<form method="POST" action="/sybang/approval/approve.do">
 		
 		<div class="buttons">
-			<a class="btn btn-default btn-primary" href="#" role="button">승인</a>
+			<a class="btn btn-default btn-primary" id="approve-request" href="#" role="button">승인</a>
 			<a class="btn btn-default btn-danger" id="delete-request" role="button">삭제</a>
 			<a class="btn btn-default" id="select-all" role="button">전체 선택</a>
 		</div>
@@ -83,6 +83,7 @@
 	<script type="text/javascript">
 	
 	var url = "/sybang/approval/deleteok.do?seq=";
+	var urlA = "/sybang/approval/approveok.do?seq=";
 	
 	$('#select-all').click(function(){
 		$('.checkbuttons').prop('checked', true);
@@ -92,16 +93,29 @@
 		if ($('.checkbuttons:checked').length > 0) {
 			
 			$('.checkbuttons:checked').each(function(index, item){
-				console.log($(item).val());
-				$(location).attr('href', url + $(item).val());
-				
+				if (index <= $('.checkbuttons:checked').length) {
+					url += $(item).val() + "-";						
+				} else {
+					url += $(item).val();
+				}
 			})
+			$(location).attr('href', url);
 		}
 	});
 	
-	$(".btn-delete-review").click(function() {
-		$(location).attr('href', "/sybang/approval/deleteok.do?seq=" + $(this).val());
-	})
+	$("#approve-request").click(function() {
+		if ($('.checkbuttons:checked').length > 0) {
+			
+			$('.checkbuttons:checked').each(function(index, item){
+				if (index <= $('.checkbuttons:checked').length) {
+					urlA += $(item).val() + "-";						
+				} else {
+					urlA += $(item).val();
+				}
+			})
+			$(location).attr('href', urlA);
+		}
+	});
 	
 	</script>
 
