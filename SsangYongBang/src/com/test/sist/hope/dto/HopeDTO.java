@@ -9,6 +9,7 @@ public class HopeDTO {
 	private String hPrice; //희망가격
 	private String hRent; //희망월세
 	private String hAddress; //지역
+	private String hAddressC; //지역코드
 	private String hArea; //희망면적(전용면적)
 	private String hRoomNum; //희망방개수
 	private String content; //내용
@@ -110,6 +111,14 @@ public class HopeDTO {
 
 	public void setImgURL(String imgURL) {
 		this.imgURL = imgURL;
+	}
+
+	public String gethAddressC() {
+		return hAddressC;
+	}
+
+	public void sethAddressC(String hAddressC) {
+		this.hAddressC = hAddressC;
 	}
 
 	public String gethRentPrice() {

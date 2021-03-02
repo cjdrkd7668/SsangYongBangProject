@@ -38,7 +38,9 @@
 			<tr>
 				<td><%=i%></td>
 				<td>${dto.subject}</td>
-				<td>${dto.content}</td>
+				<td>
+					${dto.content}
+				</td>
 				<td align="center"><span class="btn btn-default btn-xs" onclick="edit(${dto.seq})">수정</span></td>
 			</tr>
 <%
