@@ -71,6 +71,17 @@
 				            <c:if test="${access == 2}"> <!-- 업체로 로그인 시 보이는 메뉴 -->
 				            <li><a href="/sybang/service/servicemypage.do">마이 서비스</a></li>
 				           	</c:if>
+				           			           	
+					      	<c:if test="${access == '1' }"> 
+					      	<!-- 회원 로그인시 회원 쪽에서 보일 일정관리-->
+					      	<li><a href="/sybang/servicescheduler/memberscheduler.do">내 서비스 일정</a></li>
+					      	</c:if>
+					      
+					      	<c:if test="${access == '2' }">     
+					      	<!-- 업체 로그인시 회원 쪽에서 보일 일정관리--> 
+					      	<li><a href="/sybang/servicescheduler/servicescheduler.do">일정 관리</a></li>
+					  	  	</c:if>
+							
 			         	</ul>
 			         	</c:if>
         			</li>
