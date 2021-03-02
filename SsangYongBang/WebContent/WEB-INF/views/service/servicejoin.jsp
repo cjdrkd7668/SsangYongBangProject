@@ -14,8 +14,8 @@
 	;
 
 .list-container {
-	width: 1000px;
-	height: 600px;
+	width: 800px;
+	height: 900px;
 	margin: 30px auto;
 	font-family: 'Noto Sans KR', sans-serif;
 	letter-spacing: -1px;
@@ -30,12 +30,12 @@
 	position: relative;
 	top: 0;
 	left: 0;
-	height: 400px;
-	text-align: center;
+	height: 750px;
+	
 }
 
 .list-container .jumbotron .loginbtn {
-	width: 500px;
+	width: 480px;
 	padding-top: 80px;
 	display: inline-block;
 }
@@ -78,6 +78,17 @@
 .list-container .btn-info:hover {
 	opacity: .8;
 }
+
+.info {
+	
+	width: 400px;
+	margin-left: 180px;
+}
+
+.btnArea {
+	margin-top: 40px;
+}
+
 </style>
 </head>
 
@@ -95,26 +106,53 @@
 
 		<div class="jumbotron">
 			<!-- 로그인 form 시작 -->
-			<form method="POST" action="/sybang/service/login.do"
-				id="login-form">
+			<form method="POST" action="/sybang/service/servicejoinok.do" id="join-form" enctype="multipart/form-data">
 				
-			<div class="form-group">
-				<lable>ID</lable>
-				<input type="text" name="userID" class="form-control">
+			<div class="form-group info">
+				<lable>업체명</lable>
+				<input type="text" name="id" class="form-control" required>
 			</div>
-			
-			<div class="form-group">
-				<label>PW</label>
-				<input type="password" name="userPW" class="form-control">
+			<div class="form-group info">
+				<label>서비스 종류</label>
+				<select class="form-control" name="categorySeq">
+					<option value="1">청소</option>
+					<option value="2">시공</option>
+				</select>
 			</div>
-			
-			<div class="form-group">
-				<label>E-mail</label>
-				<input type="email" name="userEmail" class="form-control">
-			</div>
-			
-			<button type="submit" class="btn btn-primary">회원가입</button>
 
+			<div class="form-group info">
+				<label>E-mail</label>
+				<input type="email" name="email" id="email" class="form-control" required>
+				<input type="button" value="중복검사" id="btn1" class="btn btn-default">
+				<span id="result" style="color: red;"></span>
+			</div>
+
+			
+			<div class="form-group info">
+				<label>PW</label>
+				<input type="password" name="pw" class="form-control" required>
+			</div>
+			
+			<div class="form-group info">
+				<label>업체 주소</label>
+				<input type="text" name="address" class="form-control" required>
+			</div>
+			<div class="form-group info">
+				<label>업체 연락처</label>
+				<input type="text" name="tel" class="form-control" required>
+			</div>			
+			<div class="form-group info">
+				<label>한줄 소개글</label>
+				<input type="text" name="introduction" class="form-control" required>
+			</div>			
+			<div class="form-group info">
+				<label>업체 포트폴리오 이미지(JPG, JPEG)</label>
+				<input type="file" name="portfolio" class="form-control" placeholder="Picture" required>
+			</div>
+						
+			<div class="btnArea">			
+			<button type="submit" class="btn btn-primary">회원가입</button>
+			</div>
 
 			</form>
 			<!-- 로그인 form 끝 -->
@@ -132,5 +170,32 @@
 
 	<!-- footer 가져오기######## -->
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
+	
+	<script>
+	
+	$("#btn1").click(function() {
+		
+		$.ajax({
+			type: "GET",
+			url: "/sybang/service/servicedata.do",
+			data: "email=" + $("#email").val(),
+			success: function(result) {
+				//콜백 함수
+				if (result == 1) {
+					$("#result").css("color", "red");
+					$("#result").text("이미 사용중인 아이디입니다.");
+				} else {
+					$("#result").css("color", "blue");
+					$("#result").text("사용 가능한 아이디입니다.");
+				}
+			},
+			error: function(a,b,c) {
+				console.log(a,b,c);
+			}
+		});
+		
+	});
+	</script>
+	
 </body>
 </html>

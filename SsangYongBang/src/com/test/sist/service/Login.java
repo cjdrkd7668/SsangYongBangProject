@@ -16,7 +16,9 @@ public class Login extends HttpServlet {
    
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	   //로그인시, from method는 post임
-	   
+		
+
+
 	   
 	   //email은 email
 	   //pw는 pw로 함.
@@ -37,8 +39,8 @@ public class Login extends HttpServlet {
 	  dto.setEmail(email);
 	  dto.setPw(pw);
 	  
-	  int result = dao.login(dto); // 1 or 0
-	  
+	  int result = dao.getLogin(dto); // 1 or 0 
+	  //승인 여부를 확인하는 메서드
 	  
 	  //3.
 	  if (result == 1) {
@@ -48,6 +50,7 @@ public class Login extends HttpServlet {
 		  
 		  session.setAttribute("email", dto.getEmail());
 		  //인증수단
+		 
 		  
 		  
 		  ServiceDTO sdto = dao.getService(email);
@@ -71,12 +74,15 @@ public class Login extends HttpServlet {
 		  
 		  
 	  } else {
+		   response.setCharacterEncoding("UTF-8"); 
+		   response.setContentType("text/html; charset=UTF-8");
+		  
 		  //로그인 X
 		  PrintWriter writer = response.getWriter();
 		  
 			writer.print("<html><body>");
 			writer.print("<script>");
-			writer.print("alert('login fail');");
+			writer.print("alert('잘못 로그인 정보를 입력하셨거나, 아직 가입이 승인되지 않았습니다.');");
 			writer.print("history.back();");
 			writer.print("</script>");
 			writer.print("</body></html>");
