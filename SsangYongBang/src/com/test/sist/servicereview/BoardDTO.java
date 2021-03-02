@@ -16,6 +16,7 @@ public class BoardDTO {
 	private String firmName;
 	private String address;
 	
+	
 	public String getAddress() {
 		return address;
 	}
