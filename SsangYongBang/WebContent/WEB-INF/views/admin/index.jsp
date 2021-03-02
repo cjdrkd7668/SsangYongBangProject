@@ -45,14 +45,10 @@
 			<a href="/sybang/inquiry/list.do">바로가기 <img src="/sybang/images/right_icon.png"></a>
 		</div>
 		
-		<div class=""></div>
-		
 	</div>
 	
-	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
-
 	<script type="text/javascript">
-		
+
 	</script>
 
 </body>
