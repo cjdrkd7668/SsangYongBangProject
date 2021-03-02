@@ -45,6 +45,7 @@ public class LoginOk extends HttpServlet {
 			
 			session.setAttribute("seq", gdto.getSeq());
 			session.setAttribute("name", gdto.getName());
+			session.setAttribute("name", gdto.getPhone());
 			
 			//자유게시판 내 일반 회원, 중개사를 구분할 정보
 			//session.setAttribute("zerobonem", 1);
