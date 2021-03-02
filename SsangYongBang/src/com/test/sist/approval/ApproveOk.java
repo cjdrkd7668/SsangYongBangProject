@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/approval/deleteok.do")
-public class DeleteOk extends HttpServlet {
+@WebServlet("/approval/approveok.do")
+public class ApproveOk extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -35,9 +35,9 @@ public class DeleteOk extends HttpServlet {
 			if ((Integer)session.getAttribute("access") == 3) {
 				
 				if (ctg.equals("부동산 중개사")) {
-					result *= dao.deleteBroker(seq);
+					result *= dao.approveBroker(seq);
 				} else {
-					result *= dao.deleteFirm(seq);				
+					result *= dao.approveFirm(seq);				
 				}
 				
 			}
@@ -59,10 +59,7 @@ public class DeleteOk extends HttpServlet {
 			
 			writer.close();
 		}
-		
-		
-		
+
 	}
 
 }
-

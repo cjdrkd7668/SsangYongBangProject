@@ -82,6 +82,64 @@ public class AdminDAO {
 		return null;
 	}
 	
+	//관리자 인덱스 화면에 뿌릴 데이터 반환
+	public AdminDTO getAdminMain() {
+		
+		try {
+			
+			AdminDTO dto = new AdminDTO();
+			
+			dto.setNonApprovalBrokers(getCount("vwNonApprovalBroker", ""));
+			dto.setNonApprovalFirms(getCount("vwNonApprovalFirm", ""));
+			dto.setReviewDelRequests(getCount("vwBReviewDeleteList", ""));
+			dto.setNewInquiries(getCount("vwInquiry", "where ccount = 0"));
+			
+			return dto;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		
+		return null;
+	}
+	
+	public int getCount(String table, String where) {
+		
+		try {
+			
+			String sql = "select count(*) as cnt from " + table + " " + where; 
+			int result = 0;
+			
+			pstat = conn.prepareStatement(sql);
+			rs = pstat.executeQuery();
+			
+			if (rs.next()) {
+				
+				result = rs.getInt("cnt");
+				pstat.close();
+				
+				return result;
+			}
+			
+			pstat.close();
+			
+			return result;
+			
+		} catch (Exception e) {
+			
+		}
+		
+		return 0;
+	}
 	
 
 }
+
+
+
+
+
+
+
+
