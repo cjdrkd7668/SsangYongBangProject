@@ -56,7 +56,18 @@
       <!-- 회원 로그인시 회원 쪽에서 보일 채팅창리스트-->
       <li><a href="/sybang/servicechat/memberspartnerlist.do">1:1 문의</a></li>
       </c:if>
+
+
+      <c:if test="${access == '1' }"> 
+      <!-- 회원 로그인시 회원 쪽에서 보일 일정관리-->
+      <li><a href="/sybang/servicescheduler/memberscheduler.do">내 서비스 일정</a></li>
+      </c:if>
+      
+      <c:if test="${access == '2' }">     
+      <!-- 업체 로그인시 회원 쪽에서 보일 일정관리--> 
       <li><a href="/sybang/servicescheduler/servicescheduler.do">일정 관리</a></li>
+  	  </c:if>
+  	  
       <c:if test="${access == '2' }"> <!-- 업체 아이디로 로그인시 보이는 사이드메뉴 -->
       <li><a href="/sybang/request/receivedrequestlist.do">받은 요청서 리스트</a></li>
       </c:if>

@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>serviceschedule</title>
+<title>membersServiceSchedule</title>
 
 
 <link rel="stylesheet" href="/sybang/css/servicemain.css">
@@ -26,9 +26,10 @@
 <style>
 
 .upperBar {
-	margin-left: 130px;
+	margin-left: 20px;
 	width: 750px;
 	display: inline-block;
+	
 }
 
 .leftSide {
@@ -40,9 +41,9 @@
 
 
 .wrapper {
-	margin-left: 200px;
-	margin-bottom: 15px;
-	width: 900px;
+	margin-left: 150px;
+	margin-bottom: 100px;
+	width: 1100px;
 	height: 800px;
 	padding: 17px;
 
@@ -95,11 +96,9 @@ td{
    <!-- 본문 상단 -->
    
    	<div class="upperBar">
-   
-		<div class="row">
-		<h4> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 일정 관리</h4>
-		</div>
-
+	
+		<h3> <span class="glyphicon glyphicon-user" aria-hidden="true"></span>${name}님의 일정 관리</h3>
+		
 	</div>
    
    
@@ -111,14 +110,8 @@ td{
 
 			<!-- 본문 중간 -->
 
-		<form>
-		<div class="btns">
-			<button type="button" class="btn btn-default serviceinfobtn"><a href="/sybang/servicescheduler/list.do">서비스 일정 등록</a></button>
-			<button type="button" class="btn btn-default serviceinfobtn"><a href="/sybang/servicescheduler/completionlist.do">서비스 완료 등록</a></button>
-		</div>   
-   		</form>
 
-
+		
 		<div class="wrapper">
 			
 			<div id='calendar'></div>
@@ -157,7 +150,7 @@ td{
        			
        			$.ajax({
         			type: 'POST',
-        			url: '/sybang/servicescheduler/schedulejsondata.do', //이 jsondata 서블릿은 업체 기준 조회
+        			url: '/sybang/servicescheduler/membersjsondata.do', //이 jsondata 서블릿은 회원 기준 조회
         			dataType: 'json',
         			success:
         				function(result) {

@@ -103,7 +103,7 @@ public class ServicestoreList extends HttpServlet {
 					+ "        </li>");
 		} else {				
 			pagebar += String.format("<li>"
-					+ "            <a href=\"/sybang/service/servicestorelist.do?page=%d\" aria-label=\"Previous\">"
+					+ "            <a href=\"/sybang/service/ServicestoreList.do?page=%d\" aria-label=\"Previous\">"
 					+ "                <span aria-hidden=\"true\">&laquo;</span>"
 					+ "            </a>"
 					+ "        </li>", n - 1);
@@ -119,7 +119,7 @@ public class ServicestoreList extends HttpServlet {
 				pagebar += "<li>";
 			}
 			
-			pagebar += String.format("<a href=\"/sybang/service/servicestorelist.do?page=%d\">%d</a></li>", n, n);
+			pagebar += String.format("<a href=\"/sybang/service/ServicestoreList.do?page=%d\">%d</a></li>", n, n);
 			
 			loop++;
 			n++;
@@ -135,7 +135,7 @@ public class ServicestoreList extends HttpServlet {
 					+ "        </li>");
 		} else {
 			pagebar += String.format("<li>"
-					+ "            <a href=\"/sybang/service/servicestorelist.do?page=%d\" aria-label=\"Next\">"
+					+ "            <a href=\"/sybang/service/ServicestoreList.do?page=%d\" aria-label=\"Next\">"
 					+ "                <span aria-hidden=\"true\">&raquo;</span>"
 					+ "            </a>"
 					+ "        </li>", n);
