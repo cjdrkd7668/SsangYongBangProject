@@ -170,6 +170,27 @@ public class NoticeDAO {
 		}
 		return 0;
 	}
+
+	//PostOk 서블릿 -> 글 쓰기
+	public int post(NoticeDTO dto) {
+		try {
+
+			String sql = "{ call procAddNotice(?, ?, ?, ?) }";
+
+			cstat = conn.prepareCall(sql);
+
+			cstat.setString(1, dto.getAdminseq());
+			cstat.setString(2, dto.getSubject());
+			cstat.setString(3, dto.getDetail());
+			cstat.setString(4, dto.getImageurl());
+
+			return cstat.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return 0;
+	}
 	
 	
 

@@ -118,12 +118,12 @@
 		
 		<c:if test="${not empty email && access == 3 }">
 			<!-- <button type="button" class="col-md-4 btn btn-default writeBtn" onclick="location.href='/sybang/notice/post.do'"> -->
-			<button type="button" class="btn btn-default writeBtn" onclick="location.href='/sybang/notice/post.do'">
+			<button type="button" class="btn btn-default writeBtn bluebg" onclick="location.href='/sybang/notice/post.do'">
 				<i class="fas fa-pencil-alt"></i> 글쓰기
 			</button>
 		</c:if>
-
 		
+		<div style="clear: both;"></div>
 		
     </div>
     <!-- listContainer 끝 -->

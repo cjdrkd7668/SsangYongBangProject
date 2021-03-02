@@ -1,66 +1,121 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!-- jstl -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항 글쓰기</title>
+<title>공지사항 글 쓰기</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
-<link rel="stylesheet" href="/sybang/css/freepost.css">
+<link rel="stylesheet" href="/sybang/css/globaldetail.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+<style>
+.detailContainer .divider {
+	width: 180px;
+	height: 5px;
+	background-color: #486BB8;
+	margin-top: -10px;
+}
+
+.detailContainer .page-header small {
+	position: relative;
+	top: 5px;
+}
+
+.detailContainer .detailTable #subject {
+	font-size: 1em;
+}
+
+.detailContainer .detailTable #detail {
+	font-size: 1em;
+	resize: none;
+	height: 150px;
+}
+
+.bluebg {
+	background-color: #486BB8;
+	color: #EEE;
+}
+
+.detailContainer .detailTable .openflags {
+	float: right;
+	margin-right: 10px;
+}
+
+.detailContainer .detailTable .openflags #openflag1, .detailContainer .detailTable .openflags #openflag2
+	{
+	margin-left: 10px;
+}
+</style>
 </head>
 <body>
 
 	<!-- header 가져오기######## -->
 	<%@include file="/WEB-INF/views/inc/header.jsp"%>
-
-	<!-- board-container 시작 -->
-	<div class="board-container">
-		<div class="page-header">
-			<h2>
-				<strong> <small class="blue">공지사항</small> 글쓰기&nbsp;<i
-					class="fas fa-pencil-alt blue"></i></strong>
-
-
-			</h2>
-			<div class="divider"></div>
-
-		</div>
-
-		<!-- form 태그 시작 -->
-		<form method="POST" action="/sybang/notice/postok.do">
-			<table class="table table-default">
-				<tr>
-					<td><input type="text" name="subject" id="subject"
-						class="form-control" placeholder="제목을 입력해주세요."
-						style="height: 50px; width: 890px; font-size: 1.4em; box-shadow: 1px 0px 3px #486BB8;"
-						required></td>
-					<td><textarea type="text" name="detail" id="detail"
-							class="form-control" placeholder="내용을 입력해주세요."
-							style="height: 200px; width: 890px; font-size: 1.1em; resize: none; box-shadow: 1px 0px 3px #486BB8;"
-							required></textarea></td>
-				</tr>
-			</table>
-
-			<div class="btns btn-group">
-				<button type="submit" class="btn btn-info"
-					style="background-color: #486BB8;">
-					<span class="glyphicon glyphicon-ok"></span> 등록하기
-				</button>
-				<button type="button" class="btn btn-default"
-					onclick="location.href='/sybang/notice/list.do'">
-					<span class="glyphicon glyphicon-remove"></span> 취소하기
-				</button>
-			</div>
-		</form>
-		<!-- form 태그 끝 -->
-
-
-	</div>
-	<!-- board-container 끝 -->
+     
+    <!-- detailContainer 시작 -->
+    <div class="detailContainer">
+        
+        <div class="page-header">
+            <h1><strong>공지사항 <i class="far fa-question-circle blue"></i>&nbsp;&nbsp;&nbsp;</strong><small>작성 후 등록하기 버튼을 눌러주세요.</small>
+            </h1>
+            <div class="divider"></div>
+        </div>
+        
+        <!-- form 태그 시작 -->
+        <form method="POST" action="/sybang/notice/postok.do" enctype="multipart/form-data">
+        <!-- detailTable 시작 -->
+        <table class="detailTable table table-default">
+            <tr class="well well-sm">
+                <td colspan="3">공지사항</td>
+            </tr>
+            <tr>
+                <td class="col-md-8" colspan="2">
+                    <input type="text" name="subject" id="subject" class="form-control" placeholder="제목을 입력해주세요.">
+                </td>
+                <td class="col-md-4">
+					<input type="file" class="form-control" placeholder="file" id="imageurl" name="imageurl">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <textarea name="detail" id="detail" class="form-control" placeholder="내용을 입력해주세요." required></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                
+                    <!-- 버튼 시작 -->
+                    <div class="btns btn-group">
+                        <button type="submit" class="btn btn-default bluebg">
+                            <span class="glyphicon glyphicon-ok"></span> 등록하기
+                        </button>
+                        <button type="button" class="btn btn-default" onclick="location.href='/sybang/notice/list.do'">
+                            <span class="glyphicon glyphicon-remove"></span> 취소하기
+                        </button>
+                    </div>
+                    <!-- 버튼 끝 -->
+                </td>
+            </tr>
+        </table>
+        <!-- detailTable 끝 -->
+        </form>
+        
+    </div>
+    <!-- detailContainer 끝 -->
 
 	<!-- footer 가져오기######## -->
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
+	
+    <script>
+
+        window.onload = function() {
+           $("#subject").focus();
+        };
+
+    </script>
+	
 </body>
 </html>
