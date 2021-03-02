@@ -34,7 +34,7 @@ public class SearchJsonData extends HttpServlet {
 		temp += "[";
 			for(HouseDTO dto : list) {	
 				priceTag = dto.getDtype() + " " + dto.getPrice() + (dto.getDtype().equals("월세") ? "/" + dto.getRent() : "") + "(만원)";
-				
+
 				temp += "{";
 				temp += String.format("\"seq\":\"%s\",", dto.getSeq());
 				temp += String.format("\"address\":\"%s\",", dto.getAddress());
