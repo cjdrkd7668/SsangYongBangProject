@@ -30,7 +30,7 @@
 #maincontainer .mainheader {
 	text-align: center;
 	margin-top: 30px;
-	height: 50vh;
+	height: 450px;
 	background: url(/sybang/images/bg.jpg) center;
 	background-size: cover;
 	width: 100%;
@@ -69,7 +69,7 @@
 /* mainhistory(방금 올라온 매물, 찜한 매물) 시작 */
 #maincontainer .mainhistory {
 	width: 100%;
-	height: 40vh;
+	height: 360px;
 	margin: 0px auto;
 	text-align: center;
 }
@@ -122,7 +122,7 @@
 /* mainnotice 시작 */
 #maincontainer .mainnotice {
 	width: 100%;
-	height: 40vh;
+	height: 350px;
 	margin: 5px auto;
 }
 

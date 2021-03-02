@@ -119,7 +119,7 @@
 							아이디 찾기
 							<button type="button" class="btn btn-default">비밀번호 찾기</button>
 							<!-- 간편 로그인 -->
-						<button type="button" class="btn btn-default" onclick="test('star23@naver.com','star23');">1번회원</button>
+						<!-- <button type="button" class="btn btn-default" onclick="test('star23@naver.com','star23');">1번회원</button> -->
 					</div>
 				</div>
 			</form>

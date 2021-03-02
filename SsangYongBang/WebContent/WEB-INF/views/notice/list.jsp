@@ -79,17 +79,18 @@
         <c:forEach items="${list }" var="dto">
         <table class="noticeTable table table-bordered table-hover item">
             <tr>
-                <th class="well bluebg">${dto.subject }</th>
+                <th class="well bluebg">${dto.subject }
+                	<!-- 최신 글 시작 -->
+	                <c:if test="${dto.gap < 1 }">
+	                	<span class="badge" style="background-color: red;">N</span>
+	                </c:if>
+	                <!-- 최신 글 끝 --></th>
             </tr>
             <tr>
                 <td>
 	                <a href="/sybang/notice/detail.do?seq=${dto.seq}&page=${nowPage}">
 	                <img class="thumbnail" src="../images/${dto.imageurl }">&nbsp;
-	                <!-- 최신 글 시작 -->
-	                <c:if test="${dto.gap < 1 }">
-	                	<span class="badge" style="background-color: red;">N</span>
-	                </c:if>
-	                <!-- 최신 글 끝 -->
+	                
 	                </a>
                 </td>
             </tr>
