@@ -143,15 +143,7 @@
                 	<thead>
                 	</thead>
                     <tbody>
-	                    <tr>
-	                        <td><input type="checkbox"></td>
-	                        <td>
-	                            <div class="cmt-date">2021-02-18&nbsp;<span class="badge"
-	                                    style="background-color: red;">N</span></div>
-	                            <div class="cmt-content">zzzzz</div>
-	                            <div class="cmt-title">원문 제목 : 제목입니다.</div>
-	                        </td>
-	                    </tr>
+	                    
                     </tbody>
                 </table>
                 <!-- page-bar 시작 -->
@@ -184,19 +176,7 @@
 	                    </tr>
                     </thead>
                     <tbody>
-	                    <tr>
-	                        <td style="font-size: 1.1em;">좋은집어쩌고어쩌고중개사</td>
-	                        <td style="font-size: 1.1em;">
-	                        	☆★★☆★
-	                        </td>
-	                        
-	                        <td style="font-size: 1.1em;">글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글 내용입니다.글
-	                                내용입니다.글 내용입니다.글 내용입니다.
-	                        </td>
-	                        <td>
-	                            <div class="review-date" style="font-size: 1.1em;">2021-02-18</div>
-	                        </td>
-	                    </tr>
+	                    
                     </tbody>
                 </table>
 
