@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="/sybang/css/admin2.css">
 <%=SITE_TITLE%>
 <style type="text/css">
+	.con{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-wrap:break-word;line-height:1.2em;max-height:2.4em;}
 </style>
 </head>
 <body>
@@ -39,7 +40,9 @@
 				<td><%=i%></td>
 				<td>${dto.subject}</td>
 				<td>
-					${dto.content}
+					<div class="con">
+						${dto.content}
+					</div>
 				</td>
 				<td align="center"><span class="btn btn-default btn-xs" onclick="edit(${dto.seq})">수정</span></td>
 			</tr>

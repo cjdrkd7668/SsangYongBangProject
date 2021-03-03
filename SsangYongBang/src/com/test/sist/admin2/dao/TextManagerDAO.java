@@ -24,8 +24,9 @@ public class TextManagerDAO {
 	
 	
 	/**
-	 * @return DB에서 가져온 운영정책DTO
-	 * @author icw
+	 * DB에 저장된 운영정책 정보를 요청해 배열리스트로반환
+	 * @return 운영정책DTO 배열리스트
+	 * @author 임채원
 	 */
 	public ArrayList<TextManagerDTO> list() {
 		
@@ -64,9 +65,10 @@ public class TextManagerDAO {
 	}
 
 	/**
+	 * DB에 저장된 운영정책 정보를 요청해 반환
 	 * @param 운영정책 번호
 	 * @return 운영정책DTO
-	 * @author icw
+	 * @author 임채원
 	 */
 	public TextManagerDTO get(String seq) {
 
@@ -82,7 +84,7 @@ public class TextManagerDAO {
 			if (rs.next()) {
 				dto.setSeq(rs.getString("seq"));
 				dto.setSubject(rs.getString("subject"));
-				dto.setContent(rs.getString("content"));
+				dto.setContent(rs.getString("content").replace("\r\n", "<br>"));
 				dto.setImgURL(rs.getString("imgURL"));
 			}			
 			
@@ -98,6 +100,12 @@ public class TextManagerDAO {
 		return dto;
 	}
 
+	/**
+	 * DB에 저장된 운영정책 정보를 요청해 반환
+	 * @param 운영정책 번호
+	 * @return 운영정책DTO
+	 * @author 임채원
+	 */
 	public int edit(HashMap<String, String> map) {
 		try {
 
@@ -120,6 +128,12 @@ public class TextManagerDAO {
 		return 0;
 	}
 
+	/**
+	 * 수정될 운영정책 정보를 DB에 저장한 후 결과를 반환
+	 * @param 수정될 새로운 내용
+	 * @return 결과
+	 * @author 임채원
+	 */
 	public int add(HashMap<String, String> map) {
 		try {
 			System.out.println("filename : " + map.get("filename"));
