@@ -41,6 +41,12 @@
 					</td>
 				</tr>
 				<tr>
+					<th>페이지 URL</th>
+					<td>
+						<a href="/sybang/notice/page.do?seq=${seq}">/sybang/notice/page.do?seq=${seq}</a>
+					</td>
+				</tr>
+				<tr>
 					<th>내용</th>
 					<td><textarea name="content">${dto.content}</textarea></td>
 				</tr>
@@ -48,7 +54,7 @@
 					<th>이미지</th>
 					<td>
 						<c:if test="${dto.imgURL.toLowerCase().endsWith('jpg') || dto.imgURL.toLowerCase().endsWith('gif') || dto.imgURL.toLowerCase().endsWith('png') }">
-							<img src="/sybang/files/admin2/${dto.imgURL}" style="max-width:100%">
+							<img src="/sybang/files/${dto.imgURL}" style="max-width:100%">
 						</c:if>
 						<input type="file" name="imgURL">
 					</td>
