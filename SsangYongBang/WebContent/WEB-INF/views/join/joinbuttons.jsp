@@ -44,9 +44,9 @@
         <div class="jumbotron">
                       
             <div class="buttons">
-  				<button type="button" class="btn btn-primary btn-lg" onclick="location.href='#'">부동산 중개사 회원가입</button>
+  				<button type="button" class="btn btn-primary btn-lg" onclick="location.href='/sybang/broker/join.do'">부동산 중개사 회원가입</button>
   				<button type="button" class="btn btn-info btn-lg" id="mlogin" onclick="location.href='#'">회원 회원가입</button>
-  				<button type="button" class="btn btn-success btn-lg" onclick="location.href='#'">서비스업체 회원가입</button>
+  				<button type="button" class="btn btn-success btn-lg" onclick="location.href='/sybang/service/servicejoin.do'">서비스업체 회원가입</button>
 			</div>
             
             
