@@ -95,7 +95,7 @@ public class BoardDAO {
 			}
 			
 			
-			String sql = String.format("select * from vwRequest %s", where);
+			String sql = String.format("select count(*) as cnt from vwRequest %s", where);
 
 			stat= conn.createStatement();
 			rs = stat.executeQuery(sql);
