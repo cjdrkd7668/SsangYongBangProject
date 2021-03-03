@@ -1,5 +1,9 @@
 package com.test.sist.broker.chat;
-
+/**
+ * 채팅을 조회하기 위한 DTO 클래스입니다.
+ * @author 황원준
+ *
+ */
 public class ChatDTO {
 	
 	private String seq;

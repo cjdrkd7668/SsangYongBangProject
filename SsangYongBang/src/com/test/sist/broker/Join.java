@@ -7,7 +7,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 중개사 회원가입을 진행하는 클래스입니다.
+ * @author 황원준
+ *
+ */
 @WebServlet("/broker/join.do")
 public class Join extends HttpServlet {
 

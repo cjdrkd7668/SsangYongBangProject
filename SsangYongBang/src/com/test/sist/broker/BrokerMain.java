@@ -11,7 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.test.sist.admin2.dto.AdminDTO;
-
+/**
+ * 중개사의 개인 정보를 수정 및 탈퇴할 수 있는 클래스입니다.
+ * @author 황원준
+ *
+ */
 @WebServlet("/broker/brokerMain.do")
 public class BrokerMain extends HttpServlet {
    

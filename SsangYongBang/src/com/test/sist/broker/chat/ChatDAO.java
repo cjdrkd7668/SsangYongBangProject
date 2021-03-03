@@ -9,6 +9,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.test.sist.DBUtil;
+/**
+ * 채팅을 조회하기 위한 DAO 클래스입니다.
+ * @author 황원준
+ *
+ */
 
 public class ChatDAO {
 	

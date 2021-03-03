@@ -9,7 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+/**
+ * 중개사의 개인 정보를 수정하는 클래스입니다.
+ * @author 황원준
+ *
+ */
 @WebServlet("/broker/editok.do")
 public class EditOk extends HttpServlet {
 

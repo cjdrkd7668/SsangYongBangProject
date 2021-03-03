@@ -13,7 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.test.sist.inc.Pagination;
 
-
+/**
+ * 회원이 남긴 채팅을 조회할 수 있는 클래스입니다.
+ * @author 황원준
+ *
+ */
 
 @WebServlet("/broker/chat/chatlist.do")
 public class ChatList extends HttpServlet {

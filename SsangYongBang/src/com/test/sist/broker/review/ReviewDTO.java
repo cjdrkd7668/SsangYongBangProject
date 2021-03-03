@@ -1,5 +1,9 @@
 package com.test.sist.broker.review;
-
+/**
+ * 리뷰를 조회하기 위한 DTO 클래스입니다. 
+ * @author 황원준
+ *
+ */
 public class ReviewDTO {
 	
 	private String seq;

@@ -14,7 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.test.sist.broker.chat.ChatDAO;
 import com.test.sist.broker.chat.ChatDTO;
 import com.test.sist.inc.Pagination;
-
+/**
+ * 구매자가 남긴 후기/평점을 조회할 수 있는 클래스입니다.
+ * @author 황원준
+ *
+ */
 @WebServlet("/broker/review/reviewlist.do")
 public class ReviewList extends HttpServlet {
    

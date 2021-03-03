@@ -11,7 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
+/**
+ * 중개사 회원가입 시 가져온 정보를 통해 회원가입을 완료하는 클래스입니다.
+ * @author 황원준
+ *
+ */
 
 @WebServlet("/broker/joinok.do")
 public class JoinOk extends HttpServlet {
