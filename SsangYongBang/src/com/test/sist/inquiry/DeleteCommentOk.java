@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.test.sist.inquiry.dao.InquiryCommentDAO;
 
 /**
- * 
+ * DeleteCommentOk. 문의게시판의 댓글 삭제를 위한 서블릿입니다.
  * @author 이찬미
  *
  */

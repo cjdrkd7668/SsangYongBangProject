@@ -10,7 +10,7 @@ import com.test.sist.DBUtil;
 import com.test.sist.free.dto.FreeCommentDTO;
 
 /**
- * 
+ * FreeCommentDAO. 자유게시판 댓글에 필요한 데이터를 조회 및 반환하는 클래스입니다.
  * @author 이찬미
  *
  */
@@ -29,6 +29,9 @@ public class FreeCommentDAO {
 		conn = DBUtil.open();
 	}
 	
+	/**
+	 * Connection 객체를 닫는 메소드입니다.
+	 */
 	public void close() {
 		
 		try {
@@ -38,7 +41,11 @@ public class FreeCommentDAO {
 		}
 	}
 
-	//CommentOk 서블릿 -> 댓글 쓰기
+	/**
+	 * CommentOk 서블릿에서 호출한 자유게시판 댓글 작성하는 메소드입니다.
+	 * @param dto 접근 정보, 글 번호, 댓글 내용 정보
+	 * @return 댓글 작성 성공 개수
+	 */
 	public int post(FreeCommentDTO dto) {
 		try {
 
@@ -59,7 +66,11 @@ public class FreeCommentDAO {
 		return 0;
 	}
 
-	//DeleteCommentOk 서블릿 -> 댓글 삭제
+	/**
+	 * DeleteCommentOk 서블릿에서 호출한 자유게시판 댓글 삭제하는 메소드입니다.
+	 * @param seq 자유게시판 댓글 번호
+	 * @return 댓글 삭제 성공 개수
+	 */
 	public int del(String seq) {
 
 		try {
@@ -78,7 +89,11 @@ public class FreeCommentDAO {
 		return 0;
 	}
 
-	//EditCommentOk 서블릿 -> 댓글 수정
+	/**
+	 * EditCommentOk 서블릿에서 호출한 자유게시판 댓글 수정하는 메소드입니다.
+	 * @param dto 수정할 내용과 댓글 번호 정보
+	 * @return 댓글 수정 성공 개수
+	 */
 	public int edit(FreeCommentDTO dto) {
 		
 		try {

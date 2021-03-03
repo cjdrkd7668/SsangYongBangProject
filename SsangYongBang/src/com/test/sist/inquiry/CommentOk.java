@@ -14,7 +14,7 @@ import com.test.sist.inquiry.dao.InquiryCommentDAO;
 import com.test.sist.inquiry.dto.InquiryCommentDTO;
 
 /**
- * 
+ * CommentOk. 문의게시판의 댓글 작성을 위한 서블릿입니다.
  * @author 이찬미
  *
  */

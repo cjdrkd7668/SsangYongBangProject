@@ -97,13 +97,12 @@
         			<!-- 로그인 후 -->
         			<c:if test="${not empty email }">
         			<c:if test="${access == 1 }">
-        			<li class="dropdown">
-          			<a href="/sybang/member/mypage.do" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="font-size: 1.3em;">마이페이지<span class="caret"></span></a>
-			          	<ul class="dropdown-menu" role="menu">
+        			<li>
+          			<a href="/sybang/member/myinfo.do" style="font-size: 1.3em;">마이페이지</a>
+			          	<!-- <ul class="dropdown-menu" role="menu">
 				            <li><a href="/sybang/member/myinfo.do" style="font-size: 1.1em;">내 정보 관리</a></li>
 				            <li><a href="#" style="font-size: 1.1em;">스케줄러</a></li>
-				            <li><a href="#" style="font-size: 1.1em;">1:1 문의 내역</a></li>
-			         	</ul>
+			         	</ul> -->
         			</li>
         			</c:if>
 	

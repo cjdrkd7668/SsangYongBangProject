@@ -14,6 +14,11 @@ import com.test.sist.inquiry.dto.InquiryDTO;
 
 import oracle.jdbc.OracleTypes;
 
+/**
+ * InquiryDAO. 문의게시판 글에 필요한 데이터를 조회 및 반환하는 클래스입니다.
+ * @author 이찬미
+ *
+ */
 public class InquiryDAO {
 
 	private Connection conn;
@@ -29,6 +34,9 @@ public class InquiryDAO {
 		conn = DBUtil.open();
 	}
 
+	/**
+	 * Connection 객체를 닫는 메소드입니다.
+	 */
 	public void close() {
 		try {
 			conn.close();
@@ -37,7 +45,10 @@ public class InquiryDAO {
 		}
 	}
 
-	//List 서블릿 -> 총 페이지 수 반환
+	/**
+	 * List 서블릿에서 호출한 문의게시판 총 페이지 수를 반환하는 메소드입니다.
+	 * @return 문의게시판 총 페이지 수
+	 */
 	public int totalPage() {
 		
 		try {
@@ -57,7 +68,11 @@ public class InquiryDAO {
 		return 0;
 	}
 
-	//List 서블릿 -> 글 목록 반환
+	/**
+	 * List 서블릿에서 호출한 문의게시판 글 목록을 반환하는 메소드입니다. 
+	 * @param map 글 목록 조회에 필요한 접근 정보 및 페이지, 검색어 정보
+	 * @return 문의게시판 글 목록
+	 */
 	public ArrayList<InquiryDTO> list(HashMap<String, String> map) {
 		
 		try {
@@ -104,7 +119,10 @@ public class InquiryDAO {
 		return null;
 	}
 
-	//Detail 서블릿 -> 조회수 증가
+	/**
+	 * Detail 서블릿에서 호출한 특정 글 조회 시 조회수를 증가시키는 메소드입니다.
+	 * @param seq 문의게시판 글 번호
+	 */
 	public void updateReadcount(String seq) {
 		
 		try {
@@ -120,7 +138,11 @@ public class InquiryDAO {
 		}
 	}
 
-	//Detail 서블릿 -> 글 하나 반환
+	/**
+	 * Detail 서블릿에서 호출한 문의게시판 글 하나의 정보를 반환하는 메소드입니다.
+	 * @param seq 문의게시판 글 번호
+	 * @return 문의게시판 글 정보
+	 */
 	public InquiryDTO detail(String seq) {
 		try {
 
@@ -153,7 +175,11 @@ public class InquiryDAO {
 		return null;
 	}
 
-	//Detail 서블릿 -> 한 게시글의 댓글 가져오기
+	/**
+	 * Detail 서블릿에서 호출한 특정 게시글의 모든 댓글을 반환하는 메소드입니다.
+	 * @param seq 문의게시판 글 번호
+	 * @return 특정 글의 댓글 목록
+	 */
 	public ArrayList<InquiryCommentDTO> commentList(String seq) {
 		try {
 
@@ -188,7 +214,11 @@ public class InquiryDAO {
 		return null;
 	}
 
-	//EditOk 서블릿 -> 글 수정
+	/**
+	 * EditOk 서블릿에서 호출한 문의게시판 글 수정하는 메소드입니다.
+	 * @param dto 글 번호, 제목, 수정할 내용, 공개 여부 정보
+	 * @return 글 수정 성공 개수
+	 */
 	public int edit(InquiryDTO dto) {
 		
 		try {
@@ -210,7 +240,11 @@ public class InquiryDAO {
 		return 0;
 	}
 	
-	//PostOk 서블릿 -> 글 작성
+	/**
+	 * PostOk 서블릿에서 호출한 문의게시판 글 작성하는 메소드입니다.
+	 * @param dto 글 작성을 위한 접근 정보와 번호, 제목, 내용, 공개 여부 정보
+	 * @return 글 작성 성공 개수
+	 */
 	public int post(InquiryDTO dto) {
 		try {
 
@@ -232,7 +266,11 @@ public class InquiryDAO {
 		return 0;
 	}
 
-	//DeleteOk 서블릿 -> 글 삭제
+	/**
+	 * DeleteOk 서블릿에서 호출한 문의게시판 글을 삭제하는 메소드입니다.
+	 * @param seq 문의게시판 글 번호
+	 * @return 글 삭제 성공 개수
+	 */
 	public int del(String seq) {
 
 		try {

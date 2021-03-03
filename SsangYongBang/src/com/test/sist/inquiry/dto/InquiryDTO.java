@@ -1,7 +1,18 @@
 package com.test.sist.inquiry.dto;
 
 /**
- * 
+ * InquiryDTO. 문의게시판 글 정보를 담은 클래스입니다.
+ * seq 글 번호
+ * subject 제목
+ * detail 내용
+ * regdate 작성일
+ * openflag 삭제여부
+ * readcount 조회수
+ * authorseq 작성자 번호
+ * authorname 작성자 이름
+ * zerobonem 중개사와 회원 구분 플래그(0:중개사 1:회원)
+ * ccount 댓글 수
+ * gap 시간 차
  * @author 이찬미
  *
  */
