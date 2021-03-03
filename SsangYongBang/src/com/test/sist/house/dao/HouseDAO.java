@@ -41,7 +41,11 @@ public class HouseDAO {
 		}
 	}
 
-	//방 검색 메서드입니다. DB 검색 시 필요한 where 조건절으로 쓰일 문자열을 매개변수로 받습니다.
+	/**
+	* DB 검색에 조건으로 사용할 WHERE 문자열을 매개 변수로 받아, 조건에 부합하는 매물 정보를 담은 ArrayList를 반환하는 메서드입니다.
+	* @param String where
+	* @return ArrayList<HouseDTO>
+	*/
 	public ArrayList<HouseDTO> searchHouse(String where) {
 		
 		try {
