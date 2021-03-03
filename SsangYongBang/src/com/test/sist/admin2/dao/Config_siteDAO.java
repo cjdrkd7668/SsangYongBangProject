@@ -32,7 +32,7 @@ public class Config_siteDAO {
 	
 	/**
 	 * DB에 저장된 관리자 데이터를 요청해 반환
-	 * @param 현재 접속중인 관리자id
+	 * @param seq 현재 접속중인 관리자id
 	 * @return 일치하는 관리자DTO
 	 * @author 임채원
 	 */
@@ -101,9 +101,9 @@ public class Config_siteDAO {
 
 	/**
 	 * 관리자/사이트 정보를 DB와 연결해 수정한후 결과를 반환
-	 * @param 현재 접속중인 관리자seq
-	 * @param 수정될 새로운 관리자정보DTO
-	 * @param 수정될 새로운 사이트정보DTO
+	 * @param seq 현재 접속중인 관리자seq
+	 * @param nadto 수정될 새로운 관리자정보DTO
+	 * @param nsdto 수정될 새로운 사이트정보DTO
 	 * @return 결과
 	 * @author 임채원
 	 */
@@ -154,7 +154,7 @@ public class Config_siteDAO {
 
 	/**
 	 * DB에 저장되어있는 아이디와 중복되었는지 결과를 반환
-	 * @param 관리자 아이디
+	 * @param id 관리자 아이디
 	 * @return 결과
 	 * @author 임채원
 	 */

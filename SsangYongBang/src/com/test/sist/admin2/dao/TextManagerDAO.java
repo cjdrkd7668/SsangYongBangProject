@@ -66,7 +66,7 @@ public class TextManagerDAO {
 
 	/**
 	 * DB에 저장된 운영정책 정보를 요청해 반환
-	 * @param 운영정책 번호
+	 * @param seq 운영정책 번호
 	 * @return 운영정책DTO
 	 * @author 임채원
 	 */
@@ -102,7 +102,7 @@ public class TextManagerDAO {
 
 	/**
 	 * DB에 저장된 운영정책 정보를 요청해 반환
-	 * @param 운영정책 번호
+	 * @param map 운영정책 번호
 	 * @return 운영정책DTO
 	 * @author 임채원
 	 */
@@ -130,7 +130,7 @@ public class TextManagerDAO {
 
 	/**
 	 * 수정될 운영정책 정보를 DB에 저장한 후 결과를 반환
-	 * @param 수정될 새로운 내용
+	 * @param map 수정될 새로운 내용
 	 * @return 결과
 	 * @author 임채원
 	 */

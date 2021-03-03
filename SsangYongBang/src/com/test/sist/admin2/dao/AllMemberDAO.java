@@ -36,7 +36,7 @@ public class AllMemberDAO {
 
 	/**
 	 * DB에 저장되어있는 회원 리스트를 배열리스트로 끊어서 반환(페이징)
-	 * @param 시작값,끝값
+	 * @param map 시작값,끝값
 	 * @return 회원DTO 배열리스트
 	 * @author 임채원
 	 */
@@ -120,7 +120,7 @@ public class AllMemberDAO {
 	
 	/**
 	 * DB에 저장되어있는 중개사 리스트를 배열리스트로 끊어서 반환(페이징)
-	 * @param 시작값,끝값
+	 * @param map 시작값,끝값
 	 * @return 중개사DTO 배열리스트
 	 * @author 임채원
 	 */
@@ -198,7 +198,7 @@ public class AllMemberDAO {
 	
 	/**
 	 * DB에 저장되어있는 업체 리스트를 배열리스트로 끊어서 반환(페이징)
-	 * @param 시작값,끝값
+	 * @param map 시작값,끝값
 	 * @return 업체DTO 배열리스트
 	 * @author 임채원
 	 */
@@ -274,7 +274,7 @@ public class AllMemberDAO {
 
 	/**
 	 * DB에 저장되어있는 회원 정보를 반환
-	 * @param 회원번호
+	 * @param seq 회원번호
 	 * @return 회원DTO
 	 * @author 임채원
 	 */
@@ -326,7 +326,7 @@ public class AllMemberDAO {
 
 	/**
 	 * DB에 저장되어있는 중개사 정보를 반환
-	 * @param 중개사번호
+	 * @param seq 중개사번호
 	 * @return 중개사DTO
 	 * @author 임채원
 	 */
@@ -374,7 +374,7 @@ public class AllMemberDAO {
 
 	/**
 	 * DB에 저장되어있는 업체 정보를 반환
-	 * @param 업체번호
+	 * @param seq 업체번호
 	 * @return 업체DTO
 	 * @author 임채원
 	 */
@@ -418,7 +418,7 @@ public class AllMemberDAO {
 
 	/**
 	 * 수정될 회원 정보를 DB에 저장한 후 결과를 반환
-	 * @param 수정될 새로운 내용
+	 * @param dto 수정될 새로운 내용
 	 * @return 결과
 	 * @author 임채원
 	 */
@@ -449,7 +449,7 @@ public class AllMemberDAO {
 
 	/**
 	 * 수정될 중개사 정보를 DB에 저장한 후 결과를 반환
-	 * @param 수정될 새로운 내용
+	 * @param dto 수정될 새로운 내용
 	 * @return 결과
 	 * @author 임채원
 	 */
@@ -484,7 +484,7 @@ public class AllMemberDAO {
 
 	/**
 	 * 수정될 업체 정보를 DB에 저장한 후 결과를 반환
-	 * @param 수정될 새로운 내용
+	 * @param dto 수정될 새로운 내용
 	 * @return 결과
 	 * @author 임채원
 	 */

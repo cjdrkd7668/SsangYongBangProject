@@ -126,7 +126,7 @@ public class SchedulerDAO {
 	
 	/**
 	 * 
-	 * @param SchedulerDTO 일정 관련 DB
+	 * @param dto 일정 관련 DB
 	 * @return int 0 or int 1 sql의 실행 결과값 반환
 	 * 
 	 * */
