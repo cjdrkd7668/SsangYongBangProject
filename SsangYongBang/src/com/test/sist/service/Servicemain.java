@@ -9,6 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 이 클래스는 서비스업체의 main 홈 servlet 클래스이다.
+ * @author kimsolee
+ *
+ * */
+
 @WebServlet("/service/servicemain.do")
 public class Servicemain extends HttpServlet {
 	
