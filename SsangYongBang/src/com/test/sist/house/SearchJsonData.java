@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.test.sist.house.dao.HouseDAO;
 import com.test.sist.house.dto.HouseDTO;
+/** 
+* sybang/house/search.jsp 에서 요청한 json 객체를 반환하기 위한 클래스입니다.
+* @author 이청강 
+*/
 
 @WebServlet("/house/searchjsondata.do")
 public class SearchJsonData extends HttpServlet {

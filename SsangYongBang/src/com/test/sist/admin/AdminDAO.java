@@ -6,7 +6,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import com.test.sist.DBUtil;
-
+/** 
+* 관리자 계정과 관련한 메서드를 담은 DAO 클래스입니다. 
+* @author 이청강
+*/
 public class AdminDAO {
 	
 	private Connection conn;
@@ -28,7 +31,11 @@ public class AdminDAO {
 		}
 	}
 	
-	//관리자 로그인 > email과 pw 확인
+	/**
+	* 관리자의 아이디와 패스워드를 속성으로 갖는 dto 객체를 매개 변수로 받아, 데이터베이스와 계정 정보가 일치하는 지 여부(1, 0)를 반환하는 메서드입니다.
+	* @param dto 로그인한 관리자의 아이디와 패스워드를 담은 DTO 객체
+	* @return 데이터베이스와 계정 정보가 일치하는 지 여부
+	*/
 	public int login(AdminDTO dto) {
 		
 		try {
@@ -53,8 +60,11 @@ public class AdminDAO {
 		
 		return 0;
 	}
-	
-	//email을 매개로 세션에 담을 관리자 번호, 이름 반환
+	/** 
+	* email을 매개로 세션에 담을 관리자 번호, 이름 반환하는 메서드 입니다.
+	* @param email 로그인한 관리자의 이메일
+	* @return 관리자 번호와 이름을 담은 DTO 객체
+	*/
 	public AdminDTO getAdmin(String email) {
 		
 		try {
@@ -82,7 +92,10 @@ public class AdminDAO {
 		return null;
 	}
 	
-	//관리자 인덱스 화면에 뿌릴 데이터 반환
+	/** 
+	* 관리자 메뉴의 첫 화면에 표시할 정보를 담은 DTO 객체를 반환하는 메서드입니다.
+	* @return 관리자 메뉴의 첫 화면에 표시할 정보를 담은 DTO 객체
+	*/
 	public AdminDTO getAdminMain() {
 		
 		try {
@@ -103,7 +116,12 @@ public class AdminDAO {
 		
 		return null;
 	}
-	
+	/** 
+	* 매개 변수로 받은 테이블 이름과 WHERE 조건 문자열을 이용해서 DB에서 해당 테이블의 행 개수를 검색하여 반환하는 메서드입니다.
+	* @param table 테이블 이름
+	* @param where 조건 문자열
+	* @return 해당 테이블의 행 개수
+	*/
 	public int getCount(String table, String where) {
 		
 		try {
