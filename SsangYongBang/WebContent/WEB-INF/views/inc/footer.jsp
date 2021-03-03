@@ -7,9 +7,9 @@
 <div class="footer-cklee">
 	
 	<p class="p-link">
-		<a href="#">회사소개</a>
-		|<a href="#">이용약관</a>
-		|<a href="#">개인정보처리방침</a>
+		<a href="/sybang/notice/page.do?seq=1">회사소개</a>
+		|<a href="/sybang/notice/page.do?seq=2">이용약관</a>
+		|<a href="/sybang/notice/page.do?seq=3">개인정보처리방침</a>
 		<c:if test="${access == 3}">
 			|<a href="/sybang/admin/index.do">관리자 메뉴</a>
 		</c:if>
