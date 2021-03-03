@@ -139,4 +139,27 @@ public class MemberDAO {
 		}
 		return 0;
 	}
+
+	//SingupOk 서블릿 -> 회원 가입 
+	public int signup(MemberDTO dto) {
+		try {
+
+			String sql = "insert into tblMember values (seqMember.nextVal, ?, ?, ?, ?, ?, ?, 0)";
+
+			pstat = conn.prepareStatement(sql);
+
+			pstat.setString(1, dto.getEmail());
+			pstat.setString(2, dto.getPw());
+			pstat.setString(3, dto.getName());
+			pstat.setString(4, dto.getSsn());
+			pstat.setString(5, dto.getPhone());
+			pstat.setString(6, dto.getAddress());
+
+			return pstat.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return 0;
+	}
 }

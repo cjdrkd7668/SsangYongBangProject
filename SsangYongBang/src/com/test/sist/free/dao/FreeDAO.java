@@ -15,7 +15,7 @@ import com.test.sist.free.dto.FreeDTO;
 import oracle.jdbc.OracleTypes;
 
 /**
- * 
+ * FreeDAO. 자유게시판 글에 필요한 데이터를 조회 및 반환하는 클래스입니다.
  * @author 이찬미
  *
  */
@@ -34,6 +34,9 @@ public class FreeDAO {
 		conn = DBUtil.open();
 	}
 
+	/**
+	 * Connection 객체를 닫는 메소드입니다.
+	 */
 	public void close() {
 		try {
 			conn.close();
@@ -42,7 +45,10 @@ public class FreeDAO {
 		}
 	}
 
-	//List 서블릿 -> 총 페이지 수
+	/**
+	 * List 서블릿에서 호출한 자유게시판 총 페이지 수를 반환하는 메소드입니다.
+	 * @return 자유게시판 총 페이지 수
+	 */
 	public int totalPage() {
 		try {
 
@@ -61,7 +67,11 @@ public class FreeDAO {
 		return 0;
 	}
 	
-	//List 서블릿 -> 글 목록
+	/**
+	 * List 서블릿에서 호출한 자유게시판 글 목록을 반환하는 메소드입니다.
+	 * @param map 글 목록 조회에 필요한 페이지 수, 검색어 정보
+	 * @return 자유게시판 글 목록
+	 */
 	public ArrayList<FreeDTO> list(HashMap<String, String> map) {
 		
 		try {
@@ -104,7 +114,11 @@ public class FreeDAO {
 		return null;
 	}
 
-	//PostOk 서블릿 -> 글 쓰기
+	/**
+	 * PostOk 서블릿에서 호출한 자유게시판 글을 작성하는 메소드입니다.
+	 * @param dto 글 작성을 위한 접근 정보와 제목, 내용 정보
+	 * @return 글 작성 성공 개수
+	 */
 	public int post(FreeDTO dto) {
 		
 		try {
@@ -126,7 +140,10 @@ public class FreeDAO {
 		return 0;
 	}
 
-	//Detail 서블릿 -> 조회수 증가
+	/**
+	 * Detail 서블릿에서 호출한 특정 글 조회 시 조회수를 증가시키는 메소드입니다.
+	 * @param seq 자유게시판 글 번호
+	 */
 	public void updateReadcount(String seq) {
 		
 		try {
@@ -142,7 +159,11 @@ public class FreeDAO {
 		}
 	}
 
-	//Detail 서블릿 -> 글 하나 반환
+	/**
+	 * Detail 서블릿에서 호출한 자유게시판 글 하나의 정보를 반환하는 메소드입니다.
+	 * @param seq 자유게시판 글 번호
+	 * @return 자유게시판 글 정보
+	 */
 	public FreeDTO detail(String seq) {
 		
 		try {
@@ -176,7 +197,11 @@ public class FreeDAO {
 		return null;
 	}
 
-	//Detail 서블릿 -> 글 하나의 댓글 반환
+	/**
+	 * Detail 서블릿에서 호출한 특정 자유게시판 글 하나의 댓글 정보를 반환하는 메소드입니다.
+	 * @param seq 자유게시판 글 번호
+	 * @return 댓글 목록
+	 */
 	public ArrayList<FreeCommentDTO> commentList(String seq) {
 		
 		try {
@@ -215,7 +240,11 @@ public class FreeDAO {
 		return null;
 	}
 
-	//EditOk 서블릿 -> 글 수정하기
+	/**
+	 * EditOk 서블릿에서 호출한 자유게시판 글 수정하는 메소드입니다.
+	 * @param dto 수정할 제목, 내용, 글 번호 정보
+	 * @return 글 수정 성공 개수
+	 */
 	public int edit(FreeDTO dto) {
 		
 		try {
@@ -236,7 +265,11 @@ public class FreeDAO {
 		return 0;
 	}
 
-	//DeleteOk 서블릿 -> 글 삭제하기
+	/**
+	 * DeleteOk 서블릿에서 호출한 자유게시판 글 삭제하는 메소드입니다.
+	 * @param seq 자유게시판 글 번호
+	 * @return 글 삭제 성공 개수
+	 */
 	public int del(String seq) {
 		
 		try {
@@ -255,7 +288,10 @@ public class FreeDAO {
 		return 0;
 	}
 
-	//Index 서블릿 -> 인기글 리스트 반환
+	/**
+	 * Index 서블릿에서 호출한 자유게시판 조회수가 많은 5개의 제목 목록을 반환하는 메소드입니다.
+	 * @return 인기글 제목 목록
+	 */
 	public ArrayList<FreeDTO> popular() {
 		
 		try {
@@ -287,7 +323,10 @@ public class FreeDAO {
 		return null;
 	}
 
-	//Index 서블릿 -> 최신글 리스트 반환
+	/**
+	 * Index 서블릿에서 호출한 자유게시판 최신글 5개의 제목 목록을 반환하는 메소드입니다.
+	 * @return 최신글 제목 목록
+	 */
 	public ArrayList<FreeDTO> latest() {
 		try {
 

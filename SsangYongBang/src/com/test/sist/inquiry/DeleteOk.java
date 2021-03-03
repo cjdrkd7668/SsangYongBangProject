@@ -13,6 +13,11 @@ import javax.servlet.http.HttpSession;
 
 import com.test.sist.inquiry.dao.InquiryDAO;
 
+/**
+ * DeleteOk. 
+ * @author 이찬미
+ *
+ */
 @WebServlet("/inquiry/deleteok.do")
 public class DeleteOk extends HttpServlet {
 

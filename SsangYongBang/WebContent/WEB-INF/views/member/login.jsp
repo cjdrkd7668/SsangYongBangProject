@@ -114,7 +114,7 @@
 
 					<div class="btns">
 
-						<button type="button" class="btn btn-default">회원 가입</button>
+						<button type="button" class="btn btn-default" onclick="location.href='/sybang/member/signup.do';">회원 가입</button>
 						<button type="button" class="btn btn-default">
 							아이디 찾기
 							<button type="button" class="btn btn-default">비밀번호 찾기</button>

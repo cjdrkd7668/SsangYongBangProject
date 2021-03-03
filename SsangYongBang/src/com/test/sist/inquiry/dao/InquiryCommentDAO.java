@@ -9,6 +9,11 @@ import java.sql.Statement;
 import com.test.sist.DBUtil;
 import com.test.sist.inquiry.dto.InquiryCommentDTO;
 
+/**
+ * InquiryCommentDAO. 문의게시판 댓글에 필요한 데이터를 조회 및 반환하는 클래스입니다.
+ * @author 이찬미
+ *
+ */
 public class InquiryCommentDAO {
 
 	private Connection conn;
@@ -24,6 +29,9 @@ public class InquiryCommentDAO {
 		conn = DBUtil.open();
 	}
 	
+	/**
+	 * Connection 객체를 닫는 메소드입니다.
+	 */
 	public void close() {
 		
 		try {
@@ -33,7 +41,11 @@ public class InquiryCommentDAO {
 		}
 	}
 
-	//CommentOk 서블릿 -> 댓글 쓰기
+	/**
+	 * CommentOk 서블릿에서 호출한 관리자가 댓글 작성하는 메소드입니다.
+	 * @param dto 댓글 작성을 위한 정보
+	 * @return 댓글 쓰기 성공 개수
+	 */
 	public int post(InquiryCommentDTO dto) {
 		
 		try {
@@ -54,7 +66,11 @@ public class InquiryCommentDAO {
 		return 0;
 	}
 
-	//DeleteCommentOk 서블릿 -> 댓글 삭제
+	/**
+	 * DeleteCommentOk 서블릿에서 호출한 관리자가 본인의 댓글을 삭제하는 메소드입니다. 
+	 * @param seq 댓글 번호
+	 * @return 댓글 삭제 성공 개수
+	 */
 	public int del(String seq) {
 		try {
 
@@ -72,7 +88,11 @@ public class InquiryCommentDAO {
 		return 0;
 	}
 
-	//EditCommentOk 서블릿 -> 댓글 수정
+	/**
+	 * EditCommentOk 서블릿에서 호출한 관리자가 댓글 수정하는 메소드입니다.
+	 * @param dto 댓글 수정을 위한 정보
+	 * @return 댓글 수정 성공 개수
+	 */
 	public int edit(InquiryCommentDTO dto) {
 
 		try {

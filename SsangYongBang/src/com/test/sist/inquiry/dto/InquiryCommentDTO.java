@@ -1,18 +1,25 @@
 package com.test.sist.inquiry.dto;
 
 /**
- * 
+ * InquiryCommentDTO 문의게시판 댓글 정보를 담은 클래스입니다.
+ * seq 댓글 번호
+ * iqrseq 문의글 번호
+ * admseq 관리자 번호
+ * admname 관리자 이름
+ * detail 댓글 내용
+ * regdate 작성일
+ * gap 시간 차
  * @author 이찬미
  *
  */
 public class InquiryCommentDTO {
 
-	private String seq; // 댓글 번호
-	private String iqrseq; // 문의글 번호
-	private String admseq; // 관리자 번호
-	private String admname; // 관리자 이름
-	private String detail; // 댓글 내용
-	private String regdate; // 작성일
+	private String seq;
+	private String iqrseq; 
+	private String admseq;
+	private String admname; 
+	private String detail; 
+	private String regdate; 
 	
 	private int gap;
 
