@@ -63,7 +63,7 @@ public class ScheduleJsonData extends HttpServlet {
 				temp += "{";
 				temp += String.format("\"title\": \"%s님 %s\",", dto.getMemberName(), dto.getProgress()); //title: 김00님 완료
 				temp += String.format("\"start\": \"%s\",", dto.getServiceDate()); //start: 오라클 내 저장된 시간
-				temp += String.format("\"url\": \"/sybang/files/%s\"", dto.getEstimateURL());
+				temp += String.format("\"url\": \"/sybang/servicescheduler/view.do?EstimateURL=%s\"", dto.getEstimateURL());
 				temp += "}";
 				temp += ",";
 			}

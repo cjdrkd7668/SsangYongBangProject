@@ -63,7 +63,7 @@ public class MembersJsonData extends HttpServlet {
 				temp += "{";
 				temp += String.format("\"title\": \"%s%s\",", dto.getFirmname(), dto.getProgress()); //title: oo업채명 완료
 				temp += String.format("\"start\": \"%s\",", dto.getServiceDate()); //start: 오라클 내 저장된 시간
-				temp += String.format("\"url\": \"/sybang/files/%s\"", dto.getEstimateURL());
+				temp += String.format("\"url\": \"/sybang/servicescheduler/view.do?EstimateURL=%s\"", dto.getEstimateURL());
 				temp += "}";
 				temp += ",";
 			}
