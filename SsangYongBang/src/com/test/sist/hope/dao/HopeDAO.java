@@ -31,6 +31,12 @@ public class HopeDAO {
 		}
 	}
 	
+	/**
+	 * DB에 저장되어있는 희망입주정보 게시글 리스트를 배열리스트로 끊어서 반환(페이징)
+	 * @param 시작값,끝값
+	 * @return 희망입주DTO 배열리스트
+	 * @author 임채원
+	 */
 	public ArrayList<HopeDTO> getList(HashMap<String, String> map) {
 		try {
 			
@@ -77,6 +83,11 @@ public class HopeDAO {
 		return null;
 	}
 
+	/**
+	 * DB에 저장되어있는 희망입주 게시글수를 반환
+	 * @return 총 게시글수
+	 * @author 임채원
+	 */
 	public int getCount() {
 		
 		try {
@@ -105,6 +116,12 @@ public class HopeDAO {
 		return 0;
 	}
 
+	/**
+	 * 추가할 희망입주 게시글 정보를 DB에 저장한 후 결과를 반환
+	 * @param 추가할 내용
+	 * @return 결과
+	 * @author 임채원
+	 */
 	public int write(HopeDTO dto) {
 		System.out.println("dto.getMseq() : " + dto.getMseq());
 		
@@ -141,6 +158,12 @@ public class HopeDAO {
 		return 0;
 	}
 
+	/**
+	 * 삭제(update)할 게시글 정보를 DB에 저장한 후 결과를 반환
+	 * @param 수정될 내용
+	 * @return 결과
+	 * @author 임채원
+	 */
 	public int remove(String seqs) {
 		
 		try {
@@ -160,6 +183,11 @@ public class HopeDAO {
 		
 	}
 
+	/**
+	 * DB에 저장되어있는 희망입주정보 게시글을 반환
+	 * @return 희망입주DTO
+	 * @author 임채원
+	 */
 	public HopeDTO getItem(String seq) {
 		try {
 			
@@ -196,6 +224,12 @@ public class HopeDAO {
 		return null;
 	}
 
+	/**
+	 * 수정될 희망입주 게시글 정보를 DB에 저장한 후 결과를 반환
+	 * @param 수정될 내용
+	 * @return 결과
+	 * @author 임채원
+	 */
 	public int edit(HopeDTO dto) {
 		
 		try {

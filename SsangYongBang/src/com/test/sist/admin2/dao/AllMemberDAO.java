@@ -34,6 +34,12 @@ public class AllMemberDAO {
 		}
 	}
 
+	/**
+	 * DB에 저장되어있는 회원 리스트를 배열리스트로 끊어서 반환(페이징)
+	 * @param 시작값,끝값
+	 * @return 회원DTO 배열리스트
+	 * @author 임채원
+	 */
 	public ArrayList<MemberDTO> getMemberList(HashMap<String,String> map) {
 		
 		try {
@@ -85,6 +91,11 @@ public class AllMemberDAO {
 		return null;
 	}
 	
+	/**
+	 * DB에 저장되어있는 회원 수를 반환
+	 * @return 총 회원 수
+	 * @author 임채원
+	 */
 	public int getMemberCnt() {
 		
 		try {
@@ -107,6 +118,12 @@ public class AllMemberDAO {
 		return 0;
 	}
 	
+	/**
+	 * DB에 저장되어있는 중개사 리스트를 배열리스트로 끊어서 반환(페이징)
+	 * @param 시작값,끝값
+	 * @return 중개사DTO 배열리스트
+	 * @author 임채원
+	 */
 	public ArrayList<BrokerDTO> getBrokerList(HashMap<String,String> map) {
 		
 		try {
@@ -152,6 +169,11 @@ public class AllMemberDAO {
 		return null;
 	}
 	
+	/**
+	 * DB에 저장되어있는 중개사 수를 반환
+	 * @return 총 중개사 수
+	 * @author 임채원
+	*/
 	public int getBrokerCnt() {
 		
 			try {
@@ -174,6 +196,12 @@ public class AllMemberDAO {
 		return 0;
 	}
 	
+	/**
+	 * DB에 저장되어있는 업체 리스트를 배열리스트로 끊어서 반환(페이징)
+	 * @param 시작값,끝값
+	 * @return 업체DTO 배열리스트
+	 * @author 임채원
+	 */
 	public ArrayList<FirmDTO> getFirmList(HashMap<String,String> map) {
 		
 		try {
@@ -217,6 +245,11 @@ public class AllMemberDAO {
 		return null;
 	}
 
+	/**
+	 * DB에 저장되어있는 업체 수를 반환
+	 * @return 총 업체 수
+	 * @author 임채원
+	 */
 	public int getFirmCnt() {
 		
 		try {
@@ -239,6 +272,12 @@ public class AllMemberDAO {
 		return 0;
 	}
 
+	/**
+	 * DB에 저장되어있는 회원 정보를 반환
+	 * @param 회원번호
+	 * @return 회원DTO
+	 * @author 임채원
+	 */
 	public MemberDTO getMemberInfo(String seq) {
 		
 		try {
@@ -285,6 +324,12 @@ public class AllMemberDAO {
 		return null;
 	}
 
+	/**
+	 * DB에 저장되어있는 중개사 정보를 반환
+	 * @param 중개사번호
+	 * @return 중개사DTO
+	 * @author 임채원
+	 */
 	public BrokerDTO getBrokerInfo(String seq) {
 		
 		try {
@@ -327,6 +372,12 @@ public class AllMemberDAO {
 		return null;
 	}
 
+	/**
+	 * DB에 저장되어있는 업체 정보를 반환
+	 * @param 업체번호
+	 * @return 업체DTO
+	 * @author 임채원
+	 */
 	public FirmDTO getFirmInfo(String seq) {
 		
 		try {
@@ -365,6 +416,12 @@ public class AllMemberDAO {
 		return null;
 	}
 
+	/**
+	 * 수정될 회원 정보를 DB에 저장한 후 결과를 반환
+	 * @param 수정될 새로운 내용
+	 * @return 결과
+	 * @author 임채원
+	 */
 	public int editMember(MemberDTO dto) {
 		try {
 
@@ -390,6 +447,12 @@ public class AllMemberDAO {
 		return 0;
 	}
 
+	/**
+	 * 수정될 중개사 정보를 DB에 저장한 후 결과를 반환
+	 * @param 수정될 새로운 내용
+	 * @return 결과
+	 * @author 임채원
+	 */
 	public int editBroker(BrokerDTO dto) {
 		
 		try {
@@ -419,6 +482,12 @@ public class AllMemberDAO {
 		return 0;
 	}
 
+	/**
+	 * 수정될 업체 정보를 DB에 저장한 후 결과를 반환
+	 * @param 수정될 새로운 내용
+	 * @return 결과
+	 * @author 임채원
+	 */
 	public int editFirm(FirmDTO dto) {
 		
 		try {
