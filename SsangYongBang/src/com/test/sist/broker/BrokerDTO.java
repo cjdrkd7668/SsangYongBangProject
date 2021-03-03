@@ -1,5 +1,9 @@
 package com.test.sist.broker;
-
+/**
+ * 중개사의 정보를 담은 DTO 클래스입니다.
+ * @author 황원준
+ *
+ */
 public class BrokerDTO {
 	
 	private String seq; 			//중개사 번호

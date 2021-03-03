@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.test.sist.broker.chat.ChatDAO;
 import com.test.sist.broker.chat.ChatDTO;
+/**
+ * 리뷰를 상세 조회할 수 있는 클래스입니다.
+ * @author 황원준
+ *
+ */
 
 @WebServlet("/broker/review/reviewview.do")
 public class ReviewView extends HttpServlet {

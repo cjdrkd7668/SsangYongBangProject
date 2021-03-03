@@ -8,7 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 회원이 남긴 채팅을 상세 조회할 수 있는 클래스입니다.
+ * @author 황원준
+ *
+ */
 @WebServlet("/broker/chat/view.do")
 public class View extends HttpServlet {
    

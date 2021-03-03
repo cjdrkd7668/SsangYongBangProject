@@ -10,7 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.test.sist.room.RoomDAO;
-
+/**
+ * 중개사의 탈퇴하기 위한 클래스입니다.
+ * @author 황원준
+ *
+ */
 @WebServlet("/broker/deleteOk.do")
 public class DeleteOk extends HttpServlet {
 

@@ -10,7 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+/**
+ * 중개사가 로그인하기 위한 클래스입니다.
+ * @author 황원준
+ *
+ */
 @WebServlet("/broker/login.do")
 public class Login extends HttpServlet{
 

@@ -8,7 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 중개사 회원가입 시 아이디 중복검사를 하기 위한 클래스입니다.
+ * @author 황원준
+ *
+ */
 @WebServlet("/broker/brokerdata.do")
 public class BrokerData extends HttpServlet {
 	

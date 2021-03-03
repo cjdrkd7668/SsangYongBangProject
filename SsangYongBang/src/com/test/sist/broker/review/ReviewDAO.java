@@ -7,9 +7,13 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import com.test.sist.DBUtil;
 
+/**
+ * 리뷰를 조회하기 위한 DAO 클래스입니다. 
+ * @author 황원준
+ *
+ */
 public class ReviewDAO {
 
 	private Connection conn;

@@ -7,7 +7,11 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import com.test.sist.DBUtil;
-
+/**
+ * 중개사의 정보를 담은 DAO 클래스입니다.
+ * @author 황원준
+ *
+ */
 public class BrokerDAO {
 	
 	private Connection conn;
