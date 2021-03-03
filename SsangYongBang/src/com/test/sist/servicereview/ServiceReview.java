@@ -40,13 +40,13 @@ public class ServiceReview extends HttpServlet {
 	   //페이징
 	   int nowPage = 0; //현재 페이지 번호
 	   int totalCount = 0; // 총 게시물 수
-	   int pageSize = 10; // 한페이지 당 출력 개수
+	   int pageSize = 4; // 한페이지 당 출력 개수
 	   int totalPage = 0; // 총 페이지 수
 	   int begin = 0; //rnum 시작 번호
 	   int end = 0; //rnum 끝 번호
 	   int n = 0; //페이지바 관련 변수
 	   int loop = 0; //페이지바 관련 변수
-	   int blockSize = 10; //페이지바 관련 변수
+	   int blockSize = 4; //페이지바 관련 변수
 	   
 	   
 	   String page = request.getParameter("page");

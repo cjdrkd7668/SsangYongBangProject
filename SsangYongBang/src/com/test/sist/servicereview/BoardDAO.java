@@ -96,7 +96,7 @@ public class BoardDAO {
 			}
 			
 			
-			String sql = String.format("select * from vwRequest %s", where);
+			String sql = String.format("select count(*) as cnt from vwServiceReview %s", where);
 
 			stat= conn.createStatement();
 			rs = stat.executeQuery(sql);
@@ -122,7 +122,7 @@ public class BoardDAO {
 		
 		try {
 			
-			String sql = "select * from vwCompletionList where memberSeq = ?";
+			String sql = "select * from vwMembersCompletion where memberSeq = ?";
 			//완료정보를 조회하는 뷰에서 해당고객 일치 정보 찾기 
 			
 			pstat = conn.prepareStatement(sql);

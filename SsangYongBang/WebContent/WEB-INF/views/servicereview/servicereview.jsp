@@ -102,6 +102,12 @@
 	margin-left: 670px;
 }
 
+
+.pagebar {
+	margin-left: 600px;
+	margin-top: 200px;
+}
+
 </style>
 
 
@@ -206,6 +212,13 @@
    
    </div>
    <div class="end"></div>
+  
+   	    <nav class="pagebar">
+	        <ul class="pagination">
+	            ${pagebar}
+	        </ul>
+	    </nav>
+	    
    <!-- ########## 본문 끝 -->
    
    <!-- 푸터가져오기 -->
