@@ -42,7 +42,7 @@
 				<li><a href="/sybang/admin2/member_list.do?type=firm">서비스 업체 관리</a></li>
 			</ul>
 		</li>
-		<li>
+		<!-- <li>
 			<a href="/sybang/admin2/statistics/type_building.do">데이터 센터</a>
 			<ul>
 				<li><a href="/sybang/admin2/statistics/type_building.do">건물형태별 거래량</a></li>
@@ -51,7 +51,7 @@
 				<li><a href="/sybang/admin2/statistics/type_age.do">구매자 연령별 거래량</a></li>
 				<li><a href="/sybang/admin2/statistics/type_gender.do">구매자 성별별 거래량</a></li>
 			</ul>
-		</li>
+		</li> -->
 		<li><a href="/sybang/approval/boardlist.do">업체 승인</a></li>
 		<li><a href="/sybang/admin/review/boardlist.do">후기 삭제 요청</a></li>
 		<li class="test"><a href="/sybang/admin2/textManager.do">회사운영정책</a></li>
