@@ -135,4 +135,58 @@ public class BrokerDAO {
 		return 0;
 	}
 
+	//회원가입 시 이메일 중복검사
+	public int checkEmail(String email) {
+		
+		try {
+			
+			String sql = "select count(*) as cnt from tblBroker where email = ?";
+					
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, email);
+			
+			rs = pstat.executeQuery();
+			
+			if (rs.next()) {
+				return rs.getInt("cnt");
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return 0;
+	}
+
+	public int add(BrokerDTO dto) {
+		
+		try {
+			
+			String sql = "insert into tblBroker (seq, email, pw, name, businessName, brokerNum, address,tel, businessNum, documentURL, delFlag) values (seqBroker.nextVal, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)";
+				
+			pstat = conn.prepareStatement(sql);
+			
+			pstat.setString(1, dto.getEmail());
+			pstat.setString(2, dto.getPw());
+			pstat.setString(3, dto.getName());
+			pstat.setString(4, dto.getBusinessName());
+			pstat.setString(5, dto.getBrokerNum());
+			pstat.setString(6, dto.getAddress());
+			pstat.setString(7, dto.getTel());
+			pstat.setString(8, dto.getBusinessNum());
+			pstat.setString(9, dto.getDocumentURL());
+			
+
+			
+			
+			return pstat.executeUpdate();
+			
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		
+		return 0;
+	}
+
 }
