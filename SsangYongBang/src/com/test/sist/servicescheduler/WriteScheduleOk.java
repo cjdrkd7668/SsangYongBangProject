@@ -15,6 +15,15 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import sun.java2d.opengl.WGLSurfaceData.WGLVSyncOffScreenSurfaceData;
 
+/**
+ * 이 클래스는 /WEB-INF/views/servicescheduler/writeschedule.jsp 로부터 입력받은 정보에 대한 DB 업무를 하는 클래스이다.
+ * <br></br>
+ *
+ *@param estimate1thSeq request객체로부터 전달받은 견적서번호
+ * @author 김소리
+ * */
+
+
 @WebServlet("/servicescheduler/writescheduleok.do")
 public class WriteScheduleOk extends HttpServlet {
 

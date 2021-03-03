@@ -13,6 +13,13 @@ import javax.servlet.http.HttpSession;
 
 import sun.java2d.opengl.WGLSurfaceData.WGLVSyncOffScreenSurfaceData;
 
+/**
+ * 이 클래스는 /WEB-INF/views/servicescheduler/memberscheduler.jsp 로 ajax 정보를 JSON 형식으로 전달하는 역할을 한다.
+ * <br></br>
+ * 풀캘린더 내 events 객체의 속성에 맞춰서 json형식의 data를 events 객채에 전달할 수 있다.
+ * @see <a href="https://fullcalendar.io/docs/events-json-feed">풀캘린더 json 형식 data 파싱 Docs</a>
+ * @author 김소리
+ * */
 
 @WebServlet("/servicescheduler/membersjsondata.do")
 public class MembersJsonData extends HttpServlet {

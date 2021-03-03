@@ -8,6 +8,11 @@ import java.util.ArrayList;
 
 import com.test.sist.DBUtil;
 
+/**
+ * 이 클래스는 servicescheduler 패키지 내의 다른 서블릿으로부터 위임받은 DB업무를 처리하는 클래스이다.
+ *  
+ * @author 김소리
+ * */
 public class SchedulerDAO {
 	
 	private Connection conn;
@@ -28,6 +33,11 @@ public class SchedulerDAO {
 	}
 
 	
+	/**
+	 * 
+	 * @param approvalFSeq 로그인한 업체의 업체 승인번호
+	 * @return list vwPlan의 DB 
+	 */
 	
 	//schedulerJasonData 에서 호출한 plan 정보 list 가져오는 메서드(매개변수: 로그인한 업체의 승인번호)
 	public ArrayList<SchedulerDTO> listPlan(String approvalFSeq) {
@@ -70,6 +80,10 @@ public class SchedulerDAO {
 	}
 
 	
+	/**
+	 * @param approvalFSeq 로그인한 업체의 업체승인번호
+	 * @return vwPossibleList의 DB 아직 일정이 등록되지 않은 고객명단
+	 * **/
 	
 	//List 서블릿의 호출 -> 등록가능한 일정 목록을 불러오는 메서드를 호출
 	public ArrayList<SchedulerDTO> possibleList(String approvalFSeq) {
@@ -109,6 +123,14 @@ public class SchedulerDAO {
 		return null;
 	}
 
+	
+	/**
+	 * 
+	 * @param SchedulerDTO 일정 관련 DB
+	 * @return int 0 or int 1 sql의 실행 결과값 반환
+	 * 
+	 * */
+	
 	
 	//writescheduleof 서블릿의 호출 -> 일정등록 메서드 호출
 	public int writeSchedule(SchedulerDTO dto) {
