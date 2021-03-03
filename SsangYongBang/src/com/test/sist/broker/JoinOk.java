@@ -33,8 +33,6 @@ public class JoinOk extends HttpServlet {
 		String documentURL = "";
 		int result = 0;
 		
-		//------------------------------여기 아래 고치기
-		
 		try {
 			
 			MultipartRequest multi = new MultipartRequest(

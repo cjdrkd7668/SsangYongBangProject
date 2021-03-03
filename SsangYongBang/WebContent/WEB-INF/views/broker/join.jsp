@@ -95,7 +95,7 @@
 
 #result {
 	color: blue;
-    width: 146px;
+    width: 160px;
     position: absolute;
     left: 220px;
     top: 58px;
@@ -121,7 +121,7 @@
 		            <tr>
 		                <th style="height: 100px">아이디</th>
 		                <td>
-		                	<input type="text" class="form-control" name="eamil" id="eamil" placeholder="email주소를 입력하시오." required>
+		                	<input type="email" class="form-control" name="email" id="email" placeholder="email주소를 입력하시오." required>
 		                	<br>
  			                <input type="button" value="중복검사" id="btn1" class="btn btn-default btn-default-check">
 			            	<span id="result" style="color: red;"></span>
@@ -130,42 +130,42 @@
 		            
 		            <tr>
 		                <th>패스워드</th>
-		                <td><input type="password" class="form-control" name="pw" id="pw" placeholder="비밀번호를 입력하시오."></td>      
+		                <td><input type="password" class="form-control" name="pw" id="pw" placeholder="비밀번호를 입력하시오." required></td>      
 		            </tr>
 		             
 		            <tr>
 		                <th>사업자 대표명</th>
-		                <td><input type="text" class="form-control" name="name" id="name" placeholder="ex) 홍길동"></td>        
+		                <td><input type="text" class="form-control" name="name" id="name" placeholder="ex) 홍길동" required></td>        
 		            </tr>
 		            
 		            <tr>
 		                <th>사업자 상호</th>
-		                <td><input type="text" class="form-control" name="businessName" id="businessName" placeholder="ex) 대박부동산"></td>        
+		                <td><input type="text" class="form-control" name="businessName" id="businessName" placeholder="ex) 대박부동산" required></td>        
 		            </tr>
 		            
 		            <tr>
 		                <th>중개 등록번호</th>
-		                <td><input type="text" class="form-control" name="brokerNum" id="brokerNum" placeholder="ex)38473298318273"></td>        
+		                <td><input type="text" class="form-control" name="brokerNum" id="brokerNum" placeholder="ex)38473298318273" required></td>        
 		            </tr>
 		             
 		            <tr>
 		                <th>주소</th>
-		                <td><input type="text" class="form-control" name="address" id="address" placeholder="ex) 서울특별시 강남구 역삼동 735-1(역삼동, 한독빌딩)"></td>        
+		                <td><input type="text" class="form-control" name="address" id="address" placeholder="ex) 서울특별시 강남구 역삼동 735-1(역삼동, 한독빌딩)" required></td>        
 		            </tr>
 		            
 		            <tr>
 		                <th>전화번호</th>
-		                <td><input type="text" class="form-control" name="tel" id="tel" placeholder="ex) 023451234"></td>        
+		                <td><input type="text" class="form-control" name="tel" id="tel" placeholder="ex) 023451234" required></td>        
 		            </tr>
 	
 		            <tr>
 		                <th>사업자 등록번호</th>
-		                <td><input type="text" class="form-control" name="businessNum" id="businessNum" placeholder="ex) 4821238496"></td>        
+		                <td><input type="text" class="form-control" name="businessNum" id="businessNum" placeholder="ex) 4821238496" required></td>        
 		            </tr>
 		             	   
 		            <tr>
 		                <th>서류 첨부</th>
-		                <td> <input type="file" class="form-control" id="documentURL" name="documentURL" placeholder=""></td>       
+		                <td> <input type="file" class="form-control" id="documentURL" name="documentURL" required></td>       
 		            </tr>	                   	 
 		             
 		            <tr>
