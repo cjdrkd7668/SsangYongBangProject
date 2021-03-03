@@ -89,6 +89,10 @@
 	margin-top: 40px;
 }
 
+.estimate {
+	margin-left: 20px;
+}
+
 </style>
 </head>
 
@@ -101,12 +105,15 @@
 	<div class="list-container" style="margin-top: -50px;">
 		<div class="page-header">
 			<h1>해당 일정에 대한 견적서</h1>
-			<!-- <div class="well well-sm" style="float:left;">총 <b>5</b>개의 자유게시판 글이 등록되어 있습니다.</div> -->
-		</div>
+			
 
 		<div class="jumbotron">
 	
-
+			<div class="estimate">
+				<img src="../files/${EstimateURL}" alt="" style="width:600px; height: 700px;">
+			</div>
+			
+		</div>
 
 
 

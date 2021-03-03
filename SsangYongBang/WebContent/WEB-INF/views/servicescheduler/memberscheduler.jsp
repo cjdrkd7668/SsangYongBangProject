@@ -97,7 +97,7 @@ td{
    
    	<div class="upperBar">
 	
-		<h3> <span class="glyphicon glyphicon-user" aria-hidden="true"></span>${name}님의 일정 관리</h3>
+		<h3> <span class="glyphicon glyphicon-user" aria-hidden="true"></span>나의 일정 관리</h3>
 		
 	</div>
    
