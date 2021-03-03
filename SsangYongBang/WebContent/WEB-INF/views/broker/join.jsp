@@ -30,7 +30,7 @@
 	position: relative;
 	top: 0;
 	left: 0;
-	height: 615px;
+	height: 625px;
 	text-align: center;
 }
 
@@ -89,8 +89,16 @@
 
 .btn-default-check {
 	position: relative;
-    left: 344px;
-    top: 44px;
+    right: 141px;
+    bottom: 10px;
+}
+
+#result {
+	color: blue;
+    width: 146px;
+    position: absolute;
+    left: 220px;
+    top: 58px;
 }
 </style>
 </head>
@@ -108,13 +116,18 @@
 
 		<div class="jumbotron">
 			<!-- 회원가입 form 시작 -->
-			<form method="POST" action="/sybang/broker/joinok.do" id="login-form"  style="position: relative; right: 34px;">
-                <input type="button" value="중복검사" id="btn1" class="btn btn-default btn-default-check">
+			<form method="POST" action="/sybang/broker/joinok.do" id="login-form" enctype="multipart/form-data" style="position: relative; right: 34px;">
 				<table class="table table-boardered table-boardered-join">
 		            <tr>
-		                <th>아이디</th>
-		                <td><input type="text" class="form-control" name="eamil" id="eamil" placeholder="email주소를 입력하시오."></td> 
+		                <th style="height: 100px">아이디</th>
+		                <td>
+		                	<input type="text" class="form-control" name="eamil" id="eamil" placeholder="email주소를 입력하시오." required>
+		                	<br>
+ 			                <input type="button" value="중복검사" id="btn1" class="btn btn-default btn-default-check">
+			            	<span id="result" style="color: red;"></span>
+		                </td> 
 		            </tr>
+		            
 		            <tr>
 		                <th>패스워드</th>
 		                <td><input type="password" class="form-control" name="pw" id="pw" placeholder="비밀번호를 입력하시오."></td>      
@@ -122,7 +135,7 @@
 		             
 		            <tr>
 		                <th>사업자 대표명</th>
-		                <td><input type="text" class="form-control" name="bname" id="bname" placeholder="ex) 홍길동"></td>        
+		                <td><input type="text" class="form-control" name="name" id="name" placeholder="ex) 홍길동"></td>        
 		            </tr>
 		            
 		            <tr>
@@ -152,7 +165,7 @@
 		             	   
 		            <tr>
 		                <th>서류 첨부</th>
-		                <td> <input type="file" class="form-control" id="documentUR" name="documentUR" placeholder=""></td>       
+		                <td> <input type="file" class="form-control" id="documentURL" name="documentURL" placeholder=""></td>       
 		            </tr>	                   	 
 		             
 		            <tr>
@@ -176,10 +189,11 @@
 		
 		$.ajax({
 			type: "GET",
-			url: "/sybang/broker/#.do",
+			url: "/sybang/broker/brokerdata.do",
 			data: "email=" + $("#email").val(),
 			success: function(result) {
 				//콜백 함수
+				console.log(result);
 				if (result == 1) {
 					$("#result").css("color", "red");
 					$("#result").text("이미 사용중인 아이디입니다.");
