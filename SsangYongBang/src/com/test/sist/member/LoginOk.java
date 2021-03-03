@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 
+ * @author 이찬미
+ *
+ */
 @WebServlet("/member/loginok.do")
 public class LoginOk extends HttpServlet {
 
@@ -40,16 +45,23 @@ public class LoginOk extends HttpServlet {
 			
 			session.setAttribute("seq", gdto.getSeq());
 			session.setAttribute("name", gdto.getName());
+			session.setAttribute("name", gdto.getPhone());
+			
+			//자유게시판 내 일반 회원, 중개사를 구분할 정보
+			//session.setAttribute("zerobonem", 1);
+			
+			//접근 권한 1 -> 일반 회원
+			session.setAttribute("access", 1);
 			
 			resp.sendRedirect("/sybang/index.do");
 			
 		} else {
 			//로그인 실패 시
+			resp.setContentType("text/html; charset=UTF-8");
 			PrintWriter writer = resp.getWriter();
-			
 			writer.print("<html><body>");
 			writer.print("<script>");
-			writer.print("alert('failed');");
+			writer.print("alert('아이디나 비밀번호를 확인하여주세요.');");
 			writer.print("history.back();");
 			writer.print("</script>");
 			writer.print("</body></html>");

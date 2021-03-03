@@ -1,153 +1,208 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix= "c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
+<title>상세 페이지</title>
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
-<link rel="stylesheet" type="text/css" href="/sybang/css/admin2.css">
-<link rel="stylesheet" type="text/css" href="/sybang/css/admin.css">
-<link rel="stylesheet" href="/sybang/css/board.css">
-<title>Insert title here</title>
-<style type="text/css">
+<link rel="stylesheet" href="/sybang/css/housedetail.css">
+<style>
+
+	.buttons #btn-back, .buttons #btn-del {
+		float: right;
+		margin-top: 50px;
+		margin-left: 10px;
+	}
 </style>
 </head>
-<body>
-	<%@include file="/WEB-INF/views/inc/header.jsp"%>
-	<%@include file="/WEB-INF/views/inc/admin_left.jsp"%>	
-	<div class="container mg-view">
-	
-		<div class="container-view">
-			
-			<div class="post-info">
-				<span>작성자: 쌍용공인중개사</span>
-				<span>연락처: 02-6677-8899</span>
-				<span>등록일: 2021-02-15</span>
-			</div>
-			
 
-			<div class="panel" id="house-post-state-panel">
-  				<div class="panel-heading">
-    				<h3 class="panel-title">거래중인 매물</h3>
-  				</div>
-  				<div class="panel-body">
-    				본 부동산 매물은 중개사에 의해 거래중입니다. 해당 매물은 사이트 방문자에 의해 조회될 수 있습니다.
-  				</div>
-			</div>
-			
-			
-			<div class="address">
-				<span><span>&ldquo;</span>★강남 시내 내부 오피스텔★ 주요 역 1분 이내 초대박 매물! 놓치지 마세요~<span> &bdquo;</span></span>
-				<span>서울특별시 강남구 역삼동, 한독빌딩 6층<span class="glyphicon glyphicon-home"></span></span>
-			</div>
-		
-			<!-- map 시작 -->
-        	<div id="map" style="width:100%;height:400px;"></div>
-        	<!-- map 끝 -->
-        	
-			
-			<table class="table-type-view">
-				<colgroup>
-					<col style="width: 100px;">
-					<col style="width: 180px;">
-					<col style="width: 100px;">
-					<col style="width: 180px;">
-					<col style="width: 100px;">
-					<col style="width: 180px;">
-				</colgroup>
-				<tbody>
-					<tr>
-						<th>방 유형</th>
-						<td>오피스텔</td>
-						<th>거래 유형</th>
-						<td>월세</td>
-						<th>가격</th>
-						<td>5000(만원) / 110(만원)</td>
-					</tr>
-					<tr>
-						<th>관리비</th>
-						<td>8(만원)</td>
-						<th>면적(공급/전용)</th>
-						<td>54.23&#13217; / 47.67&#13217;</td>
-						<th>층/총층</th>
-						<td>8 / 18</td>
-					</tr>
-					<tr>
-						<th>방/욕실 개수</th>
-						<td>1 / 2</td>
-						<th>방향</th>
-						<td>남향</td>
-						<th>준공년도</th>
-						<td>2011년</td>
-					</tr>
-					<tr>
-						<th>주차여부</th>
-						<td>가능</td>
-						<th>엘레베이터</th>
-						<td>가능</td>
-						<th>반려동물거주</th>
-						<td>불가능</td>
-					</tr>
-				</tbody>
-			</table>
-			<table class="table-type-view-detail">
-				<colgroup>
-					<col style="width: 100px;">
-					<col style="width: auto;">
-				</colgroup>
-				<tbody>
-					<tr>
-						<th>상세 설명</th>
-						<td>강남역과 역삼역 바로 앞에 위치한 초특급 매물입니다. 바로 전화상담 주시거나 저희 중개사 사무실에 방문해주세요. 02-6677-8899. 평일 11:00 ~ 19:00 유선 상담 가능합니다. 강남역과 역삼역 바로 앞에 위치한 초특급 매물입니다. 바로 전화상담 주시거나 저희 중개사 사무실에 방문해주세요. 02-6677-8899. 평일 11:00 ~ 19:00 유선 상담 가능합니다. 강남역과 역삼역 바로 앞에 위치한 초특급 매물입니다. 바로 전화상담 주시거나 저희 중개사 사무실에 방문해주세요. 02-6677-8899. 평일 11:00 ~ 19:00 유선 상담 가능합니다.</td>
-					</tr>
-				</tbody>
-			</table>
-			
-			<div class="buttons">
-				<a class="btn btn-default" href="/sybang/admin/house/boardlist.do" role="button">목록</a>
-				<a class="btn btn-default" href="#" role="button">삭제</a>
-			</div>
-			
-			
-		</div>
-		
-	</div>
+<body>
+
+	<!-- header 가져오기######## -->
+	<%@include file="/WEB-INF/views/inc/header.jsp"%>
 	
+	<!-- detail-container 시작 -->
+	<div class="detail-container" style="margin-top: -50px;">
+		<div class="page-header">
+			
+			<h1>&ldquo;${dto.subject }&bdquo;</h1>
+		</div>
+
+		<!-- head-container 시작 -->
+		<div class="head-container">
+			
+			<!-- 매물 이미지 시작 -->
+			<div class="col-md-4 thumbnail" id="head-img">
+				<img src="/sybang/images/${iList[0] }">
+				<img src="/sybang/images/${iList[1] }">
+			</div>
+			<!-- 매물 이미지 끝 -->
+
+			<div class="col-md-8">
+				<h4 style="color: #2F71B8;;">${dto.address }</h4>
+				<h2 id="head-title">${dto.btype }&nbsp;<b><mark>${dto.dtype } ${dto.price }만원&nbsp;</mark></b><small>${dto.exclusiveArea }㎡ ${dto.selectedFloor }층</small></h2>
+				<textarea id="head-content" class="form-control well" cols="50" rows="5" style="resize: none;">${dto.content }</textarea>
+				<div id="broker">${dto.bname }</div>
+				<!-- <div id="broker-name">홍길동</div> -->
+
+				<!-- 하트 버튼 시작 -->
+				<div id="heart">
+					<button type="button" class="btn btn-default">
+						<!-- <span class="glyphicon glyphicon-heart-empty"></span> -->
+						<span class="glyphicon glyphicon-heart" id="btn-heart"></span>
+					</button>
+				</div>
+				<!-- 하트 버튼 끝 -->
+
+					<!-- 1:1 문의 modal 시작 -->
+				<button id="btn-detail1" type="button" class="btn btn-default" data-toggle="modal"
+					data-target="#modal-chat">
+					<span class="glyphicon glyphicon-user"></span> 1:1 문의하기
+				</button>
+
+				<div class="modal fade" role="diaglog" data-keyboard="true" id="modal-chat">
+					<div class="modal-dialog">
+
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h3 class="modal-title" style="text-align: center;">1:1 문의하기</h3>
+							</div>
+
+							<!-- 문의 내용 -->
+							<div class="modal-body">
+								<div style="font-size: 1.2em;">제목</div><input type="text" class="form-control" placeholder="제목을 입력해주세요.">
+								<div style="font-size: 1.2em;">내용</div><textarea class="form-control" cols="50" rows="10" placeholder="문의 내용을 입력해주세요."
+									style="resize: none; overflow: visible;"></textarea>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-success" data-dismiss="modal">등록</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- 1:1 문의 modal 끝 -->
+
+				
+				<!-- 허위 매물 신고 modal 시작 -->
+				<button id="btn-detail2" type="button" class="btn btn-default" data-toggle="modal"
+					data-target="#modal-false" style="border: 3px solid hotpink;">
+					<span class="glyphicon glyphicon-warning-sign"></span> 허위 매물 신고
+				</button>
+
+				<div class="modal fade" role="diaglog" data-keyboard="true" id="modal-false">
+					<div class="modal-dialog">
+
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h3 class="modal-title" style="text-align: center;">허위 매물 신고</h3>
+							</div>
+
+							<!-- 신고 사유 -->
+							<div class="modal-body">
+								<textarea class="form-control" cols="50" rows="10" placeholder="신고 사유를 입력해주세요."
+									style="resize: none; overflow: visible;"></textarea>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-success" data-dismiss="modal">등록</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- 허위 매물 신고 modal 끝 -->
+
+
+			</div>
+
+		</div>
+		<!-- head-container 끝 -->
+		<hr>
+		<table class="table table-bordered">
+			<tr>
+				<th>거래 유형</th>
+				<td>${dto.dtype }</td>
+				<th>건물 유형</th>
+				<td>${dto.btype }</td>
+				<th>가격</th>
+				<td>${dto.price }(만원)
+				<c:if test="${dto.dtype == '월세'}">
+				/ ${dto.rent}(만원)
+				</c:if>
+				</td>
+			</tr>
+			<tr>
+				<th>관리비</th>
+				<td>${dto.monthlyFee }(만원)</td>
+				<th>면적(공급/전용)</th>
+				<td>${dto.supplyArea }㎡/${dto.exclusiveArea }㎡</td>
+				<th>층/총층</th>
+				<td>${dto.selectedFloor }/${dto.totalFloor }</td>
+			</tr>
+			<tr>
+				<th>방/욕실 개수</th>
+				<td>${dto.roomNum }/${dto.bathroomNum }</td>
+				<th>방향</th>
+				<td>${dto.direction }</td>
+				<th>준공년도</th>
+				<td>${dto.completionYear }년</td>
+			</tr>
+			<tr>
+				<th>주차 가능</th>
+				<td>${dto.parkingFlag }</td>
+				<th>엘리베이터</th>
+				<td>${dto.elevator }</td>
+				<th>반려동물</th>
+				<td>${dto.pet }</td>
+			</tr>
+		</table>
+
+	<!-- 	<button type="button" class="btn btn-default" id="btn-back">
+			<span class="glyphicon glyphicon-triangle-left"></span>&nbsp;뒤로 가기
+		</button> -->
+		
+		<div class="buttons">
+				<a class="btn btn-default" id="btn-back" role="button">목록</a>
+				<a class="btn btn-danger" id="btn-del" data-toggle="modal" data-target="#delete-room" role="button">삭제</a>
+			</div>
+			
+			<div class="modal fade" id="delete-room" tabindex="-1" role="dialog" aria-hidden="true">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title">매물 게시글 삭제</h4>
+			      </div>
+			      <div class="modal-body">
+			        <p>정말 삭제하시겠습니까? <br>한 번 삭제된 매물 게시글은 되돌릴 수 없습니다.</p>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-danger" onclick="location.href='/sybang/admin/house/deleteok.do?seq=${dto.seq}&page=${nowPage}'">예, 삭제하겠습니다.</button>
+			        <button type="button" class="btn btn-default" data-dismiss="modal">다시 생각해볼게요.</button>
+			      </div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+
+
+
+	</div>
+	<!-- detail-container 끝 -->
+    
+	<!-- footer 가져오기######## -->
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 	
-	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=950df7fcc5aace4db5b109e8c92b5034"></script>
 	<script>
-		var postLat = 37.499343405328595;
-		var postLng = 127.03321257686713;
-	
-		var container = document.getElementById('map');
-		var options = {
-			center : new kakao.maps.LatLng(postLat, postLng),
-			level : 4
-		};
-
-		var map = new kakao.maps.Map(container, options);
-		
-		marker1 = new daum.maps.Marker({
-			position: new daum.maps.LatLng(postLat, postLng)
+		$("#btn-back").click(function() {
+			history.back(); 
 		});
-		
-		marker1.setMap(map);
-	</script>
 	
-	<script type="text/javascript">
-		
-		if(false){
-			$("#house-post-state-panel").addClass("panel-primary");
-		}else{
-			$("#house-post-state-panel").addClass("panel-danger");			
-			$("#house-post-state-panel").children().children().eq(0).text("거래 완료된 매물");
-			$("#house-post-state-panel").children().eq(1).text("본 부동산 매물은 거래 완료된 매물입니다. 해당 매물은 관리자만 조회할 수 있으며, 만일 사이트 방문자에 의해 조회된다면 허위 매물로써 삭제해야 합니다.")
-		}
-		
 	</script>
-
 </body>
 </html>

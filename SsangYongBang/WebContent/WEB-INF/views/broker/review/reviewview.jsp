@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,23 +33,19 @@
 		
         <table class="table table-bordered tbl-content">
             
-            <tr>
+            <!-- <tr>
                 <td colspan="3" id="content-title" style="height: 40px; font-weight: bold; font-size: 1.1em;">자유게시판 글 제목입니다.</td>
+            </tr> -->
+            <tr>
+                <td id="content-name">작성자&nbsp;:&nbsp;${dto.mname}
+                <td id="content-date">날짜&nbsp;:&nbsp;${dto.regDate}</td>
             </tr>
             <tr>
-                <td id="content-name">작성자&nbsp;:&nbsp;홍길동
-                <td id="content-date">날짜&nbsp;:&nbsp;21.02.20 15:50</td>
-            </tr>
-            <tr>
-            	<td colspan="3" id="score">평점&nbsp;:&nbsp;★★★★★</td>            	
+            	<td colspan="3" id="score">평점&nbsp;:&nbsp;${dto.star}</td>            	
             </tr>
             
             <tr>
-                <td colspan="3" id="content-content">
-                	너무 친절하고 좋은 방을 구하게 되었습니다!!너무 친절하고 좋은 방을 구하게 되었습니다!!너무 친절하고 좋은 방을 구하게 되었습니다!!
-                	너무 친절하고 좋은 방을 구하게 되었습니다!!너무 친절하고 좋은 방을 구하게 되었습니다!!너무 친절하고 좋은 방을 구하게 되었습니다!!
-                	너무 친절하고 좋은 방을 구하게 되었습니다!!너무 친절하고 좋은 방을 구하게 되었습니다!!너무 친절하고 좋은 방을 구하게 되었습니다!!
-               </td>
+                <td colspan="3" id="content-content">${dto.content}</td>
             </tr>
         </table>
         <!-- 자유게시판 글 끝 -->   
@@ -75,11 +72,11 @@
 							<h4 class="modal-title" id="myModalLabel">후기 삭제 요청하기</h4>
 						</div>
 						<div class="modal-body">
-							<form action="./requestRegister.jsp" method="POST">
+							<form action="/sybang/broker/review/deleteOk.do" method="POST">
 								<div class="form-row">
 									<div class="form-group">
 										<label>후기 삭제 요청 사유</label>
-										<textarea name="evaluationContent" class="form-control" maxlength="2000" style="height: 180px; resize: none;"></textarea>
+										<textarea name="requestContent" class="form-control" maxlength="2000" style="height: 180px; resize: none;"></textarea>
 									</div>
 								</div>
 	
@@ -87,13 +84,15 @@
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
 									<button type="submit" class="btn btn-primary">삭제 요청하기</button>
 								</div>
+								
+								<input type="hidden" name="reviewSeq" value="${dto.seq}">
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
     </div>
-
+</div>
 	<!-- footer 가져오기######## -->
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 </body>

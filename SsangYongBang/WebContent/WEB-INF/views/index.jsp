@@ -7,179 +7,397 @@
     <meta charset="UTF-8">
     <title>쌍용방</title>
 	<%@include file="/WEB-INF/views/inc/asset.jsp" %>
-	<link rel="stylesheet" href="/sybang/css/main.css">
+	<link rel="stylesheet" href="/sybang/css/index.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <style>
-        
-        
-    </style>
+@import
+	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap')
+	;
+
+#maincontainer {
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Noto Sans KR', sans-serif;
+	letter-spacing: -1px;
+}
+
+#maincontainer .mainheader .well {
+	outline: none;
+}
+
+/* main-header 시작 */
+#maincontainer .mainheader {
+	text-align: center;
+	margin-top: 30px;
+	height: 450px;
+	background: url(/sybang/images/bg.jpg) center;
+	background-size: cover;
+	width: 100%;
+	opacity: 1;
+}
+
+/* 어떤 방에 살고 ~~ 텍스트 */
+#maincontainer .mainheader .headertxt {
+	font-weight: bold;
+	margin: 100px;
+	padding-top: 30px;
+	font-size: 3em;
+	color: #EEE;
+	text-shadow: 1px 1px 5px #000;
+}
+
+/* 검색 버튼 */
+#maincontainer .mainheader #searchbtn {
+	width: 35px;
+	height: 35px;
+	display: inline-block;
+	text-align: center;
+	padding: 3px;
+	font-size: 1em;
+	background-color: #486BB8;
+	color: #EEE;
+	outline: none;
+	border-radius: 50%;
+}
+
+#maincontainer .mainheader #searchbtn:hover {
+	background: none;
+	border: 3px solid #486BB8;
+}
+
+/* mainhistory(방금 올라온 매물, 찜한 매물) 시작 */
+#maincontainer .mainhistory {
+	width: 100%;
+	height: 360px;
+	margin: 0px auto;
+	text-align: center;
+}
+
+.newBadge {
+	position: relative;
+	top: -7px;
+}
+
+#maincontainer .mainhistory .newsTable {
+	display: inline-block;
+	width: 470px;
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+#maincontainer .mainhistory th {
+	font-size: 1.3em;
+	height: 40px;
+	background-color: #EEE;
+}
+
+#maincontainer .mainhistory td {
+	height: 30px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.1em;
+}
+
+#maincontainer .mainhistory a {
+	color: #000;
+}
+
+#maincontainer .mainhistory a:hover {
+	color: #486BB8;
+	text-decoration-line: none;
+}
+
+/* 사진 */
+#maincontainer .mainhistory .thumbnail {
+	height: 100px;
+}
+
+#maincontainer .mainhistory small, #maincontainer .mainnotice small {
+	margin-right: 20px;
+	float: right;
+	font-size: 0.9em;
+}
+
+/* mainnotice 시작 */
+#maincontainer .mainnotice {
+	width: 100%;
+	height: 350px;
+	margin: 5px auto;
+}
+
+#maincontainer .mainnotice .noticeTable {
+	display: inline-block;
+	margin-left: 20px;
+	margin-right: 15px;
+	width: 350px;
+	height: 250px;
+}
+
+#maincontainer .mainnotice .noticeTable .box {
+	width: 340px;
+	height: 200px;
+	overflow: hidden;
+}
+
+#maincontainer .mainnotice .noticeTable .box #innerbox {
+	width: 340px;
+}
+
+#maincontainer .mainnotice .noticeTable .thumbnail {
+	/* width: 340px; */
+	height: 200px;
+	margin: 0px auto;
+}
+
+#maincontainer .mainnotice th {
+	width: 30%;
+	margin-left: 10px;
+	font-size: 1.3em;
+	border: 0px;
+	text-align: center;
+}
+
+#maincontainer .mainnotice td {
+	margin-left: 10px;
+	font-size: 1.1em;
+	text-align: left;
+}
+
+#maincontainer .mainnotice a {
+	color: #000;
+}
+
+#maincontainer .mainnotice a:hover {
+	color: #486BB8;
+	text-decoration-line: none;
+}
+
+.bluebg {
+	background-color: #486BB8;
+	color: #EEE;
+}
+
+.carousel-inner > .item > img {
+display: block;
+max-width: 100%;
+height: auto;
+}
+
+.item .carousel-caption {
+    color: #EEE !important;
+    text-shadow: 1px 1px 5px #000;
+    right: 0 !important;
+    top: 45% !important;
+    width: 200px;
+}
+
+.blue {
+	color: #486BB8;
+}
+
+.bluebg {
+	background-color: #486BB8;
+	color: #EEE;
+}
+
+.red {
+	color: red;
+}
+
+</style>
 </head>
 
 <body>
 	
 	<!-- header 가져오기######## -->
    	<%@include file="/WEB-INF/views/inc/header.jsp"%>
-   	
-   	
 	
-        <!-- container 시작 -->
-    <main class="container" id="main-container">
-
-        <!-- main-header 시작 -->
-        <header class="jumbotron main-header">
-            <h1 class="main-txt">어떤 집에서 살고 싶으신가요?</h1>
+	    <!-- maincontainer 시작 -->
+    <main class="container" id="maincontainer">
+        
+        <!-- mainheader 시작 -->
+        <header class="jumbotron mainheader">
+            <h1 class="headertxt">어떤 집에서 살고 싶으신가요?</h1>
             <div>
-                <input type="text" class="well well-sm" placeholder="원하시는 지역명, 지하철역, 단지명(아파트명)을 입력해주세요." size="60" style="font-size: 1.2em;">
-               
-                    <button type="button" class="form-control" id="main-btn" style="display: inline-block; text-align: center; padding: 3px; width: 35px; height: 35px; font-size: 1em;background-color: #486BB8; color: #EEE; outline: none; border-radius: 50%;"><i class="fas fa-search"></i></button>
-               
+                <!-- form 태그 시작 -->
+                <form method="POST" action="">
+                    <input type="text" class="well well-sm" placeholder="원하시는 지역명, 지하철역, 단지명(아파트명)을 입력해주세요." size="60"
+                        style="font-size: 1.2em;">
+
+                    <button type="submit" id="searchbtn" class="form-control"><i class="fas fa-search"></i></button>
+                </form>
+                <!-- form 태그 끝 -->
             </div>
         </header>
-        <!-- main-header 끝 -->
+        <!-- mainheader 끝 -->
 
-        <!-- main-history 시작 -->
-        <section class="main-history">
-            <div class="row">
-                <div class="col-sm-6">
-                    <legend align="left">최근에 본 매물</legend>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="thumbnail">
-                                <a href="#">
-                                    <img src="/sybang/images/room01.jpg" class="main-history-img">
-                                </a>
-                                <div class="caption">
-                                    <p>빌라/투룸<small>26㎡ 5층</small></p>
-                                    <p><b>매매 2억 6,000</b></p>
-                                    <p>강남구 논현동</p>
-                                    <p>★테라스 있는 신축</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="thumbnail">
-                                <a href="#">
-                                    <img src="/sybang/images/room02.jpg" class="main-history-img">
-                                </a>
-                                <div class="caption">
-                                    <p>빌라/투룸<small>26㎡ 5층</small></p>
-                                    <p><b>매매 2억 6,000</b></p>
-                                    <p>강남구 논현동</p>
-                                    <p>★테라스 있는 신축</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="thumbnail">
-                                <a href="#">
-                                    <img src="/sybang/images/room03.jpg" class="main-history-img">
-                                </a>
-                                <div class="caption">
-                                    <p>빌라/투룸<small>26㎡ 5층</small></p>
-                                    <p><b>매매 2억 6,000</b></p>
-                                    <p>강남구 논현동</p>
-                                    <p>★테라스 있는 신축</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- mainhistory 시작 -->
+        <section class="mainhistory">
+            <table class="table table-default newsTable">
+
+                <tr>
+                    <th colspan="3">방금 올라온 매물 <span class="badge newBadge" style="background-color: red;">N</span></th>
+                </tr>
+
+                <tr>
+                    <!-- 방금 올라온 매물 사진 시작 -->
+                    <c:forEach items="${hlist }" var="hdto1">
+                    <td>
+                        <a href="/sybang/house/houseview.do?seq=${hdto1.seq }">
+                            <img src="/sybang/images/${hdto1.url1 }" class="thumbnail">
+                        </a>
+                    </td>
+                    </c:forEach>
+                <tr>
+                	<c:forEach items="${hlist }" var="hdto2">
+                    <td><a href="/sybang/house/houseview.do?seq=${hdto2.seq }">${hdto2.btype }<small>${hdto2.exclusiveArea }㎡ ${hdto2.selectedFloor }층</small></a></td>
+                    </c:forEach>
+                </tr>
+                <tr>
+                	<c:forEach items="${hlist }" var="hdto3">
+                    <td><a href="/sybang/house/houseview.do?seq=${hdto3.seq }">
+                    	<b>${hdto3.dtype } ${hdto3.price }만원<c:if test="${hdto3.dtype == '월세'}">/${hdto3.rent }만원</c:if></b></a></td>
+                    </c:forEach>
+                </tr>
+                <tr>
+                	<c:forEach items="${hlist }" var="hdto4">
+                    <td><a href="/sybang/house/houseview.do?seq=${hdto4.seq }">${hdto4.address}</a></td>
+                    </c:forEach>
+                </tr>
+                <tr>
+                	<c:forEach items="${hlist }" var="hdto5">
+                    <td><a href="/sybang/house/houseview.do?seq=${hdto5.seq }">${hdto5.subject }</a></td>
+                    </c:forEach>
+                </tr>
+            </table>
+            <table class="table table-default newsTable">
+
+                <tr>
+                    <th colspan="3">광고 <span class="badge newBadge" style="background-color: yellow; color: #444;">Ad</span></th>
+                </tr>
+
+                <tr>
+                    <!-- 광고 매물 사진 시작 -->
+                    <c:forEach items="${adlist }" var="addto1">
+                    <td>
+                        <a href="/sybang/house/houseview.do?seq=${addto1.seq }">
+                            <img src="/sybang/images/${addto1.url2 }" class="thumbnail">
+                        </a>
+                    </td>
+                    </c:forEach>
+                <tr>
+                    <c:forEach items="${adlist }" var="addto2">
+                    <td><a href="/sybang/house/houseview.do?seq=${addto2.seq }">${addto2.btype }<small>${addto2.exclusiveArea }㎡ ${addto2.selectedFloor }층</small></a></td>
+                    </c:forEach>
+                </tr>
+                <tr>
+                    <c:forEach items="${adlist }" var="addto3">
+                    <td><a href="/sybang/house/houseview.do?seq=${addto3.seq }">
+                    	<b>${addto3.dtype } ${addto3.price }만원<c:if test="${addto3.dtype == '월세'}">/${addto3.rent }만원</c:if></b></a></td>
+                    </c:forEach>
+                </tr>
+                <tr>
+                    <c:forEach items="${adlist }" var="addto4">
+                    <td><a href="/sybang/house/houseview.do?seq=${addto4.seq }">${addto4.address}</a></td>
+                    </c:forEach>
+                </tr>
+                <tr>
+                    <c:forEach items="${adlist }" var="addto5">
+                    <td><a href="/sybang/house/houseview.do?seq=${addto5.seq }">${addto5.subject }</a></td>
+                    </c:forEach>
+                </tr>
+            </table>
 
 
-                <div class="col-sm-6">
-                    <legend align="left">찜한 매물</legend>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="thumbnail">
-                                <a href="#">
-                                    <img src="/sybang/images/room01.jpg" class="main-history-img">
-                                </a>
-                                <div class="caption">
-                                    <p>빌라/투룸<small>26㎡ 5층</small></p>
-                                    <p><b>매매 2억 6,000</b></p>
-                                    <p>강남구 논현동</p>
-                                    <p>★테라스 있는 신축</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="thumbnail">
-                                <a href="#">
-                                    <img src="/sybang/images/room02.jpg" class="main-history-img">
-                                </a>
-                                <div class="caption">
-                                    <p>빌라/투룸<small>26㎡ 5층</small></p>
-                                    <p><b>매매 2억 6,000</b></p>
-                                    <p>강남구 논현동</p>
-                                    <p>★테라스 있는 신축</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="thumbnail">
-                                <a href="#">
-                                    <img src="/sybang/images/room03.jpg" class="main-history-img">
-                                </a>
-                                <div class="caption">
-                                    <p>빌라/투룸<small>26㎡ 5층</small></p>
-                                    <p><b>매매 2억 6,000</b></p>
-                                    <p>강남구 논현동</p>
-                                    <p>★테라스 있는 신축</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
-        <!-- main-history 끝 -->
+        <!-- mainhistory 끝 -->
 
         <hr>
 
-        <!-- main-notice 시작 -->
-        <section class="row main-notice">
-            <div class="col-sm-4 list-group">
-                <h2 class="notice-title">고객센터</h2>
+        <!-- mainnotice 시작 -->
+        <section class="row mainnotice">
 
-                <a href="#" class="list-group-item notice1"><span class="glyphicon glyphicon-pencil"></span>&nbsp;1:1
-                    문의하기</a>
-                <a href="#" class="list-group-item notice1"><span class="glyphicon glyphicon-book"></span>&nbsp;내 문의내역
-                    보기</a>
-                <a href="#" class="list-group-item notice1"><span class="glyphicon glyphicon-list"></span>&nbsp;자주 묻는
-                    질문</a>
-                <a href="#" class="list-group-item notice1"><span class="glyphicon glyphicon-briefcase"></span>&nbsp;서비스
-                    업체</a>
-            </div>
+            <table class="table table-default noticeTable">
+                <tr>
+                    <th class="well bluebg"><div>뉴스</div></th>
+                </tr>
+                <tr>
+                    <td rowspan="5">
+                        <div id="carouselNews" class="carousel slide box" data-ride="carousel">
+							<div class="carousel-inner" role="listbox" id="innerbox">
+								<c:forEach items="${nlist }" var="ndto" varStatus="status">
+									<c:if test="${status.index == 1 }">
+										<div class="item active">
+											<img src="/sybang/images/${ndto.imageurl }" class="thumbnail">
+										<div class="carousel-caption">${ndto.subject }</div>
+										</div>
+									</c:if>
+									<c:if test="${status.index != 1 }">
+										<div class="item">
+											<img src="/sybang/images/${ndto.imageurl }" class="thumbnail">
+										<div class="carousel-caption">${ndto.subject }</div>
+										</div>
+									</c:if>
+								</c:forEach>
+							</div>
+						</div>
+                    </td>
+                </tr>
+            </table>
 
-            <div class="col-sm-4">
-                <h2 class="notice-title">공지사항<small>더보기<span class="glyphicon glyphicon-chevron-right"></span></small>
-                </h2>
-                <a href="#" class="list-group-item notice2">공지사항입니다.</a>
-                <a href="#" class="list-group-item notice2">공지사항입니다.</a>
-                <a href="#" class="list-group-item notice2">공지사항입니다.</a>
-                <a href="#" class="list-group-item notice2">공지사항입니다.</a>
-                <a href="#" class="list-group-item notice2">공지사항입니다.</a>
-            </div>
+            <table class="table table-default noticeTable">
+                <tr>
+                    <th class="well">인기글</th>
+                </tr>
+                <c:forEach items="${plist }" var="pdto">
+                <tr>
+                    <td><a href="/sybang/free/detail.do?seq=${pdto.seq }"> ${pdto.subject } (<b class="blue">${pdto.ccount }</b>)</a>
+                    </td>
+                </tr>
+                </c:forEach>
+            </table>
 
-            <div class="col-sm-4">
-                <h2 class="notice-title">뉴스<small>더보기<span class="glyphicon glyphicon-chevron-right"></span></small>
-                </h2>
-                <a href="#" class="list-group-item notice3">뉴스입니다.</a>
-                <a href="#" class="list-group-item notice3">뉴스입니다.</a>
-                <a href="#" class="list-group-item notice3">뉴스입니다.</a>
-                <a href="#" class="list-group-item notice3">뉴스입니다.</a>
-                <a href="#" class="list-group-item notice3">뉴스입니다.</a>
-            </div>
+            <table class="table table-default noticeTable">
+                <tr>
+                    <th class="well">최신글 <span class="badge newBadge" style="background-color: red;">N</span></th>
+                </tr>
+                <c:forEach items="${llist }" var="ldto">
+                <tr>
+                    <td><a href="/sybang/free/detail.do?seq=${ldto.seq }"> ${ldto.subject } (<b class="blue">${ldto.ccount }</b>)
+                    <!-- 최신 글 시작 -->
+					<%-- <c:if test="${ldto.gap < 1 }">
+						<span class="badge newBadge" style="background-color: red;">N</span></a>
+					</c:if> --%>
+                    </a>
+                    </td>
+                </tr>
+                </c:forEach>
+            </table>
+
+            
+
+            
         </section>
-        <!-- main-notice 끝 -->
+        <!-- mainnotice 끝 -->
 
 
     </main>
+    <!-- maincontainer 끝 -->
 	
 	<!-- footer 가져오기######## -->
    	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 
     <script>
+	    window.onload = function() {
+			$("#search").focus();
+			
+		};
+		
+		$('.carousel').carousel({
+			interval: 2000
+		});
+
 
     </script>
 </body>

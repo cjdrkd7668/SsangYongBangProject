@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap')
+	;
+
+.board-container {
+	width: 1200px;
+	height: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Noto Sans KR', sans-serif;
+	letter-spacing: -1px;
+}
+
+.board-container .delete {
+	width: 500px;
+	height: 200px;
+	margin: 100px auto;
+}
+
+.board-container .delete tr:first-child {
+	text-align: center;
+	font-size: 1.5em;
+	height: 40px;
+}
+
+.board-container .delete tr:nth-child(2) {
+	text-align: center;
+	font-size: 1.5em;
+	height: auto;
+}
+
+.board-container .delete tr:nth-child(2) button {
+	width: 150px;
+	height: 100px;
+	font-size: 1.2em;
+	margin: 20px 5px;
+	padding: 10px;
+}
+

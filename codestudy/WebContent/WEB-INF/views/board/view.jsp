@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
+	
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,35 +70,35 @@
                 <table class="table view">
                     <tr>
                         <td>
-                            <span class="seq">1.</span>
-                            <span class="subject">제목입니다.</span>
-                            <span class="readcount">읽음(20)</span>
-                            <span class="date">2020-01-01 10:10:10</span>
-                            <span class="name">홍길동(hong)</span>
+                            <span class="seq">${dto.seq}.</span>
+                            <span class="subject">${dto.subject}</span>
+                            <span class="readcount">읽음(${dto.readcount})</span>
+                            <span class="date">${dto.regdate}</span>
+                            <span class="name">${dto.name}(${dto.id})</span>
                         </td>
                     </tr>
                     <tr>
                         <td class="content">
-                            카카오모빌리티는 24일 ‘카카오 T 블루’에 중형택시 최초로 앱미터기를 적용했다.
-                            <br><br>
-                            카카오모빌리티의 앱미터기는 GPS를 기반으로 시간, 거리, 속도를 계산해 택시 요금을 산정한다. 택시기사는 기사용 '카카오T' 앱을 통해 앱미터기를 사용할 수 있다. 승객은 승객용 '카카오T' 앱을 통해 실시간으로 요금을 확인할 수 있다.
-                            <br><br>
-                            앱미터기는 플랫폼 업데이트를 통해 별도의 교체 비용 없이 빠르게 요금제 변경이 가능하다. 또한 탄력요금제 적용 등 다양한 부가서비스로의 확장도 용이하다. 기존 기계식 미터기는 요금제 변경 시 기사가 직접 검정소를 찾아가 기기를 조정해야 했다. 교체 비용만 6만원에 달한다.
-                            <br><br>
-                            유료 도로 비용이나 시계외 할증 비용이 앱에서 자동으로 계산된다. 이에 시계외 할증이나 유료 도로를 미리 누르는 조작 방법으로 부당한 요금을 청구하는 위법행위를 막을 수 있다.
-                            <br><br>
-                            이용자가 앱을 통해 요금을 실시간으로 확인할 수 있는 것도 장점이다. 또한 요금 오입력에 따른 요금 분쟁 가능성도 낮출 수 있어 기사와 승객 모두 편익이 향상될 것으로 기대된다.
-                            <br><br>
-                            앱미터기는 주요 글로벌 차량 호출 서비스에 활발하게 적용되며 전 세계적으로 확산되고 있다. 국내는 현행 자동차관리법령 상 바퀴 회전수에 따라 거리, 속도를 측정해 요금을 산정하는 기계식 택시 미터기만을 규정하고 있다. 카카오 T 블랙 등 일부 특화된 택시서비스에만 제한적으로 앱미터기 적용이 허용돼 왔다.
+                        	
+                        	<c:if test="${dto.filename.toLowerCase().endsWith('jpg') || dto.filename.toLowerCase().endsWith('gif') || dto.filename.toLowerCase().endsWith('png') }">
+                        		<img src="/codestudy/files/${dto.filename}" 
+                        	style="display: block; margin: 20px auto;">
+                        	</c:if>
+                        	
+                        	${dto.content}
                         </td>
                     </tr>
-                    <!-- 
+                    
+                    <c:if test="${not empty dto.orgfilename}">
                     <tr>
                         <td>
-                            <span class="glyphicon glyphicon-floppy-disk"></span> test.zip
+                            <span class="glyphicon glyphicon-floppy-disk"></span> 
+                            <a href="/codestudy/board/download.do?filename=${dto.filename}&orgfilename=${dto.orgfilename}&seq=${dto.seq}">${dto.orgfilename}</a>
+                            [download: ${dto.downloadcount}회]
                         </td>
                     </tr>
-                     -->
+                    </c:if>
+                    
                     <!-- 
                     <tr>
                         <td>
@@ -111,59 +113,71 @@
 
 
                 <div class="btns btn-group">
-                    <button type="button" class="btn btn-default" onclick="location.href='/codestudy/board/list.do';">
+                    <button type="button" class="btn btn-default" onclick="location.href='/codestudy/board/list.do?search=${search}&page=${page}';">
                         <span class="glyphicon glyphicon-th-list"></span>
                         목록
                     </button>
-                    <button type="button" class="btn btn-default" onclick="location.href='/codestudy/board/edit.do';">
-                        <span class="glyphicon glyphicon-minus"></span>
-                        수정
-                    </button>
-                    <button type="button" class="btn btn-default" onclick="location.href='/codestudy/board/delete.do';">
-                        <span class="glyphicon glyphicon-remove"></span>
-                        삭제
-                    </button>
-                    <button type="button" class="btn btn-default" onclick="location.href='/codestudy/board/reply.do';">
+                    
+                    <c:if test="${not empty id}">
+                                        
+                    <c:if test="${dto.id.equals(id)}">
+	                    <button type="button" class="btn btn-default" onclick="location.href='/codestudy/board/edit.do?seq=${dto.seq}';">
+	                        <span class="glyphicon glyphicon-minus"></span>
+	                        수정
+	                    </button>
+	                    
+	                    <button type="button" class="btn btn-default" onclick="location.href='/codestudy/board/delete.do?seq=${dto.seq}';">
+	                        <span class="glyphicon glyphicon-remove"></span>
+	                        삭제
+	                    </button>
+                    </c:if>
+                    
+                    <button type="button" class="btn btn-default" onclick="location.href='/codestudy/board/write.do?reply=y&thread=${dto.thread}&depth=${dto.depth}';">
                         <span class="glyphicon glyphicon-share-alt"></span>
                         답변
                     </button>
+                    
+                    </c:if>
+                    
                 </div>
                 <div style="clear:both;"></div>
 
 
-                <!-- 
+               
                 <table class="table comment">
+                    <c:forEach items="${clist}" var="cdto">
                     <tr>
                         <td>
-                            <span class="comment">제목입니다.</span>
-                            <span class="date">2020-01-01 10:10:10</span>
-                            <span class="name">홍길동(hong)</span>
+                            <span class="comment">${cdto.ccontent}</span>
+                            <span class="date">${cdto.regdate}</span>
+                            <span class="name">${cdto.name}(${cdto.id})</span>
+                            
+                            <c:if test="${cdto.mseq == seq}">
+                            <span class="delete" onclick="location.href='/codestudy/board/deletecommentok.do?seq=${cdto.seq}&bseq=${dto.seq}';">[삭제]</span>
+                            </c:if>
+                            
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <span class="comment">제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.</span>
-                            <span class="date">2020-01-01 10:10:10</span>
-                            <span class="name">홍길동(hong)</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="comment">제목입니다.</span>
-                            <span class="date">2020-01-01 10:10:10</span>
-                            <span class="name">홍길동(hong)</span>
-                            <span class="delete">[삭제]</span>
-                        </td>
-                    </tr>
+                    </c:forEach>
                 </table>
  				
  				
+ 				<form method="POST" action="/codestudy/board/commentok.do">
                 <div class="commentbox panel panel-default">
                     <div class="panel-body">
-                        <input type="text" class="form-control" placeholder="comment">
+                    	<!--  
+                    		1. <input name="이름"
+                    		2. DB 테이블의 컬럼명
+                    		3. DTO 멤버변수명
+                    		
+                    		<form> 태그내에 텍스트 박스가 유일하면.. 텍스트 박스에서 엔터를 치면 자동으로 sumbit이 된다.
+                    	-->
+                        <input type="text" class="form-control" placeholder="comment" id="ccontent" name="ccontent" required>
                     </div>
                 </div>
-                -->
+                <input type="hidden" name="bseq" value="${dto.seq}">
+                </form>
+             
                 
                 
 			</div>
@@ -180,7 +194,27 @@
 	
 	<script>
     
+		$(".content img").ready(function() {
+			//alert($(".content img").width());
+			
+			if ($(".content img").width() > 600) {
+				$(".content img").width(600);
+			}
+			
+		});
+		
+	
     </script>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+

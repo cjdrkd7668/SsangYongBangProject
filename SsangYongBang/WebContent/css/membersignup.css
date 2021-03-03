@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap')
+	;
+
+.bluebg {
+	background-color: #486BB8;
+	color: #EEE;
+}
+
+#maincontainer {
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Noto Sans KR', sans-serif;
+	letter-spacing: -1px;
+}
+
+#maincontainer .jumbotron {
+	width: 100%;
+	height: 100px;
+	text-align: center;
+}
+
+#maincontainer .page-header {
+	font-size: 2.4em;
+	position: relative;
+	top: -50px;
+}
+
+#maincontainer .stable {
+	width: 50%;
+	margin: 0px auto;
+}
+
+#maincontainer .stable th {
+	text-align: center;
+}
+
+#maincontainer #email, #maincontainer #pw, #maincontainer #pwcheck,
+	#maincontainer #name {
+	width: 200px;
+	display: inline-block;
+}
+
+#maincontainer #valid, #maincontainer #pvalid, #maincontainer #nvalid {
+	width: 200px;
+	display: inline-block;
+	background: transparent;
+	border: 0px;
+}
+
+#maincontainer #ssn1, #maincontainer #ssn2 {
+	width: 100px;
+	display: inline-block;
+}
+
+#maincontainer #phone1, #maincontainer #phone2, #maincontainer #phone3 {
+	width: 80px;
+	display: inline-block;
+}
+
+#maincontainer .btns {
+	width: 200px;
+	height: 50px;
+	display: block;
+	margin: 0px auto;
+}
+
+#maincontainer #zip {
+	width: 80px;
+	display: inline-block;
+}
+
+#maincontainer #findaddress {
+	width: 120px;
+	display: inline-block;
+	cursor: pointer;
+	background-color: #EEE;
+	margin-left: 10px;
+}
+
+#maincontainer #address1 {
+	width: 250px;
+	display: inline-block;
+	margin-left: 10px;
+}
+
+#maincontainer #address2 {
+	width: 200px;
+	margin-top: 5px;
+}

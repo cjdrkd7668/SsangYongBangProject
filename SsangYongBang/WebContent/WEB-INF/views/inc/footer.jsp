@@ -1,12 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
-	.footer-cklee .container{margin-left:0px; min-height:0px;}
+	.footer-cklee .container{margin:auto;}
 </style>
 <div class="footer-cklee">
 	
-	<p class="p-link"><a href="#">회사소개</a>|<a href="#">이용약관</a>|<a href="#">개인정보처리방침</a>|<a href="/sybang/admin/index.do">관리자 메뉴</a></p>
-	
+	<p class="p-link">
+		<a href="/sybang/notice/page.do?seq=1">회사소개</a>
+		|<a href="/sybang/notice/page.do?seq=2">이용약관</a>
+		|<a href="/sybang/notice/page.do?seq=3">개인정보처리방침</a>
+		<c:if test="${access == 3}">
+			|<a href="/sybang/admin/index.do">관리자 메뉴</a>
+		</c:if>
+	</p>
 	<nav class="navbar navbar-default">
 		<div class="container">
 			

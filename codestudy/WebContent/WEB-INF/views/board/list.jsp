@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
+	
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,18 +68,25 @@
 			
 				<h1>자유 게시판 <small>Board</small></h1>
 				
-				<!-- 
+				
+				<c:if test="${not empty search}">
                 <div class="message well well-sm">
-                    메시지 영역입니다.
+                    '${search}'(으)로 ${list.size()}건의 게시물을 검색했습니다.
                 </div>
-                 -->
-                <!-- 
+                </c:if>
+                
+                
+                <!-- 검색은 주로 GET을 사용한다.(상태 유지를 위해서) -->
+                <form id="searchForm" method="GET" action="/codestudy/board/list.do">
                 <div class="input-group search">
-                    <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon2">
-                    <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-search"></span></span>
+                
+                    <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon2" id="search" name="search" required value="${search}">
+                    
+                    <span class="input-group-addon" id="basic-addon2" style="cursor:pointer;" onclick="$('#searchForm').submit();"><span class="glyphicon glyphicon-search"></span></span>
                 </div>
+                </form>
                 <div style="clear:both;"></div>
-                 -->
+                
                 
                 <table class="table table-hover list">
                     <thead>
@@ -90,55 +99,50 @@
                         </tr>
                     </thead>
                     <tbody>
+                    	
+                    	<c:if test="${list.size() == 0}">
+                    	<tr>
+                    		<td colspan="5" style="text-align:center;">게시물이 없습니다.</td>
+                    	</tr>
+                    	</c:if>
+                    	
+                    	<c:forEach items="${list}" var="dto">
                         <tr>
                             <td>1</td>
-                            <td><a href="/codestudy/board/view.do">게시판 테스트중입니다.</a></td>
-                            <td>홍길동</td>
-                            <td>2020-01-01</td>
-                            <td>10</td>
+                            <td>
+                            	
+                            	
+                            	<a href="/codestudy/board/view.do?seq=${dto.seq}&search=${search}&page=${nowPage}" 
+                       	style="margin-left: ${dto.depth * 30}px;">
+                       			
+                       			<c:if test="${dto.depth > 0}">
+                       			<span class="glyphicon glyphicon-share-alt"></span>
+                       			</c:if>
+                       			${dto.subject}
+                       			
+                       			</a>
+                            	
+                            	<!-- 첨부파일 유무 -->
+                            	<c:if test="${not empty dto.filename}">
+                            		<span class="glyphicon glyphicon-floppy-disk"></span>
+                            	</c:if>
+                            	
+                            	<!-- 댓글 수 -->
+                            	<c:if test="${dto.ccount > 0}">
+                            	<span class="badge">${dto.ccount}</span>
+                            	</c:if>
+                            	
+                            	<!-- 최신글 -->
+                            	<c:if test="${dto.gap < 1}">
+                            		<span class="label label-danger">new</span>
+                            	</c:if>
+                            	
+                            </td>
+                            <td>${dto.name}</td>
+                            <td>${dto.regdate}</td>
+                            <td>${dto.readcount}</td>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td><a href="/codestudy/board/view.do">게시판 테스트중입니다.</a></td>
-                            <td>홍길동</td>
-                            <td>2020-01-01</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td><a href="/codestudy/board/view.do">게시판 테스트중입니다.</a></td>
-                            <td>홍길동</td>
-                            <td>2020-01-01</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td><a href="/codestudy/board/view.do">게시판 테스트중입니다.</a></td>
-                            <td>홍길동</td>
-                            <td>2020-01-01</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td><a href="/codestudy/board/view.do">게시판 테스트중입니다.</a></td>
-                            <td>홍길동</td>
-                            <td>2020-01-01</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td><a href="/codestudy/board/view.do">게시판 테스트중입니다.</a></td>
-                            <td>홍길동</td>
-                            <td>2020-01-01</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td><a href="/codestudy/board/view.do">게시판 테스트중입니다.</a></td>
-                            <td>홍길동</td>
-                            <td>2020-01-01</td>
-                            <td>10</td>
-                        </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
 
@@ -152,23 +156,10 @@
  				
                 <nav class="pagebar">
                     <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li><a href="/codestudy/board/list.do">1</a></li>
-                        <li><a href="/codestudy/board/list.do">2</a></li>
-                        <li class="active"><a href="/codestudy/board/list.do">3</a></li>
-                        <li><a href="/codestudy/board/list.do">4</a></li>
-                        <li><a href="/codestudy/board/list.do">5</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
+                        ${pagebar}
                     </ul>
                 </nav>
+                
 
                 <div style="clear:both;"></div>
 
@@ -177,10 +168,16 @@
                         <span class="glyphicon glyphicon-th-list"></span>
                         목록
                     </button>
-                    <button type="button" class="btn btn-default" onclick="location.href='/codestudy/board/write.do';">
+                    
+                    <!-- 로그인 O -> 버튼 출력 -->
+                    <c:if test="${not empty id}">
+                    <button type="button" class="btn btn-default" onclick="location.href='/codestudy/board/write.do?reply=n';">
                         <span class="glyphicon glyphicon-plus"></span>
                         쓰기
                     </button>
+                    </c:if>
+                    
+                    
                 </div>
                 <div style="clear:both;"></div>
 			</div>

@@ -16,9 +16,11 @@ public class Login extends HttpServlet {
    
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	   //로그인시, from method는 post임
+		
+
+
 	   
-	   
-	   //id는 serviceId로 함.
+	   //email은 email
 	   //pw는 pw로 함.
 	   //seq는 serviceSeq로 함.
 	   
@@ -37,8 +39,8 @@ public class Login extends HttpServlet {
 	  dto.setEmail(email);
 	  dto.setPw(pw);
 	  
-	  int result = dao.login(dto); // 1 or 0
-	  
+	  int result = dao.getLogin(dto); // 1 or 0 
+	  //승인 여부를 확인하는 메서드
 	  
 	  //3.
 	  if (result == 1) {
@@ -48,14 +50,23 @@ public class Login extends HttpServlet {
 		  
 		  session.setAttribute("email", dto.getEmail());
 		  //인증수단
+		 
 		  
 		  
 		  ServiceDTO sdto = dao.getService(email);
 		  
-		  session.setAttribute("serviceSeq", sdto.getSeq()); //업체번호
-		  session.setAttribute("categorySeq", sdto.getCategorySeq()); //업체 카테고리 번호(청소, 시공)
-		  session.setAttribute("approval", sdto.getApproval()); // 승인 여부
+		  //승인업체 테이블과 조인한 정보 가져와 담기.. 여기서 오류 발생함(널포인익셉션)
+		  session.setAttribute("approvalFSeq", sdto.getApprovalFSeq()); //서비스업체승인번호
+		  session.setAttribute("access", 2); //서비스업체 접근권한 코드
 		  
+		  /*
+		   * 접근권한
+		   * 0 중개사
+		   * 1 회원
+		   * 2 서비스업체
+		   * 3 관리자
+		   * 
+		   * */
 		  
 		  //로그인된 상태로, 서비스홈 메인페이지로 보내기
 		  response.sendRedirect("/sybang/service/servicemain.do");
@@ -63,12 +74,15 @@ public class Login extends HttpServlet {
 		  
 		  
 	  } else {
+		   response.setCharacterEncoding("UTF-8"); 
+		   response.setContentType("text/html; charset=UTF-8");
+		  
 		  //로그인 X
 		  PrintWriter writer = response.getWriter();
 		  
 			writer.print("<html><body>");
 			writer.print("<script>");
-			writer.print("alert('login fail');");
+			writer.print("alert('잘못 로그인 정보를 입력하셨거나, 아직 가입이 승인되지 않았습니다.');");
 			writer.print("history.back();");
 			writer.print("</script>");
 			writer.print("</body></html>");

@@ -14,6 +14,68 @@ public class ServiceDTO {
 	private String approval; //업체 승인여부
 	private String delFlag; //업체 탈퇴여부
 	private String categorySeq; //업체 카테고리번호
+	
+	
+	private String approvalFSeq; //업체승인번호
+	
+	//해당업체의 후기 정보
+	private String completionSeq; //서비스완료번호
+	private String regDate; //후기 작서일
+	private String reviewContent; //후기내용
+	private String contentURL; //후기 사진
+	private String rivewDelFlag; //후기 삭제여부 (0: 등록, 1: 삭제)
+	private String MemberName; //후기 작성자 명
+	private String serviceArea; //고객 요청서 안의 서비스 행할 장소 정보
+	
+	
+	public String getCompletionSeq() {
+		return completionSeq;
+	}
+	public void setCompletionSeq(String completionSeq) {
+		this.completionSeq = completionSeq;
+	}
+	public String getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
+	}
+	public String getReviewContent() {
+		return reviewContent;
+	}
+	public void setReviewContent(String reviewContent) {
+		this.reviewContent = reviewContent;
+	}
+	public String getContentURL() {
+		return contentURL;
+	}
+	public void setContentURL(String contentURL) {
+		this.contentURL = contentURL;
+	}
+	public String getRivewDelFlag() {
+		return rivewDelFlag;
+	}
+	public void setRivewDelFlag(String rivewDelFlag) {
+		this.rivewDelFlag = rivewDelFlag;
+	}
+	public String getMemberName() {
+		return MemberName;
+	}
+	public void setMemberName(String memberName) {
+		MemberName = memberName;
+	}
+	public String getServiceArea() {
+		return serviceArea;
+	}
+	public void setServiceArea(String serviceArea) {
+		this.serviceArea = serviceArea;
+	}
+	public String getApprovalFSeq() {
+		return approvalFSeq;
+	}
+	public void setApprovalFSeq(String approvalFSeq) {
+		this.approvalFSeq = approvalFSeq;
+	}
 	public String getSeq() {
 		return seq;
 	}

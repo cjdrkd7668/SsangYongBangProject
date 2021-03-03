@@ -20,63 +20,93 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/sybang/index.do">홈</a></li>
 					<li><a href="/sybang/house/search.do">방찾기</a></li>
-					<li><a href="/sybang/hope/post.do">희망입주하기</a></li>
+					<li><a href="/sybang/hope/list.do">희망입주하기</a></li>
 					<li><a href="/sybang/house/post.do">방내놓기</a></li>
 					<li class="dropdown">
           			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">커뮤니티<span class="caret"></span></a>
 			          	<ul class="dropdown-menu" role="menu">
-				            <li><a href="/sybang/notice/boardList.do">공지사항</a></li>
-				            <li><a href="/sybang/news/boardList.do">뉴스</a></li>
-				            <li><a href="/sybang/board/freelist.do">자유게시판</a></li>
-				            <li><a href="/sybang/board/inquirylist.do">문의게시판</a></li>
+				            <li><a href="/sybang/notice/list.do">공지사항</a></li>
+				            <li><a href="/sybang/free/list.do">자유게시판</a></li>
+				            <c:if test="${not empty email }">
+				            <li><a href="/sybang/inquiry/list.do">문의게시판</a></li>
+				            </c:if>
 			         	</ul>
         			</li>
 					<li class="dropdown">
           			<a href="/sybang/broker/brokerMain.do" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">중개사공간<span class="caret"></span></a>
+			          	<c:if test="${not empty email && access == 0 }">
 			          	<ul class="dropdown-menu" role="menu">
 				            <li><a href="/sybang/broker/brokerMain.do">내 프로필</a></li>
-				            <li><a href="/sybang/broker/room/roomList.do">매물 등록하기</a></li>
+				            <li><a href="/sybang/broker/room/list.do">방 조회/매물 등록하기</a></li>
+				            <li><a href="/sybang/broker/house/myreglist.do">내가 등록한 매물</a></li>
 				            <li><a href="/sybang/broker/ad/payment.do">광고</a></li>
 				            <li><a href="/sybang/broker/chat/chatlist.do">구매자와 상담하기</a></li>
 				            <li class="divider"></li>
 				            <li><a href="/sybang/broker/hope/hopelist.do">희망 매물 조회하기</a></li>
 				            <li><a href="/sybang/broker/review/reviewlist.do">후기/평점 조회하기</a></li>
 			         	</ul>
+			         	</c:if>
         			</li>
+        			
 					<li class="dropdown">
           			<a href="/sybang/service/servicemain.do" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">청소/시공<span class="caret"></span></a>
+			          	<c:if test="${not empty email}">
 			          	<ul class="dropdown-menu" role="menu">
 				            <li><a href="/sybang/service/servicemain.do">청소/시공업체 홈</a></li>			          	
 				            <li><a href="/sybang/service/ServicestoreList.do">전문업체 찾기</a></li>
 				            <li><a href="/sybang/request/requestlist.do">고객요청서</a></li>
 				            <li class="divider"></li>
-				            <li><a href="/sybang/servicechat/servicechat.do">1:1 문의</a></li>
+					        
+					        <!-- 업체 로그인시 업체쪽에서 보일 채팅창리스트-->
+					        <c:if test="${access == '2' }">
+					        <li><a href="/sybang/servicechat/partnerlist.do">1:1 문의</a></li>
+					        </c:if>
+					        <!-- 회원 로그인시 회원 쪽에서 보일 채팅창리스트-->
+					        <c:if test="${access == '1' }"> 
+					        <li><a href="/sybang/servicechat/memberspartnerlist.do">1:1 문의</a></li>
+					        </c:if>
+					        
 				            <li><a href="/sybang/servicereview/servicereview.do">후기</a></li>
 				            <li class="divider"></li>
+				            <c:if test="${access == 2}"> <!-- 업체로 로그인 시 보이는 메뉴 -->
 				            <li><a href="/sybang/service/servicemypage.do">마이 서비스</a></li>
-				           	<li><a href="/sybang/service/auth.do">업주 로그인</a></li>
+				           	</c:if>
+				           			           	
+					      	<c:if test="${access == '1' }"> 
+					      	<!-- 회원 로그인시 회원 쪽에서 보일 일정관리-->
+					      	<li><a href="/sybang/servicescheduler/memberscheduler.do">내 서비스 일정</a></li>
+					      	</c:if>
+					      
+					      	<c:if test="${access == '2' }">     
+					      	<!-- 업체 로그인시 회원 쪽에서 보일 일정관리--> 
+					      	<li><a href="/sybang/servicescheduler/servicescheduler.do">일정 관리</a></li>
+					  	  	</c:if>
+							
 			         	</ul>
+			         	</c:if>
         			</li>
+        			
         			
         			
         			<!-- 로그인 전 -->
         			<c:if test="${empty email }">
-        			<li><a href="/sybang/login/loginbuttons.do">로그인</a></li>
-        			<li><a href="#">회원가입</a></li>
+        			<li><a href="/sybang/login/loginbuttons.do" style="font-size: 1.3em;">로그인</a></li>
+        			<li><a href="/sybang/join/joinbuttons.do" style="font-size: 1.3em;">회원가입</a></li>
         			</c:if>
         			
         			<!-- 로그인 후 -->
         			<c:if test="${not empty email }">
-        			<li class="dropdown">
-          			<a href="/sybang/member/mypage.do" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="font-size: 1.1em;">마이페이지<span class="caret"></span></a>
-			          	<ul class="dropdown-menu" role="menu">
+        			<c:if test="${access == 1 }">
+        			<li>
+          			<a href="/sybang/member/myinfo.do" style="font-size: 1.3em;">마이페이지</a>
+			          	<!-- <ul class="dropdown-menu" role="menu">
 				            <li><a href="/sybang/member/myinfo.do" style="font-size: 1.1em;">내 정보 관리</a></li>
 				            <li><a href="#" style="font-size: 1.1em;">스케줄러</a></li>
-				            <li><a href="#" style="font-size: 1.1em;">1:1 문의 내역</a></li>
-			         	</ul>
+			         	</ul> -->
         			</li>
+        			</c:if>
 	
-        			<li><a href="/sybang/member/logout.do">로그아웃</a></li>
+        			<li><a href="/sybang/member/logout.do" style="font-size: 1.3em;">로그아웃</a></li>
         			</c:if>
 
 

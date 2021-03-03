@@ -1,10 +1,6 @@
 package com.test.sist.admin2;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -14,7 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.test.sist.DBUtil;
+import com.test.sist.admin2.dao.TextManagerDAO;
+import com.test.sist.admin2.dto.TextManagerDTO;
 
 @WebServlet("/admin2/textManager.do")
 public class TextManager extends HttpServlet {
@@ -26,7 +23,6 @@ public class TextManager extends HttpServlet {
 		ArrayList<TextManagerDTO> list = dao.list();
 		
 		req.setAttribute("list",list);
-		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin2/textManager.jsp");
 		dispatcher.forward(req, resp);

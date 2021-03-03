@@ -17,7 +17,11 @@
 		<div class="conWrap funkyradio">
 			<h1 class="page_title">일반회원 목록</h1>
 			
-			<form method="post" name="Frm">
+			<form method="post" name="Frm" enctype="multipart/form-data">
+			
+			<input type="hidden" name="mode">
+			<input type="hidden" name="type" value="N">
+			<input type="hidden" name="seq" value="${dto.seq}">
 			
 			<div class="sub_title">회원 정보</div>
 			
@@ -25,69 +29,63 @@
 				<tr>
 					<th width="20%" align="center">아이디</th>
 					<td width="30%">
-						<b>ssungoon</b>
+						<input type="text" name="id" class="box" value="${dto.id}" style="width:140px;" maxlength="12">
 					</td>
 					<th width="20%" align="center">비밀번호</th>
 					<td width="30%">
-						<input type="text" name="pass" class="box" style="width:80px;" maxlength="12">
-						<input type="hidden" name="pwd">
+						<input type="password" name="pw" class="box" value="" style="width:80px;" maxlength="12">
+						<input type="hidden" name="pwd" value="${dto.pw}">
 					</td>
 				</tr>
 				<tr>
 					<th align="center">성명</th>
 					<td colspan="3" style="">
-						<input type="text" name="name" class="box" style="width:141px;" value="성재원" maxlength="15">
+						<input type="text" name="name" class="box" style="width:140px;" value="${dto.name}" maxlength="15">
 					</td>
 				</tr>
 				<tr>
 					<th align="center">주민번호</th>
 					<td colspan="3" style="">
-						<input type="text" name="name" class="box" style="width:142px;" value="121212" maxlength="15">
+						<input type="text" name="ssn1" class="box" style="width:142px;" value="${dto.ssn.substring(0,6)}" maxlength="15" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
 						-
-						<input type="text" name="name" class="box" style="width:142px;" value="1212121" maxlength="15">
+						<input type="text" name="ssn2" class="box" style="width:142px;" value="${dto.ssn.substring(7,14)}" maxlength="15" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
 					</td>
 				</tr>
 				<tr>
 					<th align="center">생년월일</th>
 					<td colspan="3">
-						<input type="text" name="birthYear" class="box" size="4" value="1983" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
+						<input type="text" name="birthYear" class="box" size="4" value="${dto.birthY}" readonly>
 						년
-						<input type="text" name="birthMonth" class="box" size="2" value="03" maxlength="2" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
+						<input type="text" name="birthMonth" class="box" size="2" value="${dto.ssn.substring(2,4)}" readonly>
 						월
-						<input type="text" name="birthDay" class="box" size="2" value="09" maxlength="2" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
+						<input type="text" name="birthDay" class="box" size="2" value="${dto.ssn.substring(4,6)}" readonly>
 						일
 					</td>
 				</tr>
 				<tr>
-					<th align="center">E-mail</th>
-					<td colspan="3">
-						<input type="text" name="email" value="ssungoon@gmail.com" maxlength="100" class="box" style="width:296px">
-					</td>
+					<th align="center">성별</th>
+					<td colspan="3"><input type="text" name="gender" class="box" size="2" value="${dto.gender}" readonly></td>
 				</tr>
 				<tr>
-					<th align="center">전화번호</th>
+					<th align="center">E-mail</th>
 					<td colspan="3">
-						<span style="width:90px; display:inline-block;"><select id="tel1" name="tel1"><option value="">선택</option><option value="02">02</option><option value="031">031</option><option value="032">032</option><option value="033">033</option><option value="041">041</option><option value="042">042</option><option value="043">043</option><option value="051">051</option><option value="052">052</option><option value="053">053</option><option value="054">054</option><option value="055">055</option><option value="061">061</option><option value="062">062</option><option value="063">063</option><option value="064">064</option><option value="070">070</option><option value="080">080</option><option value="0502">0502</option><option value="0505">0505</option><option value="0506">0506</option><option value="0303">0303</option></select></span>
-						-
-						<input type="text" name="tel2" class="box" size="4" value="" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
-						-
-						<input type="text" name="tel3" class="box" size="4" value="" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
+						<input type="text" name="email" value="${dto.email}" maxlength="100" class="box" style="width:296px">
 					</td>
 				</tr>
 				<tr>
 					<th align="center">휴대폰</th>
 					<td colspan="3">
-						<span style="width:90px; display:inline-block;"><select id="mobile1" name="mobile1"><option value="">선택</option><option value="010" selected="">010</option><option value="011">011</option><option value="016">016</option><option value="017">017</option><option value="018">018</option><option value="019">019</option></select></span>
+						<span style="width:90px; display:inline-block;"><select id="tel1" name="tel1"><option value="">선택</option><option value="010">010</option><option value="011">011</option><option value="016">016</option><option value="017">017</option><option value="018">018</option><option value="019">019</option></select></span>
 						-
-						<input type="text" name="mobile2" class="box" size="4" value="7178" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
+						<input type="text" name="tel2" class="box" size="4" value="${dto.phone.substring(4,8)}" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
 						-
-						<input type="text" name="mobile3" class="box" size="4" value="8311" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
+						<input type="text" name="tel3" class="box" size="4" value="${dto.phone.substring(9,13)}" maxlength="4" onkeypress="blockNotNumber(event)" onkeyup="numberOnly(this)" onblur="numberOnly(this)">
 					</td>
 				</tr>
 				<tr>
 					<th align="center">주소</th>
 					<td colspan="3">
-						<input type="text" name="addr" id="addr" class="box" size="70" value="충남 서천군 판교면 금덕길 9" maxlength="50">
+						<input type="text" name="address" id="address" class="box" size="70" value="${dto.address}" maxlength="50">
 					</td>
 				</tr>
 			</table>
@@ -95,7 +93,7 @@
 			<div class="btnWrap">
 				<span class="btn btn-default" onclick="list()">목록으로</span>
 				<span class="btn btn-primary" onclick="submitChk()">수정</span>
-				<span class="btn btn-primary" onclick="del()">삭제</span>
+				<!-- <span class="btn btn-primary" onclick="del()">삭제</span> -->
 			</div>
 			
 			<div class="sub_title">등록한 매물</div>
@@ -264,99 +262,204 @@
 			
 			</form>
 			
-			
-			
 		</div>
 	
-	<br><br><br><br><br><br><br><br><br><br>
-	
 	</div>
-	
 	<%@include file="/WEB-INF/views/inc/footer.jsp"%>
 
 	<script type="text/javascript">
+	function checkNum(value, isDec) {
+		var RegExp;
+
+		if (!isDec) isDec = false;
+		RegExp = (isDec) ? /^-?[\d\.]*$/ : /^-?[\d]*$/;
+
+		return RegExp.test(value)? true : false;
+	}
 	
-		$(".left_menu").find("li").eq(4).addClass("on").find("li").eq(0).addClass("on");
-	
-		function userInfo(uid){
-			location.href="/sybang/admin2/member_detail.do?seq=" + uid;
-		}
-		
+	function stripCharFromNum(value, isDec) {
+		var i;
+		var minus = "-";
+		var nums = "1234567890"+((isDec) ? "." : "");
+		var result = "";
 
-		function list() {
-			location.href = "member_list.do?sregdate=&eregdate=&svisitdate=&evisitdate=&slevel=0&ssex=&sbuyprice=&ebuyprice=&scmoney=&ecmoney=&listsize=10&listsort=regdate_desc&skey=&sword=&isSMS=&isMailing=&smsPageSize=1000&dataFormType=CSV&spartner=&restDaydate=&page=";
-		}
-		
-
-		function del() {
-
-			var f = document.Frm;
-
-			if (confirm("선택하신 회원을 삭제하시겠습니까?")) {
-				f.mode.value = "DEL";
-				f.action = "member_regOk.do";
-				f.submit();
+		for(i=0; i<value.length; i++) {
+			numChk = value.charAt(i);
+			if (i == 0 && numChk == minus) {
+				result += minus;
 			}
-
-		}
-		
-
-		function submitChk() {
-			var f = document.Frm;
-			var i, len;
-			var objItem;
-
-			if (checkEmpty(f.name)) {
-				alert("성명을 입력해 주세요.");
-				f.name.focus();
-				return false;
-			}
-
-			if (checkEmpty(f.email)) {
-				alert("E-mail을 입력해 주세요.");
-				f.email.focus();
-				return false;
-			}
-
-			if (!checkEmail(f.email.value)) {
-				alert("형식에 맞지 않는 이메일 주소입니다.\n\n이메일 주소를 정확하게 입력해 주세요.");
-				f.email.focus();
-				return false;
-			}
-
-			for (i=1; i<=3; i++) {
-				objItem = eval("f.mobile"+i);
-				if (checkEmpty(objItem)) {
-					alert("휴대폰번호를 입력해 주세요.");
-					objItem.focus();
-					return false;
+			else {
+				for(j=0; j<nums.length; j++) {
+					if(numChk == nums.charAt(j)) {
+						result += nums.charAt(j);
+						break;
+					}
 				}
 			}
+		}
+		return result;
+	}
+	
+	function blockNotNumber(e) {
+		var e = window.event || e;
+		if (window.event) {
+			if (e.keyCode < 48 || e.keyCode > 57) e.returnValue = false;
+		}
+		else {
+			if (e.which != 8 && (e.which < 48 || e.which > 57)) e.preventDefault(); // 8 : Back Space
+		}
+	}
+	
+	function stripComma(str) {
+	    var re = /,/g;
+	    return str.replace(re, "");
+	}
 
-			if (checkEmpty(f.post) || checkEmpty(f.addr)) {
-				alert("주소를 입력해 주세요.");
-				f.post.focus();
+	function numberOnly(obj, isDec) {
+		if (!isDec) isDec = false;
+		if (obj.disabled) return false;
+
+		var num = obj.value.stripspace();
+		if (num == "") return false;
+
+		if (!checkNum(num, isDec)) {
+			num = stripCharFromNum(num, isDec);
+			obj.blur(); obj.focus();
+		}
+		num = stripCharFromNum(stripComma(num), isDec);
+
+		var arrNum = num.split(".");
+		if (arrNum.length > 1) {
+			obj.value = arrNum[0]+"."+arrNum[1];
+		}
+		else {
+			obj.value = arrNum[0];
+		}
+	}
+	
+	String.prototype.stripspace = function() {
+		return this.replace(/ /g, '');
+	}
+
+	function checkEmpty(obj) {
+		if (obj == "" || typeof(obj) == "undefined") {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	function checkSsn(ssn1,ssn2) {
+		if (ssn1.length == 6 && ssn2.length == 7) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	function checkEmail(email) {
+		if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/) != -1) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	$(".left_menu").find("li").eq(4).addClass("on").find("li").eq(0).addClass("on");
+
+	function userInfo(uid){
+		location.href="/sybang/admin2/member_detail.do?seq=" + uid;
+	}
+
+	function list(){
+		location.href = "/sybang/admin2/member_list.do?type=normal";
+	}
+
+	function del() {
+
+		var f = document.Frm;
+
+		if (confirm("선택하신 회원을 삭제하시겠습니까?")) {
+			f.mode.value = "DEL";
+			f.action = "/sybang/admin2/member_reg_ok.do";
+			f.submit();
+		}
+
+	}
+	
+	function submitChk() {
+		var f = document.Frm;
+		var i;
+		var objItem;
+
+		if (checkEmpty(f.name)) {
+			alert("성명을 입력해 주세요.");
+			f.name.focus();
+			return false;
+		}
+		
+		if (checkEmpty(f.ssn1) || checkEmpty(f.ssn2)) {
+			alert("주민등록번호를 입력해 주세요.");
+			f.ssn1.focus();
+			return false;
+		}
+		
+		if (!checkSsn(f.ssn1.value,f.ssn2.value)) {
+			alert("올바른 주민등록번호를 입력해 주세요.");
+			f.ssn1.focus();
+			return false;
+		}
+
+		if (checkEmpty(f.email)) {
+			alert("E-mail을 입력해 주세요.");
+			f.email.focus();
+			return false;
+		}
+
+		if (!checkEmail(f.email.value)) {
+			alert("형식에 맞지 않는 이메일 주소입니다.\n\n이메일 주소를 정확하게 입력해 주세요.");
+			f.email.focus();
+			return false;
+		}
+
+		for (i=1; i<=3; i++) {
+			objItem = eval("f.tel"+i);
+			if (checkEmpty(objItem)) {
+				alert("휴대폰번호를 입력해 주세요.");
+				objItem.focus();
 				return false;
-			}
-
-			if (confirm("등록하시겠습니까?")) {
-				f.mode.value = "EDIT";
-				f.action = "member_regOk.do";
-				f.submit();
 			}
 		}
 
+		if (checkEmpty(f.address)) {
+			alert("주소를 입력해 주세요.");
+			f.post.focus();
+			return false;
+		}
 
-		$("input[name=cbListAll]").on("change",function(){
-			var c;
-			if ($(this).is(":checked")) {
-				c = true;
-			}else{
-				c = false;
-			}
-			$(this).parents("table").find("input[name=cbList]").prop("checked",c);
-		});
-												
+		if (confirm("등록하시겠습니까?")) {
+			f.mode.value = "EDIT";
+			f.action = "/sybang/admin2/member_reg_ok.do";
+			f.submit();
+		}
+	}
+
+	$("input[name=cbListAll]").on("change",function(){
+		var c;
+		if ($(this).is(":checked")) {
+			c = true;
+		}else{
+			c = false;
+		}
+		$(this).parents("table").find("input[name=cbList]").prop("checked",c);
+	});
+
+	$("#tel1").ready(function(){
+		$("#tel1").val("${dto.phone.substring(0,3)}").prop("selected",true);
+	});
 		
 	</script>
 

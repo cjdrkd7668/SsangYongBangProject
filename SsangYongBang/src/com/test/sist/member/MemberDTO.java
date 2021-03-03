@@ -1,5 +1,10 @@
 package com.test.sist.member;
 
+/**
+ * 
+ * @author 이찬미
+ *
+ */
 public class MemberDTO {
 
 	private String seq;
@@ -10,6 +15,16 @@ public class MemberDTO {
 	private String phone;
 	private String address;
 	private String delflag;
+	
+	private String zerobonem = "1"; //중개사 0 회원 1
+	
+	public String getZerobonem() {
+		return zerobonem;
+	}
+
+	public void setZerobonem(String zerobonem) {
+		this.zerobonem = zerobonem;
+	}
 
 	public String getSeq() {
 		return seq;
