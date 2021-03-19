@@ -7,6 +7,8 @@ Servlet을 사용한 JSP MODEL 2 웹 사이트 프로젝트
 
 * 사용 언어
   * Java, JDK 1.8.0_221
+  * HTML, CSS, JavaScript
+  * SQL, PL/SQL
 * 개발 도구
   * Eclipse IDE for Enterprise Java Developers
   * Visual Studio Code Version 1.41
